@@ -152,6 +152,58 @@ Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
   two documented estimation methods predicted 1,020 and 1,150. Cost per task is
   read back from the provider, never estimated.
 
+## The contribution to LLMRouter: fix the label, not the algorithm
+
+Their trainer selects what to learn with one line:
+
+```python
+routing_data_train.loc[routing_data_train.groupby("query")["performance"].idxmax()]
+```
+
+**`performance` is a single float, and with a binary correctness metric it is
+almost always tied.** Measured on this corpus, *every* query has several models
+at 1.0, so `idxmax` breaks the tie by row order — the router is trained to
+predict whichever correct model happened to be written first. **Cost never
+enters the label**, so no algorithm trained on it can save money except by
+accident.
+
+The fix is one field, and it leaves all 16 algorithms untouched:
+
+```python
+performance = 0                     if wrong
+            = 1 − 0.5 · cost_rank   if right      # cheapest correct → 1.0
+```
+
+Correctness still dominates — every right answer outranks every wrong one — but
+`argmax` now means *the cheapest model that got it right*, which is the routing
+objective.
+
+**Measured, held-out split, their own trained KNN router:**
+
+| accuracy | cost | vs dearest | strategy |
+|---|---|---|---|
+| 88% | $0.10408 | 1× | always `claude-sonnet-5` |
+| 76% | $0.00068 | 152× | always `gemma-3-12b-it` |
+| 71% | $0.03125 | 3× | trained KNN, **their** label |
+| **79%** | **$0.00142** | **73×** | trained KNN, **cost-aware** label |
+
+Same algorithm, same embeddings, same held-out cases, one field changed: **22×
+cheaper and 8 points more accurate.**
+
+**Being straight about what this does not show.** Neither trained router beats
+always-`sonnet-5` on accuracy — 79% against 88%. KNN is the simplest of their 16
+and it is learning from 98 training cases where their own corpora use thousands.
+The label change is the result here; the trained router is a working
+demonstration, not yet a better router.
+
+### A second, smaller fix: multimodal queries need to name their input
+
+They group by the query **string**. For a vision task the same sentence is asked
+of many screenshots and the right answer differs per screenshot — grouping by
+text alone merged our 140 cases into **25** groups and discarded 115 labels. The
+query therefore carries its frame: `[hub-dark] every section label is legible…`.
+General to any multimodal routing corpus.
+
 ## Relationship to LLMRouter
 
 [`ulab-uiuc/LLMRouter`](https://github.com/ulab-uiuc/LLMRouter) (MIT) ships 16
@@ -167,8 +219,10 @@ No LLMRouter code is vendored here.
 
 ## Status
 
-Working instrument, two task types measured, results reproducible from `state/`.
-Not yet a router — the routing table is produced, not yet served.
+Working instrument. Two task types measured, results reproducible from `state/`.
+LLMRouter trains on the exported corpus end to end — trained models and their
+configs are in `state/llmrouter_corpus/`. Not yet a router: the routing table is
+produced, not yet served.
 
 ## Licence
 

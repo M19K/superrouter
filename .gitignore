@@ -3,3 +3,4 @@ secrets.json
 __pycache__/
 *.pyc
 .DS_Store
+state/llmrouter_corpus/*/query_embeddings.pt
