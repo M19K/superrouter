@@ -1,0 +1,1381 @@
+{
+ "task_type": "qa-vision-assert",
+ "version": 2,
+ "built": "2026-08-19",
+ "source": "02-Projects/portfolio-website/code/site",
+ "generated_by": "spec.py + build.py \u2014 states x mutations, not hand-written",
+ "frames": 58,
+ "cases": 140,
+ "true": 70,
+ "false": 70,
+ "defect_sight_cases": 53,
+ "failed_mutations": [],
+ "case_list": [
+  {
+   "frame": "hero-dark",
+   "assert": "Small text appears at the very bottom-left of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": null,
+   "id": "C001"
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "A wireframe sphere or globe is visible.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": null,
+   "id": "C002"
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": null,
+   "id": "C003"
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "The headline is a single short word.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": null,
+   "id": "C004"
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": null,
+   "id": "C005"
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "The portrait photograph is in full colour.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": null,
+   "id": "C006"
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C007"
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "The site name in the top-left corner reads 'Maaz Khan'.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C008"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "Small text appears at the very bottom-left of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": null,
+   "id": "C009"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "A wireframe sphere or globe is visible.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": null,
+   "id": "C010"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": null,
+   "id": "C011"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "The headline is a single short word.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": null,
+   "id": "C012"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": null,
+   "id": "C013"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "The portrait photograph is in full colour.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": null,
+   "id": "C014"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C015"
+  },
+  {
+   "frame": "hero-light",
+   "assert": "The site name in the top-left corner reads 'Maaz Khan'.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C016"
+  },
+  {
+   "frame": "hub-dark",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": null,
+   "id": "C017"
+  },
+  {
+   "frame": "hub-dark",
+   "assert": "The heading 'Product, systems, and the thing between them' is visible.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": null,
+   "id": "C018"
+  },
+  {
+   "frame": "hub-dark",
+   "assert": "Text labels naming sections are visible around the sphere.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": null,
+   "id": "C019"
+  },
+  {
+   "frame": "hub-dark",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": null,
+   "id": "C020"
+  },
+  {
+   "frame": "hub-dark",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C021"
+  },
+  {
+   "frame": "hub-dark",
+   "assert": "The site name in the top-left corner reads 'Maaz Khan'.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C022"
+  },
+  {
+   "frame": "hub-light",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": null,
+   "id": "C023"
+  },
+  {
+   "frame": "hub-light",
+   "assert": "The heading 'Product, systems, and the thing between them' is visible.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": null,
+   "id": "C024"
+  },
+  {
+   "frame": "hub-light",
+   "assert": "Text labels naming sections are visible around the sphere.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": null,
+   "id": "C025"
+  },
+  {
+   "frame": "hub-light",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": null,
+   "id": "C026"
+  },
+  {
+   "frame": "hub-light",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C027"
+  },
+  {
+   "frame": "hub-light",
+   "assert": "The site name in the top-left corner reads 'Maaz Khan'.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C028"
+  },
+  {
+   "frame": "hero-mobile",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": null,
+   "id": "C029"
+  },
+  {
+   "frame": "hero-mobile",
+   "assert": "The headline is a single short word.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": null,
+   "id": "C030"
+  },
+  {
+   "frame": "hero-mobile",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": null,
+   "id": "C031"
+  },
+  {
+   "frame": "hero-mobile",
+   "assert": "The portrait photograph is in full colour.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": null,
+   "id": "C032"
+  },
+  {
+   "frame": "hero-mobile",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C033"
+  },
+  {
+   "frame": "hero-mobile",
+   "assert": "The site name in the top-left corner reads 'Maaz Khan'.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": null,
+   "id": "C034"
+  },
+  {
+   "frame": "hero-dark__faint-headline",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "faint-headline",
+   "qa_layer": "3 \u00b7 contrast",
+   "id": "C035"
+  },
+  {
+   "frame": "hero-dark__faint-headline",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "faint-headline",
+   "control_for": "faint-headline",
+   "id": "C036"
+  },
+  {
+   "frame": "hero-dark__covered-social",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "covered-social",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "id": "C037"
+  },
+  {
+   "frame": "hero-dark__covered-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "covered-social",
+   "control_for": "covered-social",
+   "id": "C038"
+  },
+  {
+   "frame": "hero-dark__type-drift-mark",
+   "assert": "The site name in the top-left is set at a normal, readable size rather than a tiny one.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "id": "C039"
+  },
+  {
+   "frame": "hero-dark__type-drift-mark",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "control_for": "type-drift-mark",
+   "id": "C040"
+  },
+  {
+   "frame": "hero-dark__missing-social",
+   "assert": "There are three separate social media icons in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "missing-social",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "id": "C041"
+  },
+  {
+   "frame": "hero-dark__missing-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "missing-social",
+   "control_for": "missing-social",
+   "id": "C042"
+  },
+  {
+   "frame": "hero-dark__overflow-headline",
+   "assert": "The headline text fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "overflow-headline",
+   "qa_layer": "2 \u00b7 the long string",
+   "id": "C043"
+  },
+  {
+   "frame": "hero-dark__overflow-headline",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "overflow-headline",
+   "control_for": "overflow-headline",
+   "id": "C044"
+  },
+  {
+   "frame": "hero-dark__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "footer",
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "id": "C045"
+  },
+  {
+   "frame": "hero-dark__dark-band",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "C046"
+  },
+  {
+   "frame": "hero-dark__clipped-headline",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "clipped-headline",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "id": "C047"
+  },
+  {
+   "frame": "hero-dark__clipped-headline",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "clipped-headline",
+   "control_for": "clipped-headline",
+   "id": "C048"
+  },
+  {
+   "frame": "hero-dark__hidden-portrait",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "portrait",
+   "defect": "hidden-portrait",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "id": "C049"
+  },
+  {
+   "frame": "hero-dark__hidden-portrait",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": "hidden-portrait",
+   "control_for": "hidden-portrait",
+   "id": "C050"
+  },
+  {
+   "frame": "hero-dark__overlapping-text",
+   "assert": "The headline and the sentence beneath it are clearly separated and do not overlap each other.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "id": "C051"
+  },
+  {
+   "frame": "hero-dark__overlapping-text",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "C052"
+  },
+  {
+   "frame": "hero-dark__duplicated-nav",
+   "assert": "The set of social media icons appears exactly once in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "id": "C053"
+  },
+  {
+   "frame": "hero-dark__duplicated-nav",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "C054"
+  },
+  {
+   "frame": "hero-light__faint-headline",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "faint-headline",
+   "qa_layer": "3 \u00b7 contrast",
+   "id": "C055"
+  },
+  {
+   "frame": "hero-light__faint-headline",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "faint-headline",
+   "control_for": "faint-headline",
+   "id": "C056"
+  },
+  {
+   "frame": "hero-light__covered-social",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "covered-social",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "id": "C057"
+  },
+  {
+   "frame": "hero-light__covered-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "covered-social",
+   "control_for": "covered-social",
+   "id": "C058"
+  },
+  {
+   "frame": "hero-light__type-drift-mark",
+   "assert": "The site name in the top-left is set at a normal, readable size rather than a tiny one.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "id": "C059"
+  },
+  {
+   "frame": "hero-light__type-drift-mark",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "control_for": "type-drift-mark",
+   "id": "C060"
+  },
+  {
+   "frame": "hero-light__missing-social",
+   "assert": "There are three separate social media icons in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "missing-social",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "id": "C061"
+  },
+  {
+   "frame": "hero-light__missing-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "missing-social",
+   "control_for": "missing-social",
+   "id": "C062"
+  },
+  {
+   "frame": "hero-light__overflow-headline",
+   "assert": "The headline text fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "overflow-headline",
+   "qa_layer": "2 \u00b7 the long string",
+   "id": "C063"
+  },
+  {
+   "frame": "hero-light__overflow-headline",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "overflow-headline",
+   "control_for": "overflow-headline",
+   "id": "C064"
+  },
+  {
+   "frame": "hero-light__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "footer",
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "id": "C065"
+  },
+  {
+   "frame": "hero-light__dark-band",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "C066"
+  },
+  {
+   "frame": "hero-light__clipped-headline",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "clipped-headline",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "id": "C067"
+  },
+  {
+   "frame": "hero-light__clipped-headline",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "clipped-headline",
+   "control_for": "clipped-headline",
+   "id": "C068"
+  },
+  {
+   "frame": "hero-light__hidden-portrait",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "portrait",
+   "defect": "hidden-portrait",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "id": "C069"
+  },
+  {
+   "frame": "hero-light__hidden-portrait",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": "hidden-portrait",
+   "control_for": "hidden-portrait",
+   "id": "C070"
+  },
+  {
+   "frame": "hero-light__overlapping-text",
+   "assert": "The headline and the sentence beneath it are clearly separated and do not overlap each other.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "id": "C071"
+  },
+  {
+   "frame": "hero-light__overlapping-text",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "C072"
+  },
+  {
+   "frame": "hero-light__duplicated-nav",
+   "assert": "The set of social media icons appears exactly once in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "id": "C073"
+  },
+  {
+   "frame": "hero-light__duplicated-nav",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "C074"
+  },
+  {
+   "frame": "hub-dark__faint-labels",
+   "assert": "Every section label around the sphere is legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "faint-labels",
+   "qa_layer": "3 \u00b7 contrast",
+   "id": "C075"
+  },
+  {
+   "frame": "hub-dark__faint-labels",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "faint-labels",
+   "control_for": "faint-labels",
+   "id": "C076"
+  },
+  {
+   "frame": "hub-dark__covered-send",
+   "assert": "The round arrow send button at the right end of the text input is visible and unobstructed.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "covered-send",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "id": "C077"
+  },
+  {
+   "frame": "hub-dark__covered-send",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "covered-send",
+   "control_for": "covered-send",
+   "id": "C078"
+  },
+  {
+   "frame": "hub-dark__covered-social",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "covered-social",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "id": "C079"
+  },
+  {
+   "frame": "hub-dark__covered-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "covered-social",
+   "control_for": "covered-social",
+   "id": "C080"
+  },
+  {
+   "frame": "hub-dark__type-drift-label",
+   "assert": "All of the section labels around the sphere are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "type-drift-label",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "id": "C081"
+  },
+  {
+   "frame": "hub-dark__type-drift-label",
+   "assert": "Text labels naming sections are visible around the sphere.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "type-drift-label",
+   "control_for": "type-drift-label",
+   "id": "C082"
+  },
+  {
+   "frame": "hub-dark__type-drift-mark",
+   "assert": "The site name in the top-left is set at a normal, readable size rather than a tiny one.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "id": "C083"
+  },
+  {
+   "frame": "hub-dark__type-drift-mark",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "control_for": "type-drift-mark",
+   "id": "C084"
+  },
+  {
+   "frame": "hub-dark__missing-labels",
+   "assert": "Labels reading Media, Contact and Certifications are all visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "missing-labels",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "id": "C085"
+  },
+  {
+   "frame": "hub-dark__missing-labels",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "missing-labels",
+   "control_for": "missing-labels",
+   "id": "C086"
+  },
+  {
+   "frame": "hub-dark__missing-social",
+   "assert": "There are three separate social media icons in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "missing-social",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "id": "C087"
+  },
+  {
+   "frame": "hub-dark__missing-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "missing-social",
+   "control_for": "missing-social",
+   "id": "C088"
+  },
+  {
+   "frame": "hub-dark__overflow-label",
+   "assert": "Every section label is a short word or phrase, with none running as a long unbroken string of repeated letters.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "overflow-label",
+   "qa_layer": "2 \u00b7 the long string",
+   "id": "C089"
+  },
+  {
+   "frame": "hub-dark__overflow-label",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "overflow-label",
+   "control_for": "overflow-label",
+   "id": "C090"
+  },
+  {
+   "frame": "hub-dark__invisible-send",
+   "assert": "The round arrow send button at the right end of the text input is visible and unobstructed.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "invisible-send",
+   "qa_layer": "3 \u00b7 controls",
+   "id": "C091"
+  },
+  {
+   "frame": "hub-dark__invisible-send",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "invisible-send",
+   "control_for": "invisible-send",
+   "id": "C092"
+  },
+  {
+   "frame": "hub-dark__tiny-target",
+   "assert": "The send button at the right of the input is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "id": "C093"
+  },
+  {
+   "frame": "hub-dark__tiny-target",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "C094"
+  },
+  {
+   "frame": "hub-dark__duplicated-nav",
+   "assert": "The set of social media icons appears exactly once in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "id": "C095"
+  },
+  {
+   "frame": "hub-dark__duplicated-nav",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "C096"
+  },
+  {
+   "frame": "hub-dark__offscreen-input",
+   "assert": "The text input sits fully inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "id": "C097"
+  },
+  {
+   "frame": "hub-dark__offscreen-input",
+   "assert": "Text labels naming sections are visible around the sphere.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "C098"
+  },
+  {
+   "frame": "hub-light__faint-labels",
+   "assert": "Every section label around the sphere is legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "faint-labels",
+   "qa_layer": "3 \u00b7 contrast",
+   "id": "C099"
+  },
+  {
+   "frame": "hub-light__faint-labels",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "faint-labels",
+   "control_for": "faint-labels",
+   "id": "C100"
+  },
+  {
+   "frame": "hub-light__covered-send",
+   "assert": "The round arrow send button at the right end of the text input is visible and unobstructed.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "covered-send",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "id": "C101"
+  },
+  {
+   "frame": "hub-light__covered-send",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "covered-send",
+   "control_for": "covered-send",
+   "id": "C102"
+  },
+  {
+   "frame": "hub-light__covered-social",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "covered-social",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "id": "C103"
+  },
+  {
+   "frame": "hub-light__covered-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "covered-social",
+   "control_for": "covered-social",
+   "id": "C104"
+  },
+  {
+   "frame": "hub-light__type-drift-label",
+   "assert": "All of the section labels around the sphere are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "type-drift-label",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "id": "C105"
+  },
+  {
+   "frame": "hub-light__type-drift-label",
+   "assert": "Text labels naming sections are visible around the sphere.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "type-drift-label",
+   "control_for": "type-drift-label",
+   "id": "C106"
+  },
+  {
+   "frame": "hub-light__type-drift-mark",
+   "assert": "The site name in the top-left is set at a normal, readable size rather than a tiny one.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "id": "C107"
+  },
+  {
+   "frame": "hub-light__type-drift-mark",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "control_for": "type-drift-mark",
+   "id": "C108"
+  },
+  {
+   "frame": "hub-light__missing-labels",
+   "assert": "Labels reading Media, Contact and Certifications are all visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "missing-labels",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "id": "C109"
+  },
+  {
+   "frame": "hub-light__missing-labels",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "missing-labels",
+   "control_for": "missing-labels",
+   "id": "C110"
+  },
+  {
+   "frame": "hub-light__missing-social",
+   "assert": "There are three separate social media icons in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "missing-social",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "id": "C111"
+  },
+  {
+   "frame": "hub-light__missing-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "missing-social",
+   "control_for": "missing-social",
+   "id": "C112"
+  },
+  {
+   "frame": "hub-light__overflow-label",
+   "assert": "Every section label is a short word or phrase, with none running as a long unbroken string of repeated letters.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "leaders",
+   "defect": "overflow-label",
+   "qa_layer": "2 \u00b7 the long string",
+   "id": "C113"
+  },
+  {
+   "frame": "hub-light__overflow-label",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "leaders",
+   "defect": "overflow-label",
+   "control_for": "overflow-label",
+   "id": "C114"
+  },
+  {
+   "frame": "hub-light__invisible-send",
+   "assert": "The round arrow send button at the right end of the text input is visible and unobstructed.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "invisible-send",
+   "qa_layer": "3 \u00b7 controls",
+   "id": "C115"
+  },
+  {
+   "frame": "hub-light__invisible-send",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "invisible-send",
+   "control_for": "invisible-send",
+   "id": "C116"
+  },
+  {
+   "frame": "hub-light__tiny-target",
+   "assert": "The send button at the right of the input is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "id": "C117"
+  },
+  {
+   "frame": "hub-light__tiny-target",
+   "assert": "There is a wide text input with the placeholder 'Ask me about anything.'",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "C118"
+  },
+  {
+   "frame": "hub-light__duplicated-nav",
+   "assert": "The set of social media icons appears exactly once in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "id": "C119"
+  },
+  {
+   "frame": "hub-light__duplicated-nav",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "C120"
+  },
+  {
+   "frame": "hub-light__offscreen-input",
+   "assert": "The text input sits fully inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "askbar",
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "id": "C121"
+  },
+  {
+   "frame": "hub-light__offscreen-input",
+   "assert": "Text labels naming sections are visible around the sphere.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "askbar",
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "C122"
+  },
+  {
+   "frame": "hero-mobile__faint-headline",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "faint-headline",
+   "qa_layer": "3 \u00b7 contrast",
+   "id": "C123"
+  },
+  {
+   "frame": "hero-mobile__faint-headline",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "faint-headline",
+   "control_for": "faint-headline",
+   "id": "C124"
+  },
+  {
+   "frame": "hero-mobile__covered-social",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "covered-social",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "id": "C125"
+  },
+  {
+   "frame": "hero-mobile__covered-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "covered-social",
+   "control_for": "covered-social",
+   "id": "C126"
+  },
+  {
+   "frame": "hero-mobile__type-drift-mark",
+   "assert": "The site name in the top-left is set at a normal, readable size rather than a tiny one.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "id": "C127"
+  },
+  {
+   "frame": "hero-mobile__type-drift-mark",
+   "assert": "Social media icons are visible in the top bar.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "type-drift-mark",
+   "control_for": "type-drift-mark",
+   "id": "C128"
+  },
+  {
+   "frame": "hero-mobile__missing-social",
+   "assert": "There are three separate social media icons in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "missing-social",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "id": "C129"
+  },
+  {
+   "frame": "hero-mobile__missing-social",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "missing-social",
+   "control_for": "missing-social",
+   "id": "C130"
+  },
+  {
+   "frame": "hero-mobile__overflow-headline",
+   "assert": "The headline text fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "overflow-headline",
+   "qa_layer": "2 \u00b7 the long string",
+   "id": "C131"
+  },
+  {
+   "frame": "hero-mobile__overflow-headline",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "overflow-headline",
+   "control_for": "overflow-headline",
+   "id": "C132"
+  },
+  {
+   "frame": "hero-mobile__clipped-headline",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "clipped-headline",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "id": "C133"
+  },
+  {
+   "frame": "hero-mobile__clipped-headline",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "clipped-headline",
+   "control_for": "clipped-headline",
+   "id": "C134"
+  },
+  {
+   "frame": "hero-mobile__hidden-portrait",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "portrait",
+   "defect": "hidden-portrait",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "id": "C135"
+  },
+  {
+   "frame": "hero-mobile__hidden-portrait",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "portrait",
+   "defect": "hidden-portrait",
+   "control_for": "hidden-portrait",
+   "id": "C136"
+  },
+  {
+   "frame": "hero-mobile__overlapping-text",
+   "assert": "The headline and the sentence beneath it are clearly separated and do not overlap each other.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "headline",
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "id": "C137"
+  },
+  {
+   "frame": "hero-mobile__overlapping-text",
+   "assert": "A portrait photograph of a person is visible.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "C138"
+  },
+  {
+   "frame": "hero-mobile__duplicated-nav",
+   "assert": "The set of social media icons appears exactly once in the top bar.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "id": "C139"
+  },
+  {
+   "frame": "hero-mobile__duplicated-nav",
+   "assert": "The site name 'Maaz Kazi' is readable in the top-left corner.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "topbar",
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "C140"
+  }
+ ]
+}

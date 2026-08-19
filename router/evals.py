@@ -1,0 +1,358 @@
+#!/usr/bin/env python3
+"""
+evals.py — is a cheaper model still doing QA correctly? Answer with numbers.
+
+Built to the same shape as 05-Orchestrator/funnel/evals.py, which measures the
+vault's retrieval at 85% right-answer-first: a fixed golden set, a scored run,
+a number that moves. Nothing here is a new instrument; it is that instrument
+pointed at a different question.
+
+**The question.** A QA step is one screenshot and one statement, answered true
+or false. That is literally Midscene's `aiAssert`, which the QA protocol's
+behaviour and appearance layers are made of, so scoring it scores the real
+workload rather than a proxy for it.
+
+**Three numbers, because one would lie.**
+
+  Verdict accuracy   all 40 cases. The headline.
+  Catch rate         the 6 cases that can only be answered correctly by seeing
+                     the injected defect. This is what QA is FOR.
+  False-alarm rate   how often the model calls a healthy screen broken. A model
+                     with a perfect catch rate and a 30% false-alarm rate
+                     produces a bug report nobody trusts, and an untrusted
+                     report is the same as no report.
+
+**Why all three.** The golden set is balanced 20 true / 20 false, so a model
+that answers "true" to everything scores exactly 50% accuracy — and 0% catch.
+A model that answers "false" to everything scores 50% accuracy and 100% catch.
+Either one is useless. Only the three numbers together say whether a model can
+do this job.
+
+    python3 -m router.evals --dry-run                     # costs nothing
+    python3 -m router.evals --model google/gemini-2.5-flash-lite
+    python3 -m router.evals --model a/b --model c/d       # compare
+"""
+import argparse
+import base64
+import json
+import os
+import time
+import concurrent.futures as futures
+import math
+import ssl
+import urllib.error
+import urllib.request
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+CODE = os.path.dirname(HERE)
+GOLDEN = os.path.join(CODE, "golden", "qa-vision")
+FRAMES = os.path.join(GOLDEN, "frames")
+RUNS = os.path.join(CODE, "state", "runs")
+ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
+
+# The statement is presented the way Midscene presents one: an assertion about
+# what is on screen, answered with a single word. No chain of thought is asked
+# for, because the real workload does not ask for one and paying for reasoning
+# the caller discards is exactly the waste this project exists to find.
+PROMPT = (
+    "You are checking a screenshot of a web page during a QA pass.\n\n"
+    "Statement: {assertion}\n\n"
+    "Is that statement true of the screenshot? Answer with exactly one word: "
+    "TRUE or FALSE."
+)
+
+
+def key():
+    """The key is read from the environment or from a gitignored file. It is
+    never printed, never logged, and never written into a run record."""
+    k = os.environ.get("OPENROUTER_API_KEY")
+    if k:
+        return k
+    local = os.path.join(CODE, "secrets.json")
+    if os.path.exists(local):
+        return json.load(open(local))["openrouter_key"]
+    raise SystemExit(
+        "No OpenRouter key. Set OPENROUTER_API_KEY, or put one in code/secrets.json "
+        "(gitignored) as {\"openrouter_key\": \"...\"}."
+    )
+
+
+def golden():
+    """v2 manifests are generated from spec.py and keep cases under `case_list`."""
+    m = json.load(open(os.path.join(GOLDEN, "manifest.json")))
+    m["cases"] = m.get("case_list") or m.get("cases")
+    return m
+
+
+def frame_b64(name):
+    with open(os.path.join(FRAMES, f"{name}.png"), "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+
+# A run is hundreds of calls over ten-odd minutes, so a transient network fault
+# is not an edge case, it is a certainty. One killed the first full ladder after
+# the reference model had already been scored and paid for. Retry the transport,
+# never the verdict.
+# json.JSONDecodeError belongs here: under concurrency OpenRouter interleaves
+# `: OPENROUTER PROCESSING` keep-alive comment lines into the body, which is
+# valid for its transport and not valid JSON. That is a transport fault wearing
+# a parser's clothes, and it must be retried, not counted as a wrong answer.
+TRANSPORT_FAULTS = (urllib.error.HTTPError, urllib.error.URLError,
+                    ssl.SSLError, TimeoutError, ConnectionError, OSError,
+                    json.JSONDecodeError)
+
+
+def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
+    """One call. `usage.include` makes OpenRouter return what it actually
+    charged, so cost is a reading rather than an estimate."""
+    body = json.dumps({
+        "model": model,
+        "max_tokens": 2000,
+        "temperature": 0,
+        "usage": {"include": True},
+        "messages": [{"role": "user", "content": [
+            {"type": "text", "text": assertion},
+            {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_b64}"}},
+        ]}],
+    }).encode()
+    req = urllib.request.Request(ENDPOINT, data=body, headers={
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "X-Title": "mikoshi-model-routing-evals",
+    })
+    t0 = time.time()
+    for attempt in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                raw = r.read().decode("utf-8", "replace")
+            # strip keep-alive comment lines before parsing
+            body = "\n".join(l for l in raw.splitlines() if not l.startswith(":")).strip()
+            d = json.loads(body)
+            break
+        except urllib.error.HTTPError as e:
+            # 4xx is the request being wrong and will stay wrong. 5xx and 429
+            # are the far end having a moment.
+            if e.code < 500 and e.code != 429:
+                raise
+            if attempt == tries - 1:
+                raise
+            time.sleep(2 ** attempt)
+        except TRANSPORT_FAULTS:
+            if attempt == tries - 1:
+                raise
+            time.sleep(2 ** attempt)
+    took = time.time() - t0
+    msg = (d.get("choices") or [{}])[0].get("message") or {}
+    usage = d.get("usage") or {}
+    return {
+        "text": (msg.get("content") or "").strip(),
+        "cost": float(usage.get("cost") or 0),
+        "in_tokens": usage.get("prompt_tokens"),
+        "out_tokens": usage.get("completion_tokens"),
+        "reasoning_tokens": ((usage.get("completion_tokens_details") or {})
+                             .get("reasoning_tokens")),
+        "seconds": round(took, 2),
+    }
+
+
+def read_verdict(text):
+    """Return True, False, or None when the model did not answer the question.
+    An unparseable answer is counted as wrong, never quietly dropped — a model
+    that will not answer in the required shape cannot drive a QA run."""
+    t = text.strip().upper()
+    if not t:
+        return None
+    head = t.replace("*", "").replace("`", "").lstrip("# ").strip()
+    if head.startswith("TRUE"):
+        return True
+    if head.startswith("FALSE"):
+        return False
+    if "TRUE" in t and "FALSE" not in t:
+        return True
+    if "FALSE" in t and "TRUE" not in t:
+        return False
+    return None
+
+
+def score(model, cases, api_key, verbose=False, workers=8):
+    """Score every case. Concurrent, because a 140-case run one-at-a-time is
+    four minutes of waiting per model and iteration speed is the whole point.
+    Order is restored afterwards so run records stay diffable."""
+    cache = {}
+    for c in cases:
+        cache.setdefault(c["frame"], frame_b64(c["frame"]))
+
+    def one(idx_case):
+        i, c = idx_case
+        try:
+            r = ask(model, PROMPT.format(assertion=c["assert"]), cache[c["frame"]], api_key)
+        except TRANSPORT_FAULTS as e:
+            detail = ""
+            if isinstance(e, urllib.error.HTTPError):
+                try:
+                    detail = e.read().decode()[:160]
+                except Exception:
+                    pass
+            return i, {**c, "said": None, "correct": False, "cost": 0.0, "seconds": 0.0,
+                       "error": f"{e} {detail}".strip()}
+        said = read_verdict(r["text"])
+        return i, {**c, "said": said, "raw": r["text"][:80], "correct": said is c["answer"],
+                   "cost": r["cost"], "seconds": r["seconds"],
+                   "in_tokens": r["in_tokens"], "out_tokens": r["out_tokens"],
+                   "reasoning_tokens": r["reasoning_tokens"]}
+
+    out = [None] * len(cases)
+    with futures.ThreadPoolExecutor(max_workers=workers) as ex:
+        for i, res in ex.map(one, enumerate(cases)):
+            out[i] = res
+    errors = sum(1 for r in out if r.get("error"))
+    if verbose:
+        for r in out:
+            if not r["correct"]:
+                print(f"  wrong {r['id']} [{r['frame']}] said {r['said']}, answer {r['answer']}"
+                      f"  — {r['assert'][:60]}")
+    return out, errors
+
+
+def wilson(k, n, z=1.96):
+    """A percentage with no interval beside it reads as a ranking it has not
+    earned. Six cases put an observed 83% anywhere between 44% and 97%."""
+    if n == 0:
+        return 0.0, 0.0
+    p = k / n
+    d = 1 + z * z / n
+    c = (p + z * z / (2 * n)) / d
+    h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
+    return round(max(0.0, c - h) * 100), round(min(1.0, c + h) * 100)
+
+
+def summarise(model, results, errors):
+    n = len(results)
+    correct = sum(r["correct"] for r in results)
+    defect = [r for r in results if r["needs_defect_sight"]]
+    caught = sum(r["correct"] for r in defect)
+    # A false alarm is a healthy screen called broken: the statement is true of
+    # a healthy frame and the model said it was not.
+    healthy_ok = [r for r in results if r["answer"] is True
+                  and not str(r["frame"]).startswith("broken-")]
+    alarms = sum(1 for r in healthy_ok if r["said"] is not True)
+    unparsed = sum(1 for r in results if r["said"] is None)
+    # A model that will not answer in the required shape has not answered
+    # wrongly — it has not answered. Scoring it as wrong hides a distinct and
+    # disqualifying failure: it cannot drive a QA run at all. Report both the
+    # score including refusals (what you get in practice) and the score over
+    # answers actually given (what the model can do when it does reply).
+    answered = [r for r in results if r["said"] is not None]
+    ans_defect = [r for r in answered if r["needs_defect_sight"]]
+    cost = sum(r["cost"] for r in results)
+    secs = sum(r["seconds"] for r in results)
+    by_defect = {}
+    for r in results:
+        if r["needs_defect_sight"]:
+            by_defect.setdefault(r["defect"], []).append(r["correct"])
+    missed = sorted(d for d, v in by_defect.items() if not any(v))
+
+    return {
+        "model": model, "cases": n,
+        "usable": errors == 0 and unparsed == 0,
+        "catch_ci": wilson(caught, len(defect)),
+        "false_alarm_ci": wilson(alarms, len(healthy_ok)),
+        "defect_classes": len(by_defect),
+        "refusals": unparsed,
+        "refusal_pct": round(100 * unparsed / n) if n else 0,
+        "catch_when_answered": (round(100 * sum(r["correct"] for r in ans_defect)
+                                      / len(ans_defect)) if ans_defect else 0),
+        "accuracy_when_answered": (round(100 * sum(r["correct"] for r in answered)
+                                         / len(answered)) if answered else 0),
+        "defect_classes_missed_entirely": missed,
+        "accuracy": round(100 * correct / n) if n else 0,
+        "catch": round(100 * caught / len(defect)) if defect else 0,
+        "catch_n": f"{caught}/{len(defect)}",
+        "false_alarm": round(100 * alarms / len(healthy_ok)) if healthy_ok else 0,
+        "false_alarm_n": f"{alarms}/{len(healthy_ok)}",
+        "unparseable": unparsed, "errors": errors,
+        "cost_usd": round(cost, 6),
+        "cost_per_case_usd": round(cost / n, 8) if n else 0,
+        "seconds": round(secs, 1),
+        "seconds_per_case": round(secs / n, 2) if n else 0,
+        "reasoning_tokens": sum(r.get("reasoning_tokens") or 0 for r in results),
+    }
+
+
+def dry_run(cases):
+    """What a scored run would cost, before spending anything. An estimate and
+    labelled as one — the token count for an image is the model's business, not
+    the caller's, so this brackets it rather than pretending to know it."""
+    frames = sorted({c["frame"] for c in cases})
+    px = {}
+    from struct import unpack
+    for f in frames:
+        d = open(os.path.join(FRAMES, f"{f}.png"), "rb").read(33)
+        px[f] = unpack(">II", d[16:24])
+    calls = len(cases)
+    # Bracket: 28px patches (Qwen-family, dense) as the high end; OpenAI's
+    # 512px-tile accounting as the low end. Both are documented conventions.
+    hi = sum(((px[c["frame"]][0] // 28) * (px[c["frame"]][1] // 28)) for c in cases)
+    lo = sum((-(-px[c["frame"]][0] // 512) * -(-px[c["frame"]][1] // 512) * 170 + 85)
+             for c in cases)
+    print(f"dry run · {calls} calls over {len(frames)} frames, no money spent\n")
+    print(f"  image tokens across the run, bracketed: {lo:,} … {hi:,}")
+    print(f"  output tokens: ~{calls * 3:,} at one word each, if the model does not reason\n")
+    print(f"  {'$/M in':>8}  {'est. run cost':>13}  model")
+    pool = json.load(open(os.path.join(CODE, "state", "pool.json")))["models"]
+    for m in sorted((m for m in pool if m["vision"] and m["in_per_m"] > 0),
+                    key=lambda m: m["in_per_m"])[:10]:
+        c_lo = lo / 1e6 * m["in_per_m"] + calls * 3 / 1e6 * m["out_per_m"]
+        c_hi = hi / 1e6 * m["in_per_m"] + calls * 3 / 1e6 * m["out_per_m"]
+        flag = " ⟲ reasoning forced, output cost not bounded by the above" if m["reasoning_forced"] else ""
+        print(f"  {m['in_per_m']:8.3f}  ${c_lo:.5f}–${c_hi:.5f}  {m['id']}{flag}")
+    print("\n  These are estimates from published prices. The real number comes back")
+    print("  from OpenRouter with each call and is what a scored run reports.")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", action="append", default=[], help="repeatable")
+    ap.add_argument("--dry-run", action="store_true", help="cost the run, spend nothing")
+    ap.add_argument("--limit", type=int, help="score only the first N cases")
+    ap.add_argument("--verbose", action="store_true", help="print every wrong answer")
+    ap.add_argument("--workers", type=int, default=8, help="concurrent requests per model")
+    a = ap.parse_args()
+
+    g = golden()
+    cases = g["cases"][: a.limit] if a.limit else g["cases"]
+    true_n = sum(1 for c in cases if c["answer"])
+    print(f"golden set · {len(cases)} cases · {true_n} true / {len(cases) - true_n} false "
+          f"· constant-answer baseline {round(100 * max(true_n, len(cases) - true_n) / len(cases))}%\n")
+
+    if a.dry_run or not a.model:
+        dry_run(cases)
+        return
+
+    api_key = key()
+    os.makedirs(RUNS, exist_ok=True)
+    stamp = time.strftime("%Y-%m-%dT%H-%M-%S")
+    rows = []
+    for model in a.model:
+        print(f"scoring {model} …")
+        results, errors = score(model, cases, api_key, verbose=a.verbose, workers=a.workers)
+        s = summarise(model, results, errors)
+        rows.append(s)
+        with open(os.path.join(RUNS, f"{stamp}_{model.replace('/', '_')}.json"), "w") as f:
+            json.dump({"summary": s, "results": results}, f, indent=1)
+        print(f"  accuracy {s['accuracy']}%  catch {s['catch']}% ({s['catch_n']}, "
+              f"{s['catch_ci'][0]}-{s['catch_ci'][1]})  false alarms {s['false_alarm']}% "
+              f"({s['false_alarm_n']}, {s['false_alarm_ci'][0]}-{s['false_alarm_ci'][1]})  "
+              f"${s['cost_usd']:.5f}  {s['seconds']}s wall\n")
+
+    print(f"{'accuracy':>9} {'catch':>7} {'false alarm':>12} {'$ / run':>10} "
+          f"{'$ / case':>11} {'s / case':>9}  model")
+    for s in sorted(rows, key=lambda s: -s["accuracy"]):
+        print(f"{s['accuracy']:8}% {s['catch']:6}% {s['false_alarm']:11}% "
+              f"{s['cost_usd']:10.5f} {s['cost_per_case_usd']:11.7f} "
+              f"{s['seconds_per_case']:9.2f}  {s['model']}")
+    print(f"\nrun records → {RUNS}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,283 @@
+{
+ "task_name": [
+  "qa_vision_assert",
+  "qa_vision_point"
+ ],
+ "note": "resolved quality per failure mode, with 95% intervals. LLMRouter's `performance` float is the projection of this onto one axis, and the projection is lossy.",
+ "models": {
+  "amazon/nova-lite-v1": {
+   "catch": 47,
+   "catch_ci": [
+    34,
+    60
+   ],
+   "false_alarm": 33,
+   "false_alarm_ci": [
+    23,
+    44
+   ],
+   "accuracy": 61,
+   "cost_usd_per_run": 0.009843,
+   "seconds_per_case": 16.46,
+   "defect_classes_missed_entirely": [
+    "clipped-headline",
+    "missing-labels",
+    "offscreen-input",
+    "overflow-headline",
+    "overlapping-text",
+    "type-drift-label"
+   ],
+   "point": {
+    "hit": 62,
+    "hit_ci": [
+     53,
+     71
+    ],
+    "wrong_control": 19,
+    "wrong_control_ci": [
+     12,
+     27
+    ],
+    "cost_usd_per_run": 0.010743,
+    "convention": "normalised"
+   }
+  },
+  "anthropic/claude-haiku-4.5": {
+   "catch": 77,
+   "catch_ci": [
+    64,
+    87
+   ],
+   "false_alarm": 9,
+   "false_alarm_ci": [
+    4,
+    17
+   ],
+   "accuracy": 87,
+   "cost_usd_per_run": 0.180814,
+   "seconds_per_case": 1.96,
+   "defect_classes_missed_entirely": [
+    "clipped-headline",
+    "overflow-headline"
+   ],
+   "point": {
+    "hit": 72,
+    "hit_ci": [
+     63,
+     80
+    ],
+    "wrong_control": 7,
+    "wrong_control_ci": [
+     4,
+     14
+    ],
+    "cost_usd_per_run": 0.138187,
+    "convention": "absolute"
+   }
+  },
+  "anthropic/claude-sonnet-5": {
+   "catch": 91,
+   "catch_ci": [
+    80,
+    96
+   ],
+   "false_alarm": 9,
+   "false_alarm_ci": [
+    4,
+    17
+   ],
+   "accuracy": 92,
+   "cost_usd_per_run": 0.340226,
+   "seconds_per_case": 3.55,
+   "defect_classes_missed_entirely": [],
+   "point": {
+    "hit": 76,
+    "hit_ci": [
+     67,
+     83
+    ],
+    "wrong_control": 10,
+    "wrong_control_ci": [
+     6,
+     17
+    ],
+    "cost_usd_per_run": 0.283208,
+    "convention": "absolute"
+   }
+  },
+  "google/gemini-2.5-flash-lite": {
+   "catch": 58,
+   "catch_ci": [
+    45,
+    71
+   ],
+   "false_alarm": 9,
+   "false_alarm_ci": [
+    4,
+    17
+   ],
+   "accuracy": 77,
+   "cost_usd_per_run": 0.028003,
+   "seconds_per_case": 1.88,
+   "defect_classes_missed_entirely": [
+    "overflow-headline",
+    "type-drift-label",
+    "type-drift-mark"
+   ],
+   "point": {
+    "hit": 34,
+    "hit_ci": [
+     26,
+     44
+    ],
+    "wrong_control": 36,
+    "wrong_control_ci": [
+     28,
+     46
+    ],
+    "cost_usd_per_run": 0.022189,
+    "convention": "normalised"
+   }
+  },
+  "google/gemma-3-12b-it": {
+   "catch": 83,
+   "catch_ci": [
+    71,
+    91
+   ],
+   "false_alarm": 21,
+   "false_alarm_ci": [
+    13,
+    32
+   ],
+   "accuracy": 81,
+   "cost_usd_per_run": 0.002276,
+   "seconds_per_case": 0.72,
+   "defect_classes_missed_entirely": [
+    "overflow-headline"
+   ],
+   "point": {
+    "hit": 6,
+    "hit_ci": [
+     3,
+     13
+    ],
+    "wrong_control": 20,
+    "wrong_control_ci": [
+     14,
+     29
+    ],
+    "cost_usd_per_run": 0.002062,
+    "convention": "absolute"
+   }
+  },
+  "meta-llama/llama-4-scout": {
+   "catch": 55,
+   "catch_ci": [
+    41,
+    67
+   ],
+   "false_alarm": 14,
+   "false_alarm_ci": [
+    8,
+    24
+   ],
+   "accuracy": 76,
+   "cost_usd_per_run": 0.027768,
+   "seconds_per_case": 1.0,
+   "defect_classes_missed_entirely": [
+    "faint-headline",
+    "overflow-headline",
+    "overlapping-text",
+    "type-drift-label",
+    "type-drift-mark"
+   ],
+   "point": {
+    "hit": 25,
+    "hit_ci": [
+     18,
+     34
+    ],
+    "wrong_control": 25,
+    "wrong_control_ci": [
+     18,
+     34
+    ],
+    "cost_usd_per_run": 0.023766,
+    "convention": "normalised"
+   }
+  },
+  "mistralai/mistral-small-3.2-24b-instruct": {
+   "catch": 43,
+   "catch_ci": [
+    31,
+    57
+   ],
+   "false_alarm": 9,
+   "false_alarm_ci": [
+    4,
+    17
+   ],
+   "accuracy": 74,
+   "cost_usd_per_run": 0.012476,
+   "seconds_per_case": 1.19,
+   "defect_classes_missed_entirely": [
+    "clipped-headline",
+    "dark-band",
+    "invisible-send",
+    "offscreen-input",
+    "overflow-headline",
+    "overflow-label",
+    "type-drift-label",
+    "type-drift-mark"
+   ],
+   "point": {
+    "hit": 6,
+    "hit_ci": [
+     3,
+     13
+    ],
+    "wrong_control": 11,
+    "wrong_control_ci": [
+     6,
+     18
+    ],
+    "cost_usd_per_run": 0.010406,
+    "convention": "normalised"
+   }
+  },
+  "qwen/qwen3.7-flash": {
+   "catch": 72,
+   "catch_ci": [
+    58,
+    82
+   ],
+   "false_alarm": 10,
+   "false_alarm_ci": [
+    5,
+    19
+   ],
+   "accuracy": 84,
+   "cost_usd_per_run": 0.013844,
+   "seconds_per_case": 14.85,
+   "defect_classes_missed_entirely": [
+    "faint-headline",
+    "offscreen-input"
+   ],
+   "point": {
+    "hit": 11,
+    "hit_ci": [
+     6,
+     18
+    ],
+    "wrong_control": 0,
+    "wrong_control_ci": [
+     0,
+     3
+    ],
+    "cost_usd_per_run": 0.029791,
+    "convention": "normalised"
+   }
+  }
+ }
+}
