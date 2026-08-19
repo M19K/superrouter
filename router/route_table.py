@@ -39,6 +39,13 @@ TASKS = {
         "axes": [("catch", "catch_ci", "higher"), ("false_alarm", "false_alarm_ci", "lower")],
         "reference": "anthropic/claude-sonnet-5",
     },
+    "text-faithful": {
+        "runs": os.path.join(CODE, "state", "text_runs"),
+        "min_cases": 60,
+        "what": "is every claim in this text supported by its source",
+        "axes": [("catch", "catch_ci", "higher"), ("false_alarm", "false_alarm_ci", "lower")],
+        "reference": "anthropic/claude-sonnet-5",
+    },
     "qa-vision-point": {
         "runs": os.path.join(CODE, "state", "point_runs"),
         "min_cases": 40,
@@ -92,6 +99,14 @@ def main():
         a1, a2 = cfg["axes"][0][0], cfg["axes"][1][0]
         print(f"   reference {ref['model']}: {a1} {ref[a1]}%, "
               f"{a2.replace('_',' ')} {ref[a2]}%, ${ref['cost_usd']:.5f}/run")
+        # A golden set that cannot separate the pool is not measuring it. Say so
+        # here rather than letting a wide interval read as a strong result.
+        share = len(ok) / max(1, len(rows) - 1)
+        if share >= 0.6:
+            print(f"   ⚠ this set does not discriminate: {len(ok)} of "
+                  f"{len(rows)-1} candidates survive the test. Whatever it picks "
+                  f"is weakly\n     evidenced. Harden the set or add cases before "
+                  f"trusting the choice.")
         print(f"   ROUTE TO  {pick['model']}  ${pick['cost_usd']:.5f}/run", end="")
         if pick["model"] != ref["model"]:
             print(f"  — {ref['cost_usd']/pick['cost_usd']:.0f}× cheaper, "
@@ -102,22 +117,21 @@ def main():
             print(f"   also survive: {', '.join(r['model'] for r in ok[1:])}")
         print()
 
-    if len(table) == 2:
-        j, p = table["qa-vision-assert"], table["qa-vision-point"]
+    if len(table) > 1:
         print("── the table")
         for t, m in table.items():
             print(f"   {t:<20} → {m}")
-        if j != p:
-            print(f"\n   The two sub-tasks route to DIFFERENT models. Sending both to "
-                  f"either one\n   is a measurable loss: {j} is the value pick for "
-                  f"judging and\n   cannot point, {p} can point and costs more than it "
-                  f"needs to for judging.")
+        if len(set(table.values())) > 1:
+            print(f"\n   {len(set(table.values()))} different models across "
+                  f"{len(table)} task types. There is no such thing as 'the cheap\n"
+                  f"   model that still works' — only the cheap model that still works "
+                  f"at THIS.")
 
     # The number the project is for: what a real mixed run costs, routed against
     # not routed. A QA run is mostly judging with some pointing; the mix is
     # stated rather than assumed, so a different mix can be checked.
     MIX = {"qa-vision-assert": 0.70, "qa-vision-point": 0.30}
-    if len(table) == 2:
+    if all(t in table for t in MIX):
         base = routed = 0.0
         for task, share in MIX.items():
             cfg = TASKS[task]

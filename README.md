@@ -75,6 +75,26 @@ different answer.** So a model qualifies only when the *lower* bound of its
 measured catch rate clears the requirement and the *upper* bound of its false
 alarms stays under the ceiling. Unproven is treated as not qualifying.
 
+## Quality does not transfer between task types
+
+Same eight models, three task types, **three different orderings**:
+
+| model | judges screenshots | checks text against its source | points at things |
+|---|---|---|---|
+| `google/gemma-3-12b-it` | **83%** — best value | **80%** — worst on the ladder | 6% — effectively blind |
+| `qwen/qwen3.7-flash` | 72% | **100%** | 11% |
+| `amazon/nova-lite-v1` | 47% | 95% | **62%** |
+| `anthropic/claude-haiku-4.5` | 77% | 100% | 72% |
+| `anthropic/claude-sonnet-5` | 91% | 98% | 76% |
+
+**A model's measured quality on one job carries no information about another
+job.** Any router holding one quality number per model is wrong by construction —
+not slightly, but in a way that inverts the ranking.
+
+The third task type is text, not vision, and it runs through the same scorer on
+the same two axes. That is the generalisation claim, and it is why this is a way
+of defining quality rather than vision tooling.
+
 ## The finding that shapes the router
 
 **Judging a screen and pointing at it are close to unrelated abilities.** Same
@@ -114,8 +134,9 @@ python3 -m router.policy --min-catch 70 --max-false-alarm 15
 Rebuild the golden sets against your own product:
 
 ```bash
-python3 golden/qa-vision/build.py --origin http://localhost:8934
-python3 golden/qa-point/build.py  --origin http://localhost:8934
+python3 golden/qa-vision/build.py   --origin http://localhost:8934
+python3 golden/qa-point/build.py    --origin http://localhost:8934
+python3 golden/text-faithful/build.py --vault ~/your-docs
 ```
 
 Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
@@ -127,6 +148,8 @@ Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
 | `golden/qa-vision/spec.py` | the judging set as a declaration: states × defect classes |
 | `golden/qa-vision/build.py` | renders it to frames + manifest, gated on pixel change |
 | `golden/qa-point/build.py` | the pointing set: targets with exact rectangles from the DOM |
+| `golden/text-faithful/spec.py` | the text set: 6 mechanical corruption classes |
+| `golden/text-faithful/build.py` | verbatim passages from real documents, one planted falsehood each |
 | `router/pool.py` | indexes the live OpenRouter pool |
 | `router/evals.py` | scores judging — catch, false alarms, refusals, intervals |
 | `router/pointing.py` | scores pointing — hit, wrong control, empty space |
@@ -148,6 +171,11 @@ Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
   scoring live would confuse a worse model with a changed page.
 - **Coordinate convention is calibrated once per model over a whole run**, never
   per case — per-case repair hands the model two guesses.
+- **A set that admits everyone is not measuring.** When more than 60% of the
+  pool survives the non-inferiority test, the tooling says so rather than
+  letting a wide interval read as a strong result. The text set currently
+  triggers this: mechanical corruptions are easy to spot, and the next iteration
+  is claims that are *true but unsupported* rather than contradicted.
 - **Price is not cost.** One 1280×800 screenshot billed 1,857 input tokens where
   two documented estimation methods predicted 1,020 and 1,150. Cost per task is
   read back from the provider, never estimated.

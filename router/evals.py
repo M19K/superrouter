@@ -45,9 +45,21 @@ import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CODE = os.path.dirname(HERE)
-GOLDEN = os.path.join(CODE, "golden", "qa-vision")
+# Task types the same scorer handles. The axes — catch rate and false-alarm
+# rate — are identical across them, which is the claim: this is a way of
+# defining quality, not vision tooling. A task supplies its cases; whether the
+# input carries an image is a detail of the request, not of the measurement.
+TASKS = {
+    "qa-vision-assert": {"golden": os.path.join(CODE, "golden", "qa-vision"),
+                         "runs": os.path.join(CODE, "state", "runs"),
+                         "image": True},
+    "text-faithful": {"golden": os.path.join(CODE, "golden", "text-faithful"),
+                      "runs": os.path.join(CODE, "state", "text_runs"),
+                      "image": False},
+}
+GOLDEN = TASKS["qa-vision-assert"]["golden"]
 FRAMES = os.path.join(GOLDEN, "frames")
-RUNS = os.path.join(CODE, "state", "runs")
+RUNS = TASKS["qa-vision-assert"]["runs"]
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 
 # The statement is presented the way Midscene presents one: an assertion about
@@ -77,15 +89,17 @@ def key():
     )
 
 
-def golden():
-    """v2 manifests are generated from spec.py and keep cases under `case_list`."""
-    m = json.load(open(os.path.join(GOLDEN, "manifest.json")))
+def golden(task="qa-vision-assert"):
+    """Generated manifests keep their cases under `case_list`."""
+    m = json.load(open(os.path.join(TASKS[task]["golden"], "manifest.json")))
     m["cases"] = m.get("case_list") or m.get("cases")
     return m
 
 
-def frame_b64(name):
-    with open(os.path.join(FRAMES, f"{name}.png"), "rb") as f:
+def frame_b64(name, task="qa-vision-assert"):
+    if not TASKS[task]["image"]:
+        return None
+    with open(os.path.join(TASKS[task]["golden"], "frames", f"{name}.png"), "rb") as f:
         return base64.b64encode(f.read()).decode()
 
 
@@ -110,10 +124,12 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
         "max_tokens": 2000,
         "temperature": 0,
         "usage": {"include": True},
-        "messages": [{"role": "user", "content": [
-            {"type": "text", "text": assertion},
-            {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_b64}"}},
-        ]}],
+        "messages": [{"role": "user", "content": (
+            [{"type": "text", "text": assertion}] +
+            ([{"type": "image_url",
+               "image_url": {"url": f"data:image/png;base64,{image_b64}"}}]
+             if image_b64 else [])
+        )}],
     }).encode()
     req = urllib.request.Request(ENDPOINT, data=body, headers={
         "Authorization": f"Bearer {api_key}",
@@ -174,18 +190,21 @@ def read_verdict(text):
     return None
 
 
-def score(model, cases, api_key, verbose=False, workers=8):
+def score(model, cases, api_key, verbose=False, workers=8, task="qa-vision-assert"):
     """Score every case. Concurrent, because a 140-case run one-at-a-time is
     four minutes of waiting per model and iteration speed is the whole point.
     Order is restored afterwards so run records stay diffable."""
     cache = {}
     for c in cases:
-        cache.setdefault(c["frame"], frame_b64(c["frame"]))
+        cache.setdefault(c.get("frame", c["id"]),
+                         frame_b64(c["frame"], task) if c.get("frame") else None)
 
     def one(idx_case):
         i, c = idx_case
         try:
-            r = ask(model, PROMPT.format(assertion=c["assert"]), cache[c["frame"]], api_key)
+            body = (PROMPT.format(assertion=c["assert"])
+                    if TASKS[task]["image"] else c["assert"])
+            r = ask(model, body, cache[c.get("frame", c["id"])], api_key)
         except TRANSPORT_FAULTS as e:
             detail = ""
             if isinstance(e, urllib.error.HTTPError):
@@ -233,8 +252,9 @@ def summarise(model, results, errors):
     caught = sum(r["correct"] for r in defect)
     # A false alarm is a healthy screen called broken: the statement is true of
     # a healthy frame and the model said it was not.
-    healthy_ok = [r for r in results if r["answer"] is True
-                  and not str(r["frame"]).startswith("broken-")]
+    healthy_ok = [r for r in results
+                  if r["answer"] is True and not r["needs_defect_sight"]
+                  and not str(r.get("frame", "")).startswith("broken-")]
     alarms = sum(1 for r in healthy_ok if r["said"] is not True)
     unparsed = sum(1 for r in results if r["said"] is None)
     # A model that will not answer in the required shape has not answered
@@ -249,7 +269,8 @@ def summarise(model, results, errors):
     by_defect = {}
     for r in results:
         if r["needs_defect_sight"]:
-            by_defect.setdefault(r["defect"], []).append(r["correct"])
+            by_defect.setdefault(r.get("defect") or r.get("corruption"),
+                                 []).append(r["correct"])
     missed = sorted(d for d, v in by_defect.items() if not any(v))
 
     return {
@@ -317,28 +338,31 @@ def main():
     ap.add_argument("--limit", type=int, help="score only the first N cases")
     ap.add_argument("--verbose", action="store_true", help="print every wrong answer")
     ap.add_argument("--workers", type=int, default=8, help="concurrent requests per model")
+    ap.add_argument("--task", choices=list(TASKS), default="qa-vision-assert")
     a = ap.parse_args()
 
-    g = golden()
+    g = golden(a.task)
     cases = g["cases"][: a.limit] if a.limit else g["cases"]
     true_n = sum(1 for c in cases if c["answer"])
     print(f"golden set · {len(cases)} cases · {true_n} true / {len(cases) - true_n} false "
           f"· constant-answer baseline {round(100 * max(true_n, len(cases) - true_n) / len(cases))}%\n")
 
+    runs_dir = TASKS[a.task]["runs"]
     if a.dry_run or not a.model:
         dry_run(cases)
         return
 
     api_key = key()
-    os.makedirs(RUNS, exist_ok=True)
+    os.makedirs(runs_dir, exist_ok=True)
     stamp = time.strftime("%Y-%m-%dT%H-%M-%S")
     rows = []
     for model in a.model:
         print(f"scoring {model} …")
-        results, errors = score(model, cases, api_key, verbose=a.verbose, workers=a.workers)
+        results, errors = score(model, cases, api_key, verbose=a.verbose,
+                                workers=a.workers, task=a.task)
         s = summarise(model, results, errors)
         rows.append(s)
-        with open(os.path.join(RUNS, f"{stamp}_{model.replace('/', '_')}.json"), "w") as f:
+        with open(os.path.join(runs_dir, f"{stamp}_{model.replace('/', '_')}.json"), "w") as f:
             json.dump({"summary": s, "results": results}, f, indent=1)
         print(f"  accuracy {s['accuracy']}%  catch {s['catch']}% ({s['catch_n']}, "
               f"{s['catch_ci'][0]}-{s['catch_ci'][1]})  false alarms {s['false_alarm']}% "
@@ -351,7 +375,7 @@ def main():
         print(f"{s['accuracy']:8}% {s['catch']:6}% {s['false_alarm']:11}% "
               f"{s['cost_usd']:10.5f} {s['cost_per_case_usd']:11.7f} "
               f"{s['seconds_per_case']:9.2f}  {s['model']}")
-    print(f"\nrun records → {RUNS}")
+    print(f"\nrun records → {runs_dir}")
 
 
 if __name__ == "__main__":
