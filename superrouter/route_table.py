@@ -31,6 +31,17 @@ import os
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Measured 2026-08-19/20 across two products with the same generator: rank
+# correlation 0.83 but EVERY model drops on the second product, median 22 points
+# and up to 36. So which model is better mostly transfers; how good any of them
+# is does not. A table published for one product is wrong by roughly 22 points
+# on another, which is why this ships as a method pointed at your product rather
+# than as a table of picks.
+PRODUCTS = {
+    "portfolio": os.path.join(CODE, "state", "runs_portfolio"),
+    "midscene-docs": os.path.join(CODE, "state", "runs_midscene-docs"),
+}
+
 TASKS = {
     "qa-vision-assert": {
         "runs": os.path.join(CODE, "state", "runs"),
@@ -81,7 +92,49 @@ def survives(cand, ref, axes):
     return why
 
 
+def per_product():
+    """One table per product, because a bar set on one is meaningless on another."""
+    base = TASKS["qa-vision-assert"]
+    out = {}
+    for name, runs in PRODUCTS.items():
+        rows = latest(runs, 100)
+        ref = next((r for r in rows if r["model"] == base["reference"]), None)
+        if not ref:
+            continue
+        ok = [r for r in rows if r["model"] != ref["model"]
+              and not survives(r, ref, base["axes"])]
+        ok.sort(key=lambda r: r["cost_usd"])
+        pick = ok[0] if ok else ref
+        out[name] = (ref, pick, rows)
+    return out
+
+
 def main():
+    products = per_product()
+    if len(products) > 1:
+        print("── the same task, measured on two products\n")
+        names = list(products)
+        allm = sorted({r["model"] for _, _, rows in products.values() for r in rows},
+                      key=lambda m: -next((r["catch"] for r in products[names[0]][2]
+                                           if r["model"] == m), 0))
+        print(f"   {'model':<42} " + " ".join(f"{n[:12]:>12}" for n in names) + "   drop")
+        for m in allm:
+            vals = []
+            for n in names:
+                r = next((x for x in products[n][2] if x["model"] == m), None)
+                vals.append(r["catch"] if r else None)
+            if any(v is None for v in vals):
+                continue
+            print(f"   {m:<42} " + " ".join(f"{v:>11}%" for v in vals) +
+                  f"   {vals[0]-vals[1]:>4}")
+        for n in names:
+            ref, pick, _ = products[n]
+            print(f"\n   {n:<14} routes to {pick['model']}"
+                  f"  (${pick['cost_usd']:.5f}/run, catch {pick['catch']}%)")
+        print("\n   Different products, different picks and different absolute levels."
+              "\n   A table published for one product does not describe another — "
+              "measure yours.\n")
+
     table = {}
     for task, cfg in TASKS.items():
         rows = latest(cfg["runs"], cfg["min_cases"])

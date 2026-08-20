@@ -357,10 +357,50 @@ def main():
     ap.add_argument("--verbose", action="store_true", help="print every wrong answer")
     ap.add_argument("--workers", type=int, default=8, help="concurrent requests per model")
     ap.add_argument("--task", choices=list(TASKS), default="qa-vision-assert")
+    ap.add_argument("--set", dest="set_dir",
+                    help="a generated set directory (golden/qa-vision/sets/<name>)")
+    ap.add_argument("--sample", type=int,
+                    help="stratified sample of N cases — balanced true/false and "
+                         "spread across defect classes, so a subset is a smaller "
+                         "measurement rather than a narrower one")
     a = ap.parse_args()
 
+    if a.set_dir:
+        base = a.set_dir if os.path.isabs(a.set_dir) else os.path.join(
+            CODE, "golden", "qa-vision", "sets", a.set_dir)
+        TASKS[a.task] = {**TASKS[a.task], "golden": base,
+                         "runs": os.path.join(CODE, "state",
+                                              f"runs_{os.path.basename(base)}")}
     g = golden(a.task)
-    cases = g["cases"][: a.limit] if a.limit else g["cases"]
+    cases = g["cases"]
+    if a.sample:
+        # Stratify by defect class and by answer, then take round-robin. A random
+        # subset would under-represent the rare classes, which are exactly the
+        # ones that separate models.
+        import collections
+        buckets = collections.defaultdict(list)
+        for c in cases:
+            buckets[(c.get("defect"), c["answer"])].append(c)
+        picked, keys = [], sorted(buckets, key=lambda k: (str(k[0]), k[1]))
+        i = 0
+        while len(picked) < a.sample and any(buckets[k] for k in keys):
+            k = keys[i % len(keys)]
+            if buckets[k]:
+                picked.append(buckets[k].pop())
+            i += 1
+        t = sum(1 for c in picked if c["answer"])
+        # trim the majority side so the constant-answer baseline stays 50%
+        while t * 2 > len(picked):
+            for j, c in enumerate(picked):
+                if c["answer"]:
+                    picked.pop(j); t -= 1; break
+        while (len(picked) - t) * 2 > len(picked):
+            for j, c in enumerate(picked):
+                if not c["answer"]:
+                    picked.pop(j); break
+        cases = picked
+    elif a.limit:
+        cases = cases[: a.limit]
     true_n = sum(1 for c in cases if c["answer"])
     print(f"golden set · {len(cases)} cases · {true_n} true / {len(cases) - true_n} false "
           f"· constant-answer baseline {round(100 * max(true_n, len(cases) - true_n) / len(cases))}%\n")
