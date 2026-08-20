@@ -3,9 +3,9 @@
 pool.py — index the model pool from OpenRouter, and be honest about what an
 index of prices can and cannot tell you.
 
-    python3 -m router.pool                    # refresh the snapshot, print a summary
-    python3 -m router.pool --vision           # only models that accept images
-    python3 -m router.pool --vision --top 20  # the twenty cheapest of those
+    python3 -m superrouter.pool                    # refresh the snapshot, print a summary
+    python3 -m superrouter.pool --vision           # only models that accept images
+    python3 -m superrouter.pool --vision --top 20  # the twenty cheapest of those
 
 **What this gives you: price. Not cost.** Price is $/million tokens, published,
 and this reads it from the API rather than from memory. Cost is dollars per

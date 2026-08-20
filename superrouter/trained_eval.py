@@ -2,7 +2,7 @@
 """
 trained_eval.py — score a router LLMRouter actually trained, on held-out cases.
 
-    python3 -m router.trained_eval
+    python3 -m superrouter.trained_eval
 
 The label sets the ceiling (see `label_eval.py`); this measures what a real
 trained router reaches. For each held-out case the router predicts a model from

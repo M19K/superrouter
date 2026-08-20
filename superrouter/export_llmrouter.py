@@ -2,7 +2,7 @@
 """
 export_llmrouter.py — hand our measurements to LLMRouter as training data.
 
-    python3 -m router.export_llmrouter          # writes state/llmrouter/
+    python3 -m superrouter.export_llmrouter          # writes state/llmrouter/
 
 **Why this file is short, and why that is the point.** LLMRouter (ulab-uiuc,
 MIT) already ships 16 routing algorithms, a training CLI and a benchmark. It is

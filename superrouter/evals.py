@@ -28,9 +28,9 @@ A model that answers "false" to everything scores 50% accuracy and 100% catch.
 Either one is useless. Only the three numbers together say whether a model can
 do this job.
 
-    python3 -m router.evals --dry-run                     # costs nothing
-    python3 -m router.evals --model google/gemini-2.5-flash-lite
-    python3 -m router.evals --model a/b --model c/d       # compare
+    python3 -m superrouter.evals --dry-run                     # costs nothing
+    python3 -m superrouter.evals --model google/gemini-2.5-flash-lite
+    python3 -m superrouter.evals --model a/b --model c/d       # compare
 """
 import argparse
 import base64
@@ -134,7 +134,7 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
     req = urllib.request.Request(ENDPOINT, data=body, headers={
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
-        "X-Title": "mikoshi-model-routing-evals",
+        "X-Title": "superrouter-evals",
     })
     t0 = time.time()
     for attempt in range(tries):

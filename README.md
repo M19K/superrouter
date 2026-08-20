@@ -1,6 +1,8 @@
-# model-routing
+# SuperRouter
 
 **Route each task to the cheapest model that still does it correctly — and prove the "correctly" with a number.**
+
+*Every router picks a model. SuperRouter is the one that measured what the pick costs you.*
 
 Measured on a real workload, not a benchmark:
 
@@ -121,14 +123,14 @@ report it produces is fiction.
 ## Use it
 
 ```bash
-python3 -m router.pool --vision            # index the live pool, never a remembered price
-python3 -m router.evals --dry-run          # cost a run before spending anything
-python3 -m router.evals --model <id>       # score judging
-python3 -m router.pointing --model <id>    # score pointing
-python3 -m router.curve                    # cost against quality, every model
-python3 -m router.route_table              # the routing decision, per sub-task
-python3 -m router.policy --like anthropic/claude-sonnet-5
-python3 -m router.policy --min-catch 70 --max-false-alarm 15
+python3 -m superrouter.pool --vision            # index the live pool, never a remembered price
+python3 -m superrouter.evals --dry-run          # cost a run before spending anything
+python3 -m superrouter.evals --model <id>       # score judging
+python3 -m superrouter.pointing --model <id>    # score pointing
+python3 -m superrouter.curve                    # cost against quality, every model
+python3 -m superrouter.route_table              # the routing decision, per sub-task
+python3 -m superrouter.policy --like anthropic/claude-sonnet-5
+python3 -m superrouter.policy --min-catch 70 --max-false-alarm 15
 ```
 
 Rebuild the golden sets against your own product:
@@ -150,13 +152,13 @@ Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
 | `golden/qa-point/build.py` | the pointing set: targets with exact rectangles from the DOM |
 | `golden/text-faithful/spec.py` | the text set: 11 corruption classes, easy and hard |
 | `golden/text-faithful/build.py` | verbatim passages from real documents, one planted falsehood each |
-| `router/pool.py` | indexes the live OpenRouter pool |
-| `router/evals.py` | scores judging — catch, false alarms, refusals, intervals |
-| `router/pointing.py` | scores pointing — hit, wrong control, empty space |
-| `router/curve.py` | cost against quality |
-| `router/policy.py` | non-inferiority test against a reference |
-| `router/route_table.py` | the per-sub-task routing table |
-| `router/export_llmrouter.py` | hands it all to LLMRouter |
+| `supersuperrouter/pool.py` | indexes the live OpenRouter pool |
+| `supersuperrouter/evals.py` | scores judging — catch, false alarms, refusals, intervals |
+| `supersuperrouter/pointing.py` | scores pointing — hit, wrong control, empty space |
+| `supersuperrouter/curve.py` | cost against quality |
+| `supersuperrouter/policy.py` | non-inferiority test against a reference |
+| `supersuperrouter/route_table.py` | the per-sub-task routing table |
+| `supersuperrouter/export_llmrouter.py` | hands it all to LLMRouter |
 | `state/` | pool snapshot, every scored run, exported training data |
 
 ## Integrity rules the instrument enforces
@@ -239,7 +241,7 @@ routing algorithms, a training CLI and a benchmark. That is the engine, and it
 is better than we would write. What it cannot supply is labelled data for *your*
 task — its pipeline is built around eleven public benchmarks.
 
-`router/export_llmrouter.py` emits our measurements in its native record format,
+`supersuperrouter/export_llmrouter.py` emits our measurements in its native record format,
 plus the task and metric registration it needs. Resolved per-failure-mode quality
 is carried alongside, because their `performance` float cannot hold it.
 

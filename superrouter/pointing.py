@@ -2,8 +2,8 @@
 """
 pointing.py — can the model point at the right thing? The harder half of QA.
 
-    python3 -m router.pointing --model google/gemini-2.5-flash-lite
-    python3 -m router.pointing --model a/b --model c/d --workers 10
+    python3 -m superrouter.pointing --model google/gemini-2.5-flash-lite
+    python3 -m superrouter.pointing --model a/b --model c/d --workers 10
 
 **Judging and locating are different abilities.** The assert set measures whether
 a model can say what is on a screen. This measures whether it can act on it —

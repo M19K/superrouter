@@ -2,7 +2,7 @@
 """
 label_eval.py — the label sets the ceiling. Measure the ceiling.
 
-    python3 -m router.label_eval
+    python3 -m superrouter.label_eval
 
 A router can only learn to imitate its labels. So before training anything, ask
 what a **perfect** router trained on each labelling scheme would do — follow its

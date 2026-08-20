@@ -3,8 +3,8 @@
 llmrouter_bridge.py — build a complete LLMRouter training corpus from our runs,
 and fix two things about their supervision signal on the way.
 
-    python3 -m router.llmrouter_bridge --label cost-aware
-    python3 -m router.llmrouter_bridge --label raw          # theirs, for comparison
+    python3 -m superrouter.llmrouter_bridge --label cost-aware
+    python3 -m superrouter.llmrouter_bridge --label raw          # theirs, for comparison
 
 LLMRouter (ulab-uiuc, MIT) is the routing engine — 16 algorithms, a training CLI,
 a benchmark. This produces the files it loads: query data, query embeddings, the

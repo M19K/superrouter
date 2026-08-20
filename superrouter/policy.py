@@ -36,8 +36,8 @@ qualifies only when the **lower** bound of its measured catch rate clears the
 requirement, and the **upper** bound of its false-alarm rate stays under the
 ceiling. Being unproven is treated as not qualifying.
 
-    python3 -m router.policy --min-catch 70 --max-false-alarm 15
-    python3 -m router.policy --min-catch 50 --max-false-alarm 25 --optimistic
+    python3 -m superrouter.policy --min-catch 70 --max-false-alarm 15
+    python3 -m superrouter.policy --min-catch 50 --max-false-alarm 25 --optimistic
 """
 import argparse
 import json

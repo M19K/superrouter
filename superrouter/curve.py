@@ -3,8 +3,8 @@
 curve.py — the held-quality curve. Read every scored run and put cost next to
 quality, because either number alone decides nothing.
 
-    python3 -m router.curve                 # the curve, newest run per model
-    python3 -m router.curve --reference anthropic/claude-sonnet-5
+    python3 -m superrouter.curve                 # the curve, newest run per model
+    python3 -m superrouter.curve --reference anthropic/claude-sonnet-5
 
 **What the columns mean.** `catch` is the share of injected defects the model
 saw; it is what QA is for. `false alarm` is how often it called a healthy screen

@@ -2,7 +2,7 @@
 """
 route_table.py — the routing decision, per sub-task, from measurement.
 
-    python3 -m router.route_table
+    python3 -m superrouter.route_table
 
 **The finding this file exists to act on.** A QA run is not one job. It is made
 of *judging* steps ("is the button visible?") and *pointing* steps ("click the
