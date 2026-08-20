@@ -71,9 +71,11 @@ def looks_like_a_name(tok):
     makes nonsense when swapped, not a falsehood."""
     if tok.lower() in spec.NOT_NAMES:
         return False
-    # an internal capital, a digit, or a dot is strong evidence of a real name
+    # A plain capitalised English word is usually a sentence opener, not a name —
+    # "Missing" passed a length test once and produced a nonsense swap. Require
+    # actual identifier shape: an internal capital, a digit, or punctuation.
     return (any(c.isupper() for c in tok[1:]) or any(c.isdigit() for c in tok)
-            or "." in tok or "-" in tok or "_" in tok or len(tok) > 5)
+            or "." in tok or "-" in tok or "_" in tok)
 
 
 def other_names(all_passages, exclude_doc, rnd):
@@ -85,6 +87,31 @@ def other_names(all_passages, exclude_doc, rnd):
                      spec.CORRUPTIONS[-1]["pattern"].finditer(p["text"])
                      if looks_like_a_name(m.group(1)))
     return sorted(names)
+
+
+def corrupt_hard(text, rule, ctx, rnd):
+    """The classes that do not contradict the source. Ground truth stays exact
+    because the edit is still mechanical — what changes is that a model cannot
+    find it by spotting an inconsistency."""
+    if rule["id"] == "unsupported-addition":
+        cands = [s for s in ctx["foreign_sentences"] if 70 < len(s) < 240]
+        if not cands:
+            return None
+        add = rnd.choice(cands)
+        return text.rstrip() + " " + add, {"was": "(nothing)", "now": add[:60], "at": len(text)}
+    if rule["id"] == "entity-reassign":
+        names = [m.group(1) for m in spec.CORRUPTIONS[-1]["pattern"].finditer(text)
+                 if looks_like_a_name(m.group(1))]
+        uniq = sorted(set(names))
+        if len(uniq) < 2:
+            return None
+        a, b = rnd.sample(uniq, 2)
+        swapped = re.sub(rf"\b{re.escape(a)}\b", "\x00", text)
+        swapped = re.sub(rf"\b{re.escape(b)}\b", a, swapped).replace("\x00", b)
+        if swapped == text:
+            return None
+        return swapped, {"was": f"{a}/{b}", "now": f"{b}/{a}", "at": text.find(a)}
+    return corrupt(text, rule, ctx["names"], rnd)
 
 
 def corrupt(text, rule, pool, rnd):
@@ -134,23 +161,35 @@ def main():
         cases.append({"source": p["text"], "claim": p["text"], "answer": True,
                       "doc": p["doc"], "corruption": None,
                       "needs_defect_sight": False})
-        pool = other_names(ps, p["doc"], rnd)
-        for rule in spec.CORRUPTIONS:
-            got = corrupt(p["text"], rule, pool, rnd)
+        ctx = {"names": other_names(ps, p["doc"], rnd),
+               "foreign_sentences": [s for q in ps if q["doc"] != p["doc"]
+                                     for s in SENT.split(q["text"])]}
+        for rule in spec.CORRUPTIONS + spec.HARD_CORRUPTIONS:
+            hard = rule in spec.HARD_CORRUPTIONS
+            got = (corrupt_hard(p["text"], rule, ctx, rnd) if hard
+                   else corrupt(p["text"], rule, ctx["names"], rnd))
             if not got:
                 refused.append((p["doc"], rule["id"], "nothing of that kind in the passage"))
                 continue
             claim, note = got
             cases.append({"source": p["text"], "claim": claim, "answer": False,
                           "doc": p["doc"], "corruption": rule["id"],
+                          "difficulty": spec.DIFFICULTY[rule["id"]],
                           "change": note, "needs_defect_sight": True})
 
     # balance: one faithful case per passage against six corrupted ones would
     # make "FALSE" the winning constant answer. Trim corruptions to match.
     faithful = [c for c in cases if c["answer"]]
     broken = [c for c in cases if not c["answer"]]
+    # Keep the balance 50/50 AND keep the hard classes represented — trimming at
+    # random would let the easy classes dominate simply by applying more often.
+    hard = [c for c in broken if c["difficulty"] == "hard"]
+    easy = [c for c in broken if c["difficulty"] == "easy"]
+    rnd.shuffle(hard); rnd.shuffle(easy)
+    want = len(faithful)
+    broken = (hard[: max(want // 2, want - len(easy))] +
+              easy[: want - len(hard[: max(want // 2, want - len(easy))])])
     rnd.shuffle(broken)
-    broken = broken[:len(faithful)]
     cases = faithful + broken
     rnd.shuffle(cases)
     for i, c in enumerate(cases, 1):
@@ -158,9 +197,10 @@ def main():
         c["assert"] = spec.QUESTION.format(source=c["source"], claim=c["claim"])
 
     t = sum(1 for c in cases if c["answer"])
-    by = {}
+    by, by_diff = {}, {}
     for c in broken:
         by[c["corruption"]] = by.get(c["corruption"], 0) + 1
+        by_diff[c["difficulty"]] = by_diff.get(c["difficulty"], 0) + 1
     with open(os.path.join(HERE, "manifest.json"), "w") as f:
         json.dump({"task_type": "text-faithful", "version": 1,
                    "built": __import__("time").strftime("%Y-%m-%d"),
@@ -171,11 +211,13 @@ def main():
                    "cases": len(cases), "true": t, "false": len(cases) - t,
                    "defect_sight_cases": sum(1 for c in cases if c["needs_defect_sight"]),
                    "corruptions_used": by,
+                   "by_difficulty": by_diff,
                    "refused": len(refused),
                    "case_list": cases}, f, indent=1)
     print(f"{len(ps)} passages from {len({p['doc'] for p in ps})} documents")
     print(f"{len(cases)} cases · {t} true / {len(cases)-t} false · "
           f"{sum(1 for c in cases if c['needs_defect_sight'])} needing defect sight")
+    print("by difficulty:", ", ".join(f"{k} {v}" for k, v in sorted(by_diff.items())))
     print("corruption classes used:", ", ".join(f"{k} {v}" for k, v in sorted(by.items())))
     print(f"{len(refused)} class/passage pairs refused as inapplicable")
 

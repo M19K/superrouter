@@ -99,6 +99,83 @@ CORRUPTIONS = [
     },
 ]
 
+# ── harder classes ───────────────────────────────────────────────────────────
+# The classes above contradict the source, which is the easy half: a model only
+# has to notice two statements disagreeing. The real failure in distillation is
+# a claim that is perfectly TRUE and simply not supported by the passage in
+# front of it — nothing contradicts, so there is nothing to notice, and the
+# model has to check support rather than consistency.
+#
+# Every class here is still mechanical, so ground truth stays exact.
+HARD_CORRUPTIONS = [
+    {
+        "id": "unsupported-addition",
+        "what": "a true sentence from a DIFFERENT document is appended",
+        "why_it_matters": "the actual hallucination pattern — true, fluent, and "
+                          "not in the source. Nothing contradicts, so consistency "
+                          "checking finds nothing.",
+        "kind": "append",
+    },
+    {
+        "id": "plausible-drift",
+        "what": "a figure moves by 10–25%, not by an order of magnitude",
+        "why_it_matters": "an obviously wrong number is a typo; a nearly-right one "
+                          "survives review",
+        "pattern": re.compile(r"\b(\d[\d,]{0,8}(?:\.\d+)?)\b"),
+        "change": lambda m: _drift(m.group(1)),
+    },
+    {
+        "id": "qualifier-strip",
+        "what": "a hedge is deleted, turning a tendency into a rule",
+        "why_it_matters": "every word left on the page is true; the claim is not",
+        "pattern": re.compile(r"\b(usually|often|generally|typically|roughly|about|"
+                              r"nearly|almost|mostly|sometimes|largely|broadly)\s+",
+                              re.I),
+        "change": lambda m: "",
+    },
+    {
+        "id": "scope-widen",
+        "what": "a claim about one thing is restated about all of them",
+        "why_it_matters": "the sentence stays true of the original subject and "
+                          "becomes false as stated",
+        "pattern": re.compile(r"\b(this|that|one|a single|the) (project|run|feed|"
+                              r"agent|model|file|note|source|entry|check|job)\b", re.I),
+        "change": lambda m: f"every {m.group(2)}",
+    },
+    {
+        "id": "entity-reassign",
+        "what": "two names inside the passage swap places",
+        "why_it_matters": "both facts are in the source and both are now attached "
+                          "to the wrong subject",
+        "kind": "swap-within",
+    },
+]
+
+DIFFICULTY = {c["id"]: "easy" for c in CORRUPTIONS}
+DIFFICULTY.update({c["id"]: "hard" for c in HARD_CORRUPTIONS})
+
+
+def _drift(num):
+    """Move a figure by a plausible amount, keeping its shape."""
+    clean = num.replace(",", "")
+    try:
+        v = float(clean)
+    except ValueError:
+        return None
+    if v == 0:
+        return None
+    new = v * 1.18 if v >= 4 else v + 1
+    if "." in clean:
+        out = f"{new:.1f}"
+    else:
+        out = str(int(round(new)))
+        if int(out) == int(v):
+            out = str(int(v) + 1)
+    if out == clean:
+        return None
+    return f"{int(out):,}" if "," in num and "." not in out else out
+
+
 QUESTION = ("Read the source, then the claim.\n\n"
             "SOURCE:\n{source}\n\n"
             "CLAIM:\n{claim}\n\n"

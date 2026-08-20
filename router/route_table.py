@@ -99,14 +99,28 @@ def main():
         a1, a2 = cfg["axes"][0][0], cfg["axes"][1][0]
         print(f"   reference {ref['model']}: {a1} {ref[a1]}%, "
               f"{a2.replace('_',' ')} {ref[a2]}%, ${ref['cost_usd']:.5f}/run")
-        # A golden set that cannot separate the pool is not measuring it. Say so
-        # here rather than letting a wide interval read as a strong result.
+        # Many survivors mean one of two very different things, and calling both
+        # a warning would be wrong. Either several models are genuinely tied at
+        # the top — in which case picking the cheapest is exactly right and the
+        # evidence is strong — or the set is too small or too easy to tell them
+        # apart, in which case the pick is weakly evidenced. The difference is
+        # whether the survivors actually score well, not how many there are.
         share = len(ok) / max(1, len(rows) - 1)
         if share >= 0.6:
-            print(f"   ⚠ this set does not discriminate: {len(ok)} of "
-                  f"{len(rows)-1} candidates survive the test. Whatever it picks "
-                  f"is weakly\n     evidenced. Harden the set or add cases before "
-                  f"trusting the choice.")
+            a1 = cfg["axes"][0][0]
+            tied = [r for r in ok if r[a1] >= ref[a1] - 3]
+            widest = max((r[cfg["axes"][0][1]][1] - r[cfg["axes"][0][1]][0])
+                         for r in ok)
+            if len(tied) >= 2 and widest <= 25:
+                print(f"   ✓ {len(tied)} models are genuinely tied with the "
+                      f"reference on {a1}. Picking the cheapest is the\n"
+                      f"     right call and the evidence is strong — this is what "
+                      f"routing is for.")
+            else:
+                print(f"   ⚠ this set does not discriminate: {len(ok)} of "
+                      f"{len(rows)-1} candidates survive and the intervals are "
+                      f"{widest} points wide.\n     Whatever it picks is weakly "
+                      f"evidenced. Harden the set or add cases first.")
         print(f"   ROUTE TO  {pick['model']}  ${pick['cost_usd']:.5f}/run", end="")
         if pick["model"] != ref["model"]:
             print(f"  — {ref['cost_usd']/pick['cost_usd']:.0f}× cheaper, "

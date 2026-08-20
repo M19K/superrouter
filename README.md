@@ -148,7 +148,7 @@ Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
 | `golden/qa-vision/spec.py` | the judging set as a declaration: states × defect classes |
 | `golden/qa-vision/build.py` | renders it to frames + manifest, gated on pixel change |
 | `golden/qa-point/build.py` | the pointing set: targets with exact rectangles from the DOM |
-| `golden/text-faithful/spec.py` | the text set: 6 mechanical corruption classes |
+| `golden/text-faithful/spec.py` | the text set: 11 corruption classes, easy and hard |
 | `golden/text-faithful/build.py` | verbatim passages from real documents, one planted falsehood each |
 | `router/pool.py` | indexes the live OpenRouter pool |
 | `router/evals.py` | scores judging — catch, false alarms, refusals, intervals |
@@ -171,11 +171,11 @@ Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
   scoring live would confuse a worse model with a changed page.
 - **Coordinate convention is calibrated once per model over a whole run**, never
   per case — per-case repair hands the model two guesses.
-- **A set that admits everyone is not measuring.** When more than 60% of the
-  pool survives the non-inferiority test, the tooling says so rather than
-  letting a wide interval read as a strong result. The text set currently
-  triggers this: mechanical corruptions are easy to spot, and the next iteration
-  is claims that are *true but unsupported* rather than contradicted.
+- **Many survivors mean one of two opposite things, and the tooling tells them
+  apart.** Either several models are genuinely tied at the top — then picking
+  the cheapest is exactly right — or the set is too easy or too small to
+  separate them, and the pick is weakly evidenced. The difference is whether the
+  survivors actually score well, not how many there are.
 - **Price is not cost.** One 1280×800 screenshot billed 1,857 input tokens where
   two documented estimation methods predicted 1,020 and 1,150. Cost per task is
   read back from the provider, never estimated.
