@@ -1,0 +1,4907 @@
+{
+ "task_type": "qa-vision-assert",
+ "generator": "generic (role-targeted)",
+ "product": "portfolio",
+ "origin": "http://localhost:8934/",
+ "built": "2026-08-19",
+ "states": [
+  {
+   "id": "portfolio-desktop-dark-0",
+   "viewport": "desktop",
+   "theme": "dark",
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 5,
+    "labels": 5,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-desktop-dark-1",
+   "viewport": "desktop",
+   "theme": "dark",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 5,
+    "labels": 5,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-desktop-dark-2",
+   "viewport": "desktop",
+   "theme": "dark",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 5,
+    "labels": 3,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 0
+   }
+  },
+  {
+   "id": "portfolio-desktop-light-0",
+   "viewport": "desktop",
+   "theme": "light",
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 5,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-desktop-light-1",
+   "viewport": "desktop",
+   "theme": "light",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 5,
+    "labels": 5,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-desktop-light-2",
+   "viewport": "desktop",
+   "theme": "light",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 10,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-mobile-dark-0",
+   "viewport": "mobile",
+   "theme": "dark",
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 5,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-mobile-dark-1",
+   "viewport": "mobile",
+   "theme": "dark",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 5,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 0
+   }
+  },
+  {
+   "id": "portfolio-mobile-dark-2",
+   "viewport": "mobile",
+   "theme": "dark",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 10,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-mobile-light-0",
+   "viewport": "mobile",
+   "theme": "light",
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 5,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-mobile-light-1",
+   "viewport": "mobile",
+   "theme": "light",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 5,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 0
+   }
+  },
+  {
+   "id": "portfolio-mobile-light-2",
+   "viewport": "mobile",
+   "theme": "light",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 10,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-tablet-dark-0",
+   "viewport": "tablet",
+   "theme": "dark",
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 5,
+    "labels": 7,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-tablet-dark-1",
+   "viewport": "tablet",
+   "theme": "dark",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 5,
+    "labels": 7,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-tablet-dark-2",
+   "viewport": "tablet",
+   "theme": "dark",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 10,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-tablet-light-0",
+   "viewport": "tablet",
+   "theme": "light",
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 5,
+    "labels": 7,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-tablet-light-1",
+   "viewport": "tablet",
+   "theme": "light",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 5,
+    "labels": 7,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "portfolio-tablet-light-2",
+   "viewport": "tablet",
+   "theme": "light",
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 10,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 1,
+    "footer-text": 1
+   }
+  }
+ ],
+ "cases": 462,
+ "true": 231,
+ "false": 231,
+ "defect_sight_cases": 213,
+ "refused": [
+  [
+   "portfolio-desktop-dark-1",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-1",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-1",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-1",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "faint-nav",
+   "mutation did not apply"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "covered-control",
+   "mutation did not apply"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "type-drift",
+   "mutation did not apply"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "missing-items",
+   "mutation did not apply"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "hidden-image",
+   "mutation did not apply"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-desktop-dark-2",
+   "dark-band",
+   "no footer-text on this screen"
+  ],
+  [
+   "portfolio-desktop-light-0",
+   "covered-control",
+   "mutation did not apply"
+  ],
+  [
+   "portfolio-desktop-light-1",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-light-1",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-light-1",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-light-1",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-desktop-light-2",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-light-2",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-light-2",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-desktop-light-2",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-1",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-1",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-1",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-1",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-1",
+   "dark-band",
+   "no footer-text on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-2",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-2",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-2",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-dark-2",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-mobile-light-1",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-light-1",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-light-1",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-light-1",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-mobile-light-1",
+   "dark-band",
+   "no footer-text on this screen"
+  ],
+  [
+   "portfolio-mobile-light-2",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-light-2",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-light-2",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-mobile-light-2",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-1",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-1",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-1",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-1",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-2",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-2",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-2",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-dark-2",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-tablet-light-1",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-light-1",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-light-1",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-light-1",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "portfolio-tablet-light-2",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-light-2",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-light-2",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "portfolio-tablet-light-2",
+   "overlapping-text",
+   "no subhead on this screen"
+  ]
+ ],
+ "case_list": [
+  {
+   "frame": "portfolio-desktop-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G001"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G002"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__faint-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G003"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G004"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G005"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G006"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G007"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G008"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G009"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G010"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G011"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G012"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G013"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G014"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__clipped-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G015"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G016"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G017"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G018"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G019"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G020"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G021"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G022"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G023"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G024"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G025"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G026"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G027"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G028"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G029"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G030"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G031"
+  },
+  {
+   "frame": "portfolio-desktop-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G032"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G033"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G034"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G035"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G036"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G037"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G038"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G039"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G040"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G041"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G042"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G043"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G044"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G045"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G046"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G047"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G048"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G049"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G050"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G051"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G052"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G053"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G054"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G055"
+  },
+  {
+   "frame": "portfolio-desktop-dark-1__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G056"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G057"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G058"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G059"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G060"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G061"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G062"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G063"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G064"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G065"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G066"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G067"
+  },
+  {
+   "frame": "portfolio-desktop-dark-2__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G068"
+  },
+  {
+   "frame": "portfolio-desktop-light-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G069"
+  },
+  {
+   "frame": "portfolio-desktop-light-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G070"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__faint-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G071"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G072"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G073"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G074"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G075"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G076"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G077"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G078"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G079"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G080"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__clipped-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G081"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G082"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G083"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G084"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G085"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G086"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G087"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G088"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G089"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G090"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G091"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G092"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G093"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G094"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G095"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G096"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G097"
+  },
+  {
+   "frame": "portfolio-desktop-light-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G098"
+  },
+  {
+   "frame": "portfolio-desktop-light-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G099"
+  },
+  {
+   "frame": "portfolio-desktop-light-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G100"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G101"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G102"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G103"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G104"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G105"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G106"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G107"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G108"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G109"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G110"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G111"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G112"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G113"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G114"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G115"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G116"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G117"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G118"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G119"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G120"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G121"
+  },
+  {
+   "frame": "portfolio-desktop-light-1__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G122"
+  },
+  {
+   "frame": "portfolio-desktop-light-2",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G123"
+  },
+  {
+   "frame": "portfolio-desktop-light-2",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G124"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G125"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G126"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G127"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G128"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G129"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G130"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__missing-items",
+   "assert": "The navigation along the top shows 10 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G131"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G132"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G133"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G134"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G135"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G136"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G137"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G138"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G139"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G140"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G141"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G142"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G143"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G144"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G145"
+  },
+  {
+   "frame": "portfolio-desktop-light-2__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G146"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G147"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G148"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__faint-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G149"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G150"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G151"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G152"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G153"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G154"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G155"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G156"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G157"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G158"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G159"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G160"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__clipped-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G161"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G162"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G163"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G164"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G165"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G166"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G167"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G168"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G169"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G170"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G171"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G172"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G173"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G174"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G175"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G176"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G177"
+  },
+  {
+   "frame": "portfolio-mobile-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G178"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G179"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G180"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G181"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G182"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G183"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G184"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G185"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G186"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G187"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G188"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G189"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G190"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G191"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G192"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G193"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G194"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G195"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G196"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G197"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G198"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G199"
+  },
+  {
+   "frame": "portfolio-mobile-dark-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G200"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G201"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G202"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G203"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G204"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G205"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G206"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G207"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G208"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__missing-items",
+   "assert": "The navigation along the top shows 10 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G209"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G210"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G211"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G212"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G213"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G214"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G215"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G216"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G217"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G218"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G219"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G220"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G221"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G222"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G223"
+  },
+  {
+   "frame": "portfolio-mobile-dark-2__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G224"
+  },
+  {
+   "frame": "portfolio-mobile-light-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G225"
+  },
+  {
+   "frame": "portfolio-mobile-light-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G226"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__faint-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G227"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G228"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G229"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G230"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G231"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G232"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G233"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G234"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G235"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G236"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G237"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G238"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__clipped-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G239"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G240"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G241"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G242"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G243"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G244"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G245"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G246"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G247"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G248"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G249"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G250"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G251"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G252"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G253"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G254"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G255"
+  },
+  {
+   "frame": "portfolio-mobile-light-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G256"
+  },
+  {
+   "frame": "portfolio-mobile-light-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G257"
+  },
+  {
+   "frame": "portfolio-mobile-light-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G258"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G259"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G260"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G261"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G262"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G263"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G264"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G265"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G266"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G267"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G268"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G269"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G270"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G271"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G272"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G273"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G274"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G275"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G276"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G277"
+  },
+  {
+   "frame": "portfolio-mobile-light-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G278"
+  },
+  {
+   "frame": "portfolio-mobile-light-2",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G279"
+  },
+  {
+   "frame": "portfolio-mobile-light-2",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G280"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G281"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G282"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G283"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G284"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G285"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G286"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__missing-items",
+   "assert": "The navigation along the top shows 10 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G287"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G288"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G289"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G290"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G291"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G292"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G293"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G294"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G295"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G296"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G297"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G298"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G299"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G300"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G301"
+  },
+  {
+   "frame": "portfolio-mobile-light-2__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G302"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G303"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G304"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__faint-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G305"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G306"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G307"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G308"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G309"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G310"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G311"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G312"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G313"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G314"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G315"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G316"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__clipped-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G317"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G318"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G319"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G320"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G321"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G322"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G323"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G324"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G325"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G326"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G327"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G328"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G329"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G330"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G331"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G332"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G333"
+  },
+  {
+   "frame": "portfolio-tablet-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G334"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G335"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G336"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G337"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G338"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G339"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G340"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G341"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G342"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G343"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G344"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G345"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G346"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G347"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G348"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G349"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G350"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G351"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G352"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G353"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G354"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G355"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G356"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G357"
+  },
+  {
+   "frame": "portfolio-tablet-dark-1__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G358"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G359"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G360"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G361"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G362"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G363"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G364"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G365"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G366"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__missing-items",
+   "assert": "The navigation along the top shows 10 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G367"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G368"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G369"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G370"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G371"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G372"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G373"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G374"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G375"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G376"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G377"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G378"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G379"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G380"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G381"
+  },
+  {
+   "frame": "portfolio-tablet-dark-2__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G382"
+  },
+  {
+   "frame": "portfolio-tablet-light-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G383"
+  },
+  {
+   "frame": "portfolio-tablet-light-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G384"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__faint-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G385"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G386"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G387"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G388"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G389"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G390"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G391"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G392"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G393"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G394"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G395"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G396"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__clipped-text",
+   "assert": "The heading reading \u201cProduct, systems, and the thing betwee\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G397"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G398"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G399"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G400"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G401"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G402"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G403"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G404"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G405"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G406"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G407"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G408"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G409"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G410"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G411"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G412"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G413"
+  },
+  {
+   "frame": "portfolio-tablet-light-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G414"
+  },
+  {
+   "frame": "portfolio-tablet-light-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G415"
+  },
+  {
+   "frame": "portfolio-tablet-light-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G416"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G417"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G418"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G419"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G420"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G421"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G422"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__missing-items",
+   "assert": "The navigation along the top shows 5 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G423"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G424"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G425"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G426"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G427"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G428"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G429"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G430"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G431"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G432"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G433"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G434"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G435"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G436"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G437"
+  },
+  {
+   "frame": "portfolio-tablet-light-1__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G438"
+  },
+  {
+   "frame": "portfolio-tablet-light-2",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G439"
+  },
+  {
+   "frame": "portfolio-tablet-light-2",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G440"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__faint-nav",
+   "assert": "Every navigation item along the top of the page is legible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-nav",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "nav-links",
+   "id": "G441"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__faint-nav",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-nav",
+   "control_for": "faint-nav",
+   "id": "G442"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__covered-control",
+   "assert": "The button labelled or marked \u201cSend\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G443"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G444"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__type-drift",
+   "assert": "All of the navigation items along the top are set at roughly the same text size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "type-drift",
+   "qa_layer": "1 \u00b7 opting out of the scale",
+   "role": "nav-links",
+   "id": "G445"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__type-drift",
+   "assert": "There is more than one navigation item along the top of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "type-drift",
+   "control_for": "type-drift",
+   "id": "G446"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__missing-items",
+   "assert": "The navigation along the top shows 10 separate items.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G447"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__missing-items",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G448"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__hidden-image",
+   "assert": "A large picture or graphic is visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "hidden-image",
+   "qa_layer": "1 \u00b7 silently resolves to nothing",
+   "role": "image",
+   "id": "G449"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__hidden-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "hidden-image",
+   "control_for": "hidden-image",
+   "id": "G450"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__squashed-image",
+   "assert": "The large picture on this screen has natural proportions and is not squashed sideways.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "squashed-image",
+   "qa_layer": "3 \u00b7 visual consistency",
+   "role": "image",
+   "id": "G451"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__squashed-image",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "squashed-image",
+   "control_for": "squashed-image",
+   "id": "G452"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G453"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G454"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G455"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G456"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__duplicated-nav",
+   "assert": "Each navigation item along the top appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G457"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__duplicated-nav",
+   "assert": "There is at least one item in the navigation along the top.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G458"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G459"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G460"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G461"
+  },
+  {
+   "frame": "portfolio-tablet-light-2__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G462"
+  }
+ ]
+}
