@@ -280,6 +280,25 @@ Every routed call is logged with what it cost and what the reference would have
 cost, so the saving stops being a claim from a benchmark and becomes a number
 from production.
 
+### Shadow mode — how it stays honest after the day it was measured
+
+```bash
+python3 -m superrouter.serve --shadow 20   # one call in 20 also goes to the reference
+python3 -m superrouter.shadow              # read it back
+```
+
+A golden set measures the day it ran. Models are updated under the same name,
+prices move weekly, and real traffic drifts away from whatever the set captured —
+measured here, the same model was **22 points worse** on a product it had not
+been measured on. Shadow mode is the only thing that notices while it is
+happening.
+
+The caller is unaffected: it still gets the cheap model's answer at the cheap
+model's latency, and the probe runs off the response path. `shadow` then reports
+agreement with an interval, the real saving including what shadowing itself
+cost, and **says plainly when the sample is too small to be a verdict** rather
+than printing a confident percentage over five calls.
+
 **It runs on loopback and ships no remote mode.** It sits between the agent and
 the provider, which is the most sensitive position in the stack — every prompt
 and the key pass through it. On the user's own machine with the user's own key,

@@ -31,6 +31,22 @@ and it is why this ships as a local process with no remote mode.
 **Every routed call is logged** — task, model, cost, latency, and what the
 reference model would have cost. That log is how the saving stops being a claim
 from a benchmark and becomes a number from production.
+
+**Shadow mode is how it stays honest after the day it was measured.** With
+`--shadow N`, one call in every N is *also* sent to the reference model and the
+two answers are compared. Nothing about the response changes — the caller still
+gets the cheap model's answer at the cheap model's latency — but the log gains a
+running agreement rate.
+
+That matters because a benchmark measures the day it ran. Models are updated
+under the same name, prices move weekly, and the traffic a product actually
+sends drifts away from whatever the golden set captured. Measured here across
+two products: the same model can be 22 points worse on work it was not measured
+on. Shadow mode is the only thing that notices that while it is happening rather
+than at the next re-measurement.
+
+`python3 -m superrouter.shadow` reads the log back and says whether the saving
+is real and whether agreement is holding.
 """
 import argparse
 import json
@@ -103,7 +119,36 @@ def infer_task(body):
 class Handler(BaseHTTPRequestHandler):
     table = {}
     upstream_key = None
+    shadow_every = 0
+    counter = 0
     lock = threading.Lock()
+
+    def _shadow(self, body, task, routed, answer):
+        """Ask the reference the same question, off the response path. The
+        caller has already been served — this costs latency nobody waits on."""
+        ref = self.table[task]["reference"]
+        probe = dict(body)
+        probe["model"] = ref
+        probe["usage"] = {"include": True}
+        url, ko, wire = endpoint_for(ref)
+        probe["model"] = wire
+        req = urllib.request.Request(url, data=json.dumps(probe).encode(), headers={
+            "Authorization": f"Bearer {ko or self.upstream_key}",
+            "Content-Type": "application/json", "X-Title": "superrouter-shadow"})
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                raw = r.read().decode("utf-8", "replace")
+            d = json.loads("\n".join(l for l in raw.splitlines()
+                                     if not l.startswith(":")).strip())
+        except Exception as e:
+            return {"shadow_error": str(e)[:120]}
+        ref_text = ((d.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+        # Agreement is judged on the answer, not on the wording — two models can
+        # say TRUE in different sentences and that is not a disagreement.
+        norm = lambda t: "".join(ch for ch in (t or "").upper() if ch.isalnum())[:12]
+        return {"shadow_model": ref, "shadow_cost": float((d.get("usage") or {}).get("cost") or 0),
+                "agreed": norm(ref_text) == norm(answer),
+                "shadow_said": ref_text[:60], "routed_said": (answer or "")[:60]}
 
     def log_message(self, *a):
         pass                                    # the run log is the record
@@ -185,27 +230,37 @@ class Handler(BaseHTTPRequestHandler):
 
         headers = {}
         if routed:
+            answer = ((out.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
             entry = self.table[task]
             cost = float((out.get("usage") or {}).get("cost") or 0)
             headers = {"X-SuperRouter-Task": task,
                        "X-SuperRouter-Model": routed,
                        "X-SuperRouter-Reference": entry["reference"]}
+            rec = {"ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                   "task": task, "asked": asked, "model": routed,
+                   "inferred": asked.endswith("/auto"),
+                   "cost_usd": cost, "seconds": round(took, 2),
+                   "reference": entry["reference"],
+                   "reference_cost_estimate": entry["reference_cost_per_case"]}
+            with self.lock:
+                Handler.counter += 1
+                due = self.shadow_every and Handler.counter % self.shadow_every == 0
+            if due:
+                rec.update(self._shadow(body, task, routed, answer))
+                headers["X-SuperRouter-Shadow"] = str(rec.get("agreed"))
             with self.lock:
                 with open(LOG, "a") as f:
-                    f.write(json.dumps({
-                        "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
-                        "task": task, "asked": asked, "model": routed,
-                        "inferred": asked.endswith("/auto"),
-                        "cost_usd": cost, "seconds": round(took, 2),
-                        "reference": entry["reference"],
-                        "reference_cost_estimate": entry["reference_cost_per_case"],
-                    }) + "\n")
+                    f.write(json.dumps(rec) + "\n")
         self._send(200, out, headers)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=8787)
+    ap.add_argument("--shadow", type=int, default=0, metavar="N",
+                    help="also send one call in every N to the reference model and "
+                         "record whether they agreed. 0 disables. Off the response "
+                         "path, so it costs no latency the caller waits on.")
     ap.add_argument("--host", default="127.0.0.1",
                     help="loopback only by default — see the note on why this "
                          "does not ship a remote mode")
@@ -214,6 +269,7 @@ def main():
     from .evals import key
     Handler.table = build_table()
     Handler.upstream_key = key()
+    Handler.shadow_every = a.shadow
     if not Handler.table:
         raise SystemExit("no measurements yet — run the ladders first")
 
@@ -226,6 +282,9 @@ def main():
         print(f"  superrouter/{t:<8} {v['model']:<44} {note:>19}")
     print(f"\n  superrouter/auto     picks by looking at the request, and says which "
           f"task it chose\n  anything else        passes through untouched")
+    if a.shadow:
+        print(f"\n  shadow: 1 call in {a.shadow} is also sent to the reference and "
+              f"compared\n          — `python3 -m superrouter.shadow` reads it back")
     print(f"\n  routed calls logged to {LOG}")
     ThreadingHTTPServer((a.host, a.port), Handler).serve_forever()
 
