@@ -258,3 +258,30 @@ produced, not yet served.
 
 Not yet licensed. Intended for release under MIT or Apache-2.0 once the protocol
 is finished. Until then, all rights reserved.
+
+## Serve it
+
+```bash
+python3 -m superrouter.serve --port 8787
+export OPENAI_BASE_URL=http://localhost:8787/v1
+```
+
+The agent declares what it is doing in the model name:
+
+| model asked for | what happens |
+|---|---|
+| `superrouter/qa-vision-assert` | routed to the model measured to hold quality on judging |
+| `superrouter/qa-vision-point` | routed to the model measured to hold quality on clicking |
+| `superrouter/text-faithful` | routed to the model measured to hold quality on faithfulness |
+| `superrouter/auto` | inferred from the request, and the choice is returned in `X-SuperRouter-Task` |
+| anything else | passed through untouched |
+
+Every routed call is logged with what it cost and what the reference would have
+cost, so the saving stops being a claim from a benchmark and becomes a number
+from production.
+
+**It runs on loopback and ships no remote mode.** It sits between the agent and
+the provider, which is the most sensitive position in the stack — every prompt
+and the key pass through it. On the user's own machine with the user's own key,
+nothing leaves that was not already leaving. Hosted, it would be a credential
+and prompt funnel for everyone using it.

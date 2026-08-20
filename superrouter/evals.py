@@ -62,6 +62,22 @@ FRAMES = os.path.join(GOLDEN, "frames")
 RUNS = TASKS["qa-vision-assert"]["runs"]
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 
+# A model that is not on OpenRouter is still a model the vault routes to. The
+# QA protocol drives Midscene against Ollama on this machine, so the pool has to
+# reach a local endpoint or it cannot measure the engine the vault actually runs.
+# Prefix a model with `local/` to send it there; it costs nothing per call and
+# needs no credential.
+LOCAL_BASE = os.environ.get("LOCAL_MODEL_BASE_URL", "http://localhost:11434/v1")
+
+
+def endpoint_for(model):
+    """Returns (url, api_key_override, wire_name). Local models bill nothing and
+    Ollama ignores the key's value but requires the header to exist."""
+    if model.startswith("local/"):
+        return (LOCAL_BASE.rstrip("/") + "/chat/completions",
+                "ollama-local-no-key-needed", model[len("local/"):])
+    return ENDPOINT, None, model
+
 # The statement is presented the way Midscene presents one: an assertion about
 # what is on screen, answered with a single word. No chain of thought is asked
 # for, because the real workload does not ask for one and paying for reasoning
@@ -119,8 +135,9 @@ TRANSPORT_FAULTS = (urllib.error.HTTPError, urllib.error.URLError,
 def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
     """One call. `usage.include` makes OpenRouter return what it actually
     charged, so cost is a reading rather than an estimate."""
+    url, key_override, wire = endpoint_for(model)
     body = json.dumps({
-        "model": model,
+        "model": wire,
         "max_tokens": 2000,
         "temperature": 0,
         "usage": {"include": True},
@@ -131,8 +148,8 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
              if image_b64 else [])
         )}],
     }).encode()
-    req = urllib.request.Request(ENDPOINT, data=body, headers={
-        "Authorization": f"Bearer {api_key}",
+    req = urllib.request.Request(url, data=body, headers={
+        "Authorization": f"Bearer {key_override or api_key}",
         "Content-Type": "application/json",
         "X-Title": "superrouter-evals",
     })
@@ -161,6 +178,7 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
     msg = (d.get("choices") or [{}])[0].get("message") or {}
     usage = d.get("usage") or {}
     return {
+        "local": model.startswith("local/"),
         "text": (msg.get("content") or "").strip(),
         "cost": float(usage.get("cost") or 0),
         "in_tokens": usage.get("prompt_tokens"),

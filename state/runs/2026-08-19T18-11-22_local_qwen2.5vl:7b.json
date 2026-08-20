@@ -1,0 +1,86 @@
+{
+ "summary": {
+  "model": "local/qwen2.5vl:7b",
+  "cases": 3,
+  "usable": true,
+  "catch_ci": [
+   0.0,
+   0.0
+  ],
+  "false_alarm_ci": [
+   0,
+   66
+  ],
+  "defect_classes": 0,
+  "refusals": 0,
+  "refusal_pct": 0,
+  "catch_when_answered": 0,
+  "accuracy_when_answered": 100,
+  "defect_classes_missed_entirely": [],
+  "accuracy": 100,
+  "catch": 0,
+  "catch_n": "0/0",
+  "false_alarm": 0,
+  "false_alarm_n": "0/2",
+  "unparseable": 0,
+  "errors": 0,
+  "cost_usd": 0.0,
+  "cost_per_case_usd": 0.0,
+  "seconds": 84.0,
+  "seconds_per_case": 28.0,
+  "reasoning_tokens": 0
+ },
+ "results": [
+  {
+   "frame": "hero-dark",
+   "assert": "Small text appears at the very bottom-left of the page.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": null,
+   "id": "C001",
+   "said": true,
+   "raw": "TRUE",
+   "correct": true,
+   "cost": 0.0,
+   "seconds": 39.04,
+   "in_tokens": 1401,
+   "out_tokens": 2,
+   "reasoning_tokens": null
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "A wireframe sphere or globe is visible.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "group": "footer",
+   "defect": null,
+   "id": "C002",
+   "said": false,
+   "raw": "FALSE",
+   "correct": true,
+   "cost": 0.0,
+   "seconds": 27.56,
+   "in_tokens": 1398,
+   "out_tokens": 2,
+   "reasoning_tokens": null
+  },
+  {
+   "frame": "hero-dark",
+   "assert": "The large headline text is fully readable and not cut off.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "group": "headline",
+   "defect": null,
+   "id": "C003",
+   "said": true,
+   "raw": "TRUE",
+   "correct": true,
+   "cost": 0.0,
+   "seconds": 17.41,
+   "in_tokens": 1401,
+   "out_tokens": 2,
+   "reasoning_tokens": null
+  }
+ ]
+}
