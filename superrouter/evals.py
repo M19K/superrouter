@@ -327,6 +327,15 @@ def summarise(model, results, errors):
     # answers actually given (what the model can do when it does reply).
     answered = [r for r in results if r["said"] is not None]
     ans_defect = [r for r in answered if r["needs_defect_sight"]]
+    # A refusal on a healthy screen is NOT a false alarm. Measured 2026-08-21:
+    # z-ai/glm-5.2:free returned an empty string to every case and the headline
+    # read "false alarms 98%" — describing a model screaming about defects when
+    # it had in fact said nothing at all. Same shape as the shadow-mode bug: an
+    # instrument must never blame what it measures for its own failure to read
+    # an answer. So the failure-mode rates are computed over answers actually
+    # given, and refusals are reported as their own column, always.
+    ans_healthy = [r for r in healthy_ok if r["said"] is not None]
+    ans_alarms = sum(1 for r in ans_healthy if r["said"] is not True)
     cost = sum(r["cost"] for r in results)
     secs = sum(r["seconds"] for r in results)
     by_defect = {}
@@ -344,6 +353,10 @@ def summarise(model, results, errors):
         "defect_classes": len(by_defect),
         "refusals": unparsed,
         "refusal_pct": round(100 * unparsed / n) if n else 0,
+        "false_alarm_when_answered": (round(100 * ans_alarms / len(ans_healthy))
+                                      if ans_healthy else 0),
+        "answered_healthy": len(ans_healthy),
+        "answered_defect": len(ans_defect),
         "catch_when_answered": (round(100 * sum(r["correct"] for r in ans_defect)
                                       / len(ans_defect)) if ans_defect else 0),
         "accuracy_when_answered": (round(100 * sum(r["correct"] for r in answered)
@@ -472,17 +485,24 @@ def main():
         rows.append(s)
         with open(os.path.join(runs_dir, f"{stamp}_{model.replace('/', '_')}.json"), "w") as f:
             json.dump({"summary": s, "results": results}, f, indent=1)
-        print(f"  accuracy {s['accuracy']}%  catch {s['catch']}% ({s['catch_n']}, "
-              f"{s['catch_ci'][0]}-{s['catch_ci'][1]})  false alarms {s['false_alarm']}% "
-              f"({s['false_alarm_n']}, {s['false_alarm_ci'][0]}-{s['false_alarm_ci'][1]})  "
+        if s["refusal_pct"]:
+            print(f"  REFUSED {s['refusal_pct']}% of cases — gave no usable answer. "
+                  f"Rates below are over the {s['cases'] - s['refusals']} it did answer.")
+        print(f"  accuracy {s['accuracy']}%  catch {s['catch_when_answered']}% "
+              f"({s['answered_defect']} answered)  false alarms "
+              f"{s['false_alarm_when_answered']}% ({s['answered_healthy']} answered)  "
+              f"refused {s['refusal_pct']}%  "
               f"${s['cost_usd']:.5f}  {s['seconds']}s wall\n")
 
-    print(f"{'accuracy':>9} {'catch':>7} {'false alarm':>12} {'$ / run':>10} "
-          f"{'$ / case':>11} {'s / case':>9}  model")
-    for s in sorted(rows, key=lambda s: -s["accuracy"]):
-        print(f"{s['accuracy']:8}% {s['catch']:6}% {s['false_alarm']:11}% "
-              f"{s['cost_usd']:10.5f} {s['cost_per_case_usd']:11.7f} "
-              f"{s['seconds_per_case']:9.2f}  {s['model']}")
+    print(f"{'accuracy':>9} {'catch':>7} {'false alarm':>12} {'refused':>8} "
+          f"{'$ / run':>10} {'s / case':>9}  model")
+    print("  catch and false alarm are over answers actually GIVEN; a model that")
+    print("  refuses is disqualified by the refused column, not flattered by it.")
+    for s in sorted(rows, key=lambda s: (s["refusal_pct"], -s["accuracy"])):
+        flag = "  ← unusable" if s["refusal_pct"] >= 50 else ""
+        print(f"{s['accuracy']:8}% {s['catch_when_answered']:6}% "
+              f"{s['false_alarm_when_answered']:11}% {s['refusal_pct']:7}% "
+              f"{s['cost_usd']:10.5f} {s['seconds_per_case']:9.2f}  {s['model']}{flag}")
     print(f"\nrun records → {runs_dir}")
 
 
