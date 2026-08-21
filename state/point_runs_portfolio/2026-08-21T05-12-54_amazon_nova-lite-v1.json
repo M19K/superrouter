@@ -1,72 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "portfolio",
- "origin": "http://localhost:8934",
- "built": "2026-08-21",
- "cases": 30,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "amazon/nova-lite-v1",
+  "cases": 30,
+  "hit": 37,
+  "hit_ci": [
+   22,
+   54
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "11/30",
+  "wrong_thing": 23,
+  "wrong_thing_ci": [
+   12,
+   41
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "7/30",
+  "empty_space": 30,
+  "refused": 10,
+  "median_miss_px": 405,
+  "convention": "normalised",
+  "hits_absolute": 5,
+  "hits_normalised": 11,
+  "cost_usd": 0.002709,
+  "seconds_per_case": 1.8
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
@@ -193,7 +150,25 @@
      "h": 150
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    25.0,
+    26.0
+   ],
+   "raw": "25,26,114,54",
+   "cost": 0.0001125,
+   "seconds": 1.79,
+   "point_used": [
+    32.0,
+    20.8
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 59,
+   "_tally": {
+    "absolute": 5,
+    "normalised": 11
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -321,7 +296,21 @@
      "h": 150
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    194.0,
+    32.0
+   ],
+   "raw": "194,32",
+   "cost": 0.00011076,
+   "seconds": 1.48,
+   "point_used": [
+    248.32,
+    25.6
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 15
   },
   {
    "frame": "desktop-top-home",
@@ -449,7 +438,21 @@
      "h": 150
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": [
+    24.0,
+    960.0
+   ],
+   "raw": "24,960",
+   "cost": 0.00011076,
+   "seconds": 2.04,
+   "point_used": [
+    30.72,
+    768.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 731
   },
   {
    "frame": "desktop-top-home",
@@ -577,7 +580,14 @@
      "h": 150
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "outcome": "error",
+   "error": "[SSL: SSLV3_ALERT_BAD_RECORD_MAC] ssl/tls alert bad record mac (_ssl.c:2713)",
+   "cost": 0.0,
+   "seconds": 0.0,
+   "point_used": null,
+   "convention": "normalised",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -705,7 +715,21 @@
      "h": 150
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    100.0,
+    790.0
+   ],
+   "raw": "100,790",
+   "cost": 0.000111,
+   "seconds": 1.82,
+   "point_used": [
+    128.0,
+    632.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 600
   },
   {
    "frame": "desktop-top-home",
@@ -833,7 +857,21 @@
      "h": 150
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": [
+    328.0,
+    30.0
+   ],
+   "raw": "328,30",
+   "cost": 0.0001107,
+   "seconds": 1.67,
+   "point_used": [
+    419.84000000000003,
+    24.0
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 400
   },
   {
    "frame": "desktop-top-home",
@@ -961,7 +999,21 @@
      "h": 150
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": [
+    100.0,
+    760.0
+   ],
+   "raw": "100,760",
+   "cost": 0.00011106,
+   "seconds": 2.71,
+   "point_used": [
+    128.0,
+    608.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 577
   },
   {
    "frame": "desktop-top-home",
@@ -1089,7 +1141,21 @@
      "h": 150
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": [
+    248.0,
+    32.0
+   ],
+   "raw": "248,32,268,56",
+   "cost": 0.00011244,
+   "seconds": 4.71,
+   "point_used": [
+    317.44,
+    25.6
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 850
   },
   {
    "frame": "desktop-top-home",
@@ -1217,7 +1283,21 @@
      "h": 150
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": [
+    158.0,
+    24.0
+   ],
+   "raw": "158,24,188,51)",
+   "cost": 0.00011262,
+   "seconds": 2.17,
+   "point_used": [
+    202.24,
+    19.2
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 766
   },
   {
    "frame": "desktop-top-home",
@@ -1345,7 +1425,21 @@
      "h": 150
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    729.0,
+    362.0
+   ],
+   "raw": "729,362,590,555",
+   "cost": 0.0001128,
+   "seconds": 4.29,
+   "point_used": [
+    933.12,
+    289.59999999999997
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 168
   },
   {
    "frame": "desktop-top-home",
@@ -1473,7 +1567,21 @@
      "h": 150
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    732.0,
+    575.0
+   ],
+   "raw": "732,575, 888, 628",
+   "cost": 0.00011352,
+   "seconds": 2.78,
+   "point_used": [
+    936.96,
+    459.99999999999994
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 146
   },
   {
    "frame": "desktop-lower-home",
@@ -1601,7 +1709,21 @@
      "h": 150
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "said": [
+    24.0,
+    24.0
+   ],
+   "raw": "24,24,115,56",
+   "cost": 0.0001125,
+   "seconds": 1.88,
+   "point_used": [
+    30.72,
+    19.2
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 61
   },
   {
    "frame": "desktop-lower-home",
@@ -1729,7 +1851,21 @@
      "h": 150
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    192.0,
+    33.0
+   ],
+   "raw": "192,33",
+   "cost": 0.00011076,
+   "seconds": 1.42,
+   "point_used": [
+    245.76,
+    26.400000000000002
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 12
   },
   {
    "frame": "desktop-lower-home",
@@ -1857,7 +1993,21 @@
      "h": 150
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": [
+    25.0,
+    50.0
+   ],
+   "raw": "25,50",
+   "cost": 0.00011076,
+   "seconds": 1.34,
+   "point_used": [
+    32.0,
+    40.0
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 5
   },
   {
    "frame": "desktop-lower-home",
@@ -1985,7 +2135,21 @@
      "h": 150
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    24.0,
+    49.0
+   ],
+   "raw": "24,49",
+   "cost": 0.00011046,
+   "seconds": 1.41,
+   "point_used": [
+    30.72,
+    39.2
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 2
   },
   {
    "frame": "desktop-lower-home",
@@ -2113,7 +2277,15 @@
      "h": 150
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": null,
+   "raw": "Sorry, I can't provide details about the image file. I do no",
+   "cost": 0.00013476,
+   "seconds": 2.04,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2241,7 +2413,21 @@
      "h": 150
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": [
+    332.0,
+    30.0
+   ],
+   "raw": "332,30",
+   "cost": 0.0001107,
+   "seconds": 1.5,
+   "point_used": [
+    424.96000000000004,
+    24.0
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 405
   },
   {
    "frame": "desktop-lower-home",
@@ -2369,7 +2555,15 @@
      "h": 150
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": null,
+   "raw": "Sorry, I can't provide details about the image file. I do no",
+   "cost": 0.00013962,
+   "seconds": 1.87,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2497,7 +2691,21 @@
      "h": 150
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 0.000111,
+   "seconds": 2.78,
+   "point_used": [
+    819.2,
+    320.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 341
   },
   {
    "frame": "desktop-lower-home",
@@ -2625,7 +2833,21 @@
      "h": 150
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": [
+    24.0,
+    14.0
+   ],
+   "raw": "24,14,136,52",
+   "cost": 0.00011214,
+   "seconds": 1.27,
+   "point_used": [
+    30.72,
+    11.200000000000001
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 880
   },
   {
    "frame": "mobile-top-home",
@@ -2718,7 +2940,21 @@
      "h": 96
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    44.0,
+    25.0
+   ],
+   "raw": "44,25",
+   "cost": 5.328e-05,
+   "seconds": 1.11,
+   "point_used": [
+    17.16,
+    21.1
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 58
   },
   {
    "frame": "mobile-top-home",
@@ -2811,7 +3047,21 @@
      "h": 96
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    500.0,
+    33.0
+   ],
+   "raw": "500,33",
+   "cost": 5.322e-05,
+   "seconds": 0.83,
+   "point_used": [
+    195.0,
+    27.852
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 10
   },
   {
    "frame": "mobile-top-home",
@@ -2904,7 +3154,21 @@
      "h": 96
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": [
+    499.0,
+    804.0
+   ],
+   "raw": "499,804",
+   "cost": 5.346e-05,
+   "seconds": 1.15,
+   "point_used": [
+    194.61,
+    678.576
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 192
   },
   {
    "frame": "mobile-top-home",
@@ -2997,7 +3261,21 @@
      "h": 96
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": [
+    0.0,
+    844.0
+   ],
+   "raw": "0,844",
+   "cost": 5.292e-05,
+   "seconds": 1.0,
+   "point_used": [
+    0.0,
+    712.336
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 206
   },
   {
    "frame": "mobile-top-home",
@@ -3090,7 +3368,21 @@
      "h": 96
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    45.0,
+    749.0
+   ],
+   "raw": "45,749, 739, 819",
+   "cost": 5.55e-05,
+   "seconds": 1.52,
+   "point_used": [
+    17.55,
+    632.156
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 171
   },
   {
    "frame": "mobile-top-home",
@@ -3183,7 +3475,21 @@
      "h": 96
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    49.0,
+    821.0
+   ],
+   "raw": "49,821",
+   "cost": 5.334e-05,
+   "seconds": 1.84,
+   "point_used": [
+    19.11,
+    692.924
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 170
   },
   {
    "frame": "mobile-lower-home",
@@ -3276,7 +3582,21 @@
      "h": 96
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    39.0,
+    21.0
+   ],
+   "raw": "39,21, 341,40",
+   "cost": 5.52e-05,
+   "seconds": 2.08,
+   "point_used": [
+    15.21,
+    17.724
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 61
   },
   {
    "frame": "mobile-lower-home",
@@ -3369,7 +3689,21 @@
      "h": 96
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": [
+    744.0,
+    24.0
+   ],
+   "raw": "744,24",
+   "cost": 5.346e-05,
+   "seconds": 1.04,
+   "point_used": [
+    290.16,
+    20.256
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 105
   },
   {
    "frame": "mobile-lower-home",
@@ -3462,7 +3796,21 @@
      "h": 96
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": [
+    192.0,
+    796.0
+   ],
+   "raw": "192,796",
+   "cost": 5.346e-05,
+   "seconds": 0.98,
+   "point_used": [
+    74.88,
+    671.8240000000001
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 298
   },
   {
    "frame": "mobile-lower-home",
@@ -3555,7 +3903,21 @@
      "h": 96
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    39.0,
+    33.0
+   ],
+   "raw": "39,33,811,53",
+   "cost": 5.46e-05,
+   "seconds": 1.34,
+   "point_used": [
+    15.21,
+    27.852
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 788
   }
  ]
 }

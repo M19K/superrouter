@@ -1,72 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "portfolio",
- "origin": "http://localhost:8934",
- "built": "2026-08-21",
- "cases": 30,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "google/gemini-2.5-flash-lite",
+  "cases": 30,
+  "hit": 33,
+  "hit_ci": [
+   19,
+   51
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "10/30",
+  "wrong_thing": 40,
+  "wrong_thing_ci": [
+   25,
+   58
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "12/30",
+  "empty_space": 10,
+  "refused": 17,
+  "median_miss_px": 174,
+  "convention": "normalised",
+  "hits_absolute": 8,
+  "hits_normalised": 10,
+  "cost_usd": 0.006278,
+  "seconds_per_case": 2.13
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
@@ -193,7 +150,25 @@
      "h": 150
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    46.0,
+    49.0
+   ],
+   "raw": "46,49",
+   "cost": 0.000192,
+   "seconds": 2.04,
+   "point_used": [
+    58.879999999999995,
+    39.2
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 32,
+   "_tally": {
+    "absolute": 8,
+    "normalised": 10
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -321,7 +296,21 @@
      "h": 150
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    205.0,
+    34.0
+   ],
+   "raw": "205,34",
+   "cost": 0.0001918,
+   "seconds": 2.53,
+   "point_used": [
+    262.4,
+    27.200000000000003
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 28
   },
   {
    "frame": "desktop-top-home",
@@ -449,7 +438,21 @@
      "h": 150
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": [
+    328.0,
+    37.0
+   ],
+   "raw": "328,37",
+   "cost": 0.0001918,
+   "seconds": 1.75,
+   "point_used": [
+    419.84000000000003,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 391
   },
   {
    "frame": "desktop-top-home",
@@ -577,7 +580,21 @@
      "h": 150
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "said": [
+    36.0,
+    25.0
+   ],
+   "raw": "36,25",
+   "cost": 0.0001913,
+   "seconds": 2.26,
+   "point_used": [
+    46.08,
+    20.0
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 23
   },
   {
    "frame": "desktop-top-home",
@@ -705,7 +722,21 @@
      "h": 150
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    30.0,
+    40.0
+   ],
+   "raw": "30,40",
+   "cost": 0.0001914,
+   "seconds": 3.2,
+   "point_used": [
+    38.4,
+    32.0
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 13
   },
   {
    "frame": "desktop-top-home",
@@ -833,7 +864,21 @@
      "h": 150
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": [
+    300.0,
+    37.0
+   ],
+   "raw": "300,37",
+   "cost": 0.0001917,
+   "seconds": 2.59,
+   "point_used": [
+    384.0,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 364
   },
   {
    "frame": "desktop-top-home",
@@ -961,7 +1006,21 @@
      "h": 150
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": [
+    300.0,
+    37.0
+   ],
+   "raw": "300,37",
+   "cost": 0.0001918,
+   "seconds": 2.01,
+   "point_used": [
+    384.0,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 340
   },
   {
    "frame": "desktop-top-home",
@@ -1089,7 +1148,15 @@
      "h": 150
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": null,
+   "raw": "There is no button labelled \"Send\" on this page.",
+   "cost": 0.0001942,
+   "seconds": 2.12,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -1217,7 +1284,15 @@
      "h": 150
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": null,
+   "raw": "There is no box where you can type in this screenshot.",
+   "cost": 0.000194,
+   "seconds": 1.45,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -1345,7 +1420,21 @@
      "h": 150
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    800.0,
+    450.0
+   ],
+   "raw": "800,450",
+   "cost": 0.0001919,
+   "seconds": 5.47,
+   "point_used": [
+    1024.0,
+    360.0
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 58
   },
   {
    "frame": "desktop-top-home",
@@ -1473,7 +1562,21 @@
      "h": 150
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    776.0,
+    500.0
+   ],
+   "raw": "776,500",
+   "cost": 0.0001923,
+   "seconds": 3.08,
+   "point_used": [
+    993.28,
+    400.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 119
   },
   {
    "frame": "desktop-lower-home",
@@ -1601,7 +1704,21 @@
      "h": 150
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "said": [
+    38.0,
+    32.0
+   ],
+   "raw": "38,32",
+   "cost": 0.000192,
+   "seconds": 1.62,
+   "point_used": [
+    48.64,
+    25.6
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 42
   },
   {
    "frame": "desktop-lower-home",
@@ -1729,7 +1846,21 @@
      "h": 150
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    450.0,
+    37.0
+   ],
+   "raw": "450,37",
+   "cost": 0.0001918,
+   "seconds": 2.23,
+   "point_used": [
+    576.0,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 341
   },
   {
    "frame": "desktop-lower-home",
@@ -1857,7 +1988,21 @@
      "h": 150
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": [
+    32.0,
+    37.0
+   ],
+   "raw": "32,37",
+   "cost": 0.0001914,
+   "seconds": 2.07,
+   "point_used": [
+    40.96,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 14
   },
   {
    "frame": "desktop-lower-home",
@@ -1985,7 +2130,21 @@
      "h": 150
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    39.0,
+    32.0
+   ],
+   "raw": "39,32",
+   "cost": 0.0001913,
+   "seconds": 1.36,
+   "point_used": [
+    49.92,
+    25.6
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 23
   },
   {
    "frame": "desktop-lower-home",
@@ -2113,7 +2272,21 @@
      "h": 150
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": [
+    32.0,
+    23.0
+   ],
+   "raw": "32,23",
+   "cost": 0.0001914,
+   "seconds": 2.07,
+   "point_used": [
+    40.96,
+    18.4
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 21
   },
   {
    "frame": "desktop-lower-home",
@@ -2241,7 +2414,21 @@
      "h": 150
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": [
+    32.0,
+    23.0
+   ],
+   "raw": "32,23",
+   "cost": 0.0001913,
+   "seconds": 1.88,
+   "point_used": [
+    40.96,
+    18.4
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 28
   },
   {
    "frame": "desktop-lower-home",
@@ -2369,7 +2556,21 @@
      "h": 150
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": [
+    32.0,
+    22.0
+   ],
+   "raw": "32,22",
+   "cost": 0.0001914,
+   "seconds": 1.89,
+   "point_used": [
+    40.96,
+    17.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 20
   },
   {
    "frame": "desktop-lower-home",
@@ -2497,7 +2698,15 @@
      "h": 150
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": null,
+   "raw": "There is no button labelled \"Send\" on this webpage.",
+   "cost": 0.0001942,
+   "seconds": 2.28,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2625,7 +2834,21 @@
      "h": 150
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": [
+    225.0,
+    37.0
+   ],
+   "raw": "225,37",
+   "cost": 0.0001916,
+   "seconds": 2.01,
+   "point_used": [
+    288.0,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 712
   },
   {
    "frame": "mobile-top-home",
@@ -2718,7 +2941,21 @@
      "h": 96
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    45.0,
+    44.0
+   ],
+   "raw": "45,44",
+   "cost": 0.0002435,
+   "seconds": 2.51,
+   "point_used": [
+    17.55,
+    37.135999999999996
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 57
   },
   {
    "frame": "mobile-top-home",
@@ -2811,7 +3048,21 @@
      "h": 96
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    30.0,
+    30.0
+   ],
+   "raw": "30,30",
+   "cost": 0.0002429,
+   "seconds": 1.51,
+   "point_used": [
+    11.7,
+    25.32
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 174
   },
   {
    "frame": "mobile-top-home",
@@ -2904,7 +3155,15 @@
      "h": 96
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": null,
+   "raw": "There is no button labelled \"Send\" on this webpage.",
+   "cost": 0.0002457,
+   "seconds": 2.79,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-top-home",
@@ -2997,7 +3256,15 @@
      "h": 96
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": null,
+   "raw": "There is no text input box visible in the screenshot.",
+   "cost": 0.0002451,
+   "seconds": 1.38,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-top-home",
@@ -3090,7 +3357,21 @@
      "h": 96
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    740.0,
+    765.0
+   ],
+   "raw": "740,765",
+   "cost": 0.0002434,
+   "seconds": 1.64,
+   "point_used": [
+    288.6,
+    645.66
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 101
   },
   {
    "frame": "mobile-top-home",
@@ -3183,7 +3464,21 @@
      "h": 96
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    81.0,
+    834.0
+   ],
+   "raw": "81,834",
+   "cost": 0.0002434,
+   "seconds": 1.61,
+   "point_used": [
+    31.59,
+    703.896
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 157
   },
   {
    "frame": "mobile-lower-home",
@@ -3276,7 +3571,21 @@
      "h": 96
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    45.0,
+    40.0
+   ],
+   "raw": "45,40",
+   "cost": 0.0002435,
+   "seconds": 1.95,
+   "point_used": [
+    17.55,
+    33.76
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 57
   },
   {
    "frame": "mobile-lower-home",
@@ -3369,7 +3678,21 @@
      "h": 96
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": [
+    298.0,
+    34.0
+   ],
+   "raw": "298,34",
+   "cost": 0.0002433,
+   "seconds": 1.51,
+   "point_used": [
+    116.22,
+    28.696
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 70
   },
   {
    "frame": "mobile-lower-home",
@@ -3462,7 +3785,21 @@
      "h": 96
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": [
+    315.0,
+    35.0
+   ],
+   "raw": "315,35",
+   "cost": 0.0002433,
+   "seconds": 1.9,
+   "point_used": [
+    122.85,
+    29.540000000000003
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 800
   },
   {
    "frame": "mobile-lower-home",
@@ -3555,7 +3892,21 @@
      "h": 96
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    275.0,
+    37.0
+   ],
+   "raw": "275,37",
+   "cost": 0.0002431,
+   "seconds": 1.3,
+   "point_used": [
+    107.25000000000001,
+    31.227999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 770
   }
  ]
 }

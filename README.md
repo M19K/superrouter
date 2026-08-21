@@ -295,6 +295,26 @@ text alone merged our 140 cases into **25** groups and discarded 115 labels. The
 query therefore carries its frame: `[hub-dark] every section label is legible…`.
 General to any multimodal routing corpus.
 
+## Pointing does not transfer at all
+
+The same two-product experiment, run on the pointing sets:
+
+| | judging | pointing |
+|---|---|---|
+| rank correlation between products | **0.83** | **0.49** |
+| how models moved | all in the same direction, median −22 | **different directions**, −4 to +43 |
+| ranking | broadly held | scrambled — 1st→4th, 4th→1st |
+
+Judging quality is portable in *order* if not in level. **Pointing quality is not
+portable at all.** A model that clicks well on one product tells you close to
+nothing about another, which makes a published leaderboard nearly useless for
+any agent that has to drive rather than watch.
+
+*Caveat stated because it is load-bearing: on one of the two products the top
+four models are within 4 points of each other on 30 targets, so that half of the
+comparison separates almost nobody. The conclusion rests on the direction and
+spread of the changes, not on the exact correlation.*
+
 ## Staying current
 
 A measurement describes the day it was taken, and four things move underneath it.

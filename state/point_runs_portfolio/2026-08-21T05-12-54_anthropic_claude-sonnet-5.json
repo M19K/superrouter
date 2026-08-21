@@ -1,72 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "portfolio",
- "origin": "http://localhost:8934",
- "built": "2026-08-21",
- "cases": 30,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "anthropic/claude-sonnet-5",
+  "cases": 30,
+  "hit": 37,
+  "hit_ci": [
+   22,
+   54
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "11/30",
+  "wrong_thing": 7,
+  "wrong_thing_ci": [
+   2,
+   21
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "2/30",
+  "empty_space": 23,
+  "refused": 33,
+  "median_miss_px": 375,
+  "convention": "absolute",
+  "hits_absolute": 11,
+  "hits_normalised": 3,
+  "cost_usd": 0.0807,
+  "seconds_per_case": 3.97
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
@@ -193,7 +150,25 @@
      "h": 150
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    64.0,
+    32.0
+   ],
+   "raw": "64,32",
+   "cost": 0.002982,
+   "seconds": 3.55,
+   "point_used": [
+    64.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 26,
+   "_tally": {
+    "absolute": 11,
+    "normalised": 3
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -321,7 +296,21 @@
      "h": 150
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    258.0,
+    32.0
+   ],
+   "raw": "258,32",
+   "cost": 0.00296,
+   "seconds": 3.33,
+   "point_used": [
+    258.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 23
   },
   {
    "frame": "desktop-top-home",
@@ -449,7 +438,15 @@
      "h": 150
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": null,
+   "raw": "I don't see an item reading \"Startups\" in this screenshot. T",
+   "cost": 0.004356,
+   "seconds": 5.23,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -577,7 +574,21 @@
      "h": 150
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "said": [
+    90.0,
+    41.0
+   ],
+   "raw": "I don't see an item labeled \"Products\" in this screenshot. T",
+   "cost": 0.004034,
+   "seconds": 4.77,
+   "point_used": [
+    90.0,
+    41.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 60
   },
   {
    "frame": "desktop-top-home",
@@ -705,7 +716,21 @@
      "h": 150
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 0.004738,
+   "seconds": 7.29,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 692
   },
   {
    "frame": "desktop-top-home",
@@ -833,7 +858,15 @@
      "h": 150
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": null,
+   "raw": "I don't see an item labeled \"Media\" in this screenshot. The ",
+   "cost": 0.003844,
+   "seconds": 4.47,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -961,7 +994,15 @@
      "h": 150
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": null,
+   "raw": "I don't see a \"Certifications\" item in this screenshot. The ",
+   "cost": 0.003778,
+   "seconds": 4.69,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -1089,7 +1130,15 @@
      "h": 150
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": null,
+   "raw": "There is no button labeled \"Send\" visible in this screenshot",
+   "cost": 0.004498,
+   "seconds": 6.32,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -1217,7 +1266,21 @@
      "h": 150
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 0.002948,
+   "seconds": 2.98,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 253
   },
   {
    "frame": "desktop-top-home",
@@ -1345,7 +1408,21 @@
      "h": 150
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    1081.0,
+    370.0
+   ],
+   "raw": "1081,370",
+   "cost": 0.002958,
+   "seconds": 3.42,
+   "point_used": [
+    1081.0,
+    370.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 3
   },
   {
    "frame": "desktop-top-home",
@@ -1473,7 +1550,21 @@
      "h": 150
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    1065.0,
+    478.0
+   ],
+   "raw": "1065,478",
+   "cost": 0.002972,
+   "seconds": 3.33,
+   "point_used": [
+    1065.0,
+    478.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 17
   },
   {
    "frame": "desktop-lower-home",
@@ -1601,7 +1692,14 @@
      "h": 150
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "outcome": "error",
+   "error": "[SSL: SSLV3_ALERT_BAD_RECORD_MAC] ssl/tls alert bad record mac (_ssl.c:2713)",
+   "cost": 0.0,
+   "seconds": 0.0,
+   "point_used": null,
+   "convention": "absolute",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -1729,7 +1827,21 @@
      "h": 150
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    258.0,
+    32.0
+   ],
+   "raw": "258,32",
+   "cost": 0.00296,
+   "seconds": 3.15,
+   "point_used": [
+    258.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 23
   },
   {
    "frame": "desktop-lower-home",
@@ -1857,7 +1969,15 @@
      "h": 150
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": null,
+   "raw": "I don't see an item reading \"Startups\" in this screenshot. T",
+   "cost": 0.004186,
+   "seconds": 4.77,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -1985,7 +2105,21 @@
      "h": 150
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    90.0,
+    41.0
+   ],
+   "raw": "90,41",
+   "cost": 0.002954,
+   "seconds": 3.4,
+   "point_used": [
+    90.0,
+    41.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 60
   },
   {
    "frame": "desktop-lower-home",
@@ -2113,7 +2247,21 @@
      "h": 150
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 0.002958,
+   "seconds": 3.7,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 692
   },
   {
    "frame": "desktop-lower-home",
@@ -2241,7 +2389,15 @@
      "h": 150
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": null,
+   "raw": "I don't see an item labeled \"Media\" in this screenshot. The ",
+   "cost": 0.004214,
+   "seconds": 5.91,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2369,7 +2525,21 @@
      "h": 150
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 0.002958,
+   "seconds": 3.32,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 697
   },
   {
    "frame": "desktop-lower-home",
@@ -2497,7 +2667,15 @@
      "h": 150
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": null,
+   "raw": "I don't see a \"Send\" button in this screenshot. The page sho",
+   "cost": 0.004038,
+   "seconds": 6.13,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2625,7 +2803,21 @@
      "h": 150
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 0.002948,
+   "seconds": 3.06,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 253
   },
   {
    "frame": "mobile-top-home",
@@ -2718,7 +2910,21 @@
      "h": 96
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    74.0,
+    32.0
+   ],
+   "raw": "74,32",
+   "cost": 0.00118,
+   "seconds": 2.95,
+   "point_used": [
+    74.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "mobile-top-home",
@@ -2811,7 +3017,21 @@
      "h": 96
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    186.0,
+    32.0
+   ],
+   "raw": "186,32",
+   "cost": 0.002068,
+   "seconds": 5.84,
+   "point_used": [
+    186.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "mobile-top-home",
@@ -2904,7 +3124,15 @@
      "h": 96
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": null,
+   "raw": "The screenshot provided does not contain a button labeled \"S",
+   "cost": 0.001936,
+   "seconds": 4.12,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-top-home",
@@ -2997,7 +3225,21 @@
      "h": 96
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": [
+    195.0,
+    422.0
+   ],
+   "raw": "195,422",
+   "cost": 0.001146,
+   "seconds": 2.88,
+   "point_used": [
+    195.0,
+    422.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 375
   },
   {
    "frame": "mobile-top-home",
@@ -3090,7 +3332,21 @@
      "h": 96
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    159.0,
+    647.0
+   ],
+   "raw": "159,647",
+   "cost": 0.001146,
+   "seconds": 3.26,
+   "point_used": [
+    159.0,
+    647.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 28
   },
   {
    "frame": "mobile-top-home",
@@ -3183,7 +3439,21 @@
      "h": 96
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    171.0,
+    706.0
+   ],
+   "raw": "171,706",
+   "cost": 0.00116,
+   "seconds": 2.89,
+   "point_used": [
+    171.0,
+    706.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 20
   },
   {
    "frame": "mobile-lower-home",
@@ -3276,7 +3546,21 @@
      "h": 96
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    73.0,
+    32.0
+   ],
+   "raw": "73,32",
+   "cost": 0.00118,
+   "seconds": 4.6,
+   "point_used": [
+    73.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 2
   },
   {
    "frame": "mobile-lower-home",
@@ -3369,7 +3653,21 @@
      "h": 96
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": [
+    185.0,
+    32.0
+   ],
+   "raw": "185,32",
+   "cost": 0.001158,
+   "seconds": 3.16,
+   "point_used": [
+    185.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "mobile-lower-home",
@@ -3462,7 +3760,15 @@
      "h": 96
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": null,
+   "raw": "The image provided does not contain a button labeled \"Send\".",
+   "cost": 0.001296,
+   "seconds": 3.32,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-lower-home",
@@ -3555,7 +3861,21 @@
      "h": 96
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    195.0,
+    422.0
+   ],
+   "raw": "195,422",
+   "cost": 0.001146,
+   "seconds": 3.15,
+   "point_used": [
+    195.0,
+    422.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 375
   }
  ]
 }

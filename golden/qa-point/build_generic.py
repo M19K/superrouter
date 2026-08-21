@@ -30,7 +30,12 @@ import subprocess
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DISCOVER = os.path.join(os.path.dirname(HERE), "qa-vision", "discover.js")
+# Base64, not inlined. Flattening the library's newlines to pass it as one
+# argument turns its `//` comments into a comment swallowing everything after
+# them — the eval fails, every query returns nothing, and the builder reports
+# "0 targets" on a page full of them. Silent, and it looks like the site's fault.
+_DISCOVER_PATH = os.path.join(os.path.dirname(HERE), "qa-vision", "discover.js")
+DISCOVER = base64.b64encode(open(_DISCOVER_PATH, "rb").read()).decode()
 
 # Role → how to describe whatever the page put in that role. The description is
 # built from the element's own text or label, so it names a real thing on a real
@@ -70,7 +75,6 @@ def main():
     # Base64 then eval: the library is 90 lines and passing it inline through a
     # shell argument silently truncates it, which reads as "the page has nothing
     # on it" rather than as an error. Same trick the judging builder uses.
-    lib_b64 = base64.b64encode(open(DISCOVER, "rb").read()).decode()
     cases, skipped = [], []
 
     states = []
@@ -89,7 +93,7 @@ def main():
         time.sleep(2)
         ab("screenshot", os.path.join(frames, st["id"] + ".png"))
 
-        js(f"(0,eval)(atob('{lib_b64}'));1")
+        js(f"(0,eval)(atob('{DISCOVER}'));1")
         raw = js("JSON.stringify([...document.querySelectorAll('" + CLICKABLE +
                  "')].map(e=>{const b=e.getBoundingClientRect();return "
                  "{t:(e.textContent||e.getAttribute('aria-label')||'').trim().slice(0,30),"

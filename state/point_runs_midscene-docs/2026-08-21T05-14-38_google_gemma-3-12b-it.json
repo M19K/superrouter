@@ -1,127 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "midscene-docs",
- "origin": "https://midscenejs.com",
- "built": "2026-08-21",
- "cases": 34,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "google/gemma-3-12b-it",
+  "cases": 34,
+  "hit": 9,
+  "hit_ci": [
+   3,
+   23
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "3/34",
+  "wrong_thing": 12,
+  "wrong_thing_ci": [
+   5,
+   27
   ],
-  [
-   "desktop-top-home",
-   "labels",
-   "'Documentation' appears more than once"
-  ],
-  [
-   "desktop-top-home",
-   "labels",
-   "'Showcases' appears more than once"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "'Configure a model' appears more than once"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "labels",
-   "'The Basics' appears more than once"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "'Configure a model' appears more than once"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "labels",
-   "'The Basics' appears more than once"
-  ],
-  [
-   "mobile-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "labels",
-   "'Configure a model' appears more than once"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "4/34",
+  "empty_space": 79,
+  "refused": 0,
+  "median_miss_px": 300,
+  "convention": "normalised",
+  "hits_absolute": 2,
+  "hits_normalised": 3,
+  "cost_usd": 0.000647,
+  "seconds_per_case": 0.69
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Search\u2318K\"",
@@ -458,7 +360,25 @@
      "h": 48
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    1190.0,
+    40.0
+   ],
+   "raw": "1190,40",
+   "cost": 1.915e-05,
+   "seconds": 0.85,
+   "point_used": [
+    1523.1999999999998,
+    32.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 509,
+   "_tally": {
+    "absolute": 2,
+    "normalised": 3
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -796,7 +716,21 @@
      "h": 48
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    1240.0,
+    30.0
+   ],
+   "raw": "1240,30",
+   "cost": 1.9e-05,
+   "seconds": 0.77,
+   "point_used": [
+    1587.2,
+    24.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 585
   },
   {
    "frame": "desktop-top-home",
@@ -1134,7 +1068,21 @@
      "h": 48
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": [
+    640.0,
+    250.0
+   ],
+   "raw": "640,250",
+   "cost": 1.89e-05,
+   "seconds": 0.84,
+   "point_used": [
+    819.2,
+    200.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 616
   },
   {
    "frame": "desktop-top-home",
@@ -1472,7 +1420,21 @@
      "h": 48
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "said": [
+    640.0,
+    250.0
+   ],
+   "raw": "640,250",
+   "cost": 1.91e-05,
+   "seconds": 0.98,
+   "point_used": [
+    819.2,
+    200.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 662
   },
   {
    "frame": "desktop-lower-home",
@@ -1810,7 +1772,21 @@
      "h": 48
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    1240.0,
+    40.0
+   ],
+   "raw": "1240,40",
+   "cost": 1.915e-05,
+   "seconds": 0.75,
+   "point_used": [
+    1587.2,
+    32.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 573
   },
   {
    "frame": "desktop-lower-home",
@@ -2148,7 +2124,21 @@
      "h": 48
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": [
+    640.0,
+    200.0
+   ],
+   "raw": "640,200",
+   "cost": 1.91e-05,
+   "seconds": 0.98,
+   "point_used": [
+    819.2,
+    160.0
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 606
   },
   {
    "frame": "mobile-top-home",
@@ -2423,7 +2413,21 @@
      "h": 48
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": [
+    195.0,
+    210.0
+   ],
+   "raw": "195,210",
+   "cost": 1.885e-05,
+   "seconds": 1.54,
+   "point_used": [
+    76.05,
+    177.23999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 122
   },
   {
    "frame": "mobile-top-home",
@@ -2698,7 +2702,21 @@
      "h": 48
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": [
+    195.0,
+    260.0
+   ],
+   "raw": "195,260",
+   "cost": 1.905e-05,
+   "seconds": 0.44,
+   "point_used": [
+    76.05,
+    219.44
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 145
   },
   {
    "frame": "mobile-lower-home",
@@ -2973,7 +2991,21 @@
      "h": 48
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": [
+    195.0,
+    160.0
+   ],
+   "raw": "195,160",
+   "cost": 1.905e-05,
+   "seconds": 0.71,
+   "point_used": [
+    76.05,
+    135.04
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 124
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -3542,7 +3574,21 @@
      "h": 20
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    1180.0,
+    40.0
+   ],
+   "raw": "1180,40",
+   "cost": 1.915e-05,
+   "seconds": 0.48,
+   "point_used": [
+    1510.3999999999999,
+    32.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 496
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -4111,7 +4157,21 @@
      "h": 20
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    780.0,
+    620.0
+   ],
+   "raw": "780,620",
+   "cost": 1.92e-05,
+   "seconds": 0.49,
+   "point_used": [
+    998.4000000000001,
+    496.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 360
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -4680,7 +4740,21 @@
      "h": 20
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "said": [
+    780.0,
+    580.0
+   ],
+   "raw": "780,580",
+   "cost": 1.92e-05,
+   "seconds": 1.62,
+   "point_used": [
+    998.4000000000001,
+    463.99999999999994
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 300
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -5249,7 +5323,21 @@
      "h": 20
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    1240.0,
+    20.0
+   ],
+   "raw": "1240,20",
+   "cost": 1.9e-05,
+   "seconds": 0.5,
+   "point_used": [
+    1587.2,
+    16.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 585
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -5818,7 +5906,21 @@
      "h": 20
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": [
+    200.0,
+    50.0
+   ],
+   "raw": "200,50",
+   "cost": 1.885e-05,
+   "seconds": 0.41,
+   "point_used": [
+    256.0,
+    40.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 192
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -6387,7 +6489,21 @@
      "h": 20
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    200.0,
+    50.0
+   ],
+   "raw": "200,50",
+   "cost": 1.885e-05,
+   "seconds": 0.45,
+   "point_used": [
+    256.0,
+    40.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 208
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -6956,7 +7072,21 @@
      "h": 20
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": [
+    210.0,
+    180.0
+   ],
+   "raw": "210,180",
+   "cost": 1.905e-05,
+   "seconds": 0.55,
+   "point_used": [
+    268.8,
+    144.0
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 200
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -7525,7 +7655,21 @@
      "h": 20
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": [
+    230.0,
+    280.0
+   ],
+   "raw": "230,280",
+   "cost": 1.905e-05,
+   "seconds": 0.42,
+   "point_used": [
+    294.40000000000003,
+    224.00000000000003
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 227
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -8094,7 +8238,21 @@
      "h": 20
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": [
+    780.0,
+    580.0
+   ],
+   "raw": "780,580",
+   "cost": 1.885e-05,
+   "seconds": 0.43,
+   "point_used": [
+    998.4000000000001,
+    463.99999999999994
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 160
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -8670,7 +8828,21 @@
      "h": 20
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": [
+    1100.0,
+    45.0
+   ],
+   "raw": "1100,45",
+   "cost": 1.915e-05,
+   "seconds": 0.55,
+   "point_used": [
+    1408.0,
+    36.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 394
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -9246,7 +9418,21 @@
      "h": 20
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": [
+    780.0,
+    580.0
+   ],
+   "raw": "780,580",
+   "cost": 1.92e-05,
+   "seconds": 1.0,
+   "point_used": [
+    998.4000000000001,
+    463.99999999999994
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 331
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -9822,7 +10008,21 @@
      "h": 20
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    1010.0,
+    630.0
+   ],
+   "raw": "1010,630",
+   "cost": 1.935e-05,
+   "seconds": 0.53,
+   "point_used": [
+    1292.8,
+    504.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 354
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -10398,7 +10598,21 @@
      "h": 20
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    1180.0,
+    30.0
+   ],
+   "raw": "1180,30",
+   "cost": 1.9e-05,
+   "seconds": 0.47,
+   "point_used": [
+    1510.3999999999999,
+    24.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 508
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -10974,7 +11188,21 @@
      "h": 20
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": [
+    200.0,
+    100.0
+   ],
+   "raw": "200,100",
+   "cost": 1.9e-05,
+   "seconds": 0.79,
+   "point_used": [
+    256.0,
+    80.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 184
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -11550,7 +11778,21 @@
      "h": 20
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": [
+    200.0,
+    100.0
+   ],
+   "raw": "200,100",
+   "cost": 1.9e-05,
+   "seconds": 0.49,
+   "point_used": [
+    256.0,
+    80.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 193
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -12126,7 +12368,21 @@
      "h": 20
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    350.0,
+    250.0
+   ],
+   "raw": "350,250",
+   "cost": 1.905e-05,
+   "seconds": 0.77,
+   "point_used": [
+    448.0,
+    200.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 368
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -12702,7 +12958,21 @@
      "h": 20
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    210.0,
+    280.0
+   ],
+   "raw": "210,280",
+   "cost": 1.905e-05,
+   "seconds": 0.81,
+   "point_used": [
+    268.8,
+    224.00000000000003
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 202
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -13278,7 +13548,21 @@
      "h": 20
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    780.0,
+    350.0
+   ],
+   "raw": "780,350",
+   "cost": 1.885e-05,
+   "seconds": 0.71,
+   "point_used": [
+    998.4000000000001,
+    280.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 154
   },
   {
    "frame": "mobile-top-quick-experience.html",
@@ -13798,7 +14082,21 @@
      "h": 20
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": [
+    385.0,
+    65.0
+   ],
+   "raw": "385,65",
+   "cost": 1.865e-05,
+   "seconds": 0.61,
+   "point_used": [
+    150.15,
+    54.86
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 138
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -14325,7 +14623,21 @@
      "h": 20
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": [
+    150.0,
+    50.0
+   ],
+   "raw": "150,50",
+   "cost": 1.88e-05,
+   "seconds": 0.57,
+   "point_used": [
+    58.5,
+    42.2
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 45
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -14852,7 +15164,21 @@
      "h": 20
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    170.0,
+    150.0
+   ],
+   "raw": "170,150",
+   "cost": 1.895e-05,
+   "seconds": 0.41,
+   "point_used": [
+    66.30000000000001,
+    126.6
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 21
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -15379,7 +15705,21 @@
      "h": 20
     }
    ],
-   "id": "P031"
+   "id": "P031",
+   "said": [
+    180.0,
+    230.0
+   ],
+   "raw": "180,230",
+   "cost": 1.935e-05,
+   "seconds": 0.42,
+   "point_used": [
+    70.2,
+    194.12
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 154
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -15906,7 +16246,21 @@
      "h": 20
     }
    ],
-   "id": "P032"
+   "id": "P032",
+   "said": [
+    170.0,
+    150.0
+   ],
+   "raw": "170,150",
+   "cost": 1.895e-05,
+   "seconds": 0.69,
+   "point_used": [
+    66.30000000000001,
+    126.6
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 5
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -16433,7 +16787,21 @@
      "h": 20
     }
    ],
-   "id": "P033"
+   "id": "P033",
+   "said": [
+    180.0,
+    160.0
+   ],
+   "raw": "180,160",
+   "cost": 1.935e-05,
+   "seconds": 0.66,
+   "point_used": [
+    70.2,
+    135.04
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 123
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -16960,7 +17328,21 @@
      "h": 20
     }
    ],
-   "id": "P034"
+   "id": "P034",
+   "said": [
+    375.0,
+    635.0
+   ],
+   "raw": "375,635",
+   "cost": 1.88e-05,
+   "seconds": 0.7,
+   "point_used": [
+    146.25,
+    535.94
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 467
   }
  ]
 }

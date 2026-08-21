@@ -49,6 +49,15 @@ GOLDEN = os.path.join(CODE, "golden", "qa-point")
 RUNS = os.path.join(CODE, "state", "point_runs")
 
 
+def resolve_set(name):
+    """A named set under golden/qa-point/sets/<name>, or the original built by
+    the site-specific builder when no name is given."""
+    if not name:
+        return GOLDEN, RUNS
+    return (os.path.join(GOLDEN, "sets", name),
+            os.path.join(CODE, "state", f"point_runs_{name}"))
+
+
 def set_paths(name):
     """A pointing set per product, the same way the judging sets are kept apart.
     Levels do not transfer between products — measured at a median 22 points on
@@ -188,7 +197,7 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--limit", type=int)
     ap.add_argument("--verbose", action="store_true")
-    ap.add_argument("--set", help="product name under golden/qa-point/sets/")
+    ap.add_argument("--set", help="named pointing set under golden/qa-point/sets/")
     a = ap.parse_args()
 
     base, frames_dir, runs_dir = set_paths(getattr(a, "set", None))

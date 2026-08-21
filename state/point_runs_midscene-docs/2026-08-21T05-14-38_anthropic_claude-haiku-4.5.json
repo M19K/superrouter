@@ -1,127 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "midscene-docs",
- "origin": "https://midscenejs.com",
- "built": "2026-08-21",
- "cases": 34,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "anthropic/claude-haiku-4.5",
+  "cases": 34,
+  "hit": 76,
+  "hit_ci": [
+   60,
+   88
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "26/34",
+  "wrong_thing": 9,
+  "wrong_thing_ci": [
+   3,
+   23
   ],
-  [
-   "desktop-top-home",
-   "labels",
-   "'Documentation' appears more than once"
-  ],
-  [
-   "desktop-top-home",
-   "labels",
-   "'Showcases' appears more than once"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "'Configure a model' appears more than once"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "labels",
-   "'The Basics' appears more than once"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "'Configure a model' appears more than once"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "labels",
-   "'The Basics' appears more than once"
-  ],
-  [
-   "mobile-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "labels",
-   "'Configure a model' appears more than once"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "3/34",
+  "empty_space": 12,
+  "refused": 3,
+  "median_miss_px": 105,
+  "convention": "absolute",
+  "hits_absolute": 26,
+  "hits_normalised": 2,
+  "cost_usd": 0.041937,
+  "seconds_per_case": 2.56
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Search\u2318K\"",
@@ -458,7 +360,25 @@
      "h": 48
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    1013.0,
+    31.0
+   ],
+   "raw": "1013,31",
+   "cost": 0.00147,
+   "seconds": 3.02,
+   "point_used": [
+    1013.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1,
+   "_tally": {
+    "absolute": 26,
+    "normalised": 2
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -796,7 +716,21 @@
      "h": 48
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    1001.0,
+    31.0
+   ],
+   "raw": "1001,31",
+   "cost": 0.001465,
+   "seconds": 2.03,
+   "point_used": [
+    1001.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-top-home",
@@ -1134,7 +1068,21 @@
      "h": 48
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": [
+    215.0,
+    341.0
+   ],
+   "raw": "215,341",
+   "cost": 0.001458,
+   "seconds": 2.2,
+   "point_used": [
+    215.0,
+    341.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 5
   },
   {
    "frame": "desktop-top-home",
@@ -1472,7 +1420,21 @@
      "h": 48
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "said": [
+    203.0,
+    480.0
+   ],
+   "raw": "203,480",
+   "cost": 0.001462,
+   "seconds": 4.37,
+   "point_used": [
+    203.0,
+    480.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 17
   },
   {
    "frame": "desktop-lower-home",
@@ -1810,7 +1772,21 @@
      "h": 48
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    1013.0,
+    31.0
+   ],
+   "raw": "1013,31",
+   "cost": 0.00147,
+   "seconds": 3.18,
+   "point_used": [
+    1013.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-lower-home",
@@ -2148,7 +2124,21 @@
      "h": 48
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": [
+    194.0,
+    214.0
+   ],
+   "raw": "194,214",
+   "cost": 0.001462,
+   "seconds": 5.92,
+   "point_used": [
+    194.0,
+    214.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 22
   },
   {
    "frame": "mobile-top-home",
@@ -2423,7 +2413,21 @@
      "h": 48
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": [
+    166.0,
+    226.0
+   ],
+   "raw": "166,226",
+   "cost": 0.000557,
+   "seconds": 1.54,
+   "point_used": [
+    166.0,
+    226.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 22
   },
   {
    "frame": "mobile-top-home",
@@ -2698,7 +2702,21 @@
      "h": 48
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": [
+    157.0,
+    311.0
+   ],
+   "raw": "157,311",
+   "cost": 0.000561,
+   "seconds": 1.96,
+   "point_used": [
+    157.0,
+    311.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 31
   },
   {
    "frame": "mobile-lower-home",
@@ -2973,7 +2991,21 @@
      "h": 48
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": [
+    186.0,
+    135.0
+   ],
+   "raw": "186,135",
+   "cost": 0.000561,
+   "seconds": 6.44,
+   "point_used": [
+    186.0,
+    135.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 18
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -3542,7 +3574,21 @@
      "h": 20
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    1013.0,
+    31.0
+   ],
+   "raw": "1013,31",
+   "cost": 0.00147,
+   "seconds": 2.32,
+   "point_used": [
+    1013.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -4111,7 +4157,21 @@
      "h": 20
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    1109.0,
+    160.0
+   ],
+   "raw": "1109,160",
+   "cost": 0.001469,
+   "seconds": 1.88,
+   "point_used": [
+    1109.0,
+    160.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 17
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -4680,7 +4740,21 @@
      "h": 20
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "said": [
+    1095.0,
+    192.0
+   ],
+   "raw": "1095,192",
+   "cost": 0.001469,
+   "seconds": 1.86,
+   "point_used": [
+    1095.0,
+    192.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 31
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -5249,7 +5323,21 @@
      "h": 20
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    1001.0,
+    31.0
+   ],
+   "raw": "1001,31",
+   "cost": 0.001465,
+   "seconds": 2.14,
+   "point_used": [
+    1001.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -5818,7 +5906,21 @@
      "h": 20
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": [
+    73.0,
+    99.0
+   ],
+   "raw": "73,99",
+   "cost": 0.00146,
+   "seconds": 2.17,
+   "point_used": [
+    73.0,
+    99.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -6387,7 +6489,21 @@
      "h": 20
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    73.0,
+    99.0
+   ],
+   "raw": "73,99",
+   "cost": 0.00146,
+   "seconds": 3.24,
+   "point_used": [
+    73.0,
+    99.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 37
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -6956,7 +7072,21 @@
      "h": 20
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": [
+    80.0,
+    211.0
+   ],
+   "raw": "80,211",
+   "cost": 0.001461,
+   "seconds": 3.65,
+   "point_used": [
+    80.0,
+    211.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -7525,7 +7655,21 @@
      "h": 20
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": [
+    68.0,
+    249.0
+   ],
+   "raw": "68,249",
+   "cost": 0.001462,
+   "seconds": 2.89,
+   "point_used": [
+    68.0,
+    249.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -8094,7 +8238,21 @@
      "h": 20
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": [
+    1077.0,
+    127.0
+   ],
+   "raw": "1077,127",
+   "cost": 0.001462,
+   "seconds": 2.04,
+   "point_used": [
+    1077.0,
+    127.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 245
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -8670,7 +8828,21 @@
      "h": 20
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": [
+    1013.0,
+    31.0
+   ],
+   "raw": "1013,31",
+   "cost": 0.00147,
+   "seconds": 1.9,
+   "point_used": [
+    1013.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -9246,7 +9418,21 @@
      "h": 20
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": [
+    1109.0,
+    160.0
+   ],
+   "raw": "1109,160",
+   "cost": 0.001469,
+   "seconds": 3.26,
+   "point_used": [
+    1109.0,
+    160.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 17
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -9822,7 +10008,21 @@
      "h": 20
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    1095.0,
+    192.0
+   ],
+   "raw": "1095,192",
+   "cost": 0.001469,
+   "seconds": 2.09,
+   "point_used": [
+    1095.0,
+    192.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 31
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -10398,7 +10598,21 @@
      "h": 20
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    1001.0,
+    31.0
+   ],
+   "raw": "1001,31",
+   "cost": 0.001465,
+   "seconds": 1.94,
+   "point_used": [
+    1001.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -10974,7 +11188,21 @@
      "h": 20
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": [
+    73.0,
+    100.0
+   ],
+   "raw": "73,100",
+   "cost": 0.00146,
+   "seconds": 1.5,
+   "point_used": [
+    73.0,
+    100.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -11550,7 +11778,21 @@
      "h": 20
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": [
+    73.0,
+    100.0
+   ],
+   "raw": "73,100",
+   "cost": 0.00146,
+   "seconds": 1.76,
+   "point_used": [
+    73.0,
+    100.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 36
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -12126,7 +12368,21 @@
      "h": 20
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    80.0,
+    211.0
+   ],
+   "raw": "80,211",
+   "cost": 0.001461,
+   "seconds": 1.49,
+   "point_used": [
+    80.0,
+    211.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -12702,7 +12958,21 @@
      "h": 20
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    68.0,
+    249.0
+   ],
+   "raw": "68,249",
+   "cost": 0.001462,
+   "seconds": 2.43,
+   "point_used": [
+    68.0,
+    249.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -13278,7 +13548,21 @@
      "h": 20
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    520.0,
+    447.0
+   ],
+   "raw": "520,447",
+   "cost": 0.001457,
+   "seconds": 2.12,
+   "point_used": [
+    520.0,
+    447.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 611
   },
   {
    "frame": "mobile-top-quick-experience.html",
@@ -13798,7 +14082,21 @@
      "h": 20
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": [
+    195.0,
+    31.0
+   ],
+   "raw": "195,31",
+   "cost": 0.000556,
+   "seconds": 2.18,
+   "point_used": [
+    195.0,
+    31.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 105
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -14325,7 +14623,21 @@
      "h": 20
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": [
+    60.0,
+    87.0
+   ],
+   "raw": "60,87",
+   "cost": 0.000559,
+   "seconds": 1.8,
+   "point_used": [
+    60.0,
+    87.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -14852,7 +15164,21 @@
      "h": 20
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    69.0,
+    130.0
+   ],
+   "raw": "69,130",
+   "cost": 0.000559,
+   "seconds": 2.1,
+   "point_used": [
+    69.0,
+    130.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 24
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -15379,7 +15705,15 @@
      "h": 20
     }
    ],
-   "id": "P031"
+   "id": "P031",
+   "said": null,
+   "raw": "I need to find the item reading \"MIDSCENE_MODEL_BASE_URL\" on",
+   "cost": 0.001763,
+   "seconds": 3.36,
+   "point_used": null,
+   "convention": "absolute",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -15906,7 +16240,21 @@
      "h": 20
     }
    ],
-   "id": "P032"
+   "id": "P032",
+   "said": [
+    69.0,
+    130.0
+   ],
+   "raw": "69,130",
+   "cost": 0.000559,
+   "seconds": 1.45,
+   "point_used": [
+    69.0,
+    130.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 2
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -16433,7 +16781,21 @@
      "h": 20
     }
    ],
-   "id": "P033"
+   "id": "P033",
+   "said": [
+    197.0,
+    130.0
+   ],
+   "raw": "197,130",
+   "cost": 0.000568,
+   "seconds": 2.04,
+   "point_used": [
+    197.0,
+    130.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 4
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -16960,7 +17322,21 @@
      "h": 20
     }
    ],
-   "id": "P034"
+   "id": "P034",
+   "said": [
+    145.0,
+    803.0
+   ],
+   "raw": "145,803",
+   "cost": 0.000556,
+   "seconds": 2.8,
+   "point_used": [
+    145.0,
+    803.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 728
   }
  ]
 }

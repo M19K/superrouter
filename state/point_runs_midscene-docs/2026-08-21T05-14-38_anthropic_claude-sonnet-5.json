@@ -1,127 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "midscene-docs",
- "origin": "https://midscenejs.com",
- "built": "2026-08-21",
- "cases": 34,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "anthropic/claude-sonnet-5",
+  "cases": 34,
+  "hit": 74,
+  "hit_ci": [
+   57,
+   85
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "25/34",
+  "wrong_thing": 18,
+  "wrong_thing_ci": [
+   8,
+   34
   ],
-  [
-   "desktop-top-home",
-   "labels",
-   "'Documentation' appears more than once"
-  ],
-  [
-   "desktop-top-home",
-   "labels",
-   "'Showcases' appears more than once"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "nav-links",
-   "'Configure a model' appears more than once"
-  ],
-  [
-   "desktop-top-quick-experience.html",
-   "labels",
-   "'The Basics' appears more than once"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "nav-links",
-   "'Configure a model' appears more than once"
-  ],
-  [
-   "desktop-lower-quick-experience.html",
-   "labels",
-   "'The Basics' appears more than once"
-  ],
-  [
-   "mobile-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-quick-experience.html",
-   "labels",
-   "'Configure a model' appears more than once"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "6/34",
+  "empty_space": 9,
+  "refused": 0,
+  "median_miss_px": 51,
+  "convention": "absolute",
+  "hits_absolute": 25,
+  "hits_normalised": 4,
+  "cost_usd": 0.08274,
+  "seconds_per_case": 3.35
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Search\u2318K\"",
@@ -458,7 +360,25 @@
      "h": 48
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    1013.0,
+    32.0
+   ],
+   "raw": "1013,32",
+   "cost": 0.002978,
+   "seconds": 4.5,
+   "point_used": [
+    1013.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1,
+   "_tally": {
+    "absolute": 25,
+    "normalised": 4
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -796,7 +716,21 @@
      "h": 48
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    1002.0,
+    32.0
+   ],
+   "raw": "1002,32",
+   "cost": 0.002964,
+   "seconds": 4.3,
+   "point_used": [
+    1002.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-top-home",
@@ -1134,7 +1068,21 @@
      "h": 48
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": [
+    211.0,
+    343.0
+   ],
+   "raw": "211,343",
+   "cost": 0.002948,
+   "seconds": 4.0,
+   "point_used": [
+    211.0,
+    343.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 9
   },
   {
    "frame": "desktop-top-home",
@@ -1472,7 +1420,21 @@
      "h": 48
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "said": [
+    203.0,
+    481.0
+   ],
+   "raw": "203,481",
+   "cost": 0.002962,
+   "seconds": 3.47,
+   "point_used": [
+    203.0,
+    481.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 17
   },
   {
    "frame": "desktop-lower-home",
@@ -1810,7 +1772,21 @@
      "h": 48
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    1013.0,
+    32.0
+   ],
+   "raw": "1013,32",
+   "cost": 0.002978,
+   "seconds": 3.59,
+   "point_used": [
+    1013.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-lower-home",
@@ -2148,7 +2124,21 @@
      "h": 48
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": [
+    194.0,
+    214.0
+   ],
+   "raw": "194,214",
+   "cost": 0.002962,
+   "seconds": 3.7,
+   "point_used": [
+    194.0,
+    214.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 22
   },
   {
    "frame": "mobile-top-home",
@@ -2423,7 +2413,21 @@
      "h": 48
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": [
+    165.0,
+    227.0
+   ],
+   "raw": "165,227",
+   "cost": 0.001146,
+   "seconds": 2.84,
+   "point_used": [
+    165.0,
+    227.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 23
   },
   {
    "frame": "mobile-top-home",
@@ -2698,7 +2702,21 @@
      "h": 48
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": [
+    155.0,
+    312.0
+   ],
+   "raw": "155,312",
+   "cost": 0.00116,
+   "seconds": 3.24,
+   "point_used": [
+    155.0,
+    312.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 32
   },
   {
    "frame": "mobile-lower-home",
@@ -2973,7 +2991,21 @@
      "h": 48
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": [
+    197.0,
+    136.0
+   ],
+   "raw": "197,136",
+   "cost": 0.00116,
+   "seconds": 2.82,
+   "point_used": [
+    197.0,
+    136.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 11
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -3542,7 +3574,21 @@
      "h": 20
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    1013.0,
+    32.0
+   ],
+   "raw": "1013,32",
+   "cost": 0.002978,
+   "seconds": 3.74,
+   "point_used": [
+    1013.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -4111,7 +4157,21 @@
      "h": 20
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    1109.0,
+    160.0
+   ],
+   "raw": "1109,160",
+   "cost": 0.002984,
+   "seconds": 3.35,
+   "point_used": [
+    1109.0,
+    160.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 17
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -4680,7 +4740,21 @@
      "h": 20
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "said": [
+    1096.0,
+    193.0
+   ],
+   "raw": "1096,193",
+   "cost": 0.002978,
+   "seconds": 3.18,
+   "point_used": [
+    1096.0,
+    193.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 30
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -5249,7 +5323,21 @@
      "h": 20
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    1002.0,
+    32.0
+   ],
+   "raw": "1002,32",
+   "cost": 0.002964,
+   "seconds": 3.13,
+   "point_used": [
+    1002.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -5818,7 +5906,21 @@
      "h": 20
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": [
+    71.0,
+    136.0
+   ],
+   "raw": "71,136",
+   "cost": 0.002958,
+   "seconds": 3.09,
+   "point_used": [
+    71.0,
+    136.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 36
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -6387,7 +6489,21 @@
      "h": 20
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    71.0,
+    136.0
+   ],
+   "raw": "71,136",
+   "cost": 0.002958,
+   "seconds": 3.05,
+   "point_used": [
+    71.0,
+    136.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -6956,7 +7072,21 @@
      "h": 20
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": [
+    80.0,
+    212.0
+   ],
+   "raw": "80,212",
+   "cost": 0.00296,
+   "seconds": 4.05,
+   "point_used": [
+    80.0,
+    212.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -7525,7 +7655,21 @@
      "h": 20
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": [
+    68.0,
+    250.0
+   ],
+   "raw": "68,250",
+   "cost": 0.002958,
+   "seconds": 2.95,
+   "point_used": [
+    68.0,
+    250.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-top-quick-experience.html",
@@ -8094,7 +8238,21 @@
      "h": 20
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": [
+    1013.0,
+    32.0
+   ],
+   "raw": "1013,32",
+   "cost": 0.002954,
+   "seconds": 2.98,
+   "point_used": [
+    1013.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 354
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -8670,7 +8828,21 @@
      "h": 20
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": [
+    1013.0,
+    32.0
+   ],
+   "raw": "1013,32",
+   "cost": 0.002978,
+   "seconds": 3.19,
+   "point_used": [
+    1013.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -9246,7 +9418,21 @@
      "h": 20
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": [
+    1109.0,
+    161.0
+   ],
+   "raw": "1109,161",
+   "cost": 0.002984,
+   "seconds": 3.11,
+   "point_used": [
+    1109.0,
+    161.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 17
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -9822,7 +10008,21 @@
      "h": 20
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    1096.0,
+    193.0
+   ],
+   "raw": "1096,193",
+   "cost": 0.002978,
+   "seconds": 4.34,
+   "point_used": [
+    1096.0,
+    193.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 30
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -10398,7 +10598,21 @@
      "h": 20
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    1013.0,
+    32.0
+   ],
+   "raw": "1013,32",
+   "cost": 0.002964,
+   "seconds": 2.99,
+   "point_used": [
+    1013.0,
+    32.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 11
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -10974,7 +11188,21 @@
      "h": 20
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": [
+    71.0,
+    136.0
+   ],
+   "raw": "71,136",
+   "cost": 0.002958,
+   "seconds": 3.68,
+   "point_used": [
+    71.0,
+    136.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 36
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -11550,7 +11778,21 @@
      "h": 20
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": [
+    71.0,
+    136.0
+   ],
+   "raw": "71,136",
+   "cost": 0.002958,
+   "seconds": 3.2,
+   "point_used": [
+    71.0,
+    136.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -12126,7 +12368,21 @@
      "h": 20
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    80.0,
+    212.0
+   ],
+   "raw": "80,212",
+   "cost": 0.00296,
+   "seconds": 4.04,
+   "point_used": [
+    80.0,
+    212.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -12702,7 +12958,21 @@
      "h": 20
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    68.0,
+    250.0
+   ],
+   "raw": "68,250",
+   "cost": 0.002958,
+   "seconds": 3.13,
+   "point_used": [
+    68.0,
+    250.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 0
   },
   {
    "frame": "desktop-lower-quick-experience.html",
@@ -13278,7 +13548,21 @@
      "h": 20
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    520.0,
+    448.0
+   ],
+   "raw": "520,448",
+   "cost": 0.002944,
+   "seconds": 3.06,
+   "point_used": [
+    520.0,
+    448.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 611
   },
   {
    "frame": "mobile-top-quick-experience.html",
@@ -13798,7 +14082,21 @@
      "h": 20
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": [
+    60.0,
+    87.0
+   ],
+   "raw": "60,87",
+   "cost": 0.001142,
+   "seconds": 2.85,
+   "point_used": [
+    60.0,
+    87.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 224
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -14325,7 +14623,21 @@
      "h": 20
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": [
+    51.0,
+    87.0
+   ],
+   "raw": "51,87",
+   "cost": 0.001154,
+   "seconds": 2.75,
+   "point_used": [
+    51.0,
+    87.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 10
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -14852,7 +15164,21 @@
      "h": 20
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    47.0,
+    131.0
+   ],
+   "raw": "47,131",
+   "cost": 0.00115,
+   "seconds": 2.75,
+   "point_used": [
+    47.0,
+    131.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 34
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -15379,7 +15705,21 @@
      "h": 20
     }
    ],
-   "id": "P031"
+   "id": "P031",
+   "said": [
+    196.0,
+    107.0
+   ],
+   "raw": "196,107",
+   "cost": 0.001186,
+   "seconds": 3.52,
+   "point_used": [
+    196.0,
+    107.0
+   ],
+   "convention": "absolute",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -15906,7 +16246,21 @@
      "h": 20
     }
    ],
-   "id": "P032"
+   "id": "P032",
+   "said": [
+    44.0,
+    155.0
+   ],
+   "raw": "44,155",
+   "cost": 0.00115,
+   "seconds": 2.83,
+   "point_used": [
+    44.0,
+    155.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 36
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -16433,7 +16787,21 @@
      "h": 20
     }
    ],
-   "id": "P033"
+   "id": "P033",
+   "said": [
+    147.0,
+    107.0
+   ],
+   "raw": "147,107",
+   "cost": 0.001184,
+   "seconds": 3.38,
+   "point_used": [
+    147.0,
+    107.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 51
   },
   {
    "frame": "mobile-lower-quick-experience.html",
@@ -16960,7 +17328,21 @@
      "h": 20
     }
    ],
-   "id": "P034"
+   "id": "P034",
+   "said": [
+    144.0,
+    802.0
+   ],
+   "raw": "144,802",
+   "cost": 0.001142,
+   "seconds": 3.05,
+   "point_used": [
+    144.0,
+    802.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 727
   }
  ]
 }

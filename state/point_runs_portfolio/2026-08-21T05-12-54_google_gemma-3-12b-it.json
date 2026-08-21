@@ -1,72 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "portfolio",
- "origin": "http://localhost:8934",
- "built": "2026-08-21",
- "cases": 30,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "google/gemma-3-12b-it",
+  "cases": 30,
+  "hit": 0,
+  "hit_ci": [
+   0,
+   11
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "0/30",
+  "wrong_thing": 7,
+  "wrong_thing_ci": [
+   2,
+   21
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "2/30",
+  "empty_space": 93,
+  "refused": 0,
+  "median_miss_px": 253,
+  "convention": "absolute",
+  "hits_absolute": 0,
+  "hits_normalised": 0,
+  "cost_usd": 0.000572,
+  "seconds_per_case": 0.98
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
@@ -193,7 +150,25 @@
      "h": 150
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    200.0,
+    100.0
+   ],
+   "raw": "200,100",
+   "cost": 1.935e-05,
+   "seconds": 0.75,
+   "point_used": [
+    200.0,
+    100.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 129,
+   "_tally": {
+    "absolute": 0,
+    "normalised": 0
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -321,7 +296,21 @@
      "h": 150
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    1150.0,
+    50.0
+   ],
+   "raw": "1150,50",
+   "cost": 1.905e-05,
+   "seconds": 0.82,
+   "point_used": [
+    1150.0,
+    50.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 915
   },
   {
    "frame": "desktop-top-home",
@@ -449,7 +438,21 @@
      "h": 150
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": [
+    100.0,
+    150.0
+   ],
+   "raw": "100,150",
+   "cost": 1.905e-05,
+   "seconds": 0.99,
+   "point_used": [
+    100.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 134
   },
   {
    "frame": "desktop-top-home",
@@ -577,7 +580,21 @@
      "h": 150
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 1.9e-05,
+   "seconds": 0.79,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 710
   },
   {
    "frame": "desktop-top-home",
@@ -705,7 +722,21 @@
      "h": 150
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    1000.0,
+    650.0
+   ],
+   "raw": "1000,650",
+   "cost": 1.92e-05,
+   "seconds": 1.17,
+   "point_used": [
+    1000.0,
+    650.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 1130
   },
   {
    "frame": "desktop-top-home",
@@ -833,7 +864,21 @@
      "h": 150
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": [
+    100.0,
+    150.0
+   ],
+   "raw": "100,150",
+   "cost": 1.9e-05,
+   "seconds": 1.16,
+   "point_used": [
+    100.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 138
   },
   {
    "frame": "desktop-top-home",
@@ -961,7 +1006,21 @@
      "h": 150
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": [
+    1000.0,
+    350.0
+   ],
+   "raw": "1000,350",
+   "cost": 1.92e-05,
+   "seconds": 0.58,
+   "point_used": [
+    1000.0,
+    350.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 1005
   },
   {
    "frame": "desktop-top-home",
@@ -1089,7 +1148,21 @@
      "h": 150
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": [
+    1150.0,
+    720.0
+   ],
+   "raw": "1150,720",
+   "cost": 1.92e-05,
+   "seconds": 0.87,
+   "point_used": [
+    1150.0,
+    720.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 268
   },
   {
    "frame": "desktop-top-home",
@@ -1217,7 +1290,21 @@
      "h": 150
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 1.895e-05,
+   "seconds": 0.91,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 253
   },
   {
    "frame": "desktop-top-home",
@@ -1345,7 +1432,21 @@
      "h": 150
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    640.0,
+    250.0
+   ],
+   "raw": "640,250",
+   "cost": 1.89e-05,
+   "seconds": 0.61,
+   "point_used": [
+    640.0,
+    250.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 457
   },
   {
    "frame": "desktop-top-home",
@@ -1473,7 +1574,21 @@
      "h": 150
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    640.0,
+    230.0
+   ],
+   "raw": "640,230",
+   "cost": 1.91e-05,
+   "seconds": 1.08,
+   "point_used": [
+    640.0,
+    230.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 507
   },
   {
    "frame": "desktop-lower-home",
@@ -1601,7 +1716,21 @@
      "h": 150
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "said": [
+    100.0,
+    100.0
+   ],
+   "raw": "100,100",
+   "cost": 1.935e-05,
+   "seconds": 2.25,
+   "point_used": [
+    100.0,
+    100.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 68
   },
   {
    "frame": "desktop-lower-home",
@@ -1729,7 +1858,21 @@
      "h": 150
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    1220.0,
+    50.0
+   ],
+   "raw": "1220,50",
+   "cost": 1.905e-05,
+   "seconds": 0.52,
+   "point_used": [
+    1220.0,
+    50.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 985
   },
   {
    "frame": "desktop-lower-home",
@@ -1857,7 +2000,21 @@
      "h": 150
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": [
+    640.0,
+    750.0
+   ],
+   "raw": "640,750",
+   "cost": 1.905e-05,
+   "seconds": 3.69,
+   "point_used": [
+    640.0,
+    750.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 939
   },
   {
    "frame": "desktop-lower-home",
@@ -1985,7 +2142,21 @@
      "h": 150
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    100.0,
+    50.0
+   ],
+   "raw": "100,50",
+   "cost": 1.885e-05,
+   "seconds": 0.56,
+   "point_used": [
+    100.0,
+    50.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 71
   },
   {
    "frame": "desktop-lower-home",
@@ -2113,7 +2284,21 @@
      "h": 150
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": [
+    1000.0,
+    750.0
+   ],
+   "raw": "1000,750",
+   "cost": 1.92e-05,
+   "seconds": 0.64,
+   "point_used": [
+    1000.0,
+    750.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 1187
   },
   {
    "frame": "desktop-lower-home",
@@ -2241,7 +2426,21 @@
      "h": 150
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": [
+    100.0,
+    150.0
+   ],
+   "raw": "100,150",
+   "cost": 1.9e-05,
+   "seconds": 0.59,
+   "point_used": [
+    100.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 138
   },
   {
    "frame": "desktop-lower-home",
@@ -2369,7 +2568,21 @@
      "h": 150
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": [
+    100.0,
+    150.0
+   ],
+   "raw": "100,150",
+   "cost": 1.905e-05,
+   "seconds": 0.52,
+   "point_used": [
+    100.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 126
   },
   {
    "frame": "desktop-lower-home",
@@ -2497,7 +2710,21 @@
      "h": 150
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": [
+    1240.0,
+    720.0
+   ],
+   "raw": "1240,720",
+   "cost": 1.92e-05,
+   "seconds": 0.57,
+   "point_used": [
+    1240.0,
+    720.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 355
   },
   {
    "frame": "desktop-lower-home",
@@ -2625,7 +2852,21 @@
      "h": 150
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": [
+    640.0,
+    730.0
+   ],
+   "raw": "640,730",
+   "cost": 1.895e-05,
+   "seconds": 0.78,
+   "point_used": [
+    640.0,
+    730.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 77
   },
   {
    "frame": "mobile-top-home",
@@ -2718,7 +2959,21 @@
      "h": 96
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    100.0,
+    150.0
+   ],
+   "raw": "100,150",
+   "cost": 1.93e-05,
+   "seconds": 3.25,
+   "point_used": [
+    100.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 120
   },
   {
    "frame": "mobile-top-home",
@@ -2811,7 +3066,21 @@
      "h": 96
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    180.0,
+    60.0
+   ],
+   "raw": "180,60",
+   "cost": 1.885e-05,
+   "seconds": 0.41,
+   "point_used": [
+    180.0,
+    60.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 29
   },
   {
    "frame": "mobile-top-home",
@@ -2904,7 +3173,21 @@
      "h": 96
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": [
+    350.0,
+    750.0
+   ],
+   "raw": "350,750",
+   "cost": 1.9e-05,
+   "seconds": 0.44,
+   "point_used": [
+    350.0,
+    750.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 48
   },
   {
    "frame": "mobile-top-home",
@@ -2997,7 +3280,21 @@
      "h": 96
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": [
+    300.0,
+    680.0
+   ],
+   "raw": "300,680",
+   "cost": 1.89e-05,
+   "seconds": 1.05,
+   "point_used": [
+    300.0,
+    680.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 162
   },
   {
    "frame": "mobile-top-home",
@@ -3090,7 +3387,21 @@
      "h": 96
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    198.0,
+    258.0
+   ],
+   "raw": "198,258",
+   "cost": 1.885e-05,
+   "seconds": 0.39,
+   "point_used": [
+    198.0,
+    258.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 389
   },
   {
    "frame": "mobile-top-home",
@@ -3183,7 +3494,21 @@
      "h": 96
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    195.0,
+    360.0
+   ],
+   "raw": "195, 360",
+   "cost": 1.92e-05,
+   "seconds": 1.57,
+   "point_used": [
+    195.0,
+    360.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 358
   },
   {
    "frame": "mobile-lower-home",
@@ -3276,7 +3601,21 @@
      "h": 96
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    100.0,
+    150.0
+   ],
+   "raw": "100,150",
+   "cost": 1.93e-05,
+   "seconds": 0.42,
+   "point_used": [
+    100.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 120
   },
   {
    "frame": "mobile-lower-home",
@@ -3369,7 +3708,21 @@
      "h": 96
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": [
+    180.0,
+    150.0
+   ],
+   "raw": "180,150",
+   "cost": 1.9e-05,
+   "seconds": 0.69,
+   "point_used": [
+    180.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 118
   },
   {
    "frame": "mobile-lower-home",
@@ -3462,7 +3815,21 @@
      "h": 96
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": [
+    368.0,
+    768.0
+   ],
+   "raw": "368,768",
+   "cost": 1.9e-05,
+   "seconds": 0.65,
+   "point_used": [
+    368.0,
+    768.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 38
   },
   {
    "frame": "mobile-lower-home",
@@ -3555,7 +3922,21 @@
      "h": 96
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    100.0,
+    170.0
+   ],
+   "raw": "100, 170",
+   "cost": 1.905e-05,
+   "seconds": 0.63,
+   "point_used": [
+    100.0,
+    170.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 633
   }
  ]
 }

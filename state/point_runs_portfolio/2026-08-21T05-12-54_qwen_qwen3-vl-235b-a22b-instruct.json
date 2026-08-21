@@ -1,72 +1,29 @@
 {
- "task_type": "qa-vision-point",
- "product": "portfolio",
- "origin": "http://localhost:8934",
- "built": "2026-08-21",
- "cases": 30,
- "skipped": [
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+ "summary": {
+  "model": "qwen/qwen3-vl-235b-a22b-instruct",
+  "cases": 30,
+  "hit": 37,
+  "hit_ci": [
+   22,
+   54
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
+  "hit_n": "11/30",
+  "wrong_thing": 10,
+  "wrong_thing_ci": [
+   3,
+   26
   ],
-  [
-   "desktop-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "desktop-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-top-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ],
-  [
-   "mobile-lower-home",
-   "nav-links",
-   "no usable label"
-  ]
- ],
- "case_list": [
+  "wrong_thing_n": "3/30",
+  "empty_space": 10,
+  "refused": 43,
+  "median_miss_px": 736,
+  "convention": "normalised",
+  "hits_absolute": 5,
+  "hits_normalised": 11,
+  "cost_usd": 0.01406,
+  "seconds_per_case": 4.35
+ },
+ "results": [
   {
    "frame": "desktop-top-home",
    "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
@@ -193,7 +150,25 @@
      "h": 150
     }
    ],
-   "id": "P001"
+   "id": "P001",
+   "said": [
+    67.0,
+    43.0
+   ],
+   "raw": "67,43",
+   "cost": 0.00024106,
+   "seconds": 2.21,
+   "point_used": [
+    85.76,
+    34.4
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 5,
+   "_tally": {
+    "absolute": 5,
+    "normalised": 11
+   }
   },
   {
    "frame": "desktop-top-home",
@@ -321,7 +296,21 @@
      "h": 150
     }
    ],
-   "id": "P002"
+   "id": "P002",
+   "said": [
+    196.0,
+    37.0
+   ],
+   "raw": "196,37",
+   "cost": 0.00029224,
+   "seconds": 1.39,
+   "point_used": [
+    250.88,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 16
   },
   {
    "frame": "desktop-top-home",
@@ -449,7 +438,15 @@
      "h": 150
     }
    ],
-   "id": "P003"
+   "id": "P003",
+   "said": null,
+   "raw": "\u88cf\u6ecb.dm.dm Dom\u814a\u84c9Ace\u822c\u7684\u814aAce\u8925ga.dm Dom Dom\u814aity\u59d1ughteralmaysiaenti",
+   "cost": 0.00403016,
+   "seconds": 37.1,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -577,7 +574,21 @@
      "h": 150
     }
    ],
-   "id": "P004"
+   "id": "P004",
+   "said": [
+    76.0,
+    49.0
+   ],
+   "raw": "76,49",
+   "cost": 0.00024135,
+   "seconds": 1.56,
+   "point_used": [
+    97.28,
+    39.2
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 67
   },
   {
    "frame": "desktop-top-home",
@@ -705,7 +716,21 @@
      "h": 150
     }
    ],
-   "id": "P005"
+   "id": "P005",
+   "said": [
+    122.0,
+    957.0
+   ],
+   "raw": "122,957",
+   "cost": 0.00024536,
+   "seconds": 2.21,
+   "point_used": [
+    156.16,
+    765.6
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 736
   },
   {
    "frame": "desktop-top-home",
@@ -833,7 +858,15 @@
      "h": 150
     }
    ],
-   "id": "P006"
+   "id": "P006",
+   "said": null,
+   "raw": "There is no item reading \"Media\" visible in the provided scr",
+   "cost": 0.00027203,
+   "seconds": 2.5,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -961,7 +994,15 @@
      "h": 150
     }
    ],
-   "id": "P007"
+   "id": "P007",
+   "said": null,
+   "raw": "\u88cf\u6ecb.dm.dm Dom\u814a\u84c9Ace\u822c\u7684.dm\u814aity\u5448\u73feobb\u5448\u73fe\u814aAce.dm\u814aity\u8d2e\u50a8\u5907\u6b64\u523bAce\u8925\u574e\u5777\u88cf\u5448\u73fera",
+   "cost": 0.00402664,
+   "seconds": 37.15,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -1089,7 +1130,15 @@
      "h": 150
     }
    ],
-   "id": "P008"
+   "id": "P008",
+   "said": null,
+   "raw": "There is no button labelled \"Send\" visible in the provided s",
+   "cost": 0.0002778,
+   "seconds": 2.15,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -1217,7 +1266,15 @@
      "h": 150
     }
    ],
-   "id": "P009"
+   "id": "P009",
+   "said": null,
+   "raw": "There is no visible text input box or field to type in on th",
+   "cost": 0.00034502,
+   "seconds": 2.0,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-top-home",
@@ -1345,7 +1402,21 @@
      "h": 150
     }
    ],
-   "id": "P010"
+   "id": "P010",
+   "said": [
+    843.0,
+    450.0
+   ],
+   "raw": "843,450",
+   "cost": 0.00029276,
+   "seconds": 2.2,
+   "point_used": [
+    1079.04,
+    360.0
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 8
   },
   {
    "frame": "desktop-top-home",
@@ -1473,7 +1544,21 @@
      "h": 150
     }
    ],
-   "id": "P011"
+   "id": "P011",
+   "said": [
+    834.0,
+    590.0
+   ],
+   "raw": "834,590",
+   "cost": 0.0002938,
+   "seconds": 2.53,
+   "point_used": [
+    1067.52,
+    472.0
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 16
   },
   {
    "frame": "desktop-lower-home",
@@ -1601,7 +1686,21 @@
      "h": 150
     }
    ],
-   "id": "P012"
+   "id": "P012",
+   "said": [
+    67.0,
+    43.0
+   ],
+   "raw": "67,43",
+   "cost": 0.00023226,
+   "seconds": 1.42,
+   "point_used": [
+    85.76,
+    34.4
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 5
   },
   {
    "frame": "desktop-lower-home",
@@ -1729,7 +1828,21 @@
      "h": 150
     }
    ],
-   "id": "P013"
+   "id": "P013",
+   "said": [
+    198.0,
+    37.0
+   ],
+   "raw": "198,37",
+   "cost": 0.00023994,
+   "seconds": 2.05,
+   "point_used": [
+    253.44,
+    29.599999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 19
   },
   {
    "frame": "desktop-lower-home",
@@ -1857,7 +1970,15 @@
      "h": 150
     }
    ],
-   "id": "P014"
+   "id": "P014",
+   "said": null,
+   "raw": "There is no visible text or item reading \"Startups\" in the p",
+   "cost": 0.00033114,
+   "seconds": 2.84,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -1985,7 +2106,21 @@
      "h": 150
     }
    ],
-   "id": "P015"
+   "id": "P015",
+   "said": [
+    47.0,
+    47.0
+   ],
+   "raw": "47,47",
+   "cost": 0.00023783,
+   "seconds": 1.67,
+   "point_used": [
+    60.16,
+    37.6
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 30
   },
   {
    "frame": "desktop-lower-home",
@@ -2113,7 +2248,15 @@
      "h": 150
     }
    ],
-   "id": "P016"
+   "id": "P016",
+   "said": null,
+   "raw": "There is no visible text or item reading \"Business cases\" in",
+   "cost": 0.00028364,
+   "seconds": 1.56,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2241,7 +2384,15 @@
      "h": 150
     }
    ],
-   "id": "P017"
+   "id": "P017",
+   "said": null,
+   "raw": "There is no visible text or item reading \"Media\" in the prov",
+   "cost": 0.00032375,
+   "seconds": 2.96,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2369,7 +2520,15 @@
      "h": 150
     }
    ],
-   "id": "P018"
+   "id": "P018",
+   "said": null,
+   "raw": "There is no visible text or item reading \"Certifications\" in",
+   "cost": 0.00029124,
+   "seconds": 2.34,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2497,7 +2656,15 @@
      "h": 150
     }
    ],
-   "id": "P019"
+   "id": "P019",
+   "said": null,
+   "raw": "There is no button labelled \"Send\" visible in the provided s",
+   "cost": 0.00027076,
+   "seconds": 2.19,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "desktop-lower-home",
@@ -2625,7 +2792,15 @@
      "h": 150
     }
    ],
-   "id": "P020"
+   "id": "P020",
+   "said": null,
+   "raw": "There is no visible text input box or field to type in on th",
+   "cost": 0.00026916,
+   "seconds": 6.12,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-top-home",
@@ -2718,7 +2893,21 @@
      "h": 96
     }
    ],
-   "id": "P021"
+   "id": "P021",
+   "said": [
+    174.0,
+    37.0
+   ],
+   "raw": "174,37",
+   "cost": 0.00010003,
+   "seconds": 1.39,
+   "point_used": [
+    67.86,
+    31.227999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 7
   },
   {
    "frame": "mobile-top-home",
@@ -2811,7 +3000,21 @@
      "h": 96
     }
    ],
-   "id": "P022"
+   "id": "P022",
+   "said": [
+    473.0,
+    38.0
+   ],
+   "raw": "473,38",
+   "cost": 0.0001131,
+   "seconds": 1.14,
+   "point_used": [
+    184.47,
+    32.072
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 2
   },
   {
    "frame": "mobile-top-home",
@@ -2904,7 +3107,21 @@
      "h": 96
     }
    ],
-   "id": "P023"
+   "id": "P023",
+   "said": [
+    195.0,
+    820.0
+   ],
+   "raw": "195,820",
+   "cost": 9.891e-05,
+   "seconds": 1.72,
+   "point_used": [
+    76.05,
+    692.0799999999999
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 289
   },
   {
    "frame": "mobile-top-home",
@@ -2997,7 +3214,21 @@
      "h": 96
     }
    ],
-   "id": "P024"
+   "id": "P024",
+   "said": [
+    0.0,
+    0.0
+   ],
+   "raw": "0,0",
+   "cost": 8.472e-05,
+   "seconds": 0.92,
+   "point_used": [
+    0.0,
+    0.0
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 819
   },
   {
    "frame": "mobile-top-home",
@@ -3090,7 +3321,21 @@
      "h": 96
     }
    ],
-   "id": "P025"
+   "id": "P025",
+   "said": [
+    388.0,
+    763.0
+   ],
+   "raw": "388,763",
+   "cost": 0.00010025,
+   "seconds": 1.64,
+   "point_used": [
+    151.32,
+    643.972
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 36
   },
   {
    "frame": "mobile-top-home",
@@ -3183,7 +3428,21 @@
      "h": 96
     }
    ],
-   "id": "P026"
+   "id": "P026",
+   "said": [
+    107.0,
+    832.0
+   ],
+   "raw": "107,832",
+   "cost": 8.884e-05,
+   "seconds": 1.08,
+   "point_used": [
+    41.73,
+    702.208
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 147
   },
   {
    "frame": "mobile-lower-home",
@@ -3276,7 +3535,21 @@
      "h": 96
     }
    ],
-   "id": "P027"
+   "id": "P027",
+   "said": [
+    188.0,
+    38.0
+   ],
+   "raw": "188,38",
+   "cost": 9.123e-05,
+   "seconds": 1.6,
+   "point_used": [
+    73.32,
+    32.072
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 1
   },
   {
    "frame": "mobile-lower-home",
@@ -3369,7 +3642,15 @@
      "h": 96
     }
    ],
-   "id": "P028"
+   "id": "P028",
+   "said": null,
+   "raw": "There is no navigation link reading \"Light\" visible in the p",
+   "cost": 0.00012246,
+   "seconds": 1.0,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-lower-home",
@@ -3462,7 +3743,15 @@
      "h": 96
     }
    ],
-   "id": "P029"
+   "id": "P029",
+   "said": null,
+   "raw": "There is no button labelled \"Send\" visible in the provided s",
+   "cost": 0.00012607,
+   "seconds": 2.51,
+   "point_used": null,
+   "convention": "normalised",
+   "outcome": "refused",
+   "distance_px": null
   },
   {
    "frame": "mobile-lower-home",
@@ -3555,7 +3844,21 @@
      "h": 96
     }
    ],
-   "id": "P030"
+   "id": "P030",
+   "said": [
+    195.0,
+    37.0
+   ],
+   "raw": "195,37",
+   "cost": 9.68e-05,
+   "seconds": 1.49,
+   "point_used": [
+    76.05,
+    31.227999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 774
   }
  ]
 }

@@ -1,0 +1,600 @@
+{
+ "summary": {
+  "model": "google/gemma-3-12b-it",
+  "cases": 4,
+  "hit": 0,
+  "hit_ci": [
+   0,
+   49
+  ],
+  "hit_n": "0/4",
+  "wrong_thing": 25,
+  "wrong_thing_ci": [
+   5,
+   70
+  ],
+  "wrong_thing_n": "1/4",
+  "empty_space": 75,
+  "refused": 0,
+  "median_miss_px": 710,
+  "convention": "absolute",
+  "hits_absolute": 0,
+  "hits_normalised": 0,
+  "cost_usd": 7.6e-05,
+  "seconds_per_case": 1.11
+ },
+ "results": [
+  {
+   "frame": "desktop-top-home",
+   "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
+   "box": {
+    "x": 22,
+    "y": 11,
+    "w": 136,
+    "h": 43
+   },
+   "group": "nav-links",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 0,
+     "y": 0,
+     "w": 57,
+     "h": 22
+    },
+    {
+     "t": "Products",
+     "x": 0,
+     "y": 0,
+     "w": 60,
+     "h": 22
+    },
+    {
+     "t": "Business cases",
+     "x": 0,
+     "y": 0,
+     "w": 101,
+     "h": 22
+    },
+    {
+     "t": "Media",
+     "x": 0,
+     "y": 0,
+     "w": 40,
+     "h": 22
+    },
+    {
+     "t": "Certifications",
+     "x": 0,
+     "y": 0,
+     "w": 89,
+     "h": 22
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 353,
+     "y": 631,
+     "w": 560,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 875,
+     "y": 637,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Collapse the conversation",
+     "x": 957,
+     "y": 824,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 277,
+     "y": 1044,
+     "w": 712,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 951,
+     "y": 1050,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Back to the core",
+     "x": 1016,
+     "y": 0,
+     "w": 150,
+     "h": 150
+    }
+   ],
+   "id": "P001",
+   "said": [
+    200.0,
+    100.0
+   ],
+   "raw": "200,100",
+   "cost": 1.935e-05,
+   "seconds": 0.8,
+   "point_used": [
+    200.0,
+    100.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 129,
+   "_tally": {
+    "absolute": 0,
+    "normalised": 0
+   }
+  },
+  {
+   "frame": "desktop-top-home",
+   "target": "the navigation link reading \"Light\"",
+   "box": {
+    "x": 194,
+    "y": 10,
+    "w": 82,
+    "h": 44
+   },
+   "group": "nav-links",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 0,
+     "y": 0,
+     "w": 57,
+     "h": 22
+    },
+    {
+     "t": "Products",
+     "x": 0,
+     "y": 0,
+     "w": 60,
+     "h": 22
+    },
+    {
+     "t": "Business cases",
+     "x": 0,
+     "y": 0,
+     "w": 101,
+     "h": 22
+    },
+    {
+     "t": "Media",
+     "x": 0,
+     "y": 0,
+     "w": 40,
+     "h": 22
+    },
+    {
+     "t": "Certifications",
+     "x": 0,
+     "y": 0,
+     "w": 89,
+     "h": 22
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 353,
+     "y": 631,
+     "w": 560,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 875,
+     "y": 637,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Collapse the conversation",
+     "x": 957,
+     "y": 824,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 277,
+     "y": 1044,
+     "w": 712,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 951,
+     "y": 1050,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Back to the core",
+     "x": 1016,
+     "y": 0,
+     "w": 150,
+     "h": 150
+    }
+   ],
+   "id": "P002",
+   "said": [
+    1150.0,
+    50.0
+   ],
+   "raw": "1150,50",
+   "cost": 1.905e-05,
+   "seconds": 0.91,
+   "point_used": [
+    1150.0,
+    50.0
+   ],
+   "convention": "absolute",
+   "outcome": "wrong-thing",
+   "distance_px": 915
+  },
+  {
+   "frame": "desktop-top-home",
+   "target": "the item reading \"Startups\"",
+   "box": {
+    "x": 0,
+    "y": 26,
+    "w": 57,
+    "h": 22
+   },
+   "group": "labels",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 0,
+     "y": 0,
+     "w": 57,
+     "h": 22
+    },
+    {
+     "t": "Products",
+     "x": 0,
+     "y": 0,
+     "w": 60,
+     "h": 22
+    },
+    {
+     "t": "Business cases",
+     "x": 0,
+     "y": 0,
+     "w": 101,
+     "h": 22
+    },
+    {
+     "t": "Media",
+     "x": 0,
+     "y": 0,
+     "w": 40,
+     "h": 22
+    },
+    {
+     "t": "Certifications",
+     "x": 0,
+     "y": 0,
+     "w": 89,
+     "h": 22
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 353,
+     "y": 631,
+     "w": 560,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 875,
+     "y": 637,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Collapse the conversation",
+     "x": 957,
+     "y": 824,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 277,
+     "y": 1044,
+     "w": 712,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 951,
+     "y": 1050,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Back to the core",
+     "x": 1016,
+     "y": 0,
+     "w": 150,
+     "h": 150
+    }
+   ],
+   "id": "P003",
+   "said": [
+    100.0,
+    150.0
+   ],
+   "raw": "100,150",
+   "cost": 1.905e-05,
+   "seconds": 1.84,
+   "point_used": [
+    100.0,
+    150.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 134
+  },
+  {
+   "frame": "desktop-top-home",
+   "target": "the item reading \"Products\"",
+   "box": {
+    "x": 0,
+    "y": 26,
+    "w": 60,
+    "h": 22
+   },
+   "group": "labels",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 0,
+     "y": 0,
+     "w": 57,
+     "h": 22
+    },
+    {
+     "t": "Products",
+     "x": 0,
+     "y": 0,
+     "w": 60,
+     "h": 22
+    },
+    {
+     "t": "Business cases",
+     "x": 0,
+     "y": 0,
+     "w": 101,
+     "h": 22
+    },
+    {
+     "t": "Media",
+     "x": 0,
+     "y": 0,
+     "w": 40,
+     "h": 22
+    },
+    {
+     "t": "Certifications",
+     "x": 0,
+     "y": 0,
+     "w": 89,
+     "h": 22
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 353,
+     "y": 631,
+     "w": 560,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 875,
+     "y": 637,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Collapse the conversation",
+     "x": 957,
+     "y": 824,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 277,
+     "y": 1044,
+     "w": 712,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 951,
+     "y": 1050,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Back to the core",
+     "x": 1016,
+     "y": 0,
+     "w": 150,
+     "h": 150
+    }
+   ],
+   "id": "P004",
+   "said": [
+    640.0,
+    400.0
+   ],
+   "raw": "640,400",
+   "cost": 1.9e-05,
+   "seconds": 0.88,
+   "point_used": [
+    640.0,
+    400.0
+   ],
+   "convention": "absolute",
+   "outcome": "empty-space",
+   "distance_px": 710
+  }
+ ]
+}
