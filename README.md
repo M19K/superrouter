@@ -97,6 +97,24 @@ The third task type is text, not vision, and it runs through the same scorer on
 the same two axes. That is the generalisation claim, and it is why this is a way
 of defining quality rather than vision tooling.
 
+### 4 · The level belongs to your product, so it is never shipped
+
+Both task types, two products, one generic generator:
+
+| | rank correlation | median level shift |
+|---|---|---|
+| judging | 0.83 | **−22 points** — every model worse on product B |
+| pointing | 0.94 | **+13 points** — most models *better* on product B |
+
+Judging alone reads as *models degrade on unseen products*. Pointing refutes
+that — the shift went the other way. **The level is a property of the product**;
+a docs site with large obvious navigation is easier to point at than an
+unconventional layout.
+
+So order transfers, and a published leaderboard is a fair guess at it. The level
+does not transfer in either direction, and the level is the only thing that
+answers *is this good enough for me*.
+
 ## The finding that shapes the router
 
 **Judging a screen and pointing at it are close to unrelated abilities.** Same
