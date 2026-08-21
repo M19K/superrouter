@@ -161,6 +161,31 @@ Set `OPENROUTER_API_KEY`, or put one in a gitignored `secrets.json`.
 | `supersuperrouter/export_llmrouter.py` | hands it all to LLMRouter |
 | `state/` | pool snapshot, every scored run, exported training data |
 
+## Shadow mode — and the honest limit on what it proves
+
+`--shadow N` sends one call in every N to the reference as well, off the response
+path, and records whether the two agreed. It is how a measurement taken on one
+day survives models being updated under the same name and traffic drifting away
+from the exam.
+
+**Measured against ground truth on 60 live calls, because agreement is easy to
+misread:**
+
+| | |
+|---|---|
+| routed model agreed with the reference | **100%** |
+| routed model correct against ground truth | **75%** |
+| agreed *and both wrong* | **12 of 50 — 24% of traffic** |
+
+**Agreement measures drift from the reference and nothing else.** It goes blind
+exactly where the two models share a blind spot, and a shared blind spot is the
+normal case. So shadow mode tells you *when* to re-run the golden set. It never
+replaces it, and a high agreement rate is not evidence of quality.
+
+The saving and the cost of proving it are reported as separate columns — rolled
+together, a fully-sampled run reports a 1× saving, the router looking worthless
+because the audit was billed to it.
+
 ## Integrity rules the instrument enforces
 
 - **A planted defect must move pixels.** One of 18 classes returned success and

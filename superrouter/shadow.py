@@ -59,42 +59,69 @@ def main():
         by[r["task"]].append(r)
 
     print(f"served traffic · {len(rows)} routed calls across {len(by)} task types\n")
-    print(f"{'calls':>7} {'shadowed':>9} {'agreed':>18} {'spent':>10} "
+    # The saving and the cost of proving it are two different numbers. Rolled
+    # together, a run with shadow at 1-in-1 reports 1x — the router looking
+    # worthless because the audit was billed to it. Kept apart on purpose.
+    print(f"{'calls':>7} {'shadowed':>9} {'agreed':>18} {'routed':>9} {'checks':>8} "
           f"{'reference would':>16} {'saving':>8}  task")
     print("-" * 96)
     tot_spent = tot_ref = 0.0
     for task, rs in sorted(by.items()):
-        sh = [r for r in rs if "agreed" in r]
+        sh = [r for r in rs if r.get("agreed") is not None]
         agreed = sum(1 for r in sh if r["agreed"])
         spent = sum(r.get("cost_usd") or 0 for r in rs)
-        spent += sum(r.get("shadow_cost") or 0 for r in sh)   # shadowing is not free
+        checks = sum(r.get("shadow_cost") or 0 for r in rs)   # the audit, billed separately
         ref = sum(r.get("reference_cost_estimate") or 0 for r in rs)
         tot_spent += spent
+        tot_checks = globals().setdefault("_tc", 0) + checks
+        globals()["_tc"] = tot_checks
         tot_ref += ref
         if sh:
             lo, hi = wilson(agreed, len(sh))
             a = f"{round(100*agreed/len(sh))}% ({lo}-{hi})"
         else:
             a = "— not sampled"
-        print(f"{len(rs):>7} {len(sh):>9} {a:>18} {spent:>10.5f} {ref:>16.5f} "
-              f"{(ref/spent if spent else 0):>7.0f}×  {task}")
+        print(f"{len(rs):>7} {len(sh):>9} {a:>18} {spent:>9.5f} {checks:>8.5f} "
+              f"{ref:>16.5f} {(ref/spent if spent else 0):>7.0f}×  {task}")
 
-    print(f"\n{'':>7} {'':>9} {'':>18} {tot_spent:>10.5f} {tot_ref:>16.5f} "
-          f"{(tot_ref/tot_spent if tot_spent else 0):>7.0f}×  all traffic")
+    tot_checks = globals().get("_tc", 0.0)
+    print(f"\n{'':>7} {'':>9} {'':>18} {tot_spent:>9.5f} {tot_checks:>8.5f} "
+          f"{tot_ref:>16.5f} {(tot_ref/tot_spent if tot_spent else 0):>7.0f}×  all traffic")
+    if tot_checks:
+        print(f"\n  The router saved {(tot_ref/tot_spent if tot_spent else 0):.0f}×. "
+              f"Proving it cost ${tot_checks:.5f} on top, at the sampling rate you ran.")
+        print(f"  At 1-in-20 instead of 1-in-1 that check would be "
+              f"${tot_checks/20:.5f}, and the saving is unchanged.")
 
-    shadowed = [r for r in rows if "agreed" in r]
+    shadowed = [r for r in rows if r.get("agreed") is not None]
     if not shadowed:
         print("\nNo calls have been shadowed. The saving above is real; the quality")
         print("claim is not being checked. Start the proxy with --shadow N.")
         return
     n, agreed = len(shadowed), sum(1 for r in shadowed if r["agreed"])
     lo, hi = wilson(agreed, n)
+    skipped = [r for r in rows if r.get("shadow_skipped")]
+    if skipped:
+        print(f"\n{len(skipped)} probe(s) returned nothing from the reference and are "
+              f"excluded from the rate.\n  Not a disagreement — the reference could not "
+              f"answer under the caller's own limits.\n  Counting them as disagreement "
+              f"is how this read 76% on its first live run.")
+    print("\n" + "-"*96)
+    print("WHAT AGREEMENT CAN AND CANNOT TELL YOU — measured, 2026-08-21, 50 live samples")
+    print("  routed model, agreement with the reference : 100%")
+    print("  routed model, correct against ground truth :  75%")
+    print("  They agreed and were BOTH WRONG on 12 of 50 — 24% of the traffic.")
+    print("  So agreement detects DRIFT FROM THE REFERENCE and nothing else. It goes")
+    print("  blind exactly where the two models share a blind spot, and a shared blind")
+    print("  spot is the normal case, not the exotic one.")
+    print("  **Shadow mode does not replace re-running the exam. It tells you WHEN to.**")
+    print("-"*96)
     print(f"\nagreement with the reference: {agreed}/{n} ({round(100*agreed/n)}%), "
           f"interval {lo}-{hi}")
     if n < 30:
         print(f"That interval is {hi-lo} points wide. {n} samples cannot tell a healthy")
         print("router from a broken one — this is a sample count, not a verdict yet.")
-    disagreed = [r for r in shadowed if not r["agreed"]][:5]
+    disagreed = [r for r in shadowed if r["agreed"] is False][:5]
     if disagreed:
         print("\nwhere they differed:")
         for r in disagreed:

@@ -116,6 +116,28 @@ def infer_task(body):
     return "text-faithful"
 
 
+def same_decision(a, b):
+    """Do two answers carry the same decision, ignoring how much was said?
+
+    Comparing raw strings counts explanation as disagreement. Measured on the
+    first live run: the routed model answered `TRUE\n\nThe claim is a direct
+    copy of the source` where the reference answered `TRUE`. Identical decision,
+    scored as a difference.
+
+    So: normalise, then treat a prefix as a match. A longer answer that begins
+    with the shorter one is the same decision with reasoning attached. This is
+    deliberately generic — it knows nothing about TRUE/FALSE or any other task's
+    vocabulary, because a comparison hardcoded to one task's answers would not
+    survive the next task type.
+    """
+    n = lambda t: "".join(ch for ch in (t or "").upper() if ch.isalnum())
+    x, y = n(a), n(b)
+    if not x or not y:
+        return None
+    short, long = (x, y) if len(x) <= len(y) else (y, x)
+    return long.startswith(short[:24])
+
+
 class Handler(BaseHTTPRequestHandler):
     table = {}
     upstream_key = None
@@ -143,12 +165,24 @@ class Handler(BaseHTTPRequestHandler):
         except Exception as e:
             return {"shadow_error": str(e)[:120]}
         ref_text = ((d.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
-        # Agreement is judged on the answer, not on the wording — two models can
-        # say TRUE in different sentences and that is not a disagreement.
-        norm = lambda t: "".join(ch for ch in (t or "").upper() if ch.isalnum())[:12]
-        return {"shadow_model": ref, "shadow_cost": float((d.get("usage") or {}).get("cost") or 0),
-                "agreed": norm(ref_text) == norm(answer),
-                "shadow_said": ref_text[:60], "routed_said": (answer or "")[:60]}
+        rec = {"shadow_model": ref,
+               "shadow_cost": float((d.get("usage") or {}).get("cost") or 0),
+               "shadow_said": ref_text[:80], "routed_said": (answer or "")[:80]}
+
+        # A reference that returned nothing is a FAILED PROBE, not a disagreement.
+        # Measured the first time this ran end to end: the reference came back
+        # empty on 15 of 62 samples because the caller's own max_tokens was small
+        # and the reference spent it before writing anything. Scored as
+        # disagreement that read as 76% agreement — the router looking broken
+        # because the instrument was. An instrument that blames the thing it is
+        # measuring for its own failure is worse than no instrument.
+        if not ref_text.strip():
+            rec["agreed"] = None
+            rec["shadow_skipped"] = "reference returned nothing under the caller's own limits"
+            return rec
+
+        rec["agreed"] = same_decision(answer, ref_text)
+        return rec
 
     def log_message(self, *a):
         pass                                    # the run log is the record
