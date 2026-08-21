@@ -76,11 +76,38 @@ TASKS = {
 }
 
 
+def same_exam(rows):
+    """Keep only the runs that sat the newest exam, and say who is excluded.
+
+    Comparing a model scored on an old golden set with one scored on a new one
+    ranks the exams, not the models. On 2026-08-21 that put a free model scored
+    on 90 easy cases above one scored on the 592-case redesign. Silence there is
+    worse than an empty table: it produces a confident routing decision from a
+    comparison that was never valid.
+    """
+    stamped = [r for r in rows if r.get("golden_fingerprint")]
+    if not stamped:
+        return rows, []
+    newest = max(stamped, key=lambda r: r.get("_run_file") or "")["golden_fingerprint"]
+    keep = [r for r in rows if r.get("golden_fingerprint") == newest]
+    stale = [r for r in rows if r.get("golden_fingerprint") != newest]
+    if stale:
+        print(f"   ({len(stale)} model(s) excluded — last measured on an older "
+              f"version of this exam, so their scores are not comparable: "
+              f"{', '.join(sorted({r['model'].split('/')[-1] for r in stale})[:4])}"
+              f"{' …' if len({r['model'] for r in stale}) > 4 else ''})")
+    return keep, stale
+
+
 def latest(runs_dir, min_cases):
+    """Newest run per model. Run files are named with their timestamp, so
+    sorted order is chronological — and that order is carried through, because
+    which exam is current can only be decided by when it was sat."""
     best = {}
     for p in sorted(glob.glob(os.path.join(runs_dir, "*.json"))):
         s = json.load(open(p))["summary"]
         if s["cases"] >= min_cases:
+            s = dict(s, _run_file=os.path.basename(p))
             best[s["model"]] = s
     return list(best.values())
 
@@ -106,7 +133,7 @@ def per_product():
     base = TASKS["qa-vision-assert"]
     out = {}
     for name, runs in PRODUCTS.items():
-        rows = latest(runs, 100)
+        rows, _stale = same_exam(latest(runs, 100))
         ref = next((r for r in rows if r["model"] == base["reference"]), None)
         if not ref:
             continue
@@ -146,7 +173,7 @@ def main():
 
     table = {}
     for task, cfg in TASKS.items():
-        rows = latest(cfg["runs"], cfg["min_cases"])
+        rows, _stale = same_exam(latest(cfg["runs"], cfg["min_cases"]))
         ref = next((r for r in rows if r["model"] == cfg["reference"]), None)
         if not ref:
             print(f"{task}: no reference run, skipped\n")
@@ -211,7 +238,7 @@ def main():
         base = routed = 0.0
         for task, share in MIX.items():
             cfg = TASKS[task]
-            rows = latest(cfg["runs"], cfg["min_cases"])
+            rows, _stale = same_exam(latest(cfg["runs"], cfg["min_cases"]))
             ref = next(r for r in rows if r["model"] == cfg["reference"])
             pick = next(r for r in rows if r["model"] == table[task])
             base += share * ref["cost_usd"] / ref["cases"]
@@ -226,7 +253,7 @@ def main():
     # what a naive router would have done, and what it costs
     print("\n── what routing on one number would have picked")
     for task, cfg in TASKS.items():
-        rows = latest(cfg["runs"], cfg["min_cases"])
+        rows, _stale = same_exam(latest(cfg["runs"], cfg["min_cases"]))
         if not rows:
             continue
         key = "accuracy" if task == "qa-vision-assert" else "hit"

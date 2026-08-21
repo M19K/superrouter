@@ -21,7 +21,8 @@
   "hits_absolute": 2,
   "hits_normalised": 12,
   "cost_usd": 0.029791,
-  "seconds_per_case": 34.77
+  "seconds_per_case": 34.77,
+  "golden_fingerprint": "96c8c291bbee"
  },
  "results": [
   {

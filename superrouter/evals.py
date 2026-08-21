@@ -49,6 +49,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # CLAUDE.md. QA against a product bills that product, never this one.
 PROJECT = "superrouter"
 
+GOLDEN_FP = {}   # set once per run, stamped into every summary
+
 CODE = os.path.dirname(HERE)
 # Task types the same scorer handles. The axes — catch rate and false-alarm
 # rate — are identical across them, which is the claim: this is a way of
@@ -139,6 +141,27 @@ def key():
         "05-Orchestrator/ledger/keys.md; outside it, set OPENROUTER_API_KEY or "
         "put one in code/secrets.json (gitignored)."
     )
+
+
+def fingerprint(cases):
+    """A short, stable id for the exact exam a run was scored on.
+
+    Golden sets change — classes get rebalanced, harder cases get added, a
+    product is rebuilt. A model measured on the old set and one measured on the
+    new set have not sat the same exam, and comparing their scores ranks the
+    exams rather than the models. Measured 2026-08-21: the routing table picked
+    a free model scored on a 90-case set over one scored on the 592-case
+    redesign, because nothing in the record said they were different exams.
+
+    So every run carries the fingerprint of what it sat, and anything that
+    compares runs refuses to mix them.
+    """
+    import hashlib
+    h = hashlib.sha256()
+    for c in sorted(cases, key=lambda c: c["id"]):
+        h.update(f"{c['id']}|{c.get('answer')}|{c.get('corruption') or ''}"
+                 f"|{c.get('variant') or ''}|{c.get('defect') or ''}".encode())
+    return h.hexdigest()[:12]
 
 
 def golden(task="qa-vision-assert"):
@@ -347,6 +370,7 @@ def summarise(model, results, errors):
 
     return {
         "model": model, "cases": n,
+        "golden_fingerprint": GOLDEN_FP.get("v"),
         "usable": errors == 0 and unparsed == 0,
         "catch_ci": wilson(caught, len(defect)),
         "false_alarm_ci": wilson(alarms, len(healthy_ok)),
@@ -380,24 +404,38 @@ def dry_run(cases):
     """What a scored run would cost, before spending anything. An estimate and
     labelled as one — the token count for an image is the model's business, not
     the caller's, so this brackets it rather than pretending to know it."""
-    frames = sorted({c["frame"] for c in cases})
+    # A text task has no frames. The dry run is the one place that must not
+    # crash — it exists so nobody spends money without seeing the bill first.
+    frames = sorted({c["frame"] for c in cases if "frame" in c})
     px = {}
     from struct import unpack
     for f in frames:
         d = open(os.path.join(FRAMES, f"{f}.png"), "rb").read(33)
         px[f] = unpack(">II", d[16:24])
     calls = len(cases)
-    # Bracket: 28px patches (Qwen-family, dense) as the high end; OpenAI's
-    # 512px-tile accounting as the low end. Both are documented conventions.
-    hi = sum(((px[c["frame"]][0] // 28) * (px[c["frame"]][1] // 28)) for c in cases)
-    lo = sum((-(-px[c["frame"]][0] // 512) * -(-px[c["frame"]][1] // 512) * 170 + 85)
-             for c in cases)
-    print(f"dry run · {calls} calls over {len(frames)} frames, no money spent\n")
-    print(f"  image tokens across the run, bracketed: {lo:,} … {hi:,}")
+    if not frames:
+        # A text task: the prompt IS the cost, and its length is known exactly,
+        # so this is a count rather than a bracket. Four characters per token is
+        # the usual rule of thumb and is labelled as one.
+        chars = sum(len(c.get("assert") or c.get("text") or "") for c in cases)
+        lo = hi = chars // 4
+    else:
+        # Bracket: 28px patches (Qwen-family, dense) as the high end; OpenAI's
+        # 512px-tile accounting as the low end. Both are documented conventions.
+        hi = sum(((px[c["frame"]][0] // 28) * (px[c["frame"]][1] // 28)) for c in cases)
+        lo = sum((-(-px[c["frame"]][0] // 512) * -(-px[c["frame"]][1] // 512) * 170 + 85)
+                 for c in cases)
+    where = f"over {len(frames)} frames" if frames else "of text, no images"
+    print(f"dry run · {calls} calls {where}, no money spent\n")
+    if frames:
+        print(f"  image tokens across the run, bracketed: {lo:,} … {hi:,}")
+    else:
+        print(f"  input tokens across the run: ~{lo:,} (counted from the prompts)")
     print(f"  output tokens: ~{calls * 3:,} at one word each, if the model does not reason\n")
     print(f"  {'$/M in':>8}  {'est. run cost':>13}  model")
     pool = json.load(open(os.path.join(CODE, "state", "pool.json")))["models"]
-    for m in sorted((m for m in pool if m["vision"] and m["in_per_m"] > 0),
+    for m in sorted((m for m in pool if (m["vision"] or not frames)
+                     and m["in_per_m"] > 0),
                     key=lambda m: m["in_per_m"])[:10]:
         c_lo = lo / 1e6 * m["in_per_m"] + calls * 3 / 1e6 * m["out_per_m"]
         c_hi = hi / 1e6 * m["in_per_m"] + calls * 3 / 1e6 * m["out_per_m"]
@@ -473,6 +511,7 @@ def main():
         dry_run(cases)
         return
 
+    GOLDEN_FP["v"] = fingerprint(cases)
     api_key = key()
     os.makedirs(runs_dir, exist_ok=True)
     stamp = time.strftime("%Y-%m-%dT%H-%M-%S")

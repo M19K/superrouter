@@ -206,6 +206,23 @@ because the audit was billed to it.
 
 ## Integrity rules the instrument enforces
 
+- **Runs from different versions of a golden set are never compared.** Every run
+  carries a fingerprint of the exact cases it was scored on. Without it the
+  table picked a free model measured on 90 easy cases over one measured on the
+  592-case redesign — and `state/text_runs` turned out to hold **four** distinct
+  exams being read as one. A model on an older exam is excluded and named as
+  needing re-measurement, never silently ranked.
+- **Both sides of the exam have to be hard.** The faithful cases were verbatim
+  copies of the source, so the question was *is this passage supported by
+  itself* — false-alarm rates sat at 0-3% across seven models and that axis
+  measured nothing. Faithful cases are now mechanical rewrites that provably
+  preserve support (reordered, shortened, split at a comma, aside removed), and
+  the axis came alive: 0-11%, changing the ranking.
+- **Every failure mode gets an equal share, and a class that cannot fill its
+  share is named.** The classes that separated models were the rarest —
+  `scope-widen` supplied 39 cases and was missed 41% of the time while
+  `unsupported-addition` supplied 169 and was missed 14%, so the exam spent
+  itself on questions nobody got wrong.
 - **A planted defect must move pixels.** One of 18 classes returned success and
   changed nothing — a selector that matched no element. Every fixture is gated
   against the healthy frame of the same screen.

@@ -28,15 +28,35 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # Documents the vault owns and that describe systems rather than people. The
 # task is professional-facing; nothing personal goes into a corpus that may be
 # published later.
-SOURCES = [
-    "05-Orchestrator/Information Lifecycle.md",
-    "05-Orchestrator/funnel/README.md",
-    "05-Orchestrator/qa/README.md",
-    "05-Orchestrator/Dependencies.md",
-    "05-Orchestrator/_index.md",
-    "01-Knowledge Base/Infrastructure Ledger.md",
-    "05-Orchestrator/jobs/README.md",
-]
+def sources(vault):
+    """Every substantial vault document about systems, discovered rather than
+    listed. The hand-written list of seven was the binding constraint: with each
+    corruption class capped to an even share, the set could only be as large as
+    the material allowed, and 326 of 380 class/passage pairs found nothing to
+    corrupt. More documents is the only lever that widens every class at once.
+
+    Personal and outward-facing material is excluded by folder, not by hand —
+    this corpus may be published, and a rule that depends on somebody
+    remembering is a rule that fails on the day it matters."""
+    import fnmatch
+    skip = ("00-Inbox", "03-Archive", "node_modules", ".git", "Maaz Profile",
+            "job-search", "Decisions.jsonl", "Learnings.jsonl", "QA/runs")
+    out = []
+    for root, dirs, files in os.walk(vault):
+        rel = os.path.relpath(root, vault)
+        if any(s in rel for s in skip):
+            dirs[:] = []
+            continue
+        for f in files:
+            if not f.endswith(".md"):
+                continue
+            path = os.path.join(rel, f) if rel != "." else f
+            if any(s in path for s in skip):
+                continue
+            if os.path.getsize(os.path.join(root, f)) < 2500:
+                continue
+            out.append(path)
+    return sorted(out)
 
 SENT = re.compile(r"(?<=[.!?])\s+")
 
@@ -45,7 +65,7 @@ def passages(vault, want, rnd):
     """Contiguous runs of real sentences. Long enough to need reading, short
     enough that a wrong answer is about the claim and not about attention."""
     out = []
-    for rel in SOURCES:
+    for rel in sources(vault):
         path = os.path.join(vault, rel)
         if not os.path.exists(path):
             continue
@@ -143,13 +163,68 @@ def corrupt(text, rule, pool, rnd):
     return None
 
 
+
+
+# ── The faithful side has to be hard too ──────────────────────────────────────
+#
+# Measured on the previous build: seven models, false-alarm rate 0-3% for every
+# one of them. An axis where nothing ever happens is not measuring anything.
+#
+# The cause was in the design, not the models. A faithful case was the source
+# text VERBATIM, so the question was "is this passage supported by itself" — a
+# model would have to be broken to say no. Real distillation never hands you a
+# copy; it hands you a rewrite, and the hard judgement is *this says the same
+# thing in different words* versus *this has quietly added something*.
+#
+# So faithful cases are transformed too. Every transform below provably
+# preserves support — reordering, dropping whole sentences, splitting one in
+# two, removing a parenthetical aside — so ground truth stays exact and free
+# while the case stops being a copy. Nothing here needs a model to generate and
+# nothing needs a human to check.
+
+def faithful_variants(text, rnd):
+    """Rewrites that cannot introduce anything unsupported."""
+    sents = [x.strip() for x in SENT.split(text) if x.strip()]
+    out = []
+
+    if len(sents) >= 3:                       # same claims, different order
+        r = sents[:]
+        rnd.shuffle(r)
+        if r != sents:
+            out.append(("reordered", " ".join(r)))
+
+    if len(sents) >= 3:                       # a subset is still supported
+        keep = sorted(rnd.sample(range(len(sents)), max(2, len(sents) - 2)))
+        out.append(("shortened", " ".join(sents[i] for i in keep)))
+
+    for i, snt in enumerate(sents):           # one sentence split at a comma
+        if snt.count(",") >= 1 and len(snt) > 90:
+            a, b = snt.split(",", 1)
+            b = b.strip()
+            if len(a) > 25 and len(b) > 25:
+                new = sents[:]
+                new[i] = f"{a.rstrip()}. {b[0].upper()}{b[1:]}"
+                out.append(("split", " ".join(new)))
+                break
+
+    paren = re.search(r"\s*\([^()]{10,120}\)", text)   # drop an aside
+    if paren:
+        out.append(("aside-dropped", (text[:paren.start()] + text[paren.end():]).strip()))
+
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--vault", default=os.path.expanduser("~/Documents/Mikoshi"))
     ap.add_argument("--passages", type=int, default=40)
     ap.add_argument("--seed", type=int, default=11)
+    ap.add_argument("--per-class", type=int, default=None,
+                    help="cases per corruption class; default is what the "
+                         "rarest class can supply, so the split stays even")
     a = ap.parse_args()
     rnd = random.Random(a.seed)
+    per_class = a.per_class
 
     ps = passages(a.vault, a.passages, rnd)
     if not ps:
@@ -158,9 +233,15 @@ def main():
 
     for p in ps:
         # the faithful case: the claim IS the source, so it cannot be unfaithful
+        # One verbatim case keeps the easy end represented; the rest are
+        # faithful REWRITES, which is what the task actually looks like.
         cases.append({"source": p["text"], "claim": p["text"], "answer": True,
-                      "doc": p["doc"], "corruption": None,
+                      "doc": p["doc"], "corruption": None, "variant": "verbatim",
                       "needs_defect_sight": False})
+        for kind, claim in faithful_variants(p["text"], rnd):
+            cases.append({"source": p["text"], "claim": claim, "answer": True,
+                          "doc": p["doc"], "corruption": None, "variant": kind,
+                          "needs_defect_sight": False})
         ctx = {"names": other_names(ps, p["doc"], rnd),
                "foreign_sentences": [s for q in ps if q["doc"] != p["doc"]
                                      for s in SENT.split(q["text"])]}
@@ -177,19 +258,87 @@ def main():
                           "difficulty": spec.DIFFICULTY[rule["id"]],
                           "change": note, "needs_defect_sight": True})
 
-    # balance: one faithful case per passage against six corrupted ones would
-    # make "FALSE" the winning constant answer. Trim corruptions to match.
-    faithful = [c for c in cases if c["answer"]]
-    broken = [c for c in cases if not c["answer"]]
-    # Keep the balance 50/50 AND keep the hard classes represented — trimming at
-    # random would let the easy classes dominate simply by applying more often.
-    hard = [c for c in broken if c["difficulty"] == "hard"]
-    easy = [c for c in broken if c["difficulty"] == "easy"]
-    rnd.shuffle(hard); rnd.shuffle(easy)
+    # Two things have to be true at once, and only one of them was.
+    #
+    # (1) 50/50 true/false, or "FALSE" every time wins the exam.
+    # (2) **Every corruption class carried by roughly the same number of cases.**
+    #
+    # (2) was left to chance and chance is uneven: measured on the previous
+    # build, `unsupported-addition` supplied 169 cases and `scope-widen` 39 —
+    # not a judgement about what matters, just which corruptions happened to
+    # find somewhere to apply. And the counts run the wrong way round. Ranked by
+    # how often every model MISSES them:
+    #
+    #     scope-widen        41% missed     39 cases
+    #     quantifier-flip    29% missed     52 cases
+    #     unsupported-add    14% missed    169 cases
+    #     unit-swap           8% missed     13 cases
+    #
+    # The classes that actually separate one model from another were the rarest,
+    # so the exam spent most of itself on questions nobody gets wrong. That is
+    # how a set ends up scoring every model 90-100% and measuring nothing.
+    #
+    # Stratified instead: take an equal share from each class, up to what the
+    # class can supply, and let a class that cannot fill its share hand the
+    # remainder back. Each class is a distinct failure mode and the per-mode
+    # rate is the number this project exists to produce — so an even split is
+    # the design, not a convenience.
+    broken_all = [c for c in cases if not c["answer"]]
+    pools = {}
+    for c in broken_all:
+        pools.setdefault(c["corruption"], []).append(c)
+    for v in pools.values():
+        rnd.shuffle(v)
+
+    # An even share only stays even while every class can still supply one. Ask
+    # for more than the rarest class holds and the loop keeps drawing from the
+    # abundant ones — measured at 400 passages, `unsupported-addition` reached
+    # 400 cases while `scope-widen` was stuck at 26, which is the exact
+    # imbalance this was written to remove.
+    #
+    # So the cap is explicit and the rarest class sets it. A class that cannot
+    # fill its share is NAMED rather than quietly topped up from elsewhere,
+    # because the shortfall is a fact about the corpus that the next person
+    # needs — it says which failure mode this set cannot yet speak about.
+    cap = per_class or min(len(v) for v in pools.values())
+    picked, short = [], []
+    for cls in sorted(pools):
+        take = pools[cls][:cap]
+        picked.extend(take)
+        if len(take) < cap:
+            short.append((cls, len(take), cap))
+    rnd.shuffle(picked)
+    want = len(picked)
+    broken = picked
+    fpools = {}
+    for c in cases:
+        if c["answer"]:
+            fpools.setdefault(c["variant"], []).append(c)
+    for v in fpools.values():
+        rnd.shuffle(v)
+    # same even-share rule as the corruptions — a variant that applies often
+    # must not drown out one that applies rarely
+    faithful, flive = [], dict(fpools)
+    fwant = min(want, sum(len(v) for v in fpools.values()))
+    while flive and len(faithful) < fwant:
+        share = max(1, (fwant - len(faithful)) // len(flive))
+        for k in list(flive):
+            take = flive[k][:share]
+            faithful.extend(take)
+            flive[k] = flive[k][len(take):]
+            if not flive[k]:
+                del flive[k]
+            if len(faithful) >= fwant:
+                break
+    faithful = faithful[:fwant]
+    # (broken is `picked` from the stratified draw above — never broken_all,
+    # which is the unstratified pool and was overwriting it here.)
     want = len(faithful)
-    broken = (hard[: max(want // 2, want - len(easy))] +
-              easy[: want - len(hard[: max(want // 2, want - len(easy))])])
+
     rnd.shuffle(broken)
+    n = min(len(faithful), len(broken))
+    rnd.shuffle(faithful); rnd.shuffle(broken)
+    faithful, broken = faithful[:n], broken[:n]
     cases = faithful + broken
     rnd.shuffle(cases)
     for i, c in enumerate(cases, 1):
@@ -219,6 +368,15 @@ def main():
           f"{sum(1 for c in cases if c['needs_defect_sight'])} needing defect sight")
     print("by difficulty:", ", ".join(f"{k} {v}" for k, v in sorted(by_diff.items())))
     print("corruption classes used:", ", ".join(f"{k} {v}" for k, v in sorted(by.items())))
+    fv = {}
+    for c in cases:
+        if c["answer"]:
+            fv[c["variant"]] = fv.get(c["variant"], 0) + 1
+    if short:
+        print("classes that could NOT fill their share — this set cannot speak\n  about these failure modes at full strength:")
+        for cls, got, cap_ in short:
+            print(f"    {cls:<24} {got}/{cap_}")
+    print("faithful variants used:", ", ".join(f"{k} {v}" for k, v in sorted(fv.items())))
     print(f"{len(refused)} class/passage pairs refused as inapplicable")
 
 

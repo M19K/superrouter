@@ -28,7 +28,8 @@
   "cost_per_case_usd": 1.605e-05,
   "seconds": 143.8,
   "seconds_per_case": 1.03,
-  "reasoning_tokens": 0
+  "reasoning_tokens": 0,
+  "golden_fingerprint": "645c4146698f"
  },
  "results": [
   {
