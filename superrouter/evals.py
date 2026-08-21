@@ -370,7 +370,9 @@ def summarise(model, results, errors):
 
     return {
         "model": model, "cases": n,
-        "golden_fingerprint": GOLDEN_FP.get("v"),
+        "golden_fingerprint": GOLDEN_FP.get("v"),      # the subset actually sat
+        "exam_fingerprint": GOLDEN_FP.get("exam"),     # the set it was drawn from
+        "exam_cases": GOLDEN_FP.get("exam_n"),
         "usable": errors == 0 and unparsed == 0,
         "catch_ci": wilson(caught, len(defect)),
         "false_alarm_ci": wilson(alarms, len(healthy_ok)),
@@ -474,6 +476,7 @@ def main():
                                               f"runs_{os.path.basename(base)}")}
     g = golden(a.task)
     cases = g["cases"]
+    all_cases = list(cases)          # before any sampling — this is the exam
     if a.sample:
         # Stratify by defect class and by answer, then take round-robin. A random
         # subset would under-represent the rare classes, which are exactly the
@@ -511,6 +514,19 @@ def main():
         dry_run(cases)
         return
 
+    # Two different identities, and conflating them was wrong.
+    #
+    #   the EXAM    — the whole golden set as built. Changes when the set is
+    #                 rebuilt, and that is what "your measurement is out of
+    #                 date" means.
+    #   the SAMPLE  — the subset this run actually sat, when --limit is used.
+    #                 Two runs are comparable only if they sat the same cases.
+    #
+    # Stamping only the sample made every --limit run look like a different
+    # exam from its own golden set, so the staleness check reported 0 of 13
+    # models measured on the current set when six had just been measured on it.
+    GOLDEN_FP["exam"] = fingerprint(all_cases)
+    GOLDEN_FP["exam_n"] = len(all_cases)
     GOLDEN_FP["v"] = fingerprint(cases)
     api_key = key()
     os.makedirs(runs_dir, exist_ok=True)

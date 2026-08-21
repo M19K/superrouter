@@ -147,6 +147,7 @@ python3 -m superrouter.evals --model <id>       # score judging
 python3 -m superrouter.pointing --model <id>    # score pointing
 python3 -m superrouter.curve                    # cost against quality, every model
 python3 -m superrouter.route_table              # the routing decision, per sub-task
+python3 -m superrouter.stale               # what has gone out of date, and why
 python3 -m superrouter.policy --like anthropic/claude-sonnet-5
 python3 -m superrouter.policy --min-catch 70 --max-false-alarm 15
 ```
@@ -293,6 +294,25 @@ of many screenshots and the right answer differs per screenshot — grouping by
 text alone merged our 140 cases into **25** groups and discarded 115 labels. The
 query therefore carries its frame: `[hub-dark] every section label is legible…`.
 General to any multimodal routing corpus.
+
+## Staying current
+
+A measurement describes the day it was taken, and four things move underneath it.
+`python3 -m superrouter.stale` reports the three that are computable:
+
+| what moves | how it is caught |
+|---|---|
+| **the exam** — a set is rebuilt, old scores stop being comparable | every run stamps the exam it was drawn from *and* the subset it sat |
+| **the price** — OpenRouter's prices move weekly | the live pool is compared against the indexed one |
+| **the pool** — new models appear and cannot win a race they were never entered in | same comparison, reported as a smaller question rather than a wrong answer |
+| **the model itself** — providers update in place under the same name | **not computable.** This is what shadow mode is for, and shadow mode only sees drift from the reference |
+
+Checked 2026-08-21, three days after the pool was indexed: **12 models had
+appeared, one had gone, and 8 models we had measured had moved price** —
+`deepseek-v4-pro` from $0.66 to $1.60 per million, `qwen3.6-27b` doubled.
+
+**It reports and stops.** Re-measuring costs money, so it prices a refresh and
+leaves the decision alone.
 
 ## Relationship to LLMRouter
 
