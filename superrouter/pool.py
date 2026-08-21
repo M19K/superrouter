@@ -34,6 +34,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 STATE = os.path.join(os.path.dirname(HERE), "state")
 SNAPSHOT = os.path.join(STATE, "pool.json")
 API = "https://openrouter.ai/api/v1/models"
+PER_MODEL = "https://openrouter.ai/api/v1/models/{}/endpoints"
 
 
 def fetch():
@@ -95,10 +96,25 @@ def load():
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--endpoints", action="store_true",
+                    help="who actually serves each model we have measured, at what "
+                         "precision, uptime and latency — the routing inputs a "
+                         "golden set cannot see")
     ap.add_argument("--vision", action="store_true", help="only models that accept images")
     ap.add_argument("--top", type=int, default=15, help="how many of the cheapest to print")
     ap.add_argument("--offline", action="store_true", help="read the snapshot instead of the API")
     a = ap.parse_args()
+
+    if a.endpoints:
+        from .evals import key as project_key
+        import glob
+        measured = sorted({json.load(open(f))["summary"]["model"]
+                           for d in ("runs", "runs_portfolio", "runs_midscene-docs",
+                                     "point_runs", "text_runs")
+                           for f in glob.glob(os.path.join(STATE, d, "*.json"))})
+        measured = [m for m in measured if "/" in m and not m.startswith("local/")]
+        report_endpoints(measured, project_key())
+        return
 
     if a.offline:
         rows = load()["models"]
@@ -132,6 +148,80 @@ def main():
               f"{paid[-1]['in_per_m'] / paid[0]['in_per_m']:.0f}")
     print("\n  ⟲ = reasoning cannot be turned off, so its token burn is not yours to control")
 
+
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Providers — the unit that actually serves a request
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# A model id is not one thing. `qwen/qwen3-vl-235b-a22b-instruct` is served by
+# five providers at **bf16, fp8 and unknown** quantization, priced $0.20–$0.30,
+# with uptime from 92.7% to 100%. OpenRouter picks one per request unless told
+# otherwise.
+#
+# Two consequences, and the first is a correction to our own work:
+#
+# 1. **A score for a model name is an average over whichever providers happened
+#    to serve those calls.** fp8 and bf16 are not the same model in any sense
+#    that matters to quality, so a ladder that does not pin its provider is
+#    measuring a moving target and cannot be reproduced.
+# 2. **Uptime and latency are routing inputs a golden set cannot see.** A golden
+#    set measures the quality of an answer that arrived. It is silent on whether
+#    the endpoint was up, and a 92.7% endpoint fails one call in thirteen.
+
+
+def endpoints(model, api_key):
+    """Every provider serving one model, with what each actually offers."""
+    req = urllib.request.Request(PER_MODEL.format(model),
+                                 headers={"Authorization": f"Bearer {api_key}"})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        data = json.loads(r.read().decode())["data"]
+    out = []
+    for e in data.get("endpoints", []):
+        out.append({
+            "provider": e.get("provider_name"),
+            "quantization": e.get("quantization") or "unspecified",
+            "context": e.get("context_length"),
+            "in_per_m": round(float((e.get("pricing") or {}).get("prompt") or 0) * 1e6, 4),
+            "out_per_m": round(float((e.get("pricing") or {}).get("completion") or 0) * 1e6, 4),
+            "uptime_30m": e.get("uptime_last_30m"),
+            "latency_30m": e.get("latency_last_30m"),
+            "status": e.get("status"),
+        })
+    return sorted(out, key=lambda e: (-(e["uptime_30m"] or 0), e["in_per_m"]))
+
+
+def report_endpoints(models, api_key):
+    print(f"{'model':<44} {'prov':>4} {'quantization':<20} {'price $/M':<14} "
+          f"{'uptime':<16} split?")
+    print("-" * 108)
+    risky = []
+    for m in models:
+        try:
+            eps = endpoints(m, api_key)
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
+            print(f"{m:<44} — {str(e)[:50]}")
+            continue
+        if not eps:
+            continue
+        qs = sorted({e["quantization"] for e in eps})
+        pr = sorted(e["in_per_m"] for e in eps)
+        up = [e["uptime_30m"] for e in eps if e["uptime_30m"] is not None]
+        split = len(qs) > 1
+        if split:
+            risky.append((m, qs))
+        print(f"{m:<44} {len(eps):>4} {','.join(qs):<20} "
+              f"${pr[0]:<5.2f}–${pr[-1]:<5.2f} "
+              f"{(min(up) if up else 0):>5.1f}–{(max(up) if up else 0):<5.1f}%  "
+              f"{'YES — pin it' if split else ''}")
+    if risky:
+        print("\nThese are served at more than one numeric precision, so a score "
+              "for the bare\nmodel name is an average over whichever provider "
+              "answered. Pin the provider\nbefore measuring, and record which one "
+              "the score belongs to:")
+        for m, qs in risky:
+            print(f"   {m}  ({', '.join(qs)})")
 
 if __name__ == "__main__":
     main()

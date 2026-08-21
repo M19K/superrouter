@@ -36,6 +36,7 @@ import argparse
 import base64
 import json
 import os
+import sys
 import time
 import concurrent.futures as futures
 import math
@@ -44,6 +45,10 @@ import urllib.error
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+# The key label this project is entitled to — its folder name, per
+# CLAUDE.md. QA against a product bills that product, never this one.
+PROJECT = "superrouter"
+
 CODE = os.path.dirname(HERE)
 # Task types the same scorer handles. The axes — catch rate and false-alarm
 # rate — are identical across them, which is the claim: this is a way of
@@ -70,6 +75,12 @@ ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 LOCAL_BASE = os.environ.get("LOCAL_MODEL_BASE_URL", "http://localhost:11434/v1")
 
 
+# A model id is not one endpoint. Measured 2026-08-20: three of the nine models
+# in our ladders are served at more than one numeric precision — bf16, fp8 and
+# unspecified — by different providers at different prices and uptimes, and
+# OpenRouter picks one per request. So a score attached to a bare model name is
+# an average over whichever providers happened to answer, and it cannot be
+# reproduced. Pin the provider and the score means something.
 def endpoint_for(model):
     """Returns (url, api_key_override, wire_name). Local models bill nothing and
     Ollama ignores the key's value but requires the header to exist."""
@@ -91,8 +102,32 @@ PROMPT = (
 
 
 def key():
-    """The key is read from the environment or from a gitignored file. It is
-    never printed, never logged, and never written into a run record."""
+    """The key comes from the vault's resolver, which hands back the label
+    belonging to THIS project and nothing else.
+
+    Measured across the vault on 2026-08-20: four products shared one key and
+    94% of $25.27 of spend could not be attributed to any of them. Providers
+    attribute by key, and OpenRouter's history reaches back only 30 days, so
+    attribution missed is attribution gone. Borrowing another product's key puts
+    this project's bill on that project's account permanently.
+
+    The resolver never falls back to another label — a missing key raises and
+    says what to do, because a resolver that quietly substitutes whatever key
+    exists is exactly how the misattribution happened.
+
+    Outside the vault, `OPENROUTER_API_KEY` or a gitignored `secrets.json`.
+    Never printed, never logged, never written into a run record.
+    """
+    vault = os.path.expanduser("~/Documents/Mikoshi/05-Orchestrator")
+    if os.path.isdir(os.path.join(vault, "ledger")):
+        sys.path.insert(0, vault)
+        try:
+            from ledger.keys import resolve
+            return resolve("openrouter", project=PROJECT)
+        except ImportError:
+            pass
+        finally:
+            sys.path.remove(vault)
     k = os.environ.get("OPENROUTER_API_KEY")
     if k:
         return k
@@ -100,8 +135,9 @@ def key():
     if os.path.exists(local):
         return json.load(open(local))["openrouter_key"]
     raise SystemExit(
-        "No OpenRouter key. Set OPENROUTER_API_KEY, or put one in code/secrets.json "
-        "(gitignored) as {\"openrouter_key\": \"...\"}."
+        "No OpenRouter key. Inside the vault this resolves from "
+        "05-Orchestrator/ledger/keys.md; outside it, set OPENROUTER_API_KEY or "
+        "put one in code/secrets.json (gitignored)."
     )
 
 
@@ -132,11 +168,11 @@ TRANSPORT_FAULTS = (urllib.error.HTTPError, urllib.error.URLError,
                     json.JSONDecodeError)
 
 
-def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
+def ask(model, assertion, image_b64, api_key, timeout=120, tries=3, provider=None):
     """One call. `usage.include` makes OpenRouter return what it actually
     charged, so cost is a reading rather than an estimate."""
     url, key_override, wire = endpoint_for(model)
-    body = json.dumps({
+    payload = {
         "model": wire,
         "max_tokens": 2000,
         "temperature": 0,
@@ -147,7 +183,13 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
                "image_url": {"url": f"data:image/png;base64,{image_b64}"}}]
              if image_b64 else [])
         )}],
-    }).encode()
+    }
+    if provider and not model.startswith("local/"):
+        # `allow_fallbacks: False` is the half that matters — without it
+        # OpenRouter silently serves from somewhere else when the pinned
+        # provider is busy, and the run is unpinned again without saying so.
+        payload["provider"] = {"order": [provider], "allow_fallbacks": False}
+    body = json.dumps(payload).encode()
     req = urllib.request.Request(url, data=body, headers={
         "Authorization": f"Bearer {key_override or api_key}",
         "Content-Type": "application/json",
@@ -179,6 +221,9 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3):
     usage = d.get("usage") or {}
     return {
         "local": model.startswith("local/"),
+        # who actually served it — recorded on every call, so a score can always
+        # be traced to the endpoint that produced it
+        "served_by": d.get("provider"),
         "text": (msg.get("content") or "").strip(),
         "cost": float(usage.get("cost") or 0),
         "in_tokens": usage.get("prompt_tokens"),
@@ -355,6 +400,11 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="cost the run, spend nothing")
     ap.add_argument("--limit", type=int, help="score only the first N cases")
     ap.add_argument("--verbose", action="store_true", help="print every wrong answer")
+    ap.add_argument("--provider", default=None, metavar="NAME",
+                    help="pin the serving provider (e.g. DeepInfra). Three of our "
+                         "measured models are served at more than one numeric "
+                         "precision, so an unpinned score is an average over "
+                         "whichever endpoint answered and cannot be reproduced.")
     ap.add_argument("--workers", type=int, default=8, help="concurrent requests per model")
     ap.add_argument("--task", choices=list(TASKS), default="qa-vision-assert")
     ap.add_argument("--set", dest="set_dir",
