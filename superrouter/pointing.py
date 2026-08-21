@@ -48,6 +48,18 @@ CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GOLDEN = os.path.join(CODE, "golden", "qa-point")
 RUNS = os.path.join(CODE, "state", "point_runs")
 
+
+def set_paths(name):
+    """A pointing set per product, the same way the judging sets are kept apart.
+    Levels do not transfer between products — measured at a median 22 points on
+    the judging task — so a run has to say which product it describes or the
+    number means nothing."""
+    if not name:
+        return GOLDEN, os.path.join(GOLDEN, "frames"), RUNS
+    base = os.path.join(GOLDEN, "sets", name)
+    return base, os.path.join(base, "frames"), os.path.join(CODE, "state",
+                                                            f"point_runs_{name}")
+
 PROMPT = (
     "This is a screenshot of a web page, {vw} pixels wide and {vh} pixels tall.\n\n"
     "Find: {target}\n\n"
@@ -86,9 +98,10 @@ def classify(pt, case):
     return "empty-space"
 
 
-def frame_b64(name):
+def frame_b64(name, frames_dir=None):
     import base64
-    with open(os.path.join(GOLDEN, "frames", f"{name}.png"), "rb") as f:
+    with open(os.path.join(frames_dir or os.path.join(GOLDEN, "frames"),
+                           f"{name}.png"), "rb") as f:
         return base64.b64encode(f.read()).decode()
 
 
@@ -98,8 +111,8 @@ def as_absolute(pt, c, convention):
     return pt[0] / 1000 * c["vw"], pt[1] / 1000 * c["vh"]
 
 
-def score(model, cases, api_key, workers=8, verbose=False):
-    cache = {c["frame"]: frame_b64(c["frame"]) for c in cases}
+def score(model, cases, api_key, workers=8, verbose=False, frames_dir=None):
+    cache = {c["frame"]: frame_b64(c["frame"], frames_dir) for c in cases}
 
     def one(ic):
         i, c = ic
@@ -175,9 +188,11 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--limit", type=int)
     ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--set", help="product name under golden/qa-point/sets/")
     a = ap.parse_args()
 
-    g = json.load(open(os.path.join(GOLDEN, "manifest.json")))
+    base, frames_dir, runs_dir = set_paths(getattr(a, "set", None))
+    g = json.load(open(os.path.join(base, "manifest.json")))
     cases = g["case_list"][: a.limit] if a.limit else g["case_list"]
     print(f"pointing set · {len(cases)} targets with exact rectangles · "
           f"{len({c['frame'] for c in cases})} screens\n")
@@ -185,15 +200,16 @@ def main():
         raise SystemExit("give at least one --model")
 
     api_key = key()
-    os.makedirs(RUNS, exist_ok=True)
+    os.makedirs(runs_dir, exist_ok=True)
     stamp = time.strftime("%Y-%m-%dT%H-%M-%S")
     rows = []
     for m in a.model:
         print(f"scoring {m} …")
-        res = score(m, cases, api_key, workers=a.workers, verbose=a.verbose)
+        res = score(m, cases, api_key, workers=a.workers, verbose=a.verbose,
+                    frames_dir=frames_dir)
         s = summarise(m, res)
         rows.append(s)
-        with open(os.path.join(RUNS, f"{stamp}_{m.replace('/', '_')}.json"), "w") as f:
+        with open(os.path.join(runs_dir, f"{stamp}_{m.replace('/', '_')}.json"), "w") as f:
             json.dump({"summary": s, "results": res}, f, indent=1)
         print(f"  hit {s['hit']}% ({s['hit_n']}, {s['hit_ci'][0]}-{s['hit_ci'][1]})  "
               f"clicked the WRONG control {s['wrong_thing']}% ({s['wrong_thing_n']})  "
@@ -211,7 +227,7 @@ def main():
     for s in rows:
         print(f"  {s['model']:<46} {s['convention']:<11} "
               f"(absolute {s['hits_absolute']} hits, normalised {s['hits_normalised']})")
-    print(f"\nrun records → {RUNS}")
+    print(f"\nrun records → {runs_dir}")
 
 
 if __name__ == "__main__":

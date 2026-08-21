@@ -1,0 +1,10170 @@
+{
+ "summary": {
+  "model": "amazon/nova-lite-v1",
+  "cases": 29,
+  "hit": 34,
+  "hit_ci": [
+   20,
+   53
+  ],
+  "hit_n": "10/29",
+  "wrong_thing": 34,
+  "wrong_thing_ci": [
+   20,
+   53
+  ],
+  "wrong_thing_n": "10/29",
+  "empty_space": 31,
+  "refused": 0,
+  "median_miss_px": 193,
+  "convention": "normalised",
+  "hits_absolute": 5,
+  "hits_normalised": 10,
+  "cost_usd": 0.002355,
+  "seconds_per_case": 1.13
+ },
+ "results": [
+  {
+   "frame": "desktop-top-home",
+   "target": "the navigation link reading \"Search\u2318K\"",
+   "box": {
+    "x": 944,
+    "y": 12,
+    "w": 140,
+    "h": 40
+   },
+   "group": "nav-links",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "",
+     "x": 20,
+     "y": 11,
+     "w": 169,
+     "h": 42
+    },
+    {
+     "t": "Search\u2318K",
+     "x": 944,
+     "y": 12,
+     "w": 140,
+     "h": 40
+    },
+    {
+     "t": "Changelog",
+     "x": 1082,
+     "y": 59,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v0.x",
+     "x": 1082,
+     "y": 91,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v1.x",
+     "x": 1082,
+     "y": 123,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "ThemeLanguagesEnglishEnglish\u7b80\u4f53",
+     "x": 1208,
+     "y": 13,
+     "w": 37,
+     "h": 37
+    },
+    {
+     "t": "\u7b80\u4f53\u4e2d\u6587",
+     "x": 1139,
+     "y": 191,
+     "w": 105,
+     "h": 24
+    },
+    {
+     "t": "",
+     "x": 1055,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1099,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1143,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1187,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "Details",
+     "x": 339,
+     "y": 177,
+     "w": 40,
+     "h": 15
+    },
+    {
+     "t": "Documentation",
+     "x": 33,
+     "y": 673,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 204,
+     "y": 673,
+     "w": 124,
+     "h": 48
+    },
+    {
+     "t": "WebAdd Midscene to your Playwr",
+     "x": 440,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "PCTest and automate desktop ap",
+     "x": 845,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "MobileTest and automate Androi",
+     "x": 440,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Any InterfaceAutomate any inte",
+     "x": 845,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Doubao SeedStrong visual groun",
+     "x": 440,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "qwen3.7-plusHigh-quality visua",
+     "x": 845,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "gemini-3.5-flashPowerful multi",
+     "x": 440,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Multi-model comboPair a planni",
+     "x": 845,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Rich APIsAuto-planning for who",
+     "x": 440,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "SkillsDrop-in Skills let AI co",
+     "x": 845,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Reports & PlaygroundReplay eve",
+     "x": 440,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Flexible IntegrationWrite flow",
+     "x": 845,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "View All APIsArrow rightaiAct,",
+     "x": 440,
+     "y": 3326,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "93.1%AndroidWorld BenchmarkPas",
+     "x": 440,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "78.6%MobileWorld BenchmarkPass",
+     "x": 845,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "ByteDance",
+     "x": 110,
+     "y": 4180,
+     "w": 206,
+     "h": 96
+    },
+    {
+     "t": "Volcengine",
+     "x": 372,
+     "y": 4180,
+     "w": 208,
+     "h": 96
+    },
+    {
+     "t": "Douyin",
+     "x": 636,
+     "y": 4180,
+     "w": 151,
+     "h": 96
+    },
+    {
+     "t": "TikTok",
+     "x": 843,
+     "y": 4180,
+     "w": 143,
+     "h": 96
+    },
+    {
+     "t": "Lark",
+     "x": 1041,
+     "y": 4180,
+     "w": 113,
+     "h": 96
+    },
+    {
+     "t": "Soda Music",
+     "x": 122,
+     "y": 4324,
+     "w": 214,
+     "h": 96
+    },
+    {
+     "t": "Doubao",
+     "x": 393,
+     "y": 4324,
+     "w": 161,
+     "h": 96
+    },
+    {
+     "t": "Alibaba",
+     "x": 610,
+     "y": 4324,
+     "w": 159,
+     "h": 96
+    },
+    {
+     "t": "Ctrip",
+     "x": 825,
+     "y": 4324,
+     "w": 122,
+     "h": 96
+    },
+    {
+     "t": "AVATR",
+     "x": 1003,
+     "y": 4324,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Xiaomi",
+     "x": 161,
+     "y": 4468,
+     "w": 149,
+     "h": 96
+    },
+    {
+     "t": "iQIYI",
+     "x": 366,
+     "y": 4468,
+     "w": 200,
+     "h": 96
+    },
+    {
+     "t": "Bilibili",
+     "x": 622,
+     "y": 4468,
+     "w": 90,
+     "h": 96
+    },
+    {
+     "t": "Autel",
+     "x": 768,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Dongchedi",
+     "x": 964,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Documentation",
+     "x": 485,
+     "y": 4724,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 656,
+     "y": 4724,
+     "w": 124,
+     "h": 48
+    }
+   ],
+   "id": "P001",
+   "said": [
+    776.0,
+    28.0
+   ],
+   "raw": "776,28,804,52)",
+   "cost": 0.00011292,
+   "seconds": 1.66,
+   "point_used": [
+    993.28,
+    22.400000000000002
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 23,
+   "_tally": {
+    "absolute": 5,
+    "normalised": 10
+   }
+  },
+  {
+   "frame": "desktop-top-home",
+   "target": "the item reading \"Search\"",
+   "box": {
+    "x": 979,
+    "y": 20,
+    "w": 46,
+    "h": 24
+   },
+   "group": "labels",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "",
+     "x": 20,
+     "y": 11,
+     "w": 169,
+     "h": 42
+    },
+    {
+     "t": "Search\u2318K",
+     "x": 944,
+     "y": 12,
+     "w": 140,
+     "h": 40
+    },
+    {
+     "t": "Changelog",
+     "x": 1082,
+     "y": 59,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v0.x",
+     "x": 1082,
+     "y": 91,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v1.x",
+     "x": 1082,
+     "y": 123,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "ThemeLanguagesEnglishEnglish\u7b80\u4f53",
+     "x": 1208,
+     "y": 13,
+     "w": 37,
+     "h": 37
+    },
+    {
+     "t": "\u7b80\u4f53\u4e2d\u6587",
+     "x": 1139,
+     "y": 191,
+     "w": 105,
+     "h": 24
+    },
+    {
+     "t": "",
+     "x": 1055,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1099,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1143,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1187,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "Details",
+     "x": 339,
+     "y": 177,
+     "w": 40,
+     "h": 15
+    },
+    {
+     "t": "Documentation",
+     "x": 33,
+     "y": 673,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 204,
+     "y": 673,
+     "w": 124,
+     "h": 48
+    },
+    {
+     "t": "WebAdd Midscene to your Playwr",
+     "x": 440,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "PCTest and automate desktop ap",
+     "x": 845,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "MobileTest and automate Androi",
+     "x": 440,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Any InterfaceAutomate any inte",
+     "x": 845,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Doubao SeedStrong visual groun",
+     "x": 440,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "qwen3.7-plusHigh-quality visua",
+     "x": 845,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "gemini-3.5-flashPowerful multi",
+     "x": 440,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Multi-model comboPair a planni",
+     "x": 845,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Rich APIsAuto-planning for who",
+     "x": 440,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "SkillsDrop-in Skills let AI co",
+     "x": 845,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Reports & PlaygroundReplay eve",
+     "x": 440,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Flexible IntegrationWrite flow",
+     "x": 845,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "View All APIsArrow rightaiAct,",
+     "x": 440,
+     "y": 3326,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "93.1%AndroidWorld BenchmarkPas",
+     "x": 440,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "78.6%MobileWorld BenchmarkPass",
+     "x": 845,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "ByteDance",
+     "x": 110,
+     "y": 4180,
+     "w": 206,
+     "h": 96
+    },
+    {
+     "t": "Volcengine",
+     "x": 372,
+     "y": 4180,
+     "w": 208,
+     "h": 96
+    },
+    {
+     "t": "Douyin",
+     "x": 636,
+     "y": 4180,
+     "w": 151,
+     "h": 96
+    },
+    {
+     "t": "TikTok",
+     "x": 843,
+     "y": 4180,
+     "w": 143,
+     "h": 96
+    },
+    {
+     "t": "Lark",
+     "x": 1041,
+     "y": 4180,
+     "w": 113,
+     "h": 96
+    },
+    {
+     "t": "Soda Music",
+     "x": 122,
+     "y": 4324,
+     "w": 214,
+     "h": 96
+    },
+    {
+     "t": "Doubao",
+     "x": 393,
+     "y": 4324,
+     "w": 161,
+     "h": 96
+    },
+    {
+     "t": "Alibaba",
+     "x": 610,
+     "y": 4324,
+     "w": 159,
+     "h": 96
+    },
+    {
+     "t": "Ctrip",
+     "x": 825,
+     "y": 4324,
+     "w": 122,
+     "h": 96
+    },
+    {
+     "t": "AVATR",
+     "x": 1003,
+     "y": 4324,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Xiaomi",
+     "x": 161,
+     "y": 4468,
+     "w": 149,
+     "h": 96
+    },
+    {
+     "t": "iQIYI",
+     "x": 366,
+     "y": 4468,
+     "w": 200,
+     "h": 96
+    },
+    {
+     "t": "Bilibili",
+     "x": 622,
+     "y": 4468,
+     "w": 90,
+     "h": 96
+    },
+    {
+     "t": "Autel",
+     "x": 768,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Dongchedi",
+     "x": 964,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Documentation",
+     "x": 485,
+     "y": 4724,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 656,
+     "y": 4724,
+     "w": 124,
+     "h": 48
+    }
+   ],
+   "id": "P002",
+   "said": [
+    775.0,
+    31.0
+   ],
+   "raw": "775,31,806,52]",
+   "cost": 0.00011262,
+   "seconds": 1.27,
+   "point_used": [
+    992.0,
+    24.8
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 12
+  },
+  {
+   "frame": "desktop-top-home",
+   "target": "the large headline text",
+   "box": {
+    "x": 33,
+    "y": 251,
+    "w": 374,
+    "h": 180
+   },
+   "group": "headline",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "",
+     "x": 20,
+     "y": 11,
+     "w": 169,
+     "h": 42
+    },
+    {
+     "t": "Search\u2318K",
+     "x": 944,
+     "y": 12,
+     "w": 140,
+     "h": 40
+    },
+    {
+     "t": "Changelog",
+     "x": 1082,
+     "y": 59,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v0.x",
+     "x": 1082,
+     "y": 91,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v1.x",
+     "x": 1082,
+     "y": 123,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "ThemeLanguagesEnglishEnglish\u7b80\u4f53",
+     "x": 1208,
+     "y": 13,
+     "w": 37,
+     "h": 37
+    },
+    {
+     "t": "\u7b80\u4f53\u4e2d\u6587",
+     "x": 1139,
+     "y": 191,
+     "w": 105,
+     "h": 24
+    },
+    {
+     "t": "",
+     "x": 1055,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1099,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1143,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1187,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "Details",
+     "x": 339,
+     "y": 177,
+     "w": 40,
+     "h": 15
+    },
+    {
+     "t": "Documentation",
+     "x": 33,
+     "y": 673,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 204,
+     "y": 673,
+     "w": 124,
+     "h": 48
+    },
+    {
+     "t": "WebAdd Midscene to your Playwr",
+     "x": 440,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "PCTest and automate desktop ap",
+     "x": 845,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "MobileTest and automate Androi",
+     "x": 440,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Any InterfaceAutomate any inte",
+     "x": 845,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Doubao SeedStrong visual groun",
+     "x": 440,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "qwen3.7-plusHigh-quality visua",
+     "x": 845,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "gemini-3.5-flashPowerful multi",
+     "x": 440,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Multi-model comboPair a planni",
+     "x": 845,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Rich APIsAuto-planning for who",
+     "x": 440,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "SkillsDrop-in Skills let AI co",
+     "x": 845,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Reports & PlaygroundReplay eve",
+     "x": 440,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Flexible IntegrationWrite flow",
+     "x": 845,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "View All APIsArrow rightaiAct,",
+     "x": 440,
+     "y": 3326,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "93.1%AndroidWorld BenchmarkPas",
+     "x": 440,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "78.6%MobileWorld BenchmarkPass",
+     "x": 845,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "ByteDance",
+     "x": 110,
+     "y": 4180,
+     "w": 206,
+     "h": 96
+    },
+    {
+     "t": "Volcengine",
+     "x": 372,
+     "y": 4180,
+     "w": 208,
+     "h": 96
+    },
+    {
+     "t": "Douyin",
+     "x": 636,
+     "y": 4180,
+     "w": 151,
+     "h": 96
+    },
+    {
+     "t": "TikTok",
+     "x": 843,
+     "y": 4180,
+     "w": 143,
+     "h": 96
+    },
+    {
+     "t": "Lark",
+     "x": 1041,
+     "y": 4180,
+     "w": 113,
+     "h": 96
+    },
+    {
+     "t": "Soda Music",
+     "x": 122,
+     "y": 4324,
+     "w": 214,
+     "h": 96
+    },
+    {
+     "t": "Doubao",
+     "x": 393,
+     "y": 4324,
+     "w": 161,
+     "h": 96
+    },
+    {
+     "t": "Alibaba",
+     "x": 610,
+     "y": 4324,
+     "w": 159,
+     "h": 96
+    },
+    {
+     "t": "Ctrip",
+     "x": 825,
+     "y": 4324,
+     "w": 122,
+     "h": 96
+    },
+    {
+     "t": "AVATR",
+     "x": 1003,
+     "y": 4324,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Xiaomi",
+     "x": 161,
+     "y": 4468,
+     "w": 149,
+     "h": 96
+    },
+    {
+     "t": "iQIYI",
+     "x": 366,
+     "y": 4468,
+     "w": 200,
+     "h": 96
+    },
+    {
+     "t": "Bilibili",
+     "x": 622,
+     "y": 4468,
+     "w": 90,
+     "h": 96
+    },
+    {
+     "t": "Autel",
+     "x": 768,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Dongchedi",
+     "x": 964,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Documentation",
+     "x": 485,
+     "y": 4724,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 656,
+     "y": 4724,
+     "w": 124,
+     "h": 48
+    }
+   ],
+   "id": "P003",
+   "said": [
+    25.0,
+    312.0
+   ],
+   "raw": "25,312,369,533",
+   "cost": 0.00011256,
+   "seconds": 1.14,
+   "point_used": [
+    32.0,
+    249.6
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 209
+  },
+  {
+   "frame": "desktop-top-home",
+   "target": "the line of text directly beneath the headline",
+   "box": {
+    "x": 33,
+    "y": 463,
+    "w": 374,
+    "h": 36
+   },
+   "group": "subhead",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "",
+     "x": 20,
+     "y": 11,
+     "w": 169,
+     "h": 42
+    },
+    {
+     "t": "Search\u2318K",
+     "x": 944,
+     "y": 12,
+     "w": 140,
+     "h": 40
+    },
+    {
+     "t": "Changelog",
+     "x": 1082,
+     "y": 59,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v0.x",
+     "x": 1082,
+     "y": 91,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v1.x",
+     "x": 1082,
+     "y": 123,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "ThemeLanguagesEnglishEnglish\u7b80\u4f53",
+     "x": 1208,
+     "y": 13,
+     "w": 37,
+     "h": 37
+    },
+    {
+     "t": "\u7b80\u4f53\u4e2d\u6587",
+     "x": 1139,
+     "y": 191,
+     "w": 105,
+     "h": 24
+    },
+    {
+     "t": "",
+     "x": 1055,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1099,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1143,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1187,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "Details",
+     "x": 339,
+     "y": 177,
+     "w": 40,
+     "h": 15
+    },
+    {
+     "t": "Documentation",
+     "x": 33,
+     "y": 673,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 204,
+     "y": 673,
+     "w": 124,
+     "h": 48
+    },
+    {
+     "t": "WebAdd Midscene to your Playwr",
+     "x": 440,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "PCTest and automate desktop ap",
+     "x": 845,
+     "y": 904,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "MobileTest and automate Androi",
+     "x": 440,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Any InterfaceAutomate any inte",
+     "x": 845,
+     "y": 1312,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Doubao SeedStrong visual groun",
+     "x": 440,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "qwen3.7-plusHigh-quality visua",
+     "x": 845,
+     "y": 1841,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "gemini-3.5-flashPowerful multi",
+     "x": 440,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Multi-model comboPair a planni",
+     "x": 845,
+     "y": 2170,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Rich APIsAuto-planning for who",
+     "x": 440,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "SkillsDrop-in Skills let AI co",
+     "x": 845,
+     "y": 2620,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Reports & PlaygroundReplay eve",
+     "x": 440,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Flexible IntegrationWrite flow",
+     "x": 845,
+     "y": 2949,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "View All APIsArrow rightaiAct,",
+     "x": 440,
+     "y": 3326,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "93.1%AndroidWorld BenchmarkPas",
+     "x": 440,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "78.6%MobileWorld BenchmarkPass",
+     "x": 845,
+     "y": 3728,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "ByteDance",
+     "x": 110,
+     "y": 4180,
+     "w": 206,
+     "h": 96
+    },
+    {
+     "t": "Volcengine",
+     "x": 372,
+     "y": 4180,
+     "w": 208,
+     "h": 96
+    },
+    {
+     "t": "Douyin",
+     "x": 636,
+     "y": 4180,
+     "w": 151,
+     "h": 96
+    },
+    {
+     "t": "TikTok",
+     "x": 843,
+     "y": 4180,
+     "w": 143,
+     "h": 96
+    },
+    {
+     "t": "Lark",
+     "x": 1041,
+     "y": 4180,
+     "w": 113,
+     "h": 96
+    },
+    {
+     "t": "Soda Music",
+     "x": 122,
+     "y": 4324,
+     "w": 214,
+     "h": 96
+    },
+    {
+     "t": "Doubao",
+     "x": 393,
+     "y": 4324,
+     "w": 161,
+     "h": 96
+    },
+    {
+     "t": "Alibaba",
+     "x": 610,
+     "y": 4324,
+     "w": 159,
+     "h": 96
+    },
+    {
+     "t": "Ctrip",
+     "x": 825,
+     "y": 4324,
+     "w": 122,
+     "h": 96
+    },
+    {
+     "t": "AVATR",
+     "x": 1003,
+     "y": 4324,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Xiaomi",
+     "x": 161,
+     "y": 4468,
+     "w": 149,
+     "h": 96
+    },
+    {
+     "t": "iQIYI",
+     "x": 366,
+     "y": 4468,
+     "w": 200,
+     "h": 96
+    },
+    {
+     "t": "Bilibili",
+     "x": 622,
+     "y": 4468,
+     "w": 90,
+     "h": 96
+    },
+    {
+     "t": "Autel",
+     "x": 768,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Dongchedi",
+     "x": 964,
+     "y": 4468,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Documentation",
+     "x": 485,
+     "y": 4724,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 656,
+     "y": 4724,
+     "w": 124,
+     "h": 48
+    }
+   ],
+   "id": "P004",
+   "said": [
+    25.0,
+    575.0
+   ],
+   "raw": "25,575,740,765",
+   "cost": 0.0001128,
+   "seconds": 1.3,
+   "point_used": [
+    32.0,
+    459.99999999999994
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 189
+  },
+  {
+   "frame": "desktop-lower-home",
+   "target": "the navigation link reading \"Search\u2318K\"",
+   "box": {
+    "x": 944,
+    "y": 12,
+    "w": 140,
+    "h": 40
+   },
+   "group": "nav-links",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "",
+     "x": 20,
+     "y": 11,
+     "w": 169,
+     "h": 42
+    },
+    {
+     "t": "Search\u2318K",
+     "x": 944,
+     "y": 12,
+     "w": 140,
+     "h": 40
+    },
+    {
+     "t": "Changelog",
+     "x": 1082,
+     "y": 59,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v0.x",
+     "x": 1082,
+     "y": 91,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v1.x",
+     "x": 1082,
+     "y": 123,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "ThemeLanguagesEnglishEnglish\u7b80\u4f53",
+     "x": 1208,
+     "y": 13,
+     "w": 37,
+     "h": 37
+    },
+    {
+     "t": "\u7b80\u4f53\u4e2d\u6587",
+     "x": 1139,
+     "y": 191,
+     "w": 105,
+     "h": 24
+    },
+    {
+     "t": "",
+     "x": 1055,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1099,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1143,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1187,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "Details",
+     "x": 339,
+     "y": -723,
+     "w": 40,
+     "h": 15
+    },
+    {
+     "t": "Documentation",
+     "x": 33,
+     "y": -227,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 204,
+     "y": -227,
+     "w": 124,
+     "h": 48
+    },
+    {
+     "t": "WebAdd Midscene to your Playwr",
+     "x": 440,
+     "y": 4,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "PCTest and automate desktop ap",
+     "x": 845,
+     "y": 4,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "MobileTest and automate Androi",
+     "x": 440,
+     "y": 412,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Any InterfaceAutomate any inte",
+     "x": 845,
+     "y": 412,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Doubao SeedStrong visual groun",
+     "x": 440,
+     "y": 941,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "qwen3.7-plusHigh-quality visua",
+     "x": 845,
+     "y": 941,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "gemini-3.5-flashPowerful multi",
+     "x": 440,
+     "y": 1270,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Multi-model comboPair a planni",
+     "x": 845,
+     "y": 1270,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Rich APIsAuto-planning for who",
+     "x": 440,
+     "y": 1720,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "SkillsDrop-in Skills let AI co",
+     "x": 845,
+     "y": 1720,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Reports & PlaygroundReplay eve",
+     "x": 440,
+     "y": 2049,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Flexible IntegrationWrite flow",
+     "x": 845,
+     "y": 2049,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "View All APIsArrow rightaiAct,",
+     "x": 440,
+     "y": 2426,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "93.1%AndroidWorld BenchmarkPas",
+     "x": 440,
+     "y": 2828,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "78.6%MobileWorld BenchmarkPass",
+     "x": 845,
+     "y": 2828,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "ByteDance",
+     "x": 110,
+     "y": 3280,
+     "w": 206,
+     "h": 96
+    },
+    {
+     "t": "Volcengine",
+     "x": 372,
+     "y": 3280,
+     "w": 208,
+     "h": 96
+    },
+    {
+     "t": "Douyin",
+     "x": 636,
+     "y": 3280,
+     "w": 151,
+     "h": 96
+    },
+    {
+     "t": "TikTok",
+     "x": 843,
+     "y": 3280,
+     "w": 143,
+     "h": 96
+    },
+    {
+     "t": "Lark",
+     "x": 1041,
+     "y": 3280,
+     "w": 113,
+     "h": 96
+    },
+    {
+     "t": "Soda Music",
+     "x": 122,
+     "y": 3424,
+     "w": 214,
+     "h": 96
+    },
+    {
+     "t": "Doubao",
+     "x": 393,
+     "y": 3424,
+     "w": 161,
+     "h": 96
+    },
+    {
+     "t": "Alibaba",
+     "x": 610,
+     "y": 3424,
+     "w": 159,
+     "h": 96
+    },
+    {
+     "t": "Ctrip",
+     "x": 825,
+     "y": 3424,
+     "w": 122,
+     "h": 96
+    },
+    {
+     "t": "AVATR",
+     "x": 1003,
+     "y": 3424,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Xiaomi",
+     "x": 161,
+     "y": 3568,
+     "w": 149,
+     "h": 96
+    },
+    {
+     "t": "iQIYI",
+     "x": 366,
+     "y": 3568,
+     "w": 200,
+     "h": 96
+    },
+    {
+     "t": "Bilibili",
+     "x": 622,
+     "y": 3568,
+     "w": 90,
+     "h": 96
+    },
+    {
+     "t": "Autel",
+     "x": 768,
+     "y": 3568,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Dongchedi",
+     "x": 964,
+     "y": 3568,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Documentation",
+     "x": 485,
+     "y": 3824,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 656,
+     "y": 3824,
+     "w": 124,
+     "h": 48
+    }
+   ],
+   "id": "P005",
+   "said": [
+    824.0,
+    33.0
+   ],
+   "raw": "824,33,836,50",
+   "cost": 0.00011268,
+   "seconds": 1.04,
+   "point_used": [
+    1054.72,
+    26.400000000000002
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 41
+  },
+  {
+   "frame": "desktop-lower-home",
+   "target": "the line of text directly beneath the headline",
+   "box": {
+    "x": 48,
+    "y": 188,
+    "w": 336,
+    "h": 52
+   },
+   "group": "subhead",
+   "vw": 1280,
+   "vh": 800,
+   "clickables": [
+    {
+     "t": "",
+     "x": 20,
+     "y": 11,
+     "w": 169,
+     "h": 42
+    },
+    {
+     "t": "Search\u2318K",
+     "x": 944,
+     "y": 12,
+     "w": 140,
+     "h": 40
+    },
+    {
+     "t": "Changelog",
+     "x": 1082,
+     "y": 59,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v0.x",
+     "x": 1082,
+     "y": 91,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "Midscene.js v1.x",
+     "x": 1082,
+     "y": 123,
+     "w": 128,
+     "h": 32
+    },
+    {
+     "t": "ThemeLanguagesEnglishEnglish\u7b80\u4f53",
+     "x": 1208,
+     "y": 13,
+     "w": 37,
+     "h": 37
+    },
+    {
+     "t": "\u7b80\u4f53\u4e2d\u6587",
+     "x": 1139,
+     "y": 191,
+     "w": 105,
+     "h": 24
+    },
+    {
+     "t": "",
+     "x": 1055,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1099,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1143,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "",
+     "x": 1187,
+     "y": 218,
+     "w": 20,
+     "h": 20
+    },
+    {
+     "t": "Details",
+     "x": 339,
+     "y": -723,
+     "w": 40,
+     "h": 15
+    },
+    {
+     "t": "Documentation",
+     "x": 33,
+     "y": -227,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 204,
+     "y": -227,
+     "w": 124,
+     "h": 48
+    },
+    {
+     "t": "WebAdd Midscene to your Playwr",
+     "x": 440,
+     "y": 4,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "PCTest and automate desktop ap",
+     "x": 845,
+     "y": 4,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "MobileTest and automate Androi",
+     "x": 440,
+     "y": 412,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Any InterfaceAutomate any inte",
+     "x": 845,
+     "y": 412,
+     "w": 381,
+     "h": 368
+    },
+    {
+     "t": "Doubao SeedStrong visual groun",
+     "x": 440,
+     "y": 941,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "qwen3.7-plusHigh-quality visua",
+     "x": 845,
+     "y": 941,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "gemini-3.5-flashPowerful multi",
+     "x": 440,
+     "y": 1270,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Multi-model comboPair a planni",
+     "x": 845,
+     "y": 1270,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Rich APIsAuto-planning for who",
+     "x": 440,
+     "y": 1720,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "SkillsDrop-in Skills let AI co",
+     "x": 845,
+     "y": 1720,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Reports & PlaygroundReplay eve",
+     "x": 440,
+     "y": 2049,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "Flexible IntegrationWrite flow",
+     "x": 845,
+     "y": 2049,
+     "w": 381,
+     "h": 289
+    },
+    {
+     "t": "View All APIsArrow rightaiAct,",
+     "x": 440,
+     "y": 2426,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "93.1%AndroidWorld BenchmarkPas",
+     "x": 440,
+     "y": 2828,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "78.6%MobileWorld BenchmarkPass",
+     "x": 845,
+     "y": 2828,
+     "w": 381,
+     "h": 185
+    },
+    {
+     "t": "ByteDance",
+     "x": 110,
+     "y": 3280,
+     "w": 206,
+     "h": 96
+    },
+    {
+     "t": "Volcengine",
+     "x": 372,
+     "y": 3280,
+     "w": 208,
+     "h": 96
+    },
+    {
+     "t": "Douyin",
+     "x": 636,
+     "y": 3280,
+     "w": 151,
+     "h": 96
+    },
+    {
+     "t": "TikTok",
+     "x": 843,
+     "y": 3280,
+     "w": 143,
+     "h": 96
+    },
+    {
+     "t": "Lark",
+     "x": 1041,
+     "y": 3280,
+     "w": 113,
+     "h": 96
+    },
+    {
+     "t": "Soda Music",
+     "x": 122,
+     "y": 3424,
+     "w": 214,
+     "h": 96
+    },
+    {
+     "t": "Doubao",
+     "x": 393,
+     "y": 3424,
+     "w": 161,
+     "h": 96
+    },
+    {
+     "t": "Alibaba",
+     "x": 610,
+     "y": 3424,
+     "w": 159,
+     "h": 96
+    },
+    {
+     "t": "Ctrip",
+     "x": 825,
+     "y": 3424,
+     "w": 122,
+     "h": 96
+    },
+    {
+     "t": "AVATR",
+     "x": 1003,
+     "y": 3424,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Xiaomi",
+     "x": 161,
+     "y": 3568,
+     "w": 149,
+     "h": 96
+    },
+    {
+     "t": "iQIYI",
+     "x": 366,
+     "y": 3568,
+     "w": 200,
+     "h": 96
+    },
+    {
+     "t": "Bilibili",
+     "x": 622,
+     "y": 3568,
+     "w": 90,
+     "h": 96
+    },
+    {
+     "t": "Autel",
+     "x": 768,
+     "y": 3568,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Dongchedi",
+     "x": 964,
+     "y": 3568,
+     "w": 140,
+     "h": 96
+    },
+    {
+     "t": "Documentation",
+     "x": 485,
+     "y": 3824,
+     "w": 151,
+     "h": 48
+    },
+    {
+     "t": "Showcases",
+     "x": 656,
+     "y": 3824,
+     "w": 124,
+     "h": 48
+    }
+   ],
+   "id": "P006",
+   "said": [
+    346.0,
+    406.0
+   ],
+   "raw": "346,406, 384, 432",
+   "cost": 0.00011352,
+   "seconds": 1.45,
+   "point_used": [
+    442.88,
+    324.8
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 252
+  },
+  {
+   "frame": "mobile-top-home",
+   "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
+   "box": {
+    "x": 6,
+    "y": 12,
+    "w": 137,
+    "h": 41
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 140,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 49,
+     "y": 230,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 218,
+     "y": 275,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 90,
+     "y": 393,
+     "w": 89,
+     "h": 89
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 330,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 45,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 307,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3586,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P007",
+   "said": [
+    39.0,
+    29.0
+   ],
+   "raw": "39,29,336,54",
+   "cost": 5.496e-05,
+   "seconds": 0.86,
+   "point_used": [
+    15.21,
+    24.476000000000003
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 60
+  },
+  {
+   "frame": "mobile-top-home",
+   "target": "the navigation link reading \"Light\"",
+   "box": {
+    "x": 167,
+    "y": 9,
+    "w": 38,
+    "h": 46
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 140,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 49,
+     "y": 230,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 218,
+     "y": 275,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 90,
+     "y": 393,
+     "w": 89,
+     "h": 89
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 330,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 45,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 307,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3586,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P008",
+   "said": [
+    744.0,
+    714.0
+   ],
+   "raw": "744,714",
+   "cost": 5.346e-05,
+   "seconds": 1.08,
+   "point_used": [
+    290.16,
+    602.616
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 580
+  },
+  {
+   "frame": "mobile-top-home",
+   "target": "the navigation link reading \"Visit caseyai.co\"",
+   "box": {
+    "x": 48,
+    "y": 456,
+    "w": 294,
+    "h": 46
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 140,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 49,
+     "y": 230,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 218,
+     "y": 275,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 90,
+     "y": 393,
+     "w": 89,
+     "h": 89
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 330,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 45,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 307,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3586,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P009",
+   "said": [
+    505.0,
+    556.0
+   ],
+   "raw": "505,556",
+   "cost": 5.376e-05,
+   "seconds": 1.4,
+   "point_used": [
+    196.95,
+    469.26400000000007
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 10
+  },
+  {
+   "frame": "mobile-top-home",
+   "target": "the item reading \"Product and systems\"",
+   "box": {
+    "x": 16,
+    "y": 33,
+    "w": 117,
+    "h": 14
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 140,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 49,
+     "y": 230,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 218,
+     "y": 275,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 90,
+     "y": 393,
+     "w": 89,
+     "h": 89
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 330,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 45,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 307,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3586,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P010",
+   "said": [
+    39.0,
+    45.0
+   ],
+   "raw": "39,45,340,59",
+   "cost": 5.472e-05,
+   "seconds": 1.09,
+   "point_used": [
+    15.21,
+    37.98
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 59
+  },
+  {
+   "frame": "mobile-top-home",
+   "target": "the item reading \"02 of 06\"",
+   "box": {
+    "x": 316,
+    "y": 186,
+    "w": 58,
+    "h": 19
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 140,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 49,
+     "y": 230,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 218,
+     "y": 275,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 90,
+     "y": 393,
+     "w": 89,
+     "h": 89
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 330,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 45,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 307,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3586,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P011",
+   "said": [
+    814.0,
+    220.0
+   ],
+   "raw": "814,220, 894,240",
+   "cost": 5.586e-05,
+   "seconds": 1.11,
+   "point_used": [
+    317.46,
+    185.68
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 29
+  },
+  {
+   "frame": "mobile-top-home",
+   "target": "the item reading \"Product\"",
+   "box": {
+    "x": 112,
+    "y": 400,
+    "w": 73,
+    "h": 33
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 140,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 49,
+     "y": 230,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 218,
+     "y": 275,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 90,
+     "y": 393,
+     "w": 89,
+     "h": 89
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 330,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 45,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 307,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3586,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P012",
+   "said": [
+    39.0,
+    39.0
+   ],
+   "raw": "39,39,100,52",
+   "cost": 5.46e-05,
+   "seconds": 1.56,
+   "point_used": [
+    15.21,
+    32.916
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 406
+  },
+  {
+   "frame": "mobile-top-home",
+   "target": "the item reading \"Proprietary\"",
+   "box": {
+    "x": 193,
+    "y": 400,
+    "w": 91,
+    "h": 33
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 140,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 49,
+     "y": 230,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 218,
+     "y": 275,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 90,
+     "y": 393,
+     "w": 89,
+     "h": 89
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 330,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 45,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 307,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3586,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3701,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3808,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P013",
+   "said": [
+    240.0,
+    980.0
+   ],
+   "raw": "240,980\n\n(I used the image filename and the visual content t",
+   "cost": 6.6e-05,
+   "seconds": 1.14,
+   "point_used": [
+    93.6,
+    827.12
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 435
+  },
+  {
+   "frame": "mobile-lower-home",
+   "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
+   "box": {
+    "x": 22,
+    "y": 11,
+    "w": 136,
+    "h": 43
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Dark",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 840,
+     "y": 94,
+     "w": 141,
+     "h": 141
+    },
+    {
+     "t": "Products",
+     "x": 473,
+     "y": 269,
+     "w": 106,
+     "h": 106
+    },
+    {
+     "t": "Business cases",
+     "x": 941,
+     "y": 362,
+     "w": 95,
+     "h": 95
+    },
+    {
+     "t": "Media",
+     "x": 549,
+     "y": 580,
+     "w": 167,
+     "h": 167
+    },
+    {
+     "t": "Certifications",
+     "x": 598,
+     "y": 572,
+     "w": 94,
+     "h": 94
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 515,
+     "y": 628,
+     "w": 475,
+     "h": 37
+    },
+    {
+     "t": "",
+     "x": 958,
+     "y": 633,
+     "w": 27,
+     "h": 27
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 1053,
+     "y": 241,
+     "w": 328,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 1343,
+     "y": 247,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Back to the core",
+     "x": 1141,
+     "y": 0,
+     "w": 190,
+     "h": 190
+    }
+   ],
+   "id": "P014",
+   "said": [
+    10.0,
+    700.0
+   ],
+   "raw": "10,700",
+   "cost": 0.000111,
+   "seconds": 0.71,
+   "point_used": [
+    3.9,
+    590.8
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 565
+  },
+  {
+   "frame": "mobile-lower-home",
+   "target": "the navigation link reading \"Dark\"",
+   "box": {
+    "x": 194,
+    "y": 10,
+    "w": 82,
+    "h": 44
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Dark",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 840,
+     "y": 94,
+     "w": 141,
+     "h": 141
+    },
+    {
+     "t": "Products",
+     "x": 473,
+     "y": 269,
+     "w": 106,
+     "h": 106
+    },
+    {
+     "t": "Business cases",
+     "x": 941,
+     "y": 362,
+     "w": 95,
+     "h": 95
+    },
+    {
+     "t": "Media",
+     "x": 549,
+     "y": 580,
+     "w": 167,
+     "h": 167
+    },
+    {
+     "t": "Certifications",
+     "x": 598,
+     "y": 572,
+     "w": 94,
+     "h": 94
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 515,
+     "y": 628,
+     "w": 475,
+     "h": 37
+    },
+    {
+     "t": "",
+     "x": 958,
+     "y": 633,
+     "w": 27,
+     "h": 27
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 1053,
+     "y": 241,
+     "w": 328,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 1343,
+     "y": 247,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Back to the core",
+     "x": 1141,
+     "y": 0,
+     "w": 190,
+     "h": 190
+    }
+   ],
+   "id": "P015",
+   "said": [
+    350.0,
+    790.0
+   ],
+   "raw": "350,790",
+   "cost": 0.00011094,
+   "seconds": 0.72,
+   "point_used": [
+    136.5,
+    666.76
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 642
+  },
+  {
+   "frame": "mobile-top-quick-experience.html",
+   "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
+   "box": {
+    "x": 22,
+    "y": 11,
+    "w": 136,
+    "h": 43
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 954,
+     "y": 106,
+     "w": 111,
+     "h": 111
+    },
+    {
+     "t": "Products",
+     "x": 720,
+     "y": 207,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Business cases",
+     "x": 1031,
+     "y": 269,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Media",
+     "x": 770,
+     "y": 414,
+     "w": 128,
+     "h": 128
+    },
+    {
+     "t": "Certifications",
+     "x": 803,
+     "y": 409,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 914,
+     "y": 217,
+     "w": 459,
+     "h": 36
+    },
+    {
+     "t": "",
+     "x": 1342,
+     "y": 222,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 1072,
+     "y": 222,
+     "w": 328,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 1362,
+     "y": 228,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Read the piece",
+     "x": 56,
+     "y": 767,
+     "w": 136,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the plan",
+     "x": 56,
+     "y": 4244,
+     "w": 128,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the analysis",
+     "x": 56,
+     "y": 5981,
+     "w": 153,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 1141,
+     "y": 0,
+     "w": 190,
+     "h": 190
+    }
+   ],
+   "id": "P016",
+   "said": [
+    22.0,
+    20.0
+   ],
+   "raw": "22,20,103,50",
+   "cost": 0.00011244,
+   "seconds": 1.36,
+   "point_used": [
+    8.58,
+    16.88
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 83
+  },
+  {
+   "frame": "mobile-top-quick-experience.html",
+   "target": "the navigation link reading \"Light\"",
+   "box": {
+    "x": 194,
+    "y": 10,
+    "w": 82,
+    "h": 44
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 954,
+     "y": 106,
+     "w": 111,
+     "h": 111
+    },
+    {
+     "t": "Products",
+     "x": 720,
+     "y": 207,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Business cases",
+     "x": 1031,
+     "y": 269,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Media",
+     "x": 770,
+     "y": 414,
+     "w": 128,
+     "h": 128
+    },
+    {
+     "t": "Certifications",
+     "x": 803,
+     "y": 409,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 914,
+     "y": 217,
+     "w": 459,
+     "h": 36
+    },
+    {
+     "t": "",
+     "x": 1342,
+     "y": 222,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 1072,
+     "y": 222,
+     "w": 328,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 1362,
+     "y": 228,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Read the piece",
+     "x": 56,
+     "y": 767,
+     "w": 136,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the plan",
+     "x": 56,
+     "y": 4244,
+     "w": 128,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the analysis",
+     "x": 56,
+     "y": 5981,
+     "w": 153,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 1141,
+     "y": 0,
+     "w": 190,
+     "h": 190
+    }
+   ],
+   "id": "P017",
+   "said": [
+    173.0,
+    28.0
+   ],
+   "raw": "173, 28, 193, 45",
+   "cost": 0.0001131,
+   "seconds": 1.16,
+   "point_used": [
+    67.47,
+    23.632
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 168
+  },
+  {
+   "frame": "mobile-top-quick-experience.html",
+   "target": "the item reading \"Product and systems\"",
+   "box": {
+    "x": 32,
+    "y": 34,
+    "w": 116,
+    "h": 14
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 954,
+     "y": 106,
+     "w": 111,
+     "h": 111
+    },
+    {
+     "t": "Products",
+     "x": 720,
+     "y": 207,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Business cases",
+     "x": 1031,
+     "y": 269,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Media",
+     "x": 770,
+     "y": 414,
+     "w": 128,
+     "h": 128
+    },
+    {
+     "t": "Certifications",
+     "x": 803,
+     "y": 409,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 914,
+     "y": 217,
+     "w": 459,
+     "h": 36
+    },
+    {
+     "t": "",
+     "x": 1342,
+     "y": 222,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 1072,
+     "y": 222,
+     "w": 328,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 1362,
+     "y": 228,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Read the piece",
+     "x": 56,
+     "y": 767,
+     "w": 136,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the plan",
+     "x": 56,
+     "y": 4244,
+     "w": 128,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the analysis",
+     "x": 56,
+     "y": 5981,
+     "w": 153,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 1141,
+     "y": 0,
+     "w": 190,
+     "h": 190
+    }
+   ],
+   "id": "P018",
+   "said": [
+    22.0,
+    38.0
+   ],
+   "raw": "22,38, 104,54",
+   "cost": 0.00011244,
+   "seconds": 1.02,
+   "point_used": [
+    8.58,
+    32.072
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 82
+  },
+  {
+   "frame": "mobile-top-quick-experience.html",
+   "target": "the item reading \"Light\"",
+   "box": {
+    "x": 244,
+    "y": 23,
+    "w": 32,
+    "h": 19
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 954,
+     "y": 106,
+     "w": 111,
+     "h": 111
+    },
+    {
+     "t": "Products",
+     "x": 720,
+     "y": 207,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Business cases",
+     "x": 1031,
+     "y": 269,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Media",
+     "x": 770,
+     "y": 414,
+     "w": 128,
+     "h": 128
+    },
+    {
+     "t": "Certifications",
+     "x": 803,
+     "y": 409,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 914,
+     "y": 217,
+     "w": 459,
+     "h": 36
+    },
+    {
+     "t": "",
+     "x": 1342,
+     "y": 222,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 1072,
+     "y": 222,
+     "w": 328,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 1362,
+     "y": 228,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Read the piece",
+     "x": 56,
+     "y": 767,
+     "w": 136,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the plan",
+     "x": 56,
+     "y": 4244,
+     "w": 128,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the analysis",
+     "x": 56,
+     "y": 5981,
+     "w": 153,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 1141,
+     "y": 0,
+     "w": 190,
+     "h": 190
+    }
+   ],
+   "id": "P019",
+   "said": [
+    172.0,
+    29.0
+   ],
+   "raw": "172, 29, 192, 46]",
+   "cost": 0.00011328,
+   "seconds": 1.26,
+   "point_used": [
+    67.08,
+    24.476000000000003
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 193
+  },
+  {
+   "frame": "mobile-top-quick-experience.html",
+   "target": "the large headline text",
+   "box": {
+    "x": 24,
+    "y": 112,
+    "w": 233,
+    "h": 40
+   },
+   "group": "headline",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 22,
+     "y": 11,
+     "w": 136,
+     "h": 43
+    },
+    {
+     "t": "Light",
+     "x": 194,
+     "y": 10,
+     "w": 82,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 300,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 352,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 404,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Startups",
+     "x": 954,
+     "y": 106,
+     "w": 111,
+     "h": 111
+    },
+    {
+     "t": "Products",
+     "x": 720,
+     "y": 207,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Business cases",
+     "x": 1031,
+     "y": 269,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Media",
+     "x": 770,
+     "y": 414,
+     "w": 128,
+     "h": 128
+    },
+    {
+     "t": "Certifications",
+     "x": 803,
+     "y": 409,
+     "w": 80,
+     "h": 80
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 914,
+     "y": 217,
+     "w": 459,
+     "h": 36
+    },
+    {
+     "t": "",
+     "x": 1342,
+     "y": 222,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 1072,
+     "y": 222,
+     "w": 328,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 1362,
+     "y": 228,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Read the piece",
+     "x": 56,
+     "y": 767,
+     "w": 136,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 1337,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 1560,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 2458,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 2681,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 3560,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 3783,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the plan",
+     "x": 56,
+     "y": 4244,
+     "w": 128,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 68,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "Next picture",
+     "x": 968,
+     "y": 4716,
+     "w": 44,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 56,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 219,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 383,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 546,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 709,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "",
+     "x": 873,
+     "y": 4939,
+     "w": 151,
+     "h": 54
+    },
+    {
+     "t": "Read the analysis",
+     "x": 56,
+     "y": 5981,
+     "w": 153,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 1141,
+     "y": 0,
+     "w": 190,
+     "h": 190
+    }
+   ],
+   "id": "P020",
+   "said": [
+    16.0,
+    124.0
+   ],
+   "raw": "16,124, 128, 168",
+   "cost": 0.00011298,
+   "seconds": 1.3,
+   "point_used": [
+    6.24,
+    104.656
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 137
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the navigation link reading \"Maaz KaziProduct and systems\"",
+   "box": {
+    "x": 6,
+    "y": 12,
+    "w": 137,
+    "h": 41
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P021",
+   "said": [
+    39.0,
+    22.0
+   ],
+   "raw": "39,22,329,46",
+   "cost": 5.496e-05,
+   "seconds": 1.31,
+   "point_used": [
+    15.21,
+    18.567999999999998
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 61
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the navigation link reading \"Light\"",
+   "box": {
+    "x": 167,
+    "y": 9,
+    "w": 38,
+    "h": 46
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P022",
+   "said": [
+    864.0,
+    956.0
+   ],
+   "raw": "864,956,934,986",
+   "cost": 5.538e-05,
+   "seconds": 0.91,
+   "point_used": [
+    336.96,
+    806.8639999999999
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 789
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the navigation link reading \"Visit caseyai.co\"",
+   "box": {
+    "x": 48,
+    "y": 456,
+    "w": 294,
+    "h": 46
+   },
+   "group": "nav-links",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P023",
+   "said": [
+    512.0,
+    569.0
+   ],
+   "raw": "512,569, 640,597",
+   "cost": 5.592e-05,
+   "seconds": 0.91,
+   "point_used": [
+    199.68,
+    480.23599999999993
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 5
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the item reading \"Product and systems\"",
+   "box": {
+    "x": 16,
+    "y": 33,
+    "w": 117,
+    "h": 14
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P024",
+   "said": [
+    45.0,
+    36.0
+   ],
+   "raw": "45,36,339,50",
+   "cost": 5.472e-05,
+   "seconds": 1.21,
+   "point_used": [
+    17.55,
+    30.383999999999997
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 58
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the item reading \"02 of 06\"",
+   "box": {
+    "x": 316,
+    "y": 186,
+    "w": 58,
+    "h": 19
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P025",
+   "said": [
+    819.0,
+    226.0
+   ],
+   "raw": "819,226,969,248",
+   "cost": 5.562e-05,
+   "seconds": 0.78,
+   "point_used": [
+    319.40999999999997,
+    190.744
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 26
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the item reading \"Product\"",
+   "box": {
+    "x": 112,
+    "y": 400,
+    "w": 73,
+    "h": 33
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P026",
+   "said": [
+    339.0,
+    495.0
+   ],
+   "raw": "339,495, 444, 512",
+   "cost": 5.58e-05,
+   "seconds": 0.95,
+   "point_used": [
+    132.21,
+    417.78
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 16
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the item reading \"Proprietary\"",
+   "box": {
+    "x": 193,
+    "y": 400,
+    "w": 91,
+    "h": 33
+   },
+   "group": "labels",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P027",
+   "said": [
+    539.0,
+    498.0
+   ],
+   "raw": "539,498,681,518",
+   "cost": 5.544e-05,
+   "seconds": 0.96,
+   "point_used": [
+    210.21,
+    420.312
+   ],
+   "convention": "normalised",
+   "outcome": "hit",
+   "distance_px": 29
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the main button",
+   "box": {
+    "x": 147,
+    "y": 64,
+    "w": 96,
+    "h": 96
+   },
+   "group": "primary-control",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P028",
+   "said": [
+    899.0,
+    944.0
+   ],
+   "raw": "899,944,934,964",
+   "cost": 5.52e-05,
+   "seconds": 0.96,
+   "point_used": [
+    350.61,
+    796.736
+   ],
+   "convention": "normalised",
+   "outcome": "wrong-thing",
+   "distance_px": 702
+  },
+  {
+   "frame": "mobile-lower-quick-experience.html",
+   "target": "the box where you type",
+   "box": {
+    "x": 16,
+    "y": 782,
+    "w": 358,
+    "h": 46
+   },
+   "group": "text-input",
+   "vw": 390,
+   "vh": 844,
+   "clickables": [
+    {
+     "t": "Maaz KaziProduct and systems",
+     "x": 6,
+     "y": 12,
+     "w": 137,
+     "h": 41
+    },
+    {
+     "t": "Light",
+     "x": 167,
+     "y": 9,
+     "w": 38,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 217,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 265,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "",
+     "x": 313,
+     "y": 12,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "t": "Startups",
+     "x": 229,
+     "y": 134,
+     "w": 81,
+     "h": 81
+    },
+    {
+     "t": "Products",
+     "x": 51,
+     "y": 218,
+     "w": 70,
+     "h": 70
+    },
+    {
+     "t": "Business cases",
+     "x": 215,
+     "y": 261,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Media",
+     "x": 91,
+     "y": 372,
+     "w": 88,
+     "h": 88
+    },
+    {
+     "t": "Certifications",
+     "x": 132,
+     "y": 313,
+     "w": 67,
+     "h": 67
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 48,
+     "y": 711,
+     "w": 294,
+     "h": 38
+    },
+    {
+     "t": "",
+     "x": 311,
+     "y": 717,
+     "w": 26,
+     "h": 26
+    },
+    {
+     "t": "Ask me about anything",
+     "x": 16,
+     "y": 782,
+     "w": 358,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 336,
+     "y": 790,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "t": "Visit caseyai.co",
+     "x": 48,
+     "y": 456,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 571,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 678,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1193,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1300,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Download",
+     "x": 199,
+     "y": 1752,
+     "w": 143,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 1867,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 1974,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 2488,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 2595,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3039,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 149,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 249,
+     "y": 3146,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "t": "Repository",
+     "x": 48,
+     "y": 3585,
+     "w": 294,
+     "h": 46
+    },
+    {
+     "t": "Previous picture",
+     "x": 60,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "Next picture",
+     "x": 284,
+     "y": 3700,
+     "w": 46,
+     "h": 46
+    },
+    {
+     "t": "",
+     "x": 48,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "",
+     "x": 199,
+     "y": 3807,
+     "w": 143,
+     "h": 44
+    },
+    {
+     "t": "Back to the core",
+     "x": 147,
+     "y": 64,
+     "w": 96,
+     "h": 96
+    }
+   ],
+   "id": "P029",
+   "said": [
+    49.0,
+    916.0
+   ],
+   "raw": "49,916,881,956",
+   "cost": 5.508e-05,
+   "seconds": 1.12,
+   "point_used": [
+    19.11,
+    773.104
+   ],
+   "convention": "normalised",
+   "outcome": "empty-space",
+   "distance_px": 179
+  }
+ ]
+}

@@ -31,12 +31,21 @@ import os
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Measured 2026-08-19/20 across two products with the same generator: rank
-# correlation 0.83 but EVERY model drops on the second product, median 22 points
-# and up to 36. So which model is better mostly transfers; how good any of them
-# is does not. A table published for one product is wrong by roughly 22 points
-# on another, which is why this ships as a method pointed at your product rather
-# than as a table of picks.
+# Measured across two products with the same generic generator, both task types.
+#
+#            rank correlation   median level shift
+#   judging        0.83          −22 points (every model worse on product B)
+#   pointing       0.94          +13 points (most models BETTER on product B)
+#
+# The first read of this was "models get worse on an unseen product". Pointing
+# refutes that: the shift went the other way. The right reading is that the
+# LEVEL is a property of the product, not of the model — a docs site with large
+# obvious navigation is simply easier to point at than an unconventional layout.
+#
+# So: ORDER transfers well, and a published leaderboard is a fair guess at it.
+# The LEVEL does not transfer in either direction, and the level is the only
+# thing that answers "is this model good enough for me". That is why this ships
+# as a method pointed at your product and never as a table of picks.
 PRODUCTS = {
     "portfolio": os.path.join(CODE, "state", "runs_portfolio"),
     "midscene-docs": os.path.join(CODE, "state", "runs_midscene-docs"),
