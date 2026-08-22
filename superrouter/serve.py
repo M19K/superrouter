@@ -65,6 +65,8 @@ from .route_table import TASKS, latest, same_exam, survives
 # A 400 or a 401 is the request being wrong, and sending a wrong request to a
 # second model just spends money to be told the same thing. A 429, a 5xx or a
 # timeout is the provider having a moment, which is exactly what a chain is for.
+STREAMED = object()      # sentinel: the response has already gone out
+
 RETRYABLE_STATUS = {408, 409, 425, 429, 500, 502, 503, 504, 522, 524}
 
 # A status code alone is not enough for a ROUTER, and the first test of the
@@ -198,6 +200,66 @@ class Handler(BaseHTTPRequestHandler):
     counter = 0
     lock = threading.Lock()
 
+    def _pipe_stream(self, r, model, entry, task, asked, t0, attempts):
+        """Pass an SSE stream straight through, then log what it cost.
+
+        Agents stream by default — Claude Code, the client this README names,
+        does — and until this existed a streaming request through the proxy
+        returned 502 while the same request direct to the provider worked. The
+        integration claim was false for the main case it was written for.
+
+        Nothing is buffered and nothing is rewritten: chunks go out as they
+        arrive, so the caller sees the same latency it would without us. The
+        only thing read on the way past is the final usage chunk, which is where
+        the real cost comes from.
+        """
+        self.send_response(200)
+        for h in ("Content-Type", "Cache-Control"):
+            if r.headers.get(h):
+                self.send_header(h, r.headers[h])
+        self.send_header("X-SuperRouter-Task", task)
+        self.send_header("X-SuperRouter-Model", model)
+        if model != entry["model"]:
+            self.send_header("X-SuperRouter-Fellback-From", entry["model"])
+        self.end_headers()
+
+        cost = 0.0
+        tail = b""
+        try:
+            while True:
+                chunk = r.read1(8192) if hasattr(r, "read1") else r.read(8192)
+                if not chunk:
+                    break
+                self.wfile.write(chunk)
+                self.wfile.flush()
+                tail = (tail + chunk)[-4096:]     # only the end carries usage
+        except (BrokenPipeError, ConnectionResetError):
+            pass                                   # the caller went away
+        finally:
+            r.close()
+
+        for line in tail.decode("utf-8", "replace").splitlines():
+            if line.startswith("data:") and '"usage"' in line:
+                try:
+                    d = json.loads(line[5:].strip())
+                    cost = float((d.get("usage") or {}).get("cost") or 0) or cost
+                except Exception:
+                    pass
+
+        with self.lock:
+            with open(LOG, "a") as f:
+                f.write(json.dumps({
+                    "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "task": task, "asked": asked, "model": model,
+                    "intended": entry["model"],
+                    "fell_back": model != entry["model"],
+                    "attempts": attempts, "streamed": True,
+                    "cost_usd": cost, "seconds": round(time.time() - t0, 2),
+                    "reference": entry["reference"],
+                    "reference_cost_estimate": entry["reference_cost_per_case"],
+                }) + "\n")
+        return STREAMED
+
     def _shadow(self, body, task, routed, answer):
         """Ask the reference the same question, off the response path. The
         caller has already been served — this costs latency nobody waits on."""
@@ -290,6 +352,7 @@ class Handler(BaseHTTPRequestHandler):
         # Walk the chain: the routed model first, then every cheaper-than-
         # reference model that also survived the policy test, then the
         # reference. Only retryable failures advance it — see RETRYABLE_STATUS.
+        streaming = bool(body.get("stream"))
         chain = (entry["chain"] if routed else [body["model"]])
         try_from = chain.index(routed) if routed and routed in chain else 0
         attempts, raw, used = [], None, None
@@ -306,7 +369,18 @@ class Handler(BaseHTTPRequestHandler):
                 "X-Title": "superrouter",
             })
             try:
-                with urllib.request.urlopen(req, timeout=300) as r:
+                r = urllib.request.urlopen(req, timeout=300)
+                if streaming:
+                    # **Once bytes are on the wire the chain is over.** A retry
+                    # after partial output would replay content the caller has
+                    # already seen, so fallback covers failing to CONNECT, never
+                    # failing part-way through. Stated because the alternative
+                    # looks like better resilience and is data corruption.
+                    used = candidate
+                    raw = self._pipe_stream(r, candidate, entry, task, asked, t0,
+                                            attempts)
+                    break
+                with r:
                     raw = r.read().decode("utf-8", "replace")
                 used = candidate
                 break
@@ -327,6 +401,9 @@ class Handler(BaseHTTPRequestHandler):
                     self._send(502, {"error": str(e)[:300],
                                      "superrouter_attempts": attempts})
                     return
+
+        if streaming and raw is STREAMED:
+            return                      # already written to the wire, and logged
 
         if raw is None:
             self._send(502, {"error": "every model in the chain failed",

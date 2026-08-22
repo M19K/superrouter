@@ -320,6 +320,26 @@ four models are within 4 points of each other on 30 targets, so that half of the
 comparison separates almost nobody. The conclusion rests on the direction and
 spread of the changes, not on the exact correlation.*
 
+## What can point at it today, and what cannot
+
+**It speaks one protocol: OpenAI's `/v1/chat/completions`, streaming included.**
+Anything that takes an OpenAI-compatible base URL works with one environment
+variable and no code change — which covers Midscene (this vault's actual
+consumer), the OpenAI SDKs, LangChain, LlamaIndex, and most agent frameworks.
+
+**Claude Code does not, and an earlier draft of this file said it did.** It
+speaks Anthropic's `/v1/messages`, a different shape — pointing
+`ANTHROPIC_BASE_URL` here returns a 404. Translating between the two formats is
+a known, bounded piece of work and it is not built, so the claim is withdrawn
+rather than qualified.
+
+Streaming was also broken until it was tested: a `stream: true` request returned
+502 while the same request direct to the provider worked, and agents stream by
+default. It now passes through unbuffered, with the cost read from the final
+usage chunk. **Once bytes are on the wire the fallback chain is over** — a retry
+after partial output would replay content the caller has already seen, so
+fallback covers failing to connect, never failing part-way through.
+
 ## When the cheap model fails
 
 A router with no fallback is **worse than no router** — it turns a provider's bad
