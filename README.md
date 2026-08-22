@@ -320,18 +320,36 @@ four models are within 4 points of each other on 30 targets, so that half of the
 comparison separates almost nobody. The conclusion rests on the direction and
 spread of the changes, not on the exact correlation.*
 
-## What can point at it today, and what cannot
+## What can point at it
 
-**It speaks one protocol: OpenAI's `/v1/chat/completions`, streaming included.**
-Anything that takes an OpenAI-compatible base URL works with one environment
-variable and no code change — which covers Midscene (this vault's actual
-consumer), the OpenAI SDKs, LangChain, LlamaIndex, and most agent frameworks.
+**Two dialects, one router underneath.**
 
-**Claude Code does not, and an earlier draft of this file said it did.** It
-speaks Anthropic's `/v1/messages`, a different shape — pointing
-`ANTHROPIC_BASE_URL` here returns a 404. Translating between the two formats is
-a known, bounded piece of work and it is not built, so the claim is withdrawn
-rather than qualified.
+| endpoint | dialect | point it here with |
+|---|---|---|
+| `/v1/chat/completions` | OpenAI | `OPENAI_BASE_URL` |
+| `/v1/messages` | Anthropic | `ANTHROPIC_BASE_URL` |
+
+Translation happens at the edge and nowhere else — the routing, the fallback
+chain, the shadow sampling and the cost accounting never learn which dialect the
+caller spoke. A second copy of the routing logic for a second protocol is how the
+two quietly diverge.
+
+**Verified on the Anthropic side, by issuing the requests rather than reading the
+code:** text, system prompts as string or blocks, images, stop sequences, a full
+**tool-use round trip** (model calls the tool → client returns the result → model
+answers), and **streaming as the complete Anthropic event sequence** —
+`message_start → content_block_start → content_block_delta → content_block_stop →
+message_delta → message_stop`, in that order, because a client written against it
+hangs if they arrive in any other.
+
+**Accepted and dropped, said here rather than discovered later:** `cache_control`
+(prompt caching) and `thinking` have no equivalent in the chat-completions
+dialect underneath, so a caller asking for them gets a correct answer at an
+uncached price — and an `X-SuperRouter-Dropped` header saying so.
+`/v1/messages/count_tokens` is not served; it needs a tokeniser per model, which
+is a different problem from routing.
+
+**Tested with Claude-Code-shaped requests, not yet with Claude Code itself.**
 
 Streaming was also broken until it was tested: a `stream: true` request returned
 502 while the same request direct to the provider worked, and agents stream by

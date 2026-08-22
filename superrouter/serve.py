@@ -59,6 +59,7 @@ import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from .evals import endpoint_for
+from . import anthropic_api
 from .route_table import TASKS, latest, same_exam, survives
 
 # Failures worth trying the next model for, and failures that are not.
@@ -213,6 +214,8 @@ class Handler(BaseHTTPRequestHandler):
         only thing read on the way past is the final usage chunk, which is where
         the real cost comes from.
         """
+        translate = getattr(self, "anthropic", False)
+        tr = anthropic_api.StreamTranslator(model) if translate else None
         self.send_response(200)
         for h in ("Content-Type", "Cache-Control"):
             if r.headers.get(h):
@@ -225,18 +228,39 @@ class Handler(BaseHTTPRequestHandler):
 
         cost = 0.0
         tail = b""
+        pending = b""
         try:
             while True:
                 chunk = r.read1(8192) if hasattr(r, "read1") else r.read(8192)
                 if not chunk:
                     break
-                self.wfile.write(chunk)
-                self.wfile.flush()
+                if tr:
+                    # Anthropic frames a response as message_start → block
+                    # start/delta/stop → message_delta → message_stop, and a
+                    # client written against it hangs or throws if those do not
+                    # arrive in that order. So this is a state machine, not a
+                    # field rename.
+                    pending += chunk
+                    while b"\n" in pending:
+                        line, pending = pending.split(b"\n", 1)
+                        ev = tr.feed(line.decode("utf-8", "replace"))
+                        if ev:
+                            self.wfile.write(ev)
+                            self.wfile.flush()
+                else:
+                    self.wfile.write(chunk)
+                    self.wfile.flush()
                 tail = (tail + chunk)[-4096:]     # only the end carries usage
         except (BrokenPipeError, ConnectionResetError):
             pass                                   # the caller went away
         finally:
             r.close()
+        if tr:
+            try:
+                self.wfile.write(tr.finish())
+                self.wfile.flush()
+            except (BrokenPipeError, ConnectionResetError):
+                pass
 
         for line in tail.decode("utf-8", "replace").splitlines():
             if line.startswith("data:") and '"usage"' in line:
@@ -325,8 +349,16 @@ class Handler(BaseHTTPRequestHandler):
             self._send(404, {"error": "not found"})
 
     def do_POST(self):
-        if not self.path.rstrip("/").endswith("/chat/completions"):
-            self._send(404, {"error": "only /v1/chat/completions is served"})
+        # Two dialects, one router underneath. Translation happens at this edge
+        # and nowhere else — the routing, the fallback chain, the shadow
+        # sampling and the cost accounting below never learn which one the
+        # caller spoke. A second copy of the routing logic for a second protocol
+        # is how the two quietly diverge.
+        path = self.path.rstrip("/")
+        self.anthropic = path.endswith("/messages")
+        if not self.anthropic and not path.endswith("/chat/completions"):
+            self._send(404, {"error": "served: /v1/chat/completions (OpenAI) "
+                                      "and /v1/messages (Anthropic)"})
             return
         n = int(self.headers.get("Content-Length") or 0)
         try:
@@ -334,6 +366,10 @@ class Handler(BaseHTTPRequestHandler):
         except json.JSONDecodeError:
             self._send(400, {"error": "body is not JSON"})
             return
+
+        self.dropped = []
+        if self.anthropic:
+            body, self.dropped = anthropic_api.to_openai(body)
 
         asked = body.get("model", "")
         routed, task = None, None
@@ -449,6 +485,13 @@ class Handler(BaseHTTPRequestHandler):
             with self.lock:
                 with open(LOG, "a") as f:
                     f.write(json.dumps(rec) + "\n")
+        if getattr(self, "anthropic", False):
+            out = anthropic_api.from_openai(out, asked)
+            if self.dropped:
+                # Accepted and not honoured. Saying so is the whole point: a
+                # caller asking for prompt caching and getting an uncached price
+                # while the response says success is worse than a refusal.
+                headers["X-SuperRouter-Dropped"] = ",".join(self.dropped)
         self._send(200, out, headers)
 
 
