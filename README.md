@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/logo/lockup-dark.svg">
+  <img src="assets/logo/lockup-light.svg" alt="SuperRouter" width="250">
+</picture>
+
 # SuperRouter
 
 **Integration** — sends each task to the cheapest model that still does it correctly, and proves the "correctly" with a number.

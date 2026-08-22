@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 64"
+     width="250" height="64" role="img" aria-label="SuperRouter">
+  <title>SuperRouter</title>
+  <path d="M26 14 L50 50 H2 Z" fill="none" stroke="#0C1416"
+        stroke-width="3" stroke-linejoin="round"/>
+  <path d="M2 32 H21" fill="none" stroke="#0C1416" stroke-width="4.2" stroke-linecap="round"/>
+  <path d="M36 30 L62 14" fill="none" stroke="#0C1416" stroke-width="3.2"
+        stroke-linecap="round" opacity="0.3"/>
+  <path d="M36 33 H62" fill="none" stroke="#008E7E" stroke-width="4.6" stroke-linecap="round"/>
+  <path d="M38 38 L62 52" fill="none" stroke="#0C1416" stroke-width="3.2"
+        stroke-linecap="round" opacity="0.3"/>
+  <text x="76" y="41" font-size="27" letter-spacing="-0.2"
+        font-family="Chakra Petch, DIN Alternate, Bahnschrift, Eurostile, system-ui, sans-serif"
+        font-weight="600">
+    <tspan fill="#6C8288">Super</tspan><tspan fill="#0C1416">Router</tspan>
+  </text>
+</svg>
