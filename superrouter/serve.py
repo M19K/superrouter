@@ -59,7 +59,39 @@ import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from .evals import endpoint_for
-from .route_table import TASKS, latest, survives
+from .route_table import TASKS, latest, same_exam, survives
+
+# Failures worth trying the next model for, and failures that are not.
+# A 400 or a 401 is the request being wrong, and sending a wrong request to a
+# second model just spends money to be told the same thing. A 429, a 5xx or a
+# timeout is the provider having a moment, which is exactly what a chain is for.
+RETRYABLE_STATUS = {408, 409, 425, 429, 500, 502, 503, 504, 522, 524}
+
+# A status code alone is not enough for a ROUTER, and the first test of the
+# chain proved it. A model that has been decommissioned, or that no provider is
+# currently serving, comes back as **400 or 404** — the same codes as a
+# malformed request. Blanket "do not retry 4xx" is right for a plain proxy and
+# wrong here: a model disappearing is the single most important reason a routing
+# chain exists, and it was the one case the chain refused to act on.
+#
+# So those two codes are retryable only when the message is about the MODEL
+# rather than the request. Matching on message text is fragile, so it is kept
+# narrow, listed here, and the whole attempt trail is returned to the caller —
+# if this misjudges, it is visible rather than silent.
+MODEL_IS_THE_PROBLEM = (
+    "not a valid model", "no endpoints found", "no allowed providers",
+    "model not found", "is not available", "no instances available",
+    "does not exist", "has been deprecated", "no providers available",
+)
+
+
+def retryable(status, detail):
+    if status in RETRYABLE_STATUS:
+        return True
+    if status in (400, 404):
+        d = (detail or "").lower()
+        return any(k in d for k in MODEL_IS_THE_PROBLEM)
+    return False
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(CODE, "state", "served.jsonl")
@@ -76,7 +108,14 @@ def build_table():
     """
     table = {}
     for task, cfg in TASKS.items():
-        rows = latest(cfg["runs"], cfg["min_cases"])
+        # Same exam isolation the offline table applies. Without it the
+        # FALLBACK CHAIN silently admits models measured on a superseded set —
+        # caught the first time the chain was exercised, when it fell back to a
+        # free model whose only measurement was on a 90-case set it had long
+        # been superseded by, and which returns an empty answer most of the
+        # time. An unproven model is not a safety net; it is a second failure
+        # wearing one's clothes.
+        rows, _stale = same_exam(latest(cfg["runs"], cfg["min_cases"]))
         ref = next((r for r in rows if r["model"] == cfg["reference"]), None)
         if not ref:
             continue
@@ -84,8 +123,22 @@ def build_table():
               and not survives(r, ref, cfg["axes"])]
         ok.sort(key=lambda r: r["cost_usd"])
         pick = ok[0] if ok else ref
+        # The fallback chain is every model that ALSO passed the policy test,
+        # cheapest first, with the reference last. Two rules make it safe:
+        # nothing enters the chain that has not been measured to survive, and
+        # the reference is always reachable, so a cheap model's bad ten minutes
+        # cannot become the caller's outage. A router with no fallback is worse
+        # than no router — it converts a hiccup upstream into a total failure.
+        chain = [r["model"] for r in ok] + [ref["model"]]
+        seen, ordered = set(), []
+        for m in chain:
+            if m not in seen:
+                seen.add(m)
+                ordered.append(m)
         table[task] = {
             "model": pick["model"],
+            "chain": ordered,
+            "cost_of": {r["model"]: r["cost_usd"] / r["cases"] for r in ok + [ref]},
             "reference": ref["model"],
             "cost_per_case": pick["cost_usd"] / pick["cases"],
             "reference_cost_per_case": ref["cost_usd"] / ref["cases"],
@@ -234,26 +287,55 @@ class Handler(BaseHTTPRequestHandler):
             body["model"] = routed
         # anything else passes through untouched
 
-        url, key_override, wire = endpoint_for(body["model"])
-        body["model"] = wire
-        if routed:
-            body.setdefault("usage", {"include": True})
-        data = json.dumps(body).encode()
-        req = urllib.request.Request(url, data=data, headers={
-            "Authorization": f"Bearer {key_override or self.upstream_key}",
-            "Content-Type": "application/json",
-            "X-Title": "superrouter",
-        })
+        # Walk the chain: the routed model first, then every cheaper-than-
+        # reference model that also survived the policy test, then the
+        # reference. Only retryable failures advance it — see RETRYABLE_STATUS.
+        chain = (entry["chain"] if routed else [body["model"]])
+        try_from = chain.index(routed) if routed and routed in chain else 0
+        attempts, raw, used = [], None, None
         t0 = time.time()
-        try:
-            with urllib.request.urlopen(req, timeout=300) as r:
-                raw = r.read().decode("utf-8", "replace")
-        except urllib.error.HTTPError as e:
-            self._send(e.code, {"error": e.read().decode("utf-8", "replace")[:400]})
+
+        for step, candidate in enumerate(chain[try_from:]):
+            url, key_override, wire = endpoint_for(candidate)
+            call = dict(body, model=wire)
+            if routed:
+                call.setdefault("usage", {"include": True})
+            req = urllib.request.Request(url, data=json.dumps(call).encode(), headers={
+                "Authorization": f"Bearer {key_override or self.upstream_key}",
+                "Content-Type": "application/json",
+                "X-Title": "superrouter",
+            })
+            try:
+                with urllib.request.urlopen(req, timeout=300) as r:
+                    raw = r.read().decode("utf-8", "replace")
+                used = candidate
+                break
+            except urllib.error.HTTPError as e:
+                detail = e.read().decode("utf-8", "replace")[:300]
+                attempts.append({"model": candidate, "status": e.code,
+                                 "detail": detail[:120]})
+                if not retryable(e.code, detail) or step == len(chain[try_from:]) - 1:
+                    # Not the chain's business, or nothing left to try. Either
+                    # way the caller gets the real error rather than a 502 that
+                    # hides which model refused and why.
+                    self._send(e.code, {"error": detail, "superrouter_attempts": attempts})
+                    return
+            except Exception as e:
+                attempts.append({"model": candidate, "status": "transport",
+                                 "detail": str(e)[:120]})
+                if step == len(chain[try_from:]) - 1:
+                    self._send(502, {"error": str(e)[:300],
+                                     "superrouter_attempts": attempts})
+                    return
+
+        if raw is None:
+            self._send(502, {"error": "every model in the chain failed",
+                             "superrouter_attempts": attempts})
             return
-        except Exception as e:
-            self._send(502, {"error": str(e)[:300]})
-            return
+        if routed and used != routed:
+            # A fallback that is not visible is a silent cost increase: you
+            # believe you are paying the cheap model's price and you are not.
+            routed = used
         took = time.time() - t0
         try:
             out = json.loads("\n".join(l for l in raw.splitlines()
@@ -272,6 +354,9 @@ class Handler(BaseHTTPRequestHandler):
                        "X-SuperRouter-Reference": entry["reference"]}
             rec = {"ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
                    "task": task, "asked": asked, "model": routed,
+                   "intended": entry["model"],
+                   "fell_back": routed != entry["model"],
+                   "attempts": attempts,
                    "inferred": asked.endswith("/auto"),
                    "cost_usd": cost, "seconds": round(took, 2),
                    "reference": entry["reference"],
@@ -282,6 +367,8 @@ class Handler(BaseHTTPRequestHandler):
             if due:
                 rec.update(self._shadow(body, task, routed, answer))
                 headers["X-SuperRouter-Shadow"] = str(rec.get("agreed"))
+        if routed and routed != entry["model"]:
+            headers["X-SuperRouter-Fellback-From"] = entry["model"]
             with self.lock:
                 with open(LOG, "a") as f:
                     f.write(json.dumps(rec) + "\n")

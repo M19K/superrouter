@@ -320,6 +320,31 @@ four models are within 4 points of each other on 30 targets, so that half of the
 comparison separates almost nobody. The conclusion rests on the direction and
 spread of the changes, not on the exact correlation.*
 
+## When the cheap model fails
+
+A router with no fallback is **worse than no router** — it turns a provider's bad
+ten minutes into the caller's outage. The chain is every model that also passed
+the policy test, cheapest first, with the reference last.
+
+Two rules make it safe, and both were learned by exercising it rather than
+reasoning about it:
+
+- **A status code alone cannot decide a router's retry.** "Never retry a 4xx" is
+  right for a plain proxy and wrong here: a decommissioned model, or one no
+  provider is currently serving, returns **400 or 404** — the same codes as a
+  malformed request. That is the single biggest reason a chain exists and it was
+  the one case the chain refused to act on. Those two codes now retry only when
+  the message is about the *model*, and the full attempt trail is returned to the
+  caller so a misjudgement is visible.
+- **An unproven model is not a safety net.** The chain was admitting models
+  measured on a superseded exam, and the first live test fell back to one that
+  returns an empty answer most of the time — a 200 with nothing in it. The chain
+  now applies the same exam isolation the offline table does.
+
+**A fallback is a cost event, not just an availability one.** The table's saving
+assumes the first choice answers; `superrouter.shadow` reports how often it did
+not and what that actually cost.
+
 ## Staying current
 
 A measurement describes the day it was taken, and four things move underneath it.

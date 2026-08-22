@@ -106,6 +106,21 @@ def main():
               f"excluded from the rate.\n  Not a disagreement — the reference could not "
               f"answer under the caller's own limits.\n  Counting them as disagreement "
               f"is how this read 76% on its first live run.")
+    fb = [r for r in rows if r.get("fell_back")]
+    if fb:
+        # A fallback is a cost event, not just an availability event. If the
+        # cheap model fails often enough, the saving is not what the table says
+        # — and the table cannot know, because it was measured offline.
+        by = {}
+        for r in fb:
+            by[r["model"]] = by.get(r["model"], 0) + 1
+        paid = sum(r.get("cost_usd") or 0 for r in fb)
+        print(f"\n{len(fb)} of {len(rows)} call(s) ({round(100*len(fb)/len(rows))}%) "
+              f"fell back to a dearer model — ${paid:.5f} of the spend above.")
+        for m, n in sorted(by.items(), key=lambda kv: -kv[1]):
+            print(f"    {n:>4}  {m}")
+        print("  The saving in the routing table assumes the first choice answers.")
+        print("  This is what it actually cost once it sometimes did not.")
     print("\n" + "-"*96)
     print("WHAT AGREEMENT CAN AND CANNOT TELL YOU — measured, 2026-08-21, 50 live samples")
     print("  routed model, agreement with the reference : 100%")
