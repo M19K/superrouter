@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32" role="img" aria-label="SuperRouter">
   <title>SuperRouter</title>
-  <path d="M26 14 L50 50 H2 Z" fill="none" stroke="#DFE9EA"
-        stroke-width="3" stroke-linejoin="round"/>
-  <path d="M2 32 H21" fill="none" stroke="#DFE9EA" stroke-width="4.2" stroke-linecap="round"/>
-  <path d="M36 30 L62 14" fill="none" stroke="#DFE9EA" stroke-width="3.2"
-        stroke-linecap="round" opacity="0.3"/>
-  <path d="M36 33 H62" fill="none" stroke="#2FE3C4" stroke-width="4.6" stroke-linecap="round"/>
-  <path d="M38 38 L62 52" fill="none" stroke="#DFE9EA" stroke-width="3.2"
-        stroke-linecap="round" opacity="0.3"/>
+  <path d="M32 11 L52 45.5 H12 Z" fill="#CFE0E2"/>
+  <path d="M2 32 H19.8" fill="none" stroke="#CFE0E2" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M44 32 L62 18" fill="none" stroke="#CFE0E2" stroke-width="3.2"
+        stroke-linecap="round" opacity="0.4"/>
+  <path d="M44 32 L62 46" fill="none" stroke="#CFE0E2" stroke-width="3.2"
+        stroke-linecap="round" opacity="0.4"/>
+  <path d="M30 32 H62" fill="none" stroke="#2FE3C4" stroke-width="5.4" stroke-linecap="round"/>
 </svg>
