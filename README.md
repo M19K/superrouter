@@ -229,6 +229,13 @@ because the audit was billed to it.
   `scope-widen` supplied 39 cases and was missed 41% of the time while
   `unsupported-addition` supplied 169 and was missed 14%, so the exam spent
   itself on questions nobody got wrong.
+- **A model that was never asked has not refused.** 41 client timeouts against a
+  local endpoint were counted as refusals, the summary read `refused 27%`, and
+  the rule *a model refusing half its cases is unusable* would have disqualified
+  a model that never saw the request. `refused` (it answered, with no verdict)
+  and `errored` (the request never arrived) are now separate columns, and only
+  the first counts against the model. Local endpoints are capped to one request
+  in flight, which costs nothing because Ollama serialises anyway.
 - **A planted defect must move pixels.** One of 18 classes returned success and
   changed nothing — a selector that matched no element. Every fixture is gated
   against the healthy frame of the same screen.
@@ -382,6 +389,32 @@ reasoning about it:
 **A fallback is a cost event, not just an availability one.** The table's saving
 assumes the first choice answers; `superrouter.shadow` reports how often it did
 not and what that actually cost.
+
+## How much of a score is the model, and how much is the dice
+
+Every number here was a single draw until 2026-08-22, when
+`@claude-code/product-portfolio` pointed out that **no score in the table had a
+known noise floor** — 66 runs on disk and not one pair sat the same model on the
+same exam twice. Two runs can both read 67% and disagree about a third of the
+cases.
+
+Measured, two runs of a 120-case exam at temperature 0:
+
+| model | agreement between runs | verdicts that flipped | headline moved |
+|---|---|---|---|
+| `google/gemma-3-12b-it` | **120/120 (100%)** | 0 | 0 points |
+| `qwen/qwen3.7-flash` | 118/120 (98%) | 2, both score-moving | 0 points — they cancelled |
+
+**So run-to-run noise is roughly ±2 points, and the sampling intervals already
+reported are ±8-15.** The larger uncertainty dominates, which is the reassuring
+answer — but it was assumed rather than known, and the flips prove the headline
+*can* move even when it did not.
+
+`python3 -m superrouter.stability <run-a.json> <run-b.json>` compares two runs of
+one exam case by case. It refuses outright when the fingerprints differ, and
+excludes cases with no verdict in either run — otherwise a timeout reads as the
+model changing its mind. Written by `@claude-code/product-portfolio` and adopted
+here rather than rewritten.
 
 ## Staying current
 

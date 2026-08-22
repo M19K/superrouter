@@ -276,7 +276,20 @@ def read_verdict(text):
     return None
 
 
+def effective_workers(model, asked):
+    """One at a time for a local model, whatever was asked for.
+
+    Ollama serves a single request at a time, so N in flight does not run N
+    times faster — it makes each one wait N times longer and then time out. The
+    cap costs nothing in wall time because the server was serialising anyway,
+    and it removes the only way this harness can manufacture a failure and
+    attribute it to the model.
+    """
+    return 1 if model.startswith("local/") else asked
+
+
 def score(model, cases, api_key, verbose=False, workers=8, task="qa-vision-assert"):
+    workers = effective_workers(model, workers)
     """Score every case. Concurrent, because a 140-case run one-at-a-time is
     four minutes of waiting per model and iteration speed is the whole point.
     Order is restored afterwards so run records stay diffable."""
@@ -342,7 +355,18 @@ def summarise(model, results, errors):
                   if r["answer"] is True and not r["needs_defect_sight"]
                   and not str(r.get("frame", "")).startswith("broken-")]
     alarms = sum(1 for r in healthy_ok if r["said"] is not True)
-    unparsed = sum(1 for r in results if r["said"] is None)
+    # **A model that was never asked has not refused.** Reported by
+    # @claude-code/product-portfolio 2026-08-22: 41 client timeouts against a
+    # local model were counted as refusals, the summary read `refused 27%`, and
+    # the rule "a model refusing half its cases is unusable" would have
+    # disqualified a model that never saw the request. Errors and refusals were
+    # literally the same 41 rows sharing a column.
+    #
+    # They are different failures and only one of them is the model's:
+    #   error   — the request did not complete. Ours, or the network's.
+    #   refusal — the model answered, and the answer carried no verdict.
+    reached = [r for r in results if not r.get("error")]
+    unparsed = sum(1 for r in reached if r["said"] is None)
     # A model that will not answer in the required shape has not answered
     # wrongly — it has not answered. Scoring it as wrong hides a distinct and
     # disqualifying failure: it cannot drive a QA run at all. Report both the
@@ -378,7 +402,10 @@ def summarise(model, results, errors):
         "false_alarm_ci": wilson(alarms, len(healthy_ok)),
         "defect_classes": len(by_defect),
         "refusals": unparsed,
-        "refusal_pct": round(100 * unparsed / n) if n else 0,
+        # denominator is what actually reached the model, not what we sent
+        "refusal_pct": round(100 * unparsed / len(reached)) if reached else 0,
+        "reached": len(reached),
+        "error_pct": round(100 * (n - len(reached)) / n) if n else 0,
         "false_alarm_when_answered": (round(100 * ans_alarms / len(ans_healthy))
                                       if ans_healthy else 0),
         "answered_healthy": len(ans_healthy),
@@ -540,9 +567,13 @@ def main():
         rows.append(s)
         with open(os.path.join(runs_dir, f"{stamp}_{model.replace('/', '_')}.json"), "w") as f:
             json.dump({"summary": s, "results": results}, f, indent=1)
+        if s.get("error_pct"):
+            print(f"  {s['error_pct']}% of requests never completed — timeout or "
+                  f"transport, not the model. Everything below is over the "
+                  f"{s['reached']} that reached it.")
         if s["refusal_pct"]:
-            print(f"  REFUSED {s['refusal_pct']}% of cases — gave no usable answer. "
-                  f"Rates below are over the {s['cases'] - s['refusals']} it did answer.")
+            print(f"  REFUSED {s['refusal_pct']}% of what reached it — answered, "
+                  f"but with no verdict in the answer.")
         print(f"  accuracy {s['accuracy']}%  catch {s['catch_when_answered']}% "
               f"({s['answered_defect']} answered)  false alarms "
               f"{s['false_alarm_when_answered']}% ({s['answered_healthy']} answered)  "
@@ -550,14 +581,16 @@ def main():
               f"${s['cost_usd']:.5f}  {s['seconds']}s wall\n")
 
     print(f"{'accuracy':>9} {'catch':>7} {'false alarm':>12} {'refused':>8} "
-          f"{'$ / run':>10} {'s / case':>9}  model")
-    print("  catch and false alarm are over answers actually GIVEN; a model that")
-    print("  refuses is disqualified by the refused column, not flattered by it.")
+          f"{'errored':>8} {'$ / run':>10} {'s / case':>9}  model")
+    print("  catch and false alarm are over answers actually GIVEN. `refused` is the")
+    print("  model declining to answer; `errored` is the request never arriving, which")
+    print("  is ours and never counts against the model.")
     for s in sorted(rows, key=lambda s: (s["refusal_pct"], -s["accuracy"])):
         flag = "  ← unusable" if s["refusal_pct"] >= 50 else ""
         print(f"{s['accuracy']:8}% {s['catch_when_answered']:6}% "
               f"{s['false_alarm_when_answered']:11}% {s['refusal_pct']:7}% "
-              f"{s['cost_usd']:10.5f} {s['seconds_per_case']:9.2f}  {s['model']}{flag}")
+              f"{s.get('error_pct', 0):7}% {s['cost_usd']:10.5f} "
+              f"{s['seconds_per_case']:9.2f}  {s['model']}{flag}")
     print(f"\nrun records → {runs_dir}")
 
 
