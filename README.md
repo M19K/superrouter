@@ -10,8 +10,13 @@ Measured on a real workload, not a benchmark:
 a 100-step QA run, 70% judging / 30% pointing
    all on the reference model : $0.2488
    routed per sub-task        : $0.0041
+   from: judging 140 cases · pointing 108 cases, one product, one exam each
    60× cheaper, with no measurable quality loss on either sub-task
 ```
+
+*The tool prints that provenance line itself. A headline number that cannot say
+which product, which exam and how many cases it came from is exactly what this
+project objects to in every other router.*
 
 ---
 

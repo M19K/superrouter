@@ -236,6 +236,7 @@ def main():
     MIX = {"qa-vision-assert": 0.70, "qa-vision-point": 0.30}
     if all(t in table for t in MIX):
         base = routed = 0.0
+        prov = []
         for task, share in MIX.items():
             cfg = TASKS[task]
             rows, _stale = same_exam(latest(cfg["runs"], cfg["min_cases"]))
@@ -243,10 +244,17 @@ def main():
             pick = next(r for r in rows if r["model"] == table[task])
             base += share * ref["cost_usd"] / ref["cases"]
             routed += share * pick["cost_usd"] / pick["cases"]
+            prov.append((task, os.path.basename(cfg["runs"]),
+                         ref.get("exam_fingerprint") or ref.get("golden_fingerprint"),
+                         ref["cases"]))
         print(f"── a 100-step QA run, {int(MIX['qa-vision-assert']*100)}% judging / "
               f"{int(MIX['qa-vision-point']*100)}% pointing")
         print(f"   all on the reference model : ${base*100:.4f}")
         print(f"   routed per sub-task        : ${routed*100:.4f}")
+        # A headline number that cannot say where it came from is the thing
+        # this project exists to object to in other people's routers.
+        print(f"   from: " + " · ".join(f"{t} {d} exam {f} ({n} cases)"
+                                        for t, d, f, n in prov))
         print(f"   {base/routed:.0f}× cheaper, with no measurable quality loss on "
               f"either sub-task")
 

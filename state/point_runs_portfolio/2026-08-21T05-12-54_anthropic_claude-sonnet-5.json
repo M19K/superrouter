@@ -21,7 +21,10 @@
   "hits_absolute": 11,
   "hits_normalised": 3,
   "cost_usd": 0.0807,
-  "seconds_per_case": 3.97
+  "seconds_per_case": 3.97,
+  "golden_fingerprint": "dc28ce75d789",
+  "exam_fingerprint": "dc28ce75d789",
+  "exam_cases": 30
  },
  "results": [
   {

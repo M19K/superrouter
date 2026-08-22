@@ -47,6 +47,7 @@ from .evals import TRANSPORT_FAULTS, ask, key, wilson
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GOLDEN = os.path.join(CODE, "golden", "qa-point")
 RUNS = os.path.join(CODE, "state", "point_runs")
+EXAM = {}   # the whole set, stamped into every run drawn from it
 
 
 def resolve_set(name):
@@ -165,7 +166,17 @@ def score(model, cases, api_key, workers=8, verbose=False, frames_dir=None):
     return out
 
 
-def summarise(model, res):
+def exam_id(cases):
+    """Same rule as the judging set: a run records which exam it sat, so nothing
+    later compares scores from two different versions of it."""
+    import hashlib
+    h = hashlib.sha256()
+    for c in sorted(cases, key=lambda c: c["id"]):
+        h.update(f"{c['id']}|{c['frame']}|{c['target']}|{c['box']}".encode())
+    return h.hexdigest()[:12]
+
+
+def summarise(model, res, exam=None, exam_n=None):
     n = len(res)
     c = {k: sum(1 for r in res if r["outcome"] == k)
          for k in ("hit", "wrong-thing", "empty-space", "refused", "error")}
@@ -175,6 +186,8 @@ def summarise(model, res):
     tally = res[0].get("_tally", {})
     return {
         "model": model, "cases": n,
+        "exam_fingerprint": exam, "exam_cases": exam_n,
+        "golden_fingerprint": exam_id(res),
         "hit": round(100 * c["hit"] / n), "hit_ci": wilson(c["hit"], n),
         "hit_n": f"{c['hit']}/{n}",
         "wrong_thing": round(100 * c["wrong-thing"] / n),
@@ -203,6 +216,8 @@ def main():
     base, frames_dir, runs_dir = set_paths(getattr(a, "set", None))
     g = json.load(open(os.path.join(base, "manifest.json")))
     cases = g["case_list"][: a.limit] if a.limit else g["case_list"]
+    EXAM["id"] = exam_id(g["case_list"])
+    EXAM["n"] = len(g["case_list"])
     print(f"pointing set · {len(cases)} targets with exact rectangles · "
           f"{len({c['frame'] for c in cases})} screens\n")
     if not a.model:
@@ -216,7 +231,7 @@ def main():
         print(f"scoring {m} …")
         res = score(m, cases, api_key, workers=a.workers, verbose=a.verbose,
                     frames_dir=frames_dir)
-        s = summarise(m, res)
+        s = summarise(m, res, exam=EXAM["id"], exam_n=EXAM["n"])
         rows.append(s)
         with open(os.path.join(runs_dir, f"{stamp}_{m.replace('/', '_')}.json"), "w") as f:
             json.dump({"summary": s, "results": res}, f, indent=1)
