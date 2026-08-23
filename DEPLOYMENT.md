@@ -87,10 +87,14 @@ price drift from it, so on another provider you maintain that list yourself.
 **Works, with one thing missing.** `ANTHROPIC_BASE_URL` at the proxy is enough;
 the Anthropic dialect is translated at the edge.
 
-**But `cache_control` and `thinking` are accepted and silently dropped** — a
-caller asking for prompt caching gets a correct answer at an uncached price. The
-response header says so; nothing in the body does. If your agent depends on
-caching for its economics, this will quietly cost you money rather than save it.
+**Prompt caching is forwarded** as of 2026-08-23 — OpenRouter honours
+`cache_control` on Anthropic models, and a provider that does not understand the
+field ignores it. Dropping it, which is what happened before, turned a cached
+prompt into an uncached bill while the response still reported success.
+
+**`thinking` is still accepted and not acted on.** A model that reasons will
+still reason; the blocks are not returned separately. The response header says
+so, and it is listed here rather than left to be discovered.
 
 ---
 
@@ -101,7 +105,7 @@ caching for its economics, this will quietly cost you money rather than save it.
 | **`agent-browser` (npm, global)** | building *any* vision golden set | the builder fails; text tasks still work |
 | **A browser it can drive** | same | same |
 | **Ollama** | `local/…` models only | those models are unreachable; hosted ones fine |
-| **Python 3.14** | everything | untested below it; no floor has been established |
+| **Python 3.9+** | everything | verified: every module imports and the audit runs on 3.9.6 as well as 3.14 |
 | **An OpenRouter account** | scoring, the pool index, staleness | see Story 2 |
 | **`~/Documents/Mikoshi`** | *nothing any more* | was hardcoded in two places; both fixed 2026-08-23 |
 
@@ -126,12 +130,20 @@ exists on one machine answers the question wrongly everywhere else.
 
 1. **Not provider-agnostic.** Story 2. Everything else is downstream of this.
 2. ~~`--vault` defaulted to the author's path~~ — **fixed 2026-08-23**: it is now a required argument, because a default that exists on one machine answers the question wrongly everywhere else.
-3. **No `/health` endpoint.** A deployment that cannot be probed cannot be supervised. LLMRouter's serve layer has one; ours does not.
-4. **`max_tokens` is passed through unclamped.** LLMRouter clamps to each model's own limit; we do not, so a request larger than a small model accepts fails at the provider rather than being caught.
-5. **No context-length check.** A prompt longer than the routed model's window is discovered by the provider rejecting it.
-6. **No key rotation.** One key per provider, taken from the environment.
-7. **Windows is untested.** Paths are joined properly, but nothing has run there.
-8. **Python floor unestablished.** Developed on 3.14; the lowest working version is unknown.
+3. ~~No `/health`~~ — **added.** `GET /health` reports whether a routing table
+   is loaded and what is enabled, and calls no model to find out, because a
+   health check that spends money is one nobody runs often.
+4. ~~`max_tokens` unclamped~~ — **clamped** to each model's declared ceiling,
+   and the adjustment is reported rather than made silently.
+5. ~~No context check~~ — **added.** An oversized prompt is refused with a 413
+   and an estimate, before the request is sent.
+6. ~~No key rotation~~ — **added.** Several keys per provider rotate
+   round-robin.
+7. **Windows is unrun, with no known blocker.** Checked for the things that
+   actually break — `signal`, `fcntl`, `os.fork`, hardcoded POSIX paths — and
+   there are none; every path is joined rather than concatenated. That is not
+   the same as it having worked, and it is listed as unrun rather than
+   supported.
 
 ---
 
@@ -144,6 +156,8 @@ exists on one machine answers the question wrongly everywhere else.
 | the verifier beats chance | held against random at its own escalation rate, asserted in the audit |
 | every published number matches its source | `superrouter.audit --strict` re-derives them |
 | it helps on real work | the Mikoshi synthesis layer, graded by that project's eval, not ours |
+| it runs on an old Python | every module imported and the audit run on 3.9.6 |
+| non-OpenRouter providers resolve | Azure and vLLM configured and resolved, keys rotating, limits clamped |
 
 **Nothing here has been run by a third party on hardware the author does not
 own.** That is the next thing that should happen, and no amount of internal

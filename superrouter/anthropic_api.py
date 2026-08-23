@@ -20,10 +20,12 @@ routing logic for a second protocol is how the two quietly diverge.
 
 ## What is not, stated plainly rather than discovered later
 
-  **Prompt caching** (`cache_control`) is accepted and dropped. OpenAI's
-  chat-completions dialect has no equivalent field, so a caller asking for it
-  gets a correct answer at an uncached price. Silently honouring nothing while
-  reporting success is the failure this note exists to prevent.
+  **Prompt caching** (`cache_control`) is **forwarded**, not dropped. OpenRouter
+  honours it on Anthropic models, and a provider that does not understand the
+  field ignores it — so passing it on is safe where silently removing it was
+  not. Removing it turned a cached prompt into an uncached bill while the
+  response still said success, which is the exact failure this section exists
+  to prevent.
 
   **Extended thinking** (`thinking`) is likewise accepted and dropped; a model
   that reasons will still reason, but the blocks are not returned separately.
@@ -43,7 +45,9 @@ STOP_REASON = {
     "content_filter": "end_turn",
 }
 
-DROPPED_SILENTLY_WOULD_BE_WORSE = ("cache_control", "thinking")
+# `cache_control` is now forwarded rather than dropped; only `thinking` is still
+# accepted and not acted on, and the response says so.
+DROPPED_SILENTLY_WOULD_BE_WORSE = ("thinking",)
 
 
 def _content_to_openai(content):
@@ -54,7 +58,16 @@ def _content_to_openai(content):
     for b in content or []:
         t = b.get("type")
         if t == "text":
-            parts.append({"type": "text", "text": b.get("text", "")})
+            part = {"type": "text", "text": b.get("text", "")}
+            # **Carried through, not dropped.** OpenRouter honours Anthropic's
+            # `cache_control` on Anthropic models, so stripping it turned a
+            # cached prompt into an uncached bill while reporting success —
+            # the failure mode that costs a user money quietly. On a provider
+            # that ignores the field the answer is unchanged, so passing it on
+            # is safe where honouring it is not guaranteed.
+            if b.get("cache_control"):
+                part["cache_control"] = b["cache_control"]
+            parts.append(part)
         elif t == "image":
             src = b.get("source") or {}
             if src.get("type") == "base64":
