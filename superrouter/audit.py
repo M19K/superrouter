@@ -218,6 +218,31 @@ def main():
     else:
         print(f"  {WARN}  external check not run — xRouteBench data not downloaded")
 
+    # A policy that does not beat random at its own rate bought nothing, however
+    # much it saved. Asserted rather than assumed, on the records.
+    try:
+        from .cascade import load as _cl, evaluate as _ce, random_at as _cr, signals as _cs
+        _runs, _ = _cl("text-faithful")
+        _rank = sorted(_runs, key=lambda m: _runs[m]["summary"].get("cost_usd", 0))
+        _ref = _rank[-1]
+        _rr = {r["id"]: r for r in _runs[_ref]["results"]}
+        _cheap = next(m for m in _rank if m != _ref
+                      and len(set(r["id"] for r in _runs[m]["results"]) & set(_rr)) >= 30)
+        _cc = {r["id"]: r for r in _runs[_cheap]["results"]}
+        _ids = sorted(set(_cc) & set(_rr))[:120]
+        _res = _ce(_cc, _rr, _ids, lambda r: any(_cs(r).values()), 0, 1)
+        _ra, _sd = _cr(_cc, _rr, _ids, _res["rate"])
+        _gap = _res["accuracy"] - _ra
+        if _gap > 2 * _sd:
+            print(f"  {OK}  the verifier beats random at its own rate "
+                  f"({_gap:+.3f} at a {_res['rate']:.0%} escalation rate)")
+        else:
+            print(f"  {BAD}  the verifier does NOT beat random at its own rate "
+                  f"({_gap:+.3f}) — its saving is arithmetic, not judgement")
+            fails += 1
+    except Exception as e:
+        print(f"  {WARN}  deferral check could not run: {str(e)[:70]}")
+
     checks = [
         ("no failed request is scored against a model", check_failures_not_scored(rs)),
         ("no directory mixes two exams", check_exams_not_mixed(rs)),

@@ -223,14 +223,14 @@ TRANSPORT_FAULTS = (urllib.error.HTTPError, urllib.error.URLError,
 
 
 def ask(model, assertion, image_b64, api_key, timeout=120, tries=3, provider=None,
-        want_reasoning=False):
+        want_reasoning=False, temperature=0):
     """One call. `usage.include` makes OpenRouter return what it actually
     charged, so cost is a reading rather than an estimate."""
     url, key_override, wire = endpoint_for(model)
     payload = {
         "model": wire,
         "max_tokens": 2000,
-        "temperature": 0,
+        "temperature": temperature,
         "usage": {"include": True},
         "messages": [{"role": "user", "content": (
             [{"type": "text", "text": assertion}] +
