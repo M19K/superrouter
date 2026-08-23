@@ -144,7 +144,26 @@ model scores near 100% on a set like that and the number means nothing.
 
 ## Status and licence
 
-**Working instrument. Not yet proven on live traffic. Audited.**
+**Working instrument. Not yet proven on live traffic. Audited, tested and
+checked on every push.**
+
+```bash
+python3 -m unittest discover tests    # 33 tests, no dependencies
+python3 -m superrouter.audit --strict
+```
+
+CI runs three jobs on every push: the suite on Python 3.9 and 3.13, `ruff` and
+`mypy`, and the audit with `--strict`. **The scored ladders are deliberately not
+in CI** — they cost real money per run, and a workflow that bills an account on
+every push is a workflow somebody disables.
+
+**Every test guards a bug that actually happened.** Not one of the six that
+reached this project would have been caught by a coverage target: the code was
+reachable, ran, and returned a plausible number. So the tests are named for the
+rule they defend — a refusal is not a wrong answer, two exams are never
+compared, the strictness ladder stays monotonic, an escalated query is charged
+twice. **The suite found a real bug on its first run**: the fix that stopped
+prompt caching being dropped was itself dropping it one line later.
 
 ```bash
 python3 -m superrouter.audit --strict

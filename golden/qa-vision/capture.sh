@@ -80,4 +80,4 @@ goto 0 1280 800 light
 mutate "'body::after{content:\"\";position:fixed;inset:auto 0 0 0;height:38vh;background:linear-gradient(to top, rgba(0,0,0,.85), transparent);pointer-events:none;z-index:9998}'"
 shot broken-dark-band
 
-echo "done — $(ls "$OUT" | wc -l | tr -d ' ') frames in $OUT"
+echo "done — $(find "$OUT" -type f | wc -l | tr -d ' ') frames in $OUT"

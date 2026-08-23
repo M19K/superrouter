@@ -84,8 +84,12 @@ def _content_to_openai(content):
                 inner = " ".join(x.get("text", "") for x in inner if isinstance(x, dict))
             tool_results.append({"role": "tool", "tool_call_id": b.get("tool_use_id"),
                                  "content": inner if isinstance(inner, str) else json.dumps(inner)})
-    # a single text part is plain text — some providers are stricter about that
-    if len(parts) == 1 and parts[0].get("type") == "text":
+    # A single text part collapses to a plain string, because some providers are
+    # stricter about the block form — but ONLY when it carries nothing else.
+    # Collapsing a part that holds `cache_control` throws the field away, which
+    # is the very thing forwarding it was meant to stop. Caught by the test
+    # suite on its first run, in the fix that added forwarding.
+    if len(parts) == 1 and parts[0].get("type") == "text" and set(parts[0]) == {"type", "text"}:
         return parts[0]["text"], tool_results, calls
     return parts, tool_results, calls
 

@@ -1,0 +1,43 @@
+# There is no build here and nothing to install — this file exists so the
+# linter and the type checker have a home, and so `ruff` and `mypy` behave the
+# same on a contributor's machine as they do in CI.
+#
+# SuperRouter deliberately has no runtime dependencies. The only optional one is
+# `llmrouter-lib`, needed by the bridge modules alone, and it says so when it is
+# missing rather than looking like a broken install.
+
+[project]
+name = "superrouter"
+version = "0.1.0"
+description = "Route each task to the cheapest model that still does it correctly, and prove the correctly with a number."
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+dependencies = []
+
+[project.optional-dependencies]
+# Only for superrouter.trained_eval and the llmrouter bridge.
+llmrouter = ["llmrouter-lib>=0.4.0"]
+dev = ["ruff>=0.6", "mypy>=1.11"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 96
+exclude = ["state", "golden/*/frames", "golden/*/sets"]
+
+[tool.ruff.lint]
+# Correctness first. Style rules that would rewrite prose-heavy docstrings are
+# left off on purpose: this codebase carries its reasoning in comments and a
+# linter that fights that makes it worse.
+select = ["E", "F", "W", "B", "I", "UP", "C4", "SIM"]
+ignore = [
+  "E501",    # line length is handled by line-length above, not by hard failure
+  "SIM105",  # contextlib.suppress reads worse than try/except here
+]
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true      # torch and llmrouter are optional
+warn_unused_ignores = true
+warn_redundant_casts = true
+# Not strict. This is a stdlib codebase where most values come off the wire as
+# JSON, so demanding full annotations would produce noise rather than safety.

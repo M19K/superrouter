@@ -1,0 +1,92 @@
+# Everything this project built to catch drift only ever fired when somebody
+# remembered to run it. That is a contradiction in a project whose whole claim
+# is that its numbers stay true, so it runs here on every push instead.
+#
+# Three jobs, and the third is the one that does not exist in most repositories:
+#
+#   test   — the suite, on the oldest and newest Python we support
+#   lint   — ruff and mypy, installed here rather than being required of a user
+#   audit  — the project's own integrity checks, run with --strict
+#
+# The audit re-derives every published number from the run records and fails if
+# one no longer matches. That is what stops the README quietly becoming false
+# between releases.
+#
+# Nothing here needs a key and nothing here spends money. The scored ladders are
+# deliberately NOT run in CI: they cost real money per run, and a workflow that
+# bills an account on every push is a workflow someone disables.
+
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: tests · python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The floor and the ceiling. 3.9 is the oldest verified — every module
+        # imports and the audit runs there — and it is pinned so a syntax
+        # feature from a later version cannot creep in unnoticed.
+        python: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: no dependencies should be needed
+        run: |
+          python -c "import sys; print(sys.version)"
+          pip list --format=freeze | tee /tmp/before.txt
+      - name: run the suite
+        run: python -m unittest discover tests -v
+      - name: every module must import with nothing installed
+        run: |
+          for m in superrouter/*.py; do
+            n=$(basename "$m" .py)
+            [ "$n" = "__init__" ] && continue
+            [ "$n" = "trained_eval" ] && continue   # needs torch, optional by design
+            python -c "import superrouter.$n" || exit 1
+          done
+          echo "all modules import on a machine with nothing installed"
+
+  lint:
+    name: lint and types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install ruff mypy
+      - name: ruff
+        run: ruff check superrouter golden tests
+      - name: mypy
+        run: mypy superrouter --ignore-missing-imports
+        continue-on-error: true      # advisory while annotations are partial
+
+  audit:
+    name: published numbers still match their records
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: superrouter.audit --strict
+        run: python -m superrouter.audit --strict
+      - name: the verifier must still beat random
+        run: python -m superrouter.cascade --task text-faithful
+      - name: shellcheck
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y shellcheck
+          shellcheck $(find . -name '*.sh' -not -path './.git/*')

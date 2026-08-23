@@ -362,9 +362,14 @@ def read_verdict(text):
     if not t:
         return None
     head = t.replace("*", "").replace("`", "").lstrip("# ").strip()
-    if head.startswith("TRUE"):
+    # `startswith` alone reads "TRUE or FALSE" — the model echoing the
+    # instruction rather than answering it — as TRUE. Require that the other
+    # verdict is absent from the opening, so a real answer with reasoning
+    # attached still parses while an echo does not.
+    opening = head[:40]
+    if head.startswith("TRUE") and "FALSE" not in opening:
         return True
-    if head.startswith("FALSE"):
+    if head.startswith("FALSE") and "TRUE" not in opening:
         return False
     if "TRUE" in t and "FALSE" not in t:
         return True
