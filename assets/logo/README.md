@@ -6,8 +6,8 @@ image, and it is the half most routers skip: everything else in the category
 draws the switching and nothing draws the measuring.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="lockup-dark.svg">
-  <img src="lockup-light.svg" alt="SuperRouter" width="250">
+  <source media="(prefers-color-scheme: dark)" srcset="mark-dark.svg">
+  <img src="mark-light.svg" alt="" width="72">
 </picture>
 
 ## The construction
@@ -32,17 +32,26 @@ than leaning.
 | File | Use it for |
 |---|---|
 | `mark-light.svg` · `mark-dark.svg` | anywhere the ground is fixed and known — **these are the default** |
-| `lockup-light.svg` · `lockup-dark.svg` | mark plus wordmark, for a header or a README |
+| `lockup-light.svg` · `lockup-dark.svg` | mark plus wordmark — **only where the page can load the typeface**, i.e. inlined or in a design tool. Not through `<img>` |
 | `favicon.svg` | browser tab |
 | `mark.svg` | **inline only** — structure is `currentColor`, accent is `--sr-accent` |
 | `mark-mono.svg` | **inline only** — one ink, for a stamp, an etch, or a terminal |
 | `contact-sheet.html` | open it to see every file at every size on both grounds |
 
-**`mark.svg` and `mark-mono.svg` must be inlined, never loaded through `<img>`.**
-An SVG in an `<img>` is its own document and never sees the host page's colour,
-so `currentColor` falls back to black — which is how the mono mark rendered
-black-on-black the first time this sheet was built. If a file has to go through
-`<img>`, use the light or dark variant, which carry their own values.
+**An SVG shown through `<img>` is sandboxed: it cannot fetch a webfont and it
+cannot see the host page's colour.** Both halves of that have now bitten this
+repo once each.
+
+- **The lockups set the wordmark as live text**, so through `<img>` it falls back
+  to whatever face the reader happens to have — a different wordmark per machine.
+  In a README, use the **mark** above a real Markdown heading; GitHub renders the
+  heading in its own font and every reader sees the same thing.
+- **`mark.svg` and `mark-mono.svg` must be inlined, never loaded through `<img>`** —
+  `currentColor` falls back to black there, which is how the mono mark rendered
+  black-on-black the first time this sheet was built.
+
+Anything that has to go through `<img>` uses `mark-light.svg` or `mark-dark.svg`,
+which carry their own values and no text.
 
 ## Rules
 

@@ -50,6 +50,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROJECT = "superrouter"
 
 GOLDEN_FP = {}   # set once per run, stamped into every summary
+WANT_REASONING = {}
 
 CODE = os.path.dirname(HERE)
 # Task types the same scorer handles. The axes — catch rate and false-alarm
@@ -83,6 +84,36 @@ LOCAL_BASE = os.environ.get("LOCAL_MODEL_BASE_URL", "http://localhost:11434/v1")
 # OpenRouter picks one per request. So a score attached to a bare model name is
 # an average over whichever providers happened to answer, and it cannot be
 # reproduced. Pin the provider and the score means something.
+_FORCED = {}
+
+
+def reasoning_is_forced(model):
+    """Does this model reason whether you want it to or not?
+
+    OpenRouter says so per model, and `pool.json` already carries it as
+    `reasoning_forced`. Where it is False the caller controls the burn — and
+    until 2026-08-22 this harness never did, so it paid for and waited on
+    reasoning it then discarded: **927,328 reasoning tokens across every scored
+    run**, 599 per call on `qwen/qwen3.7-flash` against a prompt whose entire
+    answer is the word TRUE or FALSE.
+
+    That is this project's own recurring failure one layer out — the instrument
+    charged the model for a setting the instrument chose, and published the
+    result as the model's cost and the model's latency.
+
+    An unknown model is treated as forced. Sending a switch a model does not
+    understand is exactly the failure that comes back as an empty answer.
+    """
+    if not _FORCED:
+        try:
+            pool = json.load(open(os.path.join(CODE, "state", "pool.json")))
+            _FORCED.update({m["id"]: bool(m.get("reasoning_forced"))
+                            for m in pool["models"]})
+        except Exception:
+            _FORCED["_unreadable"] = True
+    return _FORCED.get(model.replace("local/", ""), True)
+
+
 def endpoint_for(model):
     """Returns (url, api_key_override, wire_name). Local models bill nothing and
     Ollama ignores the key's value but requires the header to exist."""
@@ -191,7 +222,8 @@ TRANSPORT_FAULTS = (urllib.error.HTTPError, urllib.error.URLError,
                     json.JSONDecodeError)
 
 
-def ask(model, assertion, image_b64, api_key, timeout=120, tries=3, provider=None):
+def ask(model, assertion, image_b64, api_key, timeout=120, tries=3, provider=None,
+        want_reasoning=False):
     """One call. `usage.include` makes OpenRouter return what it actually
     charged, so cost is a reading rather than an estimate."""
     url, key_override, wire = endpoint_for(model)
@@ -207,6 +239,14 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3, provider=Non
              if image_b64 else [])
         )}],
     }
+    # Ask for no reasoning wherever the model allows it to be switched off.
+    # Ollama's OpenAI-compatible endpoint has no such field, which is where the
+    # belief that it cannot be done came from — true of Ollama, false here.
+    asked_no_reasoning = (not model.startswith("local/")
+                          and not reasoning_is_forced(model)
+                          and not want_reasoning)
+    if asked_no_reasoning:
+        payload["reasoning"] = {"enabled": False}
     if provider and not model.startswith("local/"):
         # `allow_fallbacks: False` is the half that matters — without it
         # OpenRouter silently serves from somewhere else when the pinned
@@ -244,6 +284,13 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3, provider=Non
     usage = d.get("usage") or {}
     return {
         "local": model.startswith("local/"),
+        # What was asked for and what came back are different facts. Measured
+        # 2026-08-22: `liquid/lfm-2.5-2.6b:free` is listed as optional and
+        # returned 971 reasoning tokens per call with the switch set to off —
+        # the flag is a REQUEST, and only the response says whether it was
+        # honoured. Trusting the index here is the same failure as trusting a
+        # published price instead of reading the bill.
+        "reasoning_asked_off": asked_no_reasoning,
         # who actually served it — recorded on every call, so a score can always
         # be traced to the endpoint that produced it
         "served_by": d.get("provider"),
@@ -303,7 +350,8 @@ def score(model, cases, api_key, verbose=False, workers=8, task="qa-vision-asser
         try:
             body = (PROMPT.format(assertion=c["assert"])
                     if TASKS[task]["image"] else c["assert"])
-            r = ask(model, body, cache[c.get("frame", c["id"])], api_key)
+            r = ask(model, body, cache[c.get("frame", c["id"])], api_key,
+                    want_reasoning=WANT_REASONING.get("v", False))
         except TRANSPORT_FAULTS as e:
             detail = ""
             if isinstance(e, urllib.error.HTTPError):
@@ -317,7 +365,8 @@ def score(model, cases, api_key, verbose=False, workers=8, task="qa-vision-asser
         return i, {**c, "said": said, "raw": r["text"][:80], "correct": said is c["answer"],
                    "cost": r["cost"], "seconds": r["seconds"],
                    "in_tokens": r["in_tokens"], "out_tokens": r["out_tokens"],
-                   "reasoning_tokens": r["reasoning_tokens"]}
+                   "reasoning_tokens": r["reasoning_tokens"],
+                   "reasoning_asked_off": r.get("reasoning_asked_off")}
 
     out = [None] * len(cases)
     with futures.ThreadPoolExecutor(max_workers=workers) as ex:
@@ -394,6 +443,9 @@ def summarise(model, results, errors):
 
     return {
         "model": model, "cases": n,
+        "reasoning_off": bool(results and results[0].get("reasoning_asked_off")),
+        "reasoning_per_call": (round(sum(r.get("reasoning_tokens") or 0
+                                         for r in results) / n) if n else 0),
         "golden_fingerprint": GOLDEN_FP.get("v"),      # the subset actually sat
         "exam_fingerprint": GOLDEN_FP.get("exam"),     # the set it was drawn from
         "exam_cases": GOLDEN_FP.get("exam_n"),
@@ -486,6 +538,10 @@ def main():
                          "precision, so an unpinned score is an average over "
                          "whichever endpoint answered and cannot be reproduced.")
     ap.add_argument("--workers", type=int, default=8, help="concurrent requests per model")
+    ap.add_argument("--reasoning", action="store_true",
+                    help="leave reasoning ON where the model allows it to be off. "
+                         "The same model at two settings is two candidates with "
+                         "different cost, latency and quality — measure both.")
     ap.add_argument("--task", choices=list(TASKS), default="qa-vision-assert")
     ap.add_argument("--set", dest="set_dir",
                     help="a generated set directory (golden/qa-vision/sets/<name>)")
@@ -552,6 +608,7 @@ def main():
     # Stamping only the sample made every --limit run look like a different
     # exam from its own golden set, so the staleness check reported 0 of 13
     # models measured on the current set when six had just been measured on it.
+    WANT_REASONING["v"] = a.reasoning
     GOLDEN_FP["exam"] = fingerprint(all_cases)
     GOLDEN_FP["exam_n"] = len(all_cases)
     GOLDEN_FP["v"] = fingerprint(cases)

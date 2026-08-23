@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/logo/lockup-dark.svg">
-  <img src="assets/logo/lockup-light.svg" alt="SuperRouter" width="250">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/logo/mark-dark.svg">
+  <img src="assets/logo/mark-light.svg" alt="" width="72">
 </picture>
 
 # SuperRouter
@@ -79,7 +79,7 @@ flowchart TB
 writes the same page as a static file you can commit to a pull request. Static
 HTML, no dependencies, no telemetry, no network calls when it renders.
 
-![The SuperRouter dashboard](state/dashboard.png)
+![The SuperRouter dashboard](assets/shots/dashboard.png)
 
 **It never shows a saving without the quality it was bought at.** A dashboard
 headlining a dollar figure turns this into a cost tool, and anyone can route to
@@ -90,6 +90,16 @@ quality.
 
 Thin traffic is called thin in place, rather than rendered as a confident
 headline over a handful of requests.
+
+### What it looks like working
+
+| | |
+|---|---|
+| ![routing table](assets/shots/routing-table.png) | ![shadow report](assets/shots/shadow.png) |
+| **The table it writes for your product** — and the same task measured on two products, which is why it ships a method rather than a table | **The real bill against the predicted one** — with the caveat that agreement measures drift, not quality |
+
+Every image in `assets/shots/` is real output from this project's own data, and
+regenerates from one command rather than being retouched.
 
 ## Key points
 
