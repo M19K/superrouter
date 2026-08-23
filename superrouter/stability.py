@@ -24,8 +24,9 @@ project.
 """
 import argparse
 import glob
-import json
 import os
+
+from ._io import read_json
 
 # Relative to this file, never to the author's home directory. This shipped
 # pointing at `~/Documents/Mikoshi/...`, which exists on exactly one machine —
@@ -37,7 +38,7 @@ RUNS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
 
 
 def load(path):
-    d = json.load(open(path))
+    d = read_json(path)
     s = d.get("summary", {})
     by_id = {r["id"]: r for r in d.get("results", []) if "id" in r}
     return {"path": path, "summary": s, "by_id": by_id}

@@ -164,13 +164,13 @@ def main():
         why = Counter(r[1] for r in refused).most_common(6)
         print(f"\nREFUSING to write this exam: only {planted} planted defect(s).")
         print(f"  {len(cases)} cases would have been written and every model would")
-        print(f"  score near 100% on them, because the negative half is a control")
-        print(f"  assertion rather than a real fault. That is a set that measures")
-        print(f"  nothing while looking balanced.\n")
-        print(f"  Defect classes that found nothing to break on this page:")
+        print("  score near 100% on them, because the negative half is a control")
+        print("  assertion rather than a real fault. That is a set that measures")
+        print("  nothing while looking balanced.\n")
+        print("  Defect classes that found nothing to break on this page:")
         for cls, n in why:
             print(f"    {cls:<28} refused {n}×")
-        print(f"\n  Point it at a page with more on it, or add a defect class this")
+        print("\n  Point it at a page with more on it, or add a defect class this")
         print(f"  page can carry. `states` found: {len(states)} screen(s).")
         raise SystemExit(2)
 

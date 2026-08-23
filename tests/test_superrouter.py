@@ -28,7 +28,8 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from superrouter import anthropic_api, providers  # noqa: E402
-from superrouter.evals import read_verdict as verdict, wilson  # noqa: E402
+from superrouter.evals import read_verdict as verdict  # noqa: E402
+from superrouter.evals import wilson
 
 
 class VerdictParsing(unittest.TestCase):

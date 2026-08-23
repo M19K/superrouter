@@ -31,6 +31,8 @@ import json
 import os
 import time
 
+from ._io import read_json
+
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POOL = os.path.join(CODE, "state", "pool.json")
 
@@ -47,7 +49,7 @@ TASKS = {
 def newest_runs(runs_dir, min_cases=60):
     best = {}
     for p in sorted(glob.glob(os.path.join(CODE, runs_dir, "*.json"))):
-        s = json.load(open(p))["summary"]
+        s = read_json(p)["summary"]
         if s["cases"] >= min_cases:
             best[s["model"]] = dict(s, _file=os.path.basename(p),
                                     _when=os.path.getmtime(p))
@@ -59,7 +61,7 @@ def exam_fingerprint(golden_dir):
     m = os.path.join(CODE, golden_dir, "manifest.json")
     if not os.path.exists(m):
         return None, None
-    cases = json.load(open(m)).get("case_list") or []
+    cases = read_json(m).get("case_list") or []
     h = hashlib.sha256()
     for c in sorted(cases, key=lambda c: c["id"]):
         h.update(f"{c['id']}|{c.get('answer')}|{c.get('corruption') or ''}"
@@ -116,7 +118,7 @@ def main():
             live = live_pool()
             known = {}
             if os.path.exists(POOL):
-                known = {m["id"]: m for m in json.load(open(POOL))["models"]}
+                known = {m["id"]: m for m in read_json(POOL)["models"]}
             now = {m["id"]: m for m in live}
             appeared = sorted(set(now) - set(known))
             gone = sorted(set(known) - set(now))
@@ -156,7 +158,7 @@ def main():
             print(f"    {len(r['exam_unknown'])} run(s) predate exam stamping — "
                   f"which set they sat is unrecoverable, so they are not counted.")
         if r["need_remeasuring"]:
-            print(f"    NEEDS RE-MEASURING — scored on an older exam, not comparable:")
+            print("    NEEDS RE-MEASURING — scored on an older exam, not comparable:")
             for m in r["need_remeasuring"][:6]:
                 print(f"      {m}")
             if len(r["need_remeasuring"]) > 6:
@@ -170,8 +172,8 @@ def main():
         print(f"  pool · {p['live']} models live, {p['indexed']} in our index")
         if p["appeared"]:
             print(f"    {p['appeared']} model(s) have appeared since the index was taken.")
-            print(f"    A model that was never entered cannot win, so the table is not")
-            print(f"    wrong — it is answering a smaller question than you think.")
+            print("    A model that was never entered cannot win, so the table is not")
+            print("    wrong — it is answering a smaller question than you think.")
         if p["disappeared"]:
             print(f"    gone: {', '.join(p['disappeared'][:4])}")
         if p["price_moved"]:

@@ -35,7 +35,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # them — the eval fails, every query returns nothing, and the builder reports
 # "0 targets" on a page full of them. Silent, and it looks like the site's fault.
 _DISCOVER_PATH = os.path.join(os.path.dirname(HERE), "qa-vision", "discover.js")
-DISCOVER = base64.b64encode(open(_DISCOVER_PATH, "rb").read()).decode()
+with open(_DISCOVER_PATH, "rb") as _f:
+    DISCOVER = base64.b64encode(_f.read()).decode()
 
 # Role → how to describe whatever the page put in that role. The description is
 # built from the element's own text or label, so it names a real thing on a real

@@ -112,12 +112,12 @@ footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--rule);
   <path d="M30 32 H62" fill="none" stroke="var(--accent)" stroke-width="5.4" stroke-linecap="round"/>
 </svg>
 <div><div class="title"><span class="muted">Super</span>Router</div></div>
-<div class="stamp">2026-08-21 → 2026-08-23<br>97 routed calls</div>
+<div class="stamp">2026-08-21 → 2026-08-23<br>99 routed calls</div>
 </header>
 <h2>What it cost, and what it cost you</h2>
 <p class="sub">These two are one figure. A saving without the quality it was bought at is the number any router can show you.</p>
 <div class="pair">
-<div><div class="k">Spent on routed calls</div><div class="v on">$0.0139</div><div class="vsub">against <b>$0.0964</b> if every call had gone to the reference model — <b>7× cheaper</b></div></div>
+<div><div class="k">Spent on routed calls</div><div class="v on">$0.0142</div><div class="vsub">against <b>$0.0981</b> if every call had gone to the reference model — <b>7× cheaper</b></div></div>
 <div><div class="k">Agreed with the reference</div><div class="v">94%</div><div class="vsub">50 of 53 sampled calls, <span class="ci">95% interval 85–98</span></div></div>
 <div class="joiner">Proving it cost <b>$0.0705</b> on top, at the sampling rate you ran. That is the price of the check and it is kept out of the saving above — rolled in, a fully-sampled run reports no saving at all and the router looks worthless.</div>
 </div>
@@ -125,13 +125,13 @@ footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--rule);
 <h2>By task</h2>
 <p class="sub">Each task routes on its own measurement, because a model good at one is not thereby good at another — judging and pointing were close to unrelated abilities when measured.</p>
 <div class="scroll"><table><thead><tr><th>Task</th><th>Calls</th><th>Routed to</th><th>Spent</th><th>Reference would</th><th>Saving</th><th>Quality held at</th></tr></thead><tbody>
-<tr><td class="model">text-faithful</td><td class="n">97</td><td class="model">nova-lite-v1, claude-haiku-4.5, dots-3-note-preview:free, qwen3.7-flash</td><td class="n">$0.0139</td><td class="n">$0.0964</td><td class="n win">7×</td><td>95% of planted faults caught<div class='ci'>95% interval 90–98</div><div class='bar'><i style='width:95%'></i></div></td></tr>
+<tr><td class="model">text-faithful</td><td class="n">99</td><td class="model">nova-lite-v1, claude-haiku-4.5, claude-sonnet-5, dots-3-note-preview:free, qwen3.7-flash</td><td class="n">$0.0142</td><td class="n">$0.0981</td><td class="n win">7×</td><td>95% of planted faults caught<div class='ci'>95% interval 90–98</div><div class='bar'><i style='width:95%'></i></div></td></tr>
 </tbody></table></div>
 <h2>When the cheap model failed</h2>
 <p class="sub">A router that cannot fall back turns one model having a bad minute into a total outage. This is how often that mattered.</p>
 <div class="scroll"><table><thead><tr><th>Outcome</th><th>Calls</th><th>Share</th></tr></thead><tbody>
-<tr><td>Served by the first choice</td><td class="n">89</td><td class="n">92%</td></tr>
-<tr><td>Fell back to a dearer model</td><td class="n">8</td><td class="n">8%</td></tr>
+<tr><td>Served by the first choice</td><td class="n">90</td><td class="n">91%</td></tr>
+<tr><td>Fell back to a dearer model</td><td class="n">9</td><td class="n">9%</td></tr>
 <tr><td>Needed more than one attempt</td><td class="n">0</td><td class="n">0%</td></tr>
 </tbody></table></div>
 <h2>The measurements behind the table</h2>
@@ -152,5 +152,5 @@ footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--rule);
 <tr><td class="model">qa-vision-point</td><td class="model">google/gemma-3-12b-it</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0006</td></tr>
 <tr><td class="model">qa-vision-point</td><td class="model">qwen/qwen3-vl-235b-a22b-instruct</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0141</td></tr>
 </tbody></table></div>
-<footer>Generated 2026-08-23 00:16 from state/served.jsonl and state/*runs*/ · no network calls, no telemetry<br>Every rate carries its denominator and its 95% interval. A figure without one was not measured, it was assumed.</footer>
+<footer>Generated 2026-08-23 03:19 from state/served.jsonl and state/*runs*/ · no network calls, no telemetry<br>Every rate carries its denominator and its 95% interval. A figure without one was not measured, it was assumed.</footer>
 </div>

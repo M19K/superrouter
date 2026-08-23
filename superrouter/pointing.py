@@ -42,6 +42,7 @@ import os
 import re
 import time
 
+from ._io import read_json
 from .evals import TRANSPORT_FAULTS, ask, key, wilson
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -180,7 +181,6 @@ def summarise(model, res, exam=None, exam_n=None):
     n = len(res)
     c = {k: sum(1 for r in res if r["outcome"] == k)
          for k in ("hit", "wrong-thing", "empty-space", "refused", "error")}
-    hits = [r["distance_px"] for r in res if r["outcome"] == "hit"]
     misses = sorted(r["distance_px"] for r in res
                     if r["outcome"] in ("wrong-thing", "empty-space") and r["distance_px"] is not None)
     tally = res[0].get("_tally", {})
@@ -214,7 +214,7 @@ def main():
     a = ap.parse_args()
 
     base, frames_dir, runs_dir = set_paths(getattr(a, "set", None))
-    g = json.load(open(os.path.join(base, "manifest.json")))
+    g = read_json(os.path.join(base, "manifest.json"))
     cases = g["case_list"][: a.limit] if a.limit else g["case_list"]
     EXAM["id"] = exam_id(g["case_list"])
     EXAM["n"] = len(g["case_list"])

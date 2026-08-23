@@ -40,6 +40,8 @@ import os
 import re
 import sys
 
+from ._io import read_json, read_lines, read_text
+
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 OK, BAD, WARN = "PASS", "FAIL", "UNVERIFIABLE"
@@ -54,7 +56,7 @@ def runs(include_quarantined=False):
         pats.append(os.path.join(CODE, "state", "*run*", "_unstamped", "*.json"))
     for p in sorted(x for pat in pats for x in glob.glob(pat)):
         try:
-            yield p, json.load(open(p))
+            yield p, read_json(p)
         except Exception:
             continue
 
@@ -134,7 +136,7 @@ def derive():
     f["comparable_spend"] = round(sum(b["summary"].get("cost_usd", 0) for _, b in rs), 2)
     served = os.path.join(CODE, "state", "served.jsonl")
     if os.path.exists(served):
-        rows = [json.loads(l) for l in open(served) if l.strip()]
+        rows = [json.loads(ln) for ln in read_lines(served)]
         sp = sum(r.get("cost_usd") or 0 for r in rows)
         rf = sum(r.get("reference_cost_estimate") or 0 for r in rows)
         f["served_calls"] = len(rows)
@@ -163,7 +165,7 @@ def check_docs(facts):
         fp = os.path.join(CODE, path)
         if not os.path.exists(fp):
             continue
-        text = open(fp).read()
+        text = read_text(fp)
         m = re.search(r"\|\s*models scored\s*\|\s*(\d+) runs, \$([\d.]+)", text)
         if m:
             said_runs, said_spend = int(m.group(1)), float(m.group(2))
@@ -217,7 +219,8 @@ def main():
     xrb = os.path.join(CODE, "state", "xroutebench", "train.jsonl")
     if os.path.exists(xrb):
         try:
-            from .xroutebench import load as _xl, evaluate as _xe
+            from .xroutebench import evaluate as _xe
+            from .xroutebench import load as _xl
             _rows, _ = _xl()
             savings = []
             for seed in range(10):
@@ -241,13 +244,16 @@ def main():
     # A policy that does not beat random at its own rate bought nothing, however
     # much it saved. Asserted rather than assumed, on the records.
     try:
-        from .cascade import load as _cl, evaluate as _ce, random_at as _cr, signals as _cs
+        from .cascade import evaluate as _ce
+        from .cascade import load as _cl
+        from .cascade import random_at as _cr
+        from .cascade import signals as _cs
         _runs, _ = _cl("text-faithful")
         _rank = sorted(_runs, key=lambda m: _runs[m]["summary"].get("cost_usd", 0))
         _ref = _rank[-1]
         _rr = {r["id"]: r for r in _runs[_ref]["results"]}
         _cheap = next(m for m in _rank if m != _ref
-                      and len(set(r["id"] for r in _runs[m]["results"]) & set(_rr)) >= 30)
+                      and len({r["id"] for r in _runs[m]["results"]} & _rr.keys()) >= 30)
         _cc = {r["id"]: r for r in _runs[_cheap]["results"]}
         _ids = sorted(set(_cc) & set(_rr))[:120]
         _res = _ce(_cc, _rr, _ids, lambda r: any(_cs(r).values()), 0, 1)

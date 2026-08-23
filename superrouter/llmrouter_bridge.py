@@ -54,6 +54,8 @@ import math
 import os
 import random
 
+from ._io import read_json
+
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUNS = os.path.join(CODE, "state", "runs")
 POINT = os.path.join(CODE, "state", "point_runs")
@@ -63,7 +65,7 @@ OUT = os.path.join(CODE, "state", "llmrouter_corpus")
 def newest(runs_dir, min_cases):
     best = {}
     for p in sorted(glob.glob(os.path.join(runs_dir, "*.json"))):
-        b = json.load(open(p))
+        b = read_json(p)
         if b["summary"]["cases"] >= min_cases:
             best[b["summary"]["model"]] = b
     return best
@@ -198,7 +200,7 @@ def main():
             best = max(cand, key=lambda r: r["performance"])
             if best["performance"] > 0:
                 top[best["model_name"]] = top.get(best["model_name"], 0) + 1
-    print(f"  what argmax(performance) now points at:")
+    print("  what argmax(performance) now points at:")
     for m, n in sorted(top.items(), key=lambda kv: -kv[1]):
         print(f"    {n:>4}  {m}")
     print(f"\n  → {out}")

@@ -36,6 +36,8 @@ import os
 import time
 from collections import defaultdict
 
+from ._io import read_json, read_text
+
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SERVED = os.path.join(CODE, "state", "served.jsonl")
 LOGO = os.path.join(CODE, "assets", "logo", "mark-dark.svg")
@@ -79,7 +81,7 @@ def load_quality():
     for task, d in dirs.items():
         rows = {}
         for p in sorted(glob.glob(os.path.join(CODE, "state", d, "*.json"))):
-            s = json.load(open(p))["summary"]
+            s = read_json(p)["summary"]
             rows[s["model"]] = s
         vals = list(rows.values())
         stamped = [r for r in vals if r.get("exam_fingerprint")]
@@ -199,7 +201,7 @@ def render(served=None, quality=None):
 
     mark = ""
     if os.path.exists(LOGO):
-        mark = open(LOGO).read()
+        mark = read_text(LOGO)
         mark = mark[mark.index(">") + 1:].rsplit("</svg>", 1)[0]
         mark = mark.replace("#CFE0E2", "currentColor").replace("#2FE3C4", "var(--accent)")
         mark = f'<svg viewBox="0 0 64 64" aria-hidden="true">{mark}</svg>'

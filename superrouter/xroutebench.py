@@ -34,13 +34,15 @@ import os
 import random
 from collections import defaultdict
 
+from ._io import read_json, read_lines
+
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(CODE, "state", "xroutebench")
 
 
 def load():
-    prices = json.load(open(os.path.join(DATA, "prices.json")))
-    rows = [json.loads(l) for l in open(os.path.join(DATA, "train.jsonl"))]
+    prices = read_json(os.path.join(DATA, "prices.json"))
+    rows = [json.loads(ln) for ln in read_lines(os.path.join(DATA, "train.jsonl"))]
     out = []
     for r in rows:
         p = prices.get(r["model_name"])
@@ -106,13 +108,13 @@ def evaluate(rows, tolerance, lam=0.5, seed=7, test_frac=0.35):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--lam", type=float, default=0.5)
-    a = ap.parse_args()
+    ap.parse_args()
     rows, prices = load()
     models = sorted({r["model_name"] for r in rows})
     print(f"xRouteBench · {len({r['query'] for r in rows})} queries × {len(models)} priced "
           f"models × {len({r['task_name'] for r in rows})} tasks")
-    print(f"  their data, their models, their scores. Cost from their token counts "
-          f"× live OpenRouter prices.\n")
+    print("  their data, their models, their scores. Cost from their token counts "
+          "× live OpenRouter prices.\n")
 
     n, theirs, ours, fixed, avg = evaluate(rows, tolerance=0.0)
     best_fixed = max(fixed.items(), key=lambda kv: kv[1][0]) if fixed else None

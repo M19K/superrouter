@@ -16,13 +16,15 @@ always the dear model, and always the cheapest.
 import json
 import os
 
+from ._io import read_lines
+
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CORPUS = os.path.join(CODE, "state", "llmrouter_corpus")
 
 
 def load(task, label, split="test"):
     p = os.path.join(CORPUS, f"{task}__{label}", f"routing_{split}.jsonl")
-    return [json.loads(l) for l in open(p)]
+    return [json.loads(ln) for ln in read_lines(p)]
 
 
 def oracle(rows):
@@ -80,7 +82,7 @@ def main(task="qa_vision_assert"):
 
     n_r, c_r, k_r, _ = oracle(raw)
     n_c, c_c, k_c, _ = oracle(cost_aware)
-    print(f"\nSame algorithms, same data, one field changed:")
+    print("\nSame algorithms, same data, one field changed:")
     print(f"  accuracy {round(100*c_r/n_r)}% → {round(100*c_c/n_c)}%   "
           f"cost ${k_r:.5f} → ${k_c:.5f}   ({k_r/k_c:.0f}× cheaper)")
     print("\nThat gap is the ceiling any of their 16 algorithms is trained toward.")

@@ -53,14 +53,13 @@ charges both, always.
 """
 import argparse
 import glob
-import json
 import os
 import random
 import re
 import statistics
-import time
 
-from .evals import ask, key, wilson
+from ._io import read_json
+from .evals import ask, key
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIRS = {"text-faithful": "text_runs", "qa-vision-assert": "runs_portfolio"}
@@ -84,7 +83,7 @@ def load(task, model=None):
     d = os.path.join(CODE, "state", DIRS[task])
     runs = {}
     for p in sorted(glob.glob(os.path.join(d, "*.json"))):
-        b = json.load(open(p))
+        b = read_json(p)
         if b["summary"].get("cases", 0) >= 40:
             runs[b["summary"]["model"]] = b
     exams = {}
@@ -171,7 +170,7 @@ def main():
         # alone picked a run that sat a different subset, and an empty overlap
         # reads as a broken tool rather than as an incomparable pair.
         usable = [m for m in ranked if m != ref
-                  and len(set(r["id"] for r in runs[m]["results"]) & set(rr)) >= 30]
+                  and len({r["id"] for r in runs[m]["results"]} & rr.keys()) >= 30]
         if not usable:
             raise SystemExit(f"no model shares 30+ cases with {ref}")
         cheap = usable[0]
@@ -191,9 +190,9 @@ def main():
 
     consistency, probe_cost = {}, 0.0
     if a.measure:
-        cases = json.load(open(os.path.join(
+        cases = read_json(os.path.join(
             CODE, "golden", "text-faithful" if a.task == "text-faithful" else "qa-vision",
-            "manifest.json")))["case_list"]
+            "manifest.json"))["case_list"]
         print(f"  probing self-consistency: {a.k} samples × {len(ids)} cases on {cheap} …")
         consistency, probe_cost = measure_consistency(
             a.task, cheap, ids, cases, a.k, key())
@@ -229,9 +228,9 @@ def main():
     if a.measure and probe_cost:
         print(f"\n  The level-4 probe itself cost ${probe_cost:.5f} across {len(ids)} "
               f"cases (${probe_cost/len(ids):.6f}/call).")
-        print(f"  **That is part of the price of the policy, not a free signal.** A "
-              f"cascade\n  whose verifier costs more than it saves is a slower way to "
-              f"spend the same money.")
+        print("  **That is part of the price of the policy, not a free signal.** A "
+              "cascade\n  whose verifier costs more than it saves is a slower way to "
+              "spend the same money.")
 
     real = [r for r in rows if r[3] and r[2] > 0 and 0 < r[1]["rate"] < 1]
     print()
@@ -241,11 +240,11 @@ def main():
               f"outside the noise\n  of the random draw. That gap — not the saving — is "
               f"what the verifier bought.")
     else:
-        print(f"  **No strictness level beats random at its own rate by more than the "
-              f"noise.**\n  On this task the verifier is not earning its place: the "
-              f"saving it reports is\n  arithmetic on the escalation rate, and a coin "
-              f"flip would report the same.\n  Reported because it is the answer, not "
-              f"because it is the one we wanted.")
+        print("  **No strictness level beats random at its own rate by more than the "
+              "noise.**\n  On this task the verifier is not earning its place: the "
+              "saving it reports is\n  arithmetic on the escalation rate, and a coin "
+              "flip would report the same.\n  Reported because it is the answer, not "
+              "because it is the one we wanted.")
 
 
 if __name__ == "__main__":

@@ -26,8 +26,9 @@ Each sub-task keeps its own reference and its own non-inferiority test, and the
 answer is a table, not a model.
 """
 import glob
-import json
 import os
+
+from ._io import read_json
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -105,7 +106,7 @@ def latest(runs_dir, min_cases):
     which exam is current can only be decided by when it was sat."""
     best = {}
     for p in sorted(glob.glob(os.path.join(runs_dir, "*.json"))):
-        s = json.load(open(p))["summary"]
+        s = read_json(p)["summary"]
         if s["cases"] >= min_cases:
             s = dict(s, _run_file=os.path.basename(p))
             best[s["model"]] = s
@@ -253,7 +254,7 @@ def main():
         print(f"   routed per sub-task        : ${routed*100:.4f}")
         # A headline number that cannot say where it came from is the thing
         # this project exists to object to in other people's routers.
-        print(f"   from: " + " · ".join(f"{t} {d} exam {f} ({n} cases)"
+        print("   from: " + " · ".join(f"{t} {d} exam {f} ({n} cases)"
                                         for t, d, f, n in prov))
         print(f"   {base/routed:.0f}× cheaper, with no measurable quality loss on "
               f"either sub-task")

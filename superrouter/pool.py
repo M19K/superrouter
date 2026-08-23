@@ -30,6 +30,8 @@ import os
 import time
 import urllib.request
 
+from ._io import read_json
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 STATE = os.path.join(os.path.dirname(HERE), "state")
 SNAPSHOT = os.path.join(STATE, "pool.json")
@@ -106,9 +108,10 @@ def main():
     a = ap.parse_args()
 
     if a.endpoints:
-        from .evals import key as project_key
         import glob
-        measured = sorted({json.load(open(f))["summary"]["model"]
+
+        from .evals import key as project_key
+        measured = sorted({read_json(f)["summary"]["model"]
                            for d in ("runs", "runs_portfolio", "runs_midscene-docs",
                                      "point_runs", "text_runs")
                            for f in glob.glob(os.path.join(STATE, d, "*.json"))})

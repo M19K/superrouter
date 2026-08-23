@@ -40,7 +40,6 @@ ceiling. Being unproven is treated as not qualifying.
     python3 -m superrouter.policy --min-catch 50 --max-false-alarm 25 --optimistic
 """
 import argparse
-import json
 
 from .curve import latest_per_model
 
@@ -134,7 +133,7 @@ def main():
             print(f"           catch {p['catch']}% "
                   f"({p['catch_ci'][0]}-{p['catch_ci'][1]}) · false alarms "
                   f"{p['false_alarm']}% ({p['false_alarm_ci'][0]}-{p['false_alarm_ci'][1]})")
-            print(f"           no measurable loss on either axis at 95% confidence")
+            print("           no measurable loss on either axis at 95% confidence")
             if len(ok) > 1:
                 print(f"\n           also survive: {', '.join(r['model'] for r in ok[1:])}")
         else:

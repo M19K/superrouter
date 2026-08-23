@@ -38,10 +38,11 @@ router. The criticism was aimed at claims like ours and it was correct.
 """
 import argparse
 import glob
-import json
 import os
 import random
 import statistics
+
+from ._io import read_json
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -55,7 +56,7 @@ def load(task):
     d = os.path.join(CODE, "state", DIRS[task])
     runs = {}
     for p in sorted(glob.glob(os.path.join(d, "*.json"))):
-        b = json.load(open(p))
+        b = read_json(p)
         s = b["summary"]
         if s.get("cases", 0) < 40:
             continue
@@ -178,9 +179,9 @@ def main():
     print(f"  **That {mid['oracle']-mid['random']:.3f} gap is the entire prize.** A router "
           f"is worth having\n  only in so far as it lands inside it — and a saving figure "
           f"cannot tell you\n  whether it did, because random saves exactly as much.")
-    print(f"\n  Nothing here is a claim about SuperRouter yet. It is the measuring stick")
-    print(f"  that any escalation policy has to be held against. `cascade.py` puts a")
-    print(f"  real verifier on this axis.")
+    print("\n  Nothing here is a claim about SuperRouter yet. It is the measuring stick")
+    print("  that any escalation policy has to be held against. `cascade.py` puts a")
+    print("  real verifier on this axis.")
 
 
 if __name__ == "__main__":

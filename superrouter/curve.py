@@ -16,8 +16,9 @@ number the whole project is about.
 """
 import argparse
 import glob
-import json
 import os
+
+from ._io import read_json
 
 RUNS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "state", "runs")
 
@@ -27,7 +28,7 @@ def latest_per_model(with_results=False):
     stamp, so sorting by name sorts by time and the last write wins."""
     best = {}
     for path in sorted(glob.glob(os.path.join(RUNS, "*.json"))):
-        blob = json.load(open(path))
+        blob = read_json(path)
         s = blob["summary"]
         if s["cases"] < 100:         # partial runs are smoke tests, not scores
             continue

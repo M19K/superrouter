@@ -26,7 +26,6 @@ ranking it has not earned.
 """
 import json
 import os
-import sys
 from collections import defaultdict
 
 from .evals import wilson

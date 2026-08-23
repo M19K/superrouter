@@ -56,6 +56,8 @@ import itertools
 import json
 import os
 
+from ._io import read_json
+
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Defaults reproduce the behaviour that existed before this file, so adding it
@@ -84,9 +86,9 @@ def load():
     p = path()
     if os.path.exists(p):
         try:
-            user = json.load(open(p))
+            user = read_json(p)
         except json.JSONDecodeError as e:
-            raise SystemExit(f"{p} is not valid JSON: {e}")
+            raise SystemExit(f"{p} is not valid JSON: {e}") from e
         cfg["providers"].update(user.get("providers") or {})
         cfg["models"].update(user.get("models") or {})
     return cfg
@@ -204,10 +206,10 @@ def main():
                      if e.get("in_per_m") is not None else "UNPRICED")
             print(f"    {m:<30} {price:<24} ctx {e.get('context') or '?'}")
     else:
-        print(f"\n  No models declared. Everything falls through to OpenRouter,")
-        print(f"  which is the only provider publishing a catalogue we can read.")
+        print("\n  No models declared. Everything falls through to OpenRouter,")
+        print("  which is the only provider publishing a catalogue we can read.")
         print(f"  To use Azure, Bedrock, vLLM or anything else, write {os.path.basename(p)} —")
-        print(f"  the shape is in this module's docstring.")
+        print("  the shape is in this module's docstring.")
 
 
 if __name__ == "__main__":

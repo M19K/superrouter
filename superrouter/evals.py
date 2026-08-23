@@ -4,7 +4,8 @@ evals.py — is a cheaper model still doing QA correctly? Answer with numbers.
 
 Built to the same shape as 05-Orchestrator/funnel/evals.py, which measures the
 vault's retrieval at 85% right-answer-first: a fixed golden set, a scored run,
-a number that moves. Nothing here is a new instrument; it is that instrument
+a number that moves. Nothing here is a new instrument
+it is that instrument
 pointed at a different question.
 
 **The question.** A QA step is one screenshot and one statement, answered true
@@ -34,16 +35,18 @@ do this job.
 """
 import argparse
 import base64
+import concurrent.futures as futures
 import glob
 import json
+import math
 import os
+import ssl
 import sys
 import time
-import concurrent.futures as futures
-import math
-import ssl
 import urllib.error
 import urllib.request
+
+from ._io import read_json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 # The key label this project is entitled to — its folder name, per
@@ -112,7 +115,7 @@ def reasoning_is_forced(model):
     """
     if not _FORCED:
         try:
-            pool = json.load(open(os.path.join(CODE, "state", "pool.json")))
+            pool = read_json(os.path.join(CODE, "state", "pool.json"))
             _FORCED.update({m["id"]: bool(m.get("reasoning_forced"))
                             for m in pool["models"]})
         except Exception:
@@ -183,7 +186,7 @@ def key():
         return k
     local = os.path.join(CODE, "secrets.json")
     if os.path.exists(local):
-        return json.load(open(local))["openrouter_key"]
+        return read_json(local)["openrouter_key"]
     raise SystemExit(
         "No OpenRouter key. Inside the vault this resolves from "
         "05-Orchestrator/ledger/keys.md; outside it, set OPENROUTER_API_KEY or "
@@ -314,7 +317,8 @@ def ask(model, assertion, image_b64, api_key, timeout=120, tries=3, provider=Non
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 raw = r.read().decode("utf-8", "replace")
             # strip keep-alive comment lines before parsing
-            body = "\n".join(l for l in raw.splitlines() if not l.startswith(":")).strip()
+            body = "\n".join(ln for ln in raw.splitlines()
+                             if not ln.startswith(":")).strip()
             d = json.loads(body)
             break
         except urllib.error.HTTPError as e:
@@ -570,7 +574,7 @@ def dry_run(cases):
         print(f"  input tokens across the run: ~{lo:,} (counted from the prompts)")
     print(f"  output tokens: ~{calls * 3:,} at one word each, if the model does not reason\n")
     print(f"  {'$/M in':>8}  {'est. run cost':>13}  model")
-    pool = json.load(open(os.path.join(CODE, "state", "pool.json")))["models"]
+    pool = read_json(os.path.join(CODE, "state", "pool.json"))["models"]
     for m in sorted((m for m in pool if (m["vision"] or not frames)
                      and m["in_per_m"] > 0),
                     key=lambda m: m["in_per_m"])[:10]:
@@ -643,11 +647,14 @@ def main():
         while t * 2 > len(picked):
             for j, c in enumerate(picked):
                 if c["answer"]:
-                    picked.pop(j); t -= 1; break
+                    picked.pop(j)
+                    t -= 1
+                    break
         while (len(picked) - t) * 2 > len(picked):
             for j, c in enumerate(picked):
                 if not c["answer"]:
-                    picked.pop(j); break
+                    picked.pop(j)
+                    break
         cases = picked
     elif a.limit:
         cases = cases[: a.limit]

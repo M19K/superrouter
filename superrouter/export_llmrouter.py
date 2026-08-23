@@ -28,6 +28,8 @@ import glob
 import json
 import os
 
+from ._io import read_json
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 CODE = os.path.dirname(HERE)
 RUNS = os.path.join(CODE, "state", "runs")
@@ -74,7 +76,7 @@ def main():
     # the training set — that silently doubles a model's weight.
     latest = {}
     for path in sorted(glob.glob(os.path.join(RUNS, "*.json"))):
-        blob = json.load(open(path))
+        blob = read_json(path)
         if blob["summary"]["cases"] < 100:
             continue
         latest[blob["summary"]["model"]] = blob
@@ -128,7 +130,7 @@ def main():
     prows = []
     plate = {}
     for path in sorted(glob.glob(os.path.join(POINT_RUNS, "*.json"))):
-        blob = json.load(open(path))
+        blob = read_json(path)
         if blob["summary"]["cases"] >= 100:
             plate[blob["summary"]["model"]] = blob
     for blob in plate.values():

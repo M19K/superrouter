@@ -16,10 +16,12 @@ import json
 import os
 import pickle
 
+from ._io import read_lines
+
 try:
     import torch
 except ImportError:                      # pragma: no cover
-    raise SystemExit(
+    raise SystemExit(  # noqa: B904 — the ImportError adds nothing a user needs
         "This module reads a model LLMRouter trained, which is stored as a\n"
         "PyTorch tensor — so it needs `pip install llmrouter-lib`, and that\n"
         "pulls in torch.\n\n"
@@ -35,7 +37,8 @@ def evaluate(label, router_file="models/knn.pkl"):
     base = os.path.join(CORPUS, f"{TASK}__{label}")
     model = pickle.load(open(os.path.join(base, router_file), "rb"))
     emb = torch.load(os.path.join(base, "query_embeddings.pt"))
-    rows = [json.loads(l) for l in open(os.path.join(base, "routing_test.jsonl"))]
+    rows = [json.loads(ln)
+            for ln in read_lines(os.path.join(base, "routing_test.jsonl"))]
 
     lookup = {}
     for r in rows:
@@ -60,8 +63,9 @@ def evaluate(label, router_file="models/knn.pkl"):
 
 def fixed(label, model_name):
     base = os.path.join(CORPUS, f"{TASK}__{label}")
-    rows = [json.loads(l) for l in open(os.path.join(base, "routing_test.jsonl"))
-            if json.loads(l)["model_name"] == model_name]
+    rows = [r for r in (json.loads(ln) for ln in
+                        read_lines(os.path.join(base, "routing_test.jsonl")))
+            if r["model_name"] == model_name]
     return {"cases": len(rows),
             "accuracy": round(100 * sum(r["correct"] for r in rows) / len(rows)),
             "cost": sum(r["cost_usd"] for r in rows)}
@@ -69,7 +73,8 @@ def fixed(label, model_name):
 
 def main():
     base = os.path.join(CORPUS, f"{TASK}__raw")
-    rows = [json.loads(l) for l in open(os.path.join(base, "routing_test.jsonl"))]
+    rows = [json.loads(ln)
+            for ln in read_lines(os.path.join(base, "routing_test.jsonl"))]
     models = sorted({r["model_name"] for r in rows})
     per = {m: fixed("raw", m) for m in models}
     dear = max(models, key=lambda m: per[m]["cost"])
@@ -97,7 +102,7 @@ def main():
                            sorted(r["picks"].items(), key=lambda kv: -kv[1])[:3])
         print(f"  {label:<11} predicts: {spread}")
     a, b = out["raw"], out["cost-aware"]
-    print(f"\nSame algorithm, same embeddings, same held-out cases. One field changed:")
+    print("\nSame algorithm, same embeddings, same held-out cases. One field changed:")
     print(f"  accuracy {a['accuracy']}% → {b['accuracy']}%   "
           f"cost ${a['cost']:.5f} → ${b['cost']:.5f}   "
           f"({a['cost']/b['cost']:.0f}× cheaper)")

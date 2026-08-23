@@ -58,8 +58,8 @@ import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-from .evals import endpoint_for
 from . import anthropic_api
+from .evals import endpoint_for
 from .route_table import TASKS, latest, same_exam, survives
 
 # Failures worth trying the next model for, and failures that are not.
@@ -96,9 +96,7 @@ def doubtful(text, level):
         return True
     if level >= 3 and HEDGES.search(t):         # 3 · hedging language
         return True
-    if level >= 5:
-        return True
-    return False
+    return level >= 5
 
 RETRYABLE_STATUS = {408, 409, 425, 429, 500, 502, 503, 504, 522, 524}
 
@@ -303,18 +301,17 @@ class Handler(BaseHTTPRequestHandler):
                 except Exception:
                     pass
 
-        with self.lock:
-            with open(LOG, "a") as f:
-                f.write(json.dumps({
-                    "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
-                    "task": task, "asked": asked, "model": model,
-                    "intended": entry["model"],
-                    "fell_back": model != entry["model"],
-                    "attempts": attempts, "streamed": True,
-                    "cost_usd": cost, "seconds": round(time.time() - t0, 2),
-                    "reference": entry["reference"],
-                    "reference_cost_estimate": entry["reference_cost_per_case"],
-                }) + "\n")
+        with self.lock, open(LOG, "a") as f:
+            f.write(json.dumps({
+                "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                "task": task, "asked": asked, "model": model,
+                "intended": entry["model"],
+                "fell_back": model != entry["model"],
+                "attempts": attempts, "streamed": True,
+                "cost_usd": cost, "seconds": round(time.time() - t0, 2),
+                "reference": entry["reference"],
+                "reference_cost_estimate": entry["reference_cost_per_case"],
+            }) + "\n")
         return STREAMED
 
     def _shadow(self, body, task, routed, answer):
@@ -332,8 +329,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             with urllib.request.urlopen(req, timeout=300) as r:
                 raw = r.read().decode("utf-8", "replace")
-            d = json.loads("\n".join(l for l in raw.splitlines()
-                                     if not l.startswith(":")).strip())
+            d = json.loads("\n".join(ln for ln in raw.splitlines()
+                                     if not ln.startswith(":")).strip())
         except Exception as e:
             return {"shadow_error": str(e)[:120]}
         ref_text = ((d.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
@@ -530,8 +527,8 @@ class Handler(BaseHTTPRequestHandler):
             routed = used
         took = time.time() - t0
         try:
-            out = json.loads("\n".join(l for l in raw.splitlines()
-                                       if not l.startswith(":")).strip())
+            out = json.loads("\n".join(ln for ln in raw.splitlines()
+                                       if not ln.startswith(":")).strip())
         except json.JSONDecodeError:
             self._send(502, {"error": "upstream returned something that is not JSON"})
             return
@@ -561,7 +558,7 @@ class Handler(BaseHTTPRequestHandler):
                         with urllib.request.urlopen(rq, timeout=300) as r2:
                             raw2 = r2.read().decode("utf-8", "replace")
                         out2 = json.loads("\n".join(
-                            l for l in raw2.splitlines() if not l.startswith(":")).strip())
+                            ln for ln in raw2.splitlines() if not ln.startswith(":")).strip())
                         # **Both tiers are charged.** The cheap call was already
                         # paid for when the decision to escalate was made, and a
                         # ledger that counts only the second understates a cascade
@@ -570,13 +567,14 @@ class Handler(BaseHTTPRequestHandler):
                         out = out2
                         escalated = ref_model
                         routed = ref_model
-                    except TRANSPORT_FAULTS:
-                        pass          # keep the cheap answer rather than fail
+                    except (urllib.error.HTTPError, urllib.error.URLError,
+                            TimeoutError, ConnectionError, json.JSONDecodeError):
+                        # Keep the cheap answer rather than fail the request.
+                        # This clause referenced a name this module never
+                        # imported, so a failed escalation raised NameError —
+                        # the fallback path crashed instead of falling back.
+                        pass
 
-            if self.notes:
-                # Say what was changed. A limit silently adjusted is a limit the
-                # caller still believes it set.
-                rec_notes = "; ".join(self.notes)
             headers = {"X-SuperRouter-Task": task,
                        "X-SuperRouter-Model": routed,
                        "X-SuperRouter-Reference": entry["reference"]}
@@ -609,9 +607,8 @@ class Handler(BaseHTTPRequestHandler):
                 headers["X-SuperRouter-Escalated-To"] = escalated
             elif routed != entry["model"]:
                 headers["X-SuperRouter-Fellback-From"] = entry["model"]
-            with self.lock:
-                with open(LOG, "a") as f:
-                    f.write(json.dumps(rec) + "\n")
+            with self.lock, open(LOG, "a") as f:
+                f.write(json.dumps(rec) + "\n")
         if getattr(self, "anthropic", False):
             out = anthropic_api.from_openai(out, asked)
             if self.dropped:
@@ -655,8 +652,8 @@ def main():
                 if v["cost_per_case"] else 0)
         note = f"{mult:.0f}× cheaper" if v["model"] != v["reference"] else "— reference"
         print(f"  superrouter/{t:<8} {v['model']:<44} {note:>19}")
-    print(f"\n  superrouter/auto     picks by looking at the request, and says which "
-          f"task it chose\n  anything else        passes through untouched")
+    print("\n  superrouter/auto     picks by looking at the request, and says which "
+          "task it chose\n  anything else        passes through untouched")
     if a.shadow:
         print(f"\n  shadow: 1 call in {a.shadow} is also sent to the reference and "
               f"compared\n          — `python3 -m superrouter.shadow` reads it back")

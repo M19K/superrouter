@@ -38,7 +38,6 @@ def sources(vault):
     Personal and outward-facing material is excluded by folder, not by hand —
     this corpus may be published, and a rule that depends on somebody
     remembering is a rule that fails on the day it matters."""
-    import fnmatch
     skip = ("00-Inbox", "03-Archive", "node_modules", ".git", "Maaz Profile",
             "job-search", "Decisions.jsonl", "Learnings.jsonl", "QA/runs")
     out = []
@@ -69,7 +68,8 @@ def passages(vault, want, rnd):
         path = os.path.join(vault, rel)
         if not os.path.exists(path):
             continue
-        text = open(path, encoding="utf-8").read()
+        with open(path, encoding="utf-8") as fh:
+            text = fh.read()
         text = re.sub(r"```.*?```", " ", text, flags=re.S)      # code blocks
         text = re.sub(r"^\s*[-|#>*].*$", " ", text, flags=re.M)  # tables, lists, headings
         text = re.sub(r"\[\[.*?\]\]|\[.*?\]\(.*?\)", " ", text)  # links
@@ -342,7 +342,8 @@ def main():
 
     rnd.shuffle(broken)
     n = min(len(faithful), len(broken))
-    rnd.shuffle(faithful); rnd.shuffle(broken)
+    rnd.shuffle(faithful)
+    rnd.shuffle(broken)
     faithful, broken = faithful[:n], broken[:n]
     cases = faithful + broken
     rnd.shuffle(cases)
