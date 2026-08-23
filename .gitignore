@@ -3,7 +3,7 @@ secrets.json
 __pycache__/
 *.pyc
 .DS_Store
-state/llmrouter_corpus/*/query_embeddings.pt
+state/corpus/
 
 # The exam frames are working data, not the product. A user builds their own
 # from their own product with build_generic.py --origin, so committing 76MB of
@@ -11,3 +11,16 @@ state/llmrouter_corpus/*/query_embeddings.pt
 # photograph, which is a thing a public repo should not do by accident.
 golden/*/frames/
 golden/*/sets/*/frames/
+
+# The workbench stays on this machine. Studying another implementation as
+# deeply as possible is required; shipping any part of it is not allowed —
+# no import, no vendored tree, no artefact its trainer produced, and no
+# runtime dependency that can change or disappear underneath us.
+#
+# `devtools/` holds the comparison harness and the corpus adapters. They are
+# how "ours is better" got measured, and the measurement lives in the vault's
+# Design Basis, never here.
+devtools/
+state/corpus/
+state/corpus*/
+state/*_corpus/

@@ -87,6 +87,48 @@ HEDGES = re.compile(r"\b(not sure|unsure|unclear|possibly|perhaps|might be|"
                     r"cannot determine|hard to say|it depends)\b", re.I)
 
 
+def answer_of(message):
+    """The decision a response carries, whatever shape it arrived in.
+
+    **A tool call is an answer.** OpenAI returns `content: null` and puts the
+    decision in `tool_calls`, so every place here that read `content` saw an
+    empty string and concluded the model had said nothing. The consequences were
+    not cosmetic: `doubtful()` treats "no answer at all" as the strongest reason
+    to escalate, so at any cascade level above 0 **every tool-calling request
+    escalated to the reference model** — a 100% escalation rate on exactly the
+    traffic a router exists to make cheaper, with both tiers charged. The shadow
+    comparison saw two empty strings and recorded no disagreement, and the log
+    stored a blank answer for every agent call.
+
+    This is the fifth instance of this project's own recurring class: the
+    instrument scoring its own inability to read an answer against the model
+    that gave one. Found 2026-08-23.
+
+    The rendering is deliberately plain text — name and arguments — so that
+    `same_decision` and the hedging patterns keep working unchanged, and so two
+    responses calling the same tool with the same arguments compare equal.
+    """
+    if not isinstance(message, dict):
+        return ""
+    text = message.get("content") or ""
+    if isinstance(text, list):
+        # Some providers return content as typed parts even on the OpenAI wire.
+        text = " ".join(p.get("text") or "" for p in text if isinstance(p, dict))
+    calls = message.get("tool_calls") or []
+    if calls:
+        rendered = []
+        for c in calls:
+            fn = c.get("function") or {}
+            rendered.append(f"{fn.get('name') or ''}({fn.get('arguments') or ''})")
+        return (text.strip() + " " if text.strip() else "") + " ".join(rendered)
+    return text
+
+
+def first_message(out):
+    """The assistant message of a non-streaming OpenAI-shaped response."""
+    return ((out.get("choices") or [{}])[0].get("message") or {})
+
+
 def doubtful(text, level):
     """Should this answer be escalated? Monotonic in level, by construction."""
     t = (text or "").strip()
@@ -333,7 +375,7 @@ class Handler(BaseHTTPRequestHandler):
                                      if not ln.startswith(":")).strip())
         except Exception as e:
             return {"shadow_error": str(e)[:120]}
-        ref_text = ((d.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+        ref_text = answer_of(first_message(d))
         rec = {"shadow_model": ref,
                "shadow_cost": float((d.get("usage") or {}).get("cost") or 0),
                "shadow_said": ref_text[:80], "routed_said": (answer or "")[:80]}
@@ -535,14 +577,14 @@ class Handler(BaseHTTPRequestHandler):
 
         headers = {}
         if routed:
-            answer = ((out.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+            answer = answer_of(first_message(out))
             entry = self.table[task]
             cost = float((out.get("usage") or {}).get("cost") or 0)
 
             # ── cascade: the cheap tier has answered; decide whether to trust it
             escalated = None
             if self.cascade_level and not streaming:
-                first = ((out.get("choices") or [{}])[0].get("message") or {}).get("content")
+                first = answer_of(first_message(out))
                 if doubtful(first, self.cascade_level):
                     ref_model = entry["reference"]
                     probe = dict(body)

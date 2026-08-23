@@ -3,7 +3,7 @@
 # same on a contributor's machine as they do in CI.
 #
 # SuperRouter deliberately has no runtime dependencies. The only optional one is
-# `llmrouter-lib`, needed by the bridge modules alone, and it says so when it is
+# nothing beyond the standard library, and each optional module says so when it is
 # missing rather than looking like a broken install.
 
 [project]
@@ -15,8 +15,6 @@ license = { text = "Apache-2.0" }
 dependencies = []
 
 [project.optional-dependencies]
-# Only for superrouter.trained_eval and the llmrouter bridge.
-llmrouter = ["llmrouter-lib>=0.4.0"]
 dev = ["ruff>=0.6", "mypy>=1.11"]
 
 [tool.ruff]
@@ -36,7 +34,7 @@ ignore = [
 
 [tool.mypy]
 python_version = "3.9"
-ignore_missing_imports = true      # torch and llmrouter are optional
+ignore_missing_imports = true      # torch is optional
 warn_unused_ignores = true
 warn_redundant_casts = true
 # Not strict. This is a stdlib codebase where most values come off the wire as

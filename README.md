@@ -58,7 +58,6 @@ flowchart TB
     ST["staleness check"] -.->|prices moved, models appeared, exam rebuilt| T
   end
 
-  X["LLMRouter: 16 routing algorithms"] -.->|our measurements, its native format| T
 ```
 
 ## Stack
@@ -70,8 +69,7 @@ flowchart TB
 | Local models | Ollama, OpenAI-compatible endpoint | the vault's QA lane runs `qwen2.5vl:7b` locally; a model that is not hosted is still a model worth routing to |
 | Browser control | `agent-browser` 0.27.0 | drives capture and reads element rectangles out of the live DOM |
 | Protocols served | OpenAI `/v1/chat/completions`, Anthropic `/v1/messages` | agents speak one or the other; translation happens at the edge and the router underneath sees neither |
-| Routing algorithms | [`ulab-uiuc/LLMRouter`](https://github.com/ulab-uiuc/LLMRouter) 0.4.0 (MIT) | 16 trained algorithms, better than we would write; we supply the labels, not the engine. No code vendored |
-| Providers | any OpenAI-compatible endpoint via `providers.json` | OpenRouter and Ollama are built in; Azure, Bedrock, vLLM, Together and the rest are three lines of JSON. Shape follows LLMRouter's `serve/config.py` |
+| Providers | any OpenAI-compatible endpoint via `providers.json` | OpenRouter and Ollama are built in; Azure, Bedrock, vLLM, Together and the rest are three lines of JSON. Declarative, one block per provider |
 | Storage | JSON files under `state/` | every run is a readable record, so results are reproducible from the repo rather than asserted by it |
 
 ## The dashboard
@@ -192,10 +190,9 @@ Measured, with dates:
 | | |
 |---|---|
 | golden sets | 3 task types — 592 text, 462 and 368 judging across two products, 108 pointing |
-| models scored | **$4.56 actually spent** across 106 runs; 51 of those are mutually comparable and 55 are quarantined because their exam version cannot be identified |
+| models scored | **$5.63 actually spent** across 122 runs; 67 of those are mutually comparable and 55 are quarantined because their exam version cannot be identified |
 | best measured saving | **60x on a modelled 100-step QA run** — modelled, see below (70% judging / 30% pointing), no measurable quality loss on either sub-task |
-| contribution to LLMRouter | their own trained KNN went from 71% accuracy at $0.031 to **79% at $0.0014** on a held-out split — one field changed, 22x cheaper and 8 points better (2026-08-19) |
-| **observed** saving on real traffic | **8x** over 69 routed calls — this is a bill, not a model |
+| **observed** saving on real traffic | **7x** over 99 routed calls — this is a bill, not a model |
 | run-to-run noise | ±2 points; two runs of a 120-case exam agreed 120/120 and 118/120 at temperature 0 (2026-08-22) |
 
 **Not proven, stated plainly:**
@@ -208,7 +205,6 @@ Measured, with dates:
 **Licence: Apache-2.0.** [@maaz · 2026-08-23] Chosen over MIT for the same
 reason Locus was: an explicit patent grant, which businesses adopting
 infrastructure ask for, and room for a paid layer later without relicensing.
-LLMRouter is MIT and compatible; none of its code is vendored here in any case.
 
 ---
 

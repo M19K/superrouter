@@ -166,12 +166,41 @@ def check_docs(facts):
         if not os.path.exists(fp):
             continue
         text = read_text(fp)
-        m = re.search(r"\|\s*models scored\s*\|\s*(\d+) runs, \$([\d.]+)", text)
-        if m:
-            said_runs, said_spend = int(m.group(1)), float(m.group(2))
-            if said_runs != facts["all_runs"] or abs(said_spend - facts["spend"]) > 0.02:
-                out.append((path, f"README says {said_runs} runs / ${said_spend:.2f}; "
-                                  f"records say {facts['all_runs']} / ${facts['spend']:.2f}"))
+        # **Not finding the claim is a failure, not a pass.** This matched
+        # `| models scored | 106 runs, $4.56` — one phrasing of one row. The
+        # README was rewritten on 2026-08-22 to read "$4.56 actually spent
+        # across 106 runs", the regex stopped matching, and the check went
+        # silent for the one thing it exists to catch. Found 2026-08-23 by
+        # running the audit and comparing its own output to the file it had
+        # just declared correct: it said 108 runs / $4.83 and passed a README
+        # saying 106 / $4.56. Same class as every other bug in this project —
+        # the no-data branch was the permissive one.
+        row = next((ln for ln in text.splitlines()
+                    if re.search(r"\|\s*models scored\s*\|", ln)), None)
+        if row is None and path == "README.md":
+            out.append((path, "no `models scored` row found — the run count and "
+                              "spend cannot be checked against the records"))
+        elif row is not None:
+            n = re.search(r"(\d+)\s+runs", row)
+            d = re.search(r"\$\s*([\d.]+)", row)
+            if not (n and d):
+                out.append((path, f"`models scored` row does not state a run count "
+                                  f"and a dollar figure this can read: {row.strip()[:80]}"))
+            else:
+                said_runs, said_spend = int(n.group(1)), float(d.group(1))
+                if said_runs != facts["all_runs"] or abs(said_spend - facts["spend"]) > 0.02:
+                    out.append((path, f"README says {said_runs} runs / ${said_spend:.2f}; "
+                                      f"records say {facts['all_runs']} / ${facts['spend']:.2f}"))
+        # The observed saving is the one number that is a bill rather than a
+        # model, so a stale one is the most misleading thing on the page.
+        obs = re.search(r"\|\s*\*\*observed\*\* saving[^|]*\|[^|]*?\*\*(\d+)x\*\*"
+                        r"[^|]*?over (\d+) routed calls", text)
+        if obs and "observed_saving" in facts:
+            if (int(obs.group(1)) != facts["observed_saving"]
+                    or int(obs.group(2)) != facts["served_calls"]):
+                out.append((path, f"README says {obs.group(1)}x over {obs.group(2)} routed "
+                                  f"calls; records say {facts['observed_saving']}x over "
+                                  f"{facts['served_calls']}"))
         # the headline saving must be labelled modelled unless an observed one backs it
         if re.search(r"\b60x\b|\b60×\b", text) and "modelled" not in text:
             out.append((path, "quotes 60× without saying it is a modelled figure"))
@@ -231,14 +260,14 @@ def main():
                     fails += 1
                 savings.append(th[1] / ou[1] if ou[1] else 0)
             import statistics
-            print(f"  {OK}  external check on xRouteBench: median "
+            print(f"  {OK}  external check on the public benchmark: median "
                   f"{statistics.median(savings):.1f}× cheaper at identical quality "
                   f"across 10 splits")
         except Exception as e:
             print(f"  {WARN}  external check could not run: {str(e)[:70]}")
             unchecked += 1
     else:
-        print(f"  {WARN}  external check not run — xRouteBench data not downloaded")
+        print(f"  {WARN}  external check not run — benchmark data not downloaded")
         unchecked += 1
 
     # A policy that does not beat random at its own rate bought nothing, however

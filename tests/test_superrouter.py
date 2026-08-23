@@ -221,6 +221,121 @@ class CascadeEscalation(unittest.TestCase):
         self.assertEqual(res["cost"], 2 * 1.0 + 1 * 10.0)
 
 
+class AToolCallIsAnAnswer(unittest.TestCase):
+    """The fifth instance of one class: the instrument scoring its own inability
+    to read an answer against the model that gave one.
+
+    OpenAI returns `content: null` for a tool call and puts the decision in
+    `tool_calls`. Every reader here took `content`, so an agent request looked
+    like a model that had said nothing — and "said nothing" is the strongest
+    escalation signal there is."""
+
+    def test_a_tool_call_is_not_an_empty_answer(self):
+        from superrouter.serve import answer_of
+        msg = {"content": None, "tool_calls": [
+            {"function": {"name": "get_weather", "arguments": '{"city":"Paris"}'}}]}
+        self.assertTrue(answer_of(msg).strip(), "a tool call must read as an answer")
+        self.assertIn("get_weather", answer_of(msg))
+
+    def test_tool_calls_do_not_escalate_every_request(self):
+        from superrouter.serve import answer_of, doubtful
+        msg = {"content": None, "tool_calls": [
+            {"function": {"name": "get_weather", "arguments": '{"city":"Paris"}'}}]}
+        for lvl in (1, 3):
+            self.assertFalse(doubtful(answer_of(msg), lvl),
+                             "a tool call escalating at every level means a 100% "
+                             "escalation rate on agent traffic, with both tiers paid")
+
+    def test_same_tool_and_arguments_is_the_same_decision(self):
+        from superrouter.serve import answer_of, same_decision
+        mk = lambda n, a: {"content": None,
+                           "tool_calls": [{"function": {"name": n, "arguments": a}}]}
+        same = same_decision(answer_of(mk("f", '{"x":1}')), answer_of(mk("f", '{"x":1}')))
+        diff = same_decision(answer_of(mk("f", '{"x":1}')), answer_of(mk("g", '{}')))
+        self.assertTrue(same, "identical tool calls must not read as drift")
+        self.assertFalse(diff, "different tools must read as disagreement")
+
+    def test_a_genuinely_empty_answer_still_escalates(self):
+        from superrouter.serve import answer_of, doubtful
+        self.assertTrue(doubtful(answer_of({"content": None}), 1))
+        self.assertTrue(doubtful(answer_of({}), 1))
+
+    def test_content_parts_are_flattened(self):
+        from superrouter.serve import answer_of
+        self.assertEqual(answer_of({"content": [{"type": "text", "text": "TRUE"}]}), "TRUE")
+
+
+class PerQueryRoutingIsOurOwn(unittest.TestCase):
+    """Standard library only, and it must be able to say "do not route"."""
+
+    def _corpus(self):
+        from superrouter.perquery import PerQueryRouter
+        rows, queries = [], {}
+        # Two clearly separable families of query. `cheap` is right on family A
+        # and wrong on family B; `dear` is right on both and costs 100x.
+        for i in range(40):
+            fam = "login screen password field" if i % 2 else "chart axis label tick"
+            queries[i] = {"embedding_id": i, "query": f"[f{i}] {fam} number {i}"}
+            for m, ok, c in (("cheap", i % 2 == 1, 0.0001), ("dear", True, 0.01)):
+                rows.append({"embedding_id": i, "model_name": m, "correct": ok,
+                             "cost_usd": c, "query": queries[i]["query"]})
+        return PerQueryRouter(k=5).fit(rows, queries), rows, queries
+
+    def test_it_needs_no_third_party_import(self):
+        """Allowlist, not denylist — the same lesson as the corpus filter.
+
+        A list of banned package names only bans the ones somebody remembered.
+        This asserts every import resolves to the standard library or to this
+        package, so a dependency added later fails here rather than shipping.
+        """
+        import ast
+        import sys
+        import superrouter.perquery as pq
+        tree = ast.parse(open(pq.__file__).read())
+        roots = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                roots.update(a.name.split(".")[0] for a in node.names)
+            elif isinstance(node, ast.ImportFrom):
+                if node.level == 0 and node.module:
+                    roots.add(node.module.split(".")[0])
+        allowed = set(sys.stdlib_module_names)
+        outside = sorted(roots - allowed)
+        self.assertEqual(outside, [],
+                         f"{outside} is outside the standard library and breaks "
+                         f"the promise that this installs with nothing")
+
+    def test_a_low_bar_prefers_the_cheap_model(self):
+        r, _, _ = self._corpus()
+        m, _, cleared = r.route("[f1] login screen password field number 1", bar=0.5)
+        self.assertEqual(m, "cheap")
+        self.assertTrue(cleared)
+
+    def test_a_bar_nothing_clears_falls_back_to_the_most_accurate(self):
+        r, _, _ = self._corpus()
+        m, _, cleared = r.route("chart axis label tick number 2", bar=0.999)
+        self.assertFalse(cleared, "nothing should clear a bar of 0.999 here")
+        self.assertEqual(m, "dear", "the fallback must be the most accurate, not the cheapest")
+
+    def test_the_frame_id_separates_identical_sentences(self):
+        # The bug this whole project found the hard way: the same assertion
+        # asked of two screens has two different answers.
+        from superrouter.perquery import cosine, features
+        a = features("[frame-a] The heading is legible.")
+        b = features("[frame-b] The heading is legible.")
+        self.assertLess(cosine(a, b), 0.999, "two frames must not be the same point")
+
+    def test_it_refuses_to_route_when_a_fixed_choice_dominates(self):
+        from superrouter.perquery import dominated
+        fixed = {"accuracy": 96, "cost": 0.00039}
+        routed = {"accuracy": 96, "cost": 0.01127}
+        self.assertTrue(dominated(routed, fixed),
+                        "matching accuracy at 29x the price is not routing, it is waste")
+        self.assertFalse(dominated({"accuracy": 98, "cost": 0.02},
+                                   {"accuracy": 100, "cost": 0.09}),
+                         "cheaper at a stated accuracy cost is a real trade, not domination")
+
+
 class DeferralCurveMaths(unittest.TestCase):
     """The oracle is the ceiling and random is the line to beat. If those two
     are wrong, every claim about routing judgement is measured against nothing."""

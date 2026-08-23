@@ -25,21 +25,77 @@ import spec
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# Documents the vault owns and that describe systems rather than people. The
-# task is professional-facing; nothing personal goes into a corpus that may be
-# published later.
-def sources(vault):
-    """Every substantial vault document about systems, discovered rather than
-    listed. The hand-written list of seven was the binding constraint: with each
-    corruption class capped to an even share, the set could only be as large as
-    the material allowed, and 326 of 380 class/passage pairs found nothing to
-    corrupt. More documents is the only lever that widens every class at once.
+# **An allowlist, because the denylist that used to be here failed exactly as
+# denylists do.** The comment above this function has always read "documents the
+# vault OWNS and that describe systems rather than people" — and the code
+# implemented that by walking the whole vault and skipping seven named things.
+# Anything nobody thought to name walked straight in.
+#
+# Measured 2026-08-23, on the set already committed and pushed: **585,755
+# characters across 149 documents**, almost all of it a paid third party's
+# course — module content, NotebookLM summaries, closed captions, and
+# office-hours transcripts carrying a third party's name 43 times as a speaker.
+# Nobody chose that. The filter simply did not have that project on its list.
+#
+# So the rule is inverted. A document is used only if it sits under a root the
+# vault WROTE. New material is excluded until somebody adds it deliberately,
+# which is the failure direction that costs a smaller corpus rather than
+# somebody else's copyright.
+OWNED_ROOTS = (
+    "CLAUDE.md", "Home.md", "AGENTS.md", "GEMINI.md", "README.md",
+    "05-Orchestrator",          # the vault's own system layer
+    "01-Knowledge Base",        # our distilled reference
+)
 
-    Personal and outward-facing material is excluded by folder, not by hand —
-    this corpus may be published, and a rule that depends on somebody
-    remembering is a rule that fails on the day it matters."""
-    skip = ("00-Inbox", "03-Archive", "node_modules", ".git", "Maaz Profile",
-            "job-search", "Decisions.jsonl", "Learnings.jsonl", "QA/runs")
+# Even inside an owned root, two things never belong in a corpus that may be
+# published: material distilled FROM somewhere else, and anything that is a
+# record of money, credentials or people.
+OWNED_EXCEPT = (
+    "Ingested",                 # third-party sources, distilled but not ours
+    "Recall Pipeline",          # same
+    "Infrastructure Ledger",    # spend and account names
+    "External Dependencies",    # third-party product names by definition
+    "Queue.md", "Open Board",   # cross-project chatter, names of other work
+    "Vault Changelog",          # same
+    "keys", "ledger",
+    # Distilled FROM other people's publications, which is the same objection
+    # as the course material — our sentences, somebody else's reporting, and
+    # their bylines. Caught on the first clean rebuild: the digests carried a
+    # named journalist 80 times purely because he presents a podcast we read.
+    "digests", "Sources.md", "staged", "funnel",
+    # Working state, not writing. `state/` also holds dated BACKUPS of the
+    # knowledge base, so sampling it puts near-duplicates of the same passage
+    # into the exam eight times over — which inflates the case count while
+    # measuring one passage, the same error as counting a duplicated screen.
+    "state", "runs", "backups",
+)
+
+# A last guard at the passage level, because a path rule cannot see inside a
+# file. Transcripts are the specific shape that got through, and they are
+# recognisable without knowing whose they are.
+TRANSCRIPT = re.compile(
+    r"\d{1,2}:\d{2}:\d{2}[.,]\d{3}"      # 01:16:05.710
+    r"|-->"                                # WEBVTT cue arrow
+    r"|^\s*\d{1,4}\s*$"                   # bare cue numbers
+    r"|\b[a-z]+ [a-z]+:\s",                # a speaker label
+    re.M)
+
+
+def owned(path):
+    """Is this a document the vault itself wrote?"""
+    if any(x in path for x in OWNED_EXCEPT):
+        return False
+    return any(path == r or path.startswith(r + os.sep) or path.startswith(r + "/")
+               for r in OWNED_ROOTS)
+
+
+def sources(vault):
+    """Every substantial vault-authored document about systems.
+
+    Discovered rather than hand-listed, so the corpus can still grow — but only
+    within roots the vault wrote. See OWNED_ROOTS for why that direction.
+    """
+    skip = ("node_modules", ".git", "__pycache__")
     out = []
     for root, dirs, files in os.walk(vault):
         rel = os.path.relpath(root, vault)
@@ -50,11 +106,16 @@ def sources(vault):
             if not f.endswith(".md"):
                 continue
             path = os.path.join(rel, f) if rel != "." else f
-            if any(s in path for s in skip):
+            if not owned(path):
                 continue
             if os.path.getsize(os.path.join(root, f)) < 2500:
                 continue
             out.append(path)
+    if not out:
+        raise SystemExit(
+            "no vault-authored documents found. This builder takes passages only "
+            "from roots the vault wrote (see OWNED_ROOTS) — point --vault at a "
+            "real vault, or add a root you own.")
     return sorted(out)
 
 SENT = re.compile(r"(?<=[.!?])\s+")
@@ -63,7 +124,7 @@ SENT = re.compile(r"(?<=[.!?])\s+")
 def passages(vault, want, rnd):
     """Contiguous runs of real sentences. Long enough to need reading, short
     enough that a wrong answer is about the claim and not about attention."""
-    out = []
+    out, refused = [], []
     for rel in sources(vault):
         path = os.path.join(vault, rel)
         if not os.path.exists(path):
@@ -71,6 +132,12 @@ def passages(vault, want, rnd):
         with open(path, encoding="utf-8") as fh:
             text = fh.read()
         text = re.sub(r"```.*?```", " ", text, flags=re.S)      # code blocks
+        # HTML comments are metadata, not prose — pipeline residue, TODOs and
+        # provenance cards. A faithfulness exam should ask about sentences a
+        # person wrote to be read. This also happens to be where a podcast
+        # host's name was sitting 90 times, which is the second reminder today
+        # that "our own file" is not the same as "nothing of anyone else's".
+        text = re.sub(r"<!--.*?-->", " ", text, flags=re.S)
         text = re.sub(r"^\s*[-|#>*].*$", " ", text, flags=re.M)  # tables, lists, headings
         text = re.sub(r"\[\[.*?\]\]|\[.*?\]\(.*?\)", " ", text)  # links
         text = re.sub(r"[*_`]", "", text)
@@ -80,8 +147,16 @@ def passages(vault, want, rnd):
         # several passages without any two being the same text
         for i in range(0, max(0, len(sents) - 3), 2):
             chunk = " ".join(sents[i:i + 4])
-            if 300 < len(chunk) < 1200:
-                out.append({"doc": rel, "text": chunk})
+            if not (300 < len(chunk) < 1200):
+                continue
+            # Belt and braces: a path rule cannot see inside a file, and the
+            # thing that got through last time was recognisable by shape.
+            if TRANSCRIPT.search(chunk):
+                refused.append((rel, "reads as a transcript of people speaking"))
+                continue
+            out.append({"doc": rel, "text": chunk})
+    if refused:
+        print(f"  refused {len(refused)} passage(s) that read as transcripts")
     rnd.shuffle(out)
     return out[:want]
 

@@ -75,9 +75,15 @@ def build_frame(item, origin, settle=2.6):
 
 
 def pixels_changed(a, b):
-    """Fraction of pixels that differ, via ffmpeg. Cheap, no image library."""
+    """Fraction of pixels that differ, via ffmpeg. Cheap, no image library.
+
+    `-v info`, not `-v error`: `metadata=print` writes at info level, so the
+    quieter setting suppressed the only line this reads and every call fell
+    through to the `else 1.0` — "everything moved" — which passes every gate it
+    is asked. Found 2026-08-23; see the note in build_generic.py.
+    """
     r = subprocess.run(
-        ["ffmpeg", "-v", "error", "-i", a, "-i", b, "-filter_complex",
+        ["ffmpeg", "-v", "info", "-i", a, "-i", b, "-filter_complex",
          "[0:v][1:v]blend=all_mode=difference,format=gray,"
          "geq=lum='if(gt(lum(X\\,Y),12),255,0)',signalstats,"
          "metadata=print:key=lavfi.signalstats.YAVG", "-f", "null", "-"],

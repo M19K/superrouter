@@ -6,7 +6,7 @@ threshold.
 **This is the part that is ours.** Every open-source router surveyed takes
 quality as a number you declare: vLLM Semantic Router's own docs list
 "quality scoring depends on quality_score being configured per model" under
-Known Limitations. LLMRouter, the strongest base to build on, reduces quality to
+Known Limitations. Research routing frameworks reduce quality to
 a single float per (query, model). Both are reasonable engineering. Neither can
 tell you what you lose by going cheaper, because neither ever measured it.
 

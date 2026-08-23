@@ -9,12 +9,14 @@ our exam, our product, our audit. A self-audit can tell you a number drifted; it
 cannot tell you the whole frame is wrong. The only check that can is somebody
 else's benchmark, with somebody else's models, scored by somebody else's metric.
 
-So this runs our one contribution to LLMRouter — the **cost-aware label** — on
-**xRouteBench**, the benchmark LLMRouter's own authors published
-(`ulab-ai/xRouteBench`, 445 queries × 18 models × 13 tasks). Nothing here is
-ours: not the queries, not the candidate models, not the performance scores.
+So this runs the **cost-aware label** against a public routing benchmark —
+445 queries × 18 models × 13 tasks. Nothing in the benchmark is ours: not the
+queries, not the candidate models, not the performance scores. That is the
+point; a frame we did not build is the only thing that can tell us our frame
+is wrong.
 
-**Their label**  `argmax(performance)` — the strongest model for the query.
+**The conventional label**  `argmax(performance)` — the strongest model for the
+                 query, which is how routing supervision is normally written.
 **Our label**    `0 if wrong else 1 − λ·cost_rank` — the cheapest model that is
                  still within a stated distance of the strongest.
 
@@ -129,7 +131,7 @@ def main():
     if cheap_fixed:
         m, (p, c) = cheap_fixed
         print(f"{p:>9.3f} {c:>10.4f} {theirs[1]/c:>9.2f}×  always {m}  (cheapest fixed)")
-    print(f"{theirs[0]:>9.3f} {theirs[1]:>10.4f} {1:>9.2f}×  LLMRouter's label — argmax(performance)")
+    print(f"{theirs[0]:>9.3f} {theirs[1]:>10.4f} {1:>9.2f}×  conventional label — argmax(performance)")
 
     print("\n── our label, swept over how much quality you agree to give up ──\n")
     print(f"{'tolerance':>10} {'quality':>9} {'vs theirs':>10} {'cost':>10} {'cheaper by':>11}")

@@ -1,0 +1,1298 @@
+{
+ "task_type": "qa-vision-assert",
+ "generator": "generic (role-targeted)",
+ "product": "handrail",
+ "origin": [
+  "http://127.0.0.1:8941/renderer/onboarding.html",
+  "http://127.0.0.1:8941/renderer/overlay.html"
+ ],
+ "origins": [
+  "http://127.0.0.1:8941/renderer/onboarding.html",
+  "http://127.0.0.1:8941/renderer/overlay.html"
+ ],
+ "built": "2026-08-23",
+ "states": [
+  {
+   "id": "handrail-p0-desktop-dark-0",
+   "page": "http://127.0.0.1:8941/renderer/onboarding.html",
+   "viewport": "desktop",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 1,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 0,
+    "image": 0,
+    "footer-text": 2
+   }
+  },
+  {
+   "id": "handrail-p0-mobile-dark-0",
+   "page": "http://127.0.0.1:8941/renderer/onboarding.html",
+   "viewport": "mobile",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 1,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 0,
+    "image": 0,
+    "footer-text": 2
+   }
+  },
+  {
+   "id": "handrail-p0-tablet-dark-0",
+   "page": "http://127.0.0.1:8941/renderer/onboarding.html",
+   "viewport": "tablet",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 1,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 0,
+    "image": 0,
+    "footer-text": 2
+   }
+  },
+  {
+   "id": "handrail-p1-desktop-dark-0",
+   "page": "http://127.0.0.1:8941/renderer/overlay.html",
+   "viewport": "desktop",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 7,
+    "labels": 0,
+    "primary-control": 0,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "handrail-p1-mobile-dark-0",
+   "page": "http://127.0.0.1:8941/renderer/overlay.html",
+   "viewport": "mobile",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 1,
+    "labels": 0,
+    "primary-control": 0,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "handrail-p1-tablet-dark-0",
+   "page": "http://127.0.0.1:8941/renderer/overlay.html",
+   "viewport": "tablet",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 0,
+    "subhead": 0,
+    "nav-links": 7,
+    "labels": 0,
+    "primary-control": 0,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 1
+   }
+  }
+ ],
+ "cases": 80,
+ "true": 40,
+ "false": 40,
+ "defect_sight_cases": 34,
+ "refused": [
+  [
+   "handrail-p0-desktop-dark-0",
+   "faint-nav",
+   "no visible change (0.0032%)"
+  ],
+  [
+   "handrail-p0-desktop-dark-0",
+   "type-drift",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-desktop-dark-0",
+   "missing-items",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-desktop-dark-0",
+   "clipped-text",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-desktop-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p0-desktop-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p0-desktop-dark-0",
+   "offscreen-input",
+   "no text-input on this screen"
+  ],
+  [
+   "handrail-p0-desktop-dark-1",
+   "-",
+   "pixel-identical to handrail-p0-desktop-dark-0"
+  ],
+  [
+   "handrail-p0-desktop-dark-2",
+   "-",
+   "pixel-identical to handrail-p0-desktop-dark-0"
+  ],
+  [
+   "handrail-p0-desktop-light-0",
+   "-",
+   "pixel-identical to handrail-p0-desktop-dark-0"
+  ],
+  [
+   "handrail-p0-desktop-light-1",
+   "-",
+   "pixel-identical to handrail-p0-desktop-dark-0"
+  ],
+  [
+   "handrail-p0-desktop-light-2",
+   "-",
+   "pixel-identical to handrail-p0-desktop-dark-0"
+  ],
+  [
+   "handrail-p0-mobile-dark-0",
+   "faint-nav",
+   "no visible change (0.0100%)"
+  ],
+  [
+   "handrail-p0-mobile-dark-0",
+   "type-drift",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-mobile-dark-0",
+   "missing-items",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-mobile-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p0-mobile-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p0-mobile-dark-0",
+   "offscreen-input",
+   "no text-input on this screen"
+  ],
+  [
+   "handrail-p0-mobile-dark-1",
+   "-",
+   "pixel-identical to handrail-p0-mobile-dark-0"
+  ],
+  [
+   "handrail-p0-mobile-dark-2",
+   "-",
+   "pixel-identical to handrail-p0-mobile-dark-0"
+  ],
+  [
+   "handrail-p0-mobile-light-0",
+   "-",
+   "pixel-identical to handrail-p0-mobile-dark-0"
+  ],
+  [
+   "handrail-p0-mobile-light-1",
+   "-",
+   "pixel-identical to handrail-p0-mobile-dark-0"
+  ],
+  [
+   "handrail-p0-mobile-light-2",
+   "-",
+   "pixel-identical to handrail-p0-mobile-dark-0"
+  ],
+  [
+   "handrail-p0-tablet-dark-0",
+   "faint-nav",
+   "no visible change (0.0037%)"
+  ],
+  [
+   "handrail-p0-tablet-dark-0",
+   "type-drift",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-tablet-dark-0",
+   "missing-items",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-tablet-dark-0",
+   "clipped-text",
+   "no visible change (0.0000%)"
+  ],
+  [
+   "handrail-p0-tablet-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p0-tablet-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p0-tablet-dark-0",
+   "offscreen-input",
+   "no text-input on this screen"
+  ],
+  [
+   "handrail-p0-tablet-dark-1",
+   "-",
+   "pixel-identical to handrail-p0-tablet-dark-0"
+  ],
+  [
+   "handrail-p0-tablet-dark-2",
+   "-",
+   "pixel-identical to handrail-p0-tablet-dark-0"
+  ],
+  [
+   "handrail-p0-tablet-light-0",
+   "-",
+   "pixel-identical to handrail-p0-tablet-dark-0"
+  ],
+  [
+   "handrail-p0-tablet-light-1",
+   "-",
+   "pixel-identical to handrail-p0-tablet-dark-0"
+  ],
+  [
+   "handrail-p0-tablet-light-2",
+   "-",
+   "pixel-identical to handrail-p0-tablet-dark-0"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "faint-nav",
+   "no visible change (0.0390%)"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "covered-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "type-drift",
+   "no visible change (0.0015%)"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "invisible-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "tiny-target",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "handrail-p1-desktop-dark-0",
+   "duplicated-nav",
+   "no visible change (0.1110%)"
+  ],
+  [
+   "handrail-p1-desktop-dark-1",
+   "-",
+   "pixel-identical to handrail-p1-desktop-dark-0"
+  ],
+  [
+   "handrail-p1-desktop-dark-2",
+   "-",
+   "pixel-identical to handrail-p1-desktop-dark-0"
+  ],
+  [
+   "handrail-p1-desktop-light-0",
+   "-",
+   "pixel-identical to handrail-p1-desktop-dark-0"
+  ],
+  [
+   "handrail-p1-desktop-light-1",
+   "-",
+   "pixel-identical to handrail-p1-desktop-dark-0"
+  ],
+  [
+   "handrail-p1-desktop-light-2",
+   "-",
+   "pixel-identical to handrail-p1-desktop-dark-0"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "faint-nav",
+   "no visible change (0.0094%)"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "covered-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "type-drift",
+   "no visible change (0.0046%)"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "missing-items",
+   "no visible change (0.0046%)"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "invisible-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "tiny-target",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-0",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "handrail-p1-mobile-dark-1",
+   "-",
+   "pixel-identical to handrail-p1-mobile-dark-0"
+  ],
+  [
+   "handrail-p1-mobile-dark-2",
+   "-",
+   "pixel-identical to handrail-p1-mobile-dark-0"
+  ],
+  [
+   "handrail-p1-mobile-light-0",
+   "-",
+   "pixel-identical to handrail-p1-mobile-dark-0"
+  ],
+  [
+   "handrail-p1-mobile-light-1",
+   "-",
+   "pixel-identical to handrail-p1-mobile-dark-0"
+  ],
+  [
+   "handrail-p1-mobile-light-2",
+   "-",
+   "pixel-identical to handrail-p1-mobile-dark-0"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "faint-text",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "faint-nav",
+   "no visible change (0.0442%)"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "covered-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "type-drift",
+   "no visible change (0.0017%)"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "overflow-string",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "clipped-text",
+   "no headline on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "invisible-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "tiny-target",
+   "no primary-control on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "overlapping-text",
+   "no subhead on this screen"
+  ],
+  [
+   "handrail-p1-tablet-dark-0",
+   "duplicated-nav",
+   "no visible change (0.1261%)"
+  ],
+  [
+   "handrail-p1-tablet-dark-1",
+   "-",
+   "pixel-identical to handrail-p1-tablet-dark-0"
+  ],
+  [
+   "handrail-p1-tablet-dark-2",
+   "-",
+   "pixel-identical to handrail-p1-tablet-dark-0"
+  ],
+  [
+   "handrail-p1-tablet-light-0",
+   "-",
+   "pixel-identical to handrail-p1-tablet-dark-0"
+  ],
+  [
+   "handrail-p1-tablet-light-1",
+   "-",
+   "pixel-identical to handrail-p1-tablet-dark-0"
+  ],
+  [
+   "handrail-p1-tablet-light-2",
+   "-",
+   "pixel-identical to handrail-p1-tablet-dark-0"
+  ]
+ ],
+ "case_list": [
+  {
+   "frame": "handrail-p0-desktop-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G001"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G002"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__faint-text",
+   "assert": "The heading reading \u201cHandrail watches your screen and walks\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G003"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G004"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cGet started\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G005"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G006"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G007"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G008"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G009"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G010"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G011"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G012"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G013"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G014"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__duplicated-nav",
+   "assert": "Each navigation or menu item on this screen appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G015"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__duplicated-nav",
+   "assert": "There is at least one navigation or menu item on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G016"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G017"
+  },
+  {
+   "frame": "handrail-p0-desktop-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G018"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G019"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G020"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__faint-text",
+   "assert": "The heading reading \u201cHandrail watches your screen and walks\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G021"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G022"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cGet started\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G023"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G024"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G025"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G026"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__clipped-text",
+   "assert": "The heading reading \u201cHandrail watches your screen and walks\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G027"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G028"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G029"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G030"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G031"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G032"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G033"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G034"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__duplicated-nav",
+   "assert": "Each navigation or menu item on this screen appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G035"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__duplicated-nav",
+   "assert": "There is at least one navigation or menu item on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G036"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G037"
+  },
+  {
+   "frame": "handrail-p0-mobile-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G038"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G039"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G040"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__faint-text",
+   "assert": "The heading reading \u201cHandrail watches your screen and walks\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G041"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G042"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cGet started\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G043"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G044"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G045"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G046"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G047"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G048"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G049"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G050"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G051"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G052"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__duplicated-nav",
+   "assert": "Each navigation or menu item on this screen appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G053"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__duplicated-nav",
+   "assert": "There is at least one navigation or menu item on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G054"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G055"
+  },
+  {
+   "frame": "handrail-p0-tablet-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G056"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G057"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G058"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0__missing-items",
+   "assert": "Items labelled \u201cSettings\u201d, \u201c\u23ce\u201d, \u201cQuit Handrail\u201d are all visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G059"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0__missing-items",
+   "assert": "There is at least one navigation or menu item on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G060"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G061"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G062"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G063"
+  },
+  {
+   "frame": "handrail-p1-desktop-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G064"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G065"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G066"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0__duplicated-nav",
+   "assert": "Each navigation or menu item on this screen appears exactly once.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "duplicated-nav",
+   "qa_layer": "1 \u00b7 duplicate that silently wins",
+   "role": "nav-links",
+   "id": "G067"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0__duplicated-nav",
+   "assert": "There is at least one navigation or menu item on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "duplicated-nav",
+   "control_for": "duplicated-nav",
+   "id": "G068"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G069"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G070"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G071"
+  },
+  {
+   "frame": "handrail-p1-mobile-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G072"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G073"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G074"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0__missing-items",
+   "assert": "Items labelled \u201cSettings\u201d, \u201c\u23ce\u201d, \u201cQuit Handrail\u201d are all visible on this screen.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "missing-items",
+   "qa_layer": "1 \u00b7 missing from its registry",
+   "role": "nav-links",
+   "id": "G075"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0__missing-items",
+   "assert": "There is at least one navigation or menu item on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "missing-items",
+   "control_for": "missing-items",
+   "id": "G076"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G077"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G078"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G079"
+  },
+  {
+   "frame": "handrail-p1-tablet-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G080"
+  }
+ ]
+}

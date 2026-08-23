@@ -11,7 +11,7 @@ on Azure OpenAI, Bedrock, Anthropic's own API, Together, Fireworks or a
 self-hosted vLLM could measure nothing at all — which is most of the people who
 would want this.
 
-**Shape borrowed rather than invented.** `ulab-uiuc/LLMRouter`'s
+**Shape chosen after examining what production proxies actually need.** The
 `serve/config.py` already models a provider well: name, base URL, key, prices,
 token ceiling, context window. That is the right decomposition and it is MIT, so
 this follows it. What changed is the file format — **JSON, not YAML**, because
@@ -147,7 +147,8 @@ def clamp(model, asked, cfg=None):
 
     Passing a caller's `max_tokens` straight through means a request larger than
     a small model allows fails at the provider — after the request was sent and
-    the latency was spent. LLMRouter clamps; this now does too. Only models with
+    the latency was spent. Clamping before the call is the only version of this
+    that helps. Only models with
     a declared ceiling are clamped, because an undeclared one is unknown rather
     than unlimited.
     """

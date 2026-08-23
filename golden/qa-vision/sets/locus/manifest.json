@@ -1,0 +1,1802 @@
+{
+ "task_type": "qa-vision-assert",
+ "generator": "generic (role-targeted)",
+ "product": "locus",
+ "origin": "http://localhost:5199/",
+ "origins": [
+  "http://localhost:5199/"
+ ],
+ "built": "2026-08-23",
+ "states": [
+  {
+   "id": "locus-desktop-dark-0",
+   "page": "http://localhost:5199/",
+   "viewport": "desktop",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 0
+   }
+  },
+  {
+   "id": "locus-desktop-light-0",
+   "page": "http://localhost:5199/",
+   "viewport": "desktop",
+   "theme": "light",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 0
+   }
+  },
+  {
+   "id": "locus-mobile-dark-0",
+   "page": "http://localhost:5199/",
+   "viewport": "mobile",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 0,
+    "text-input": 0,
+    "image": 0,
+    "footer-text": 2
+   }
+  },
+  {
+   "id": "locus-mobile-dark-1",
+   "page": "http://localhost:5199/",
+   "viewport": "mobile",
+   "theme": "dark",
+   "scroll": 0.45,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "locus-mobile-light-0",
+   "page": "http://localhost:5199/",
+   "viewport": "mobile",
+   "theme": "light",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 0,
+    "text-input": 0,
+    "image": 0,
+    "footer-text": 2
+   }
+  },
+  {
+   "id": "locus-mobile-light-1",
+   "page": "http://localhost:5199/",
+   "viewport": "mobile",
+   "theme": "light",
+   "scroll": 0.45,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 1
+   }
+  },
+  {
+   "id": "locus-tablet-dark-0",
+   "page": "http://localhost:5199/",
+   "viewport": "tablet",
+   "theme": "dark",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 2
+   }
+  },
+  {
+   "id": "locus-tablet-light-0",
+   "page": "http://localhost:5199/",
+   "viewport": "tablet",
+   "theme": "light",
+   "scroll": 0.0,
+   "roles": {
+    "headline": 1,
+    "subhead": 1,
+    "nav-links": 0,
+    "labels": 0,
+    "primary-control": 1,
+    "text-input": 1,
+    "image": 0,
+    "footer-text": 2
+   }
+  }
+ ],
+ "cases": 140,
+ "true": 70,
+ "false": 70,
+ "defect_sight_cases": 62,
+ "refused": [
+  [
+   "locus-desktop-dark-0",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-dark-0",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-dark-0",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-desktop-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-desktop-dark-0",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-dark-0",
+   "dark-band",
+   "no footer-text on this screen"
+  ],
+  [
+   "locus-desktop-dark-1",
+   "-",
+   "pixel-identical to locus-desktop-dark-0"
+  ],
+  [
+   "locus-desktop-dark-2",
+   "-",
+   "pixel-identical to locus-desktop-dark-0"
+  ],
+  [
+   "locus-desktop-light-0",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-light-0",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-light-0",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-light-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-desktop-light-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-desktop-light-0",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-desktop-light-0",
+   "dark-band",
+   "no footer-text on this screen"
+  ],
+  [
+   "locus-desktop-light-1",
+   "-",
+   "pixel-identical to locus-desktop-light-0"
+  ],
+  [
+   "locus-desktop-light-2",
+   "-",
+   "pixel-identical to locus-desktop-light-0"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "covered-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "invisible-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "tiny-target",
+   "no primary-control on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-0",
+   "offscreen-input",
+   "no text-input on this screen"
+  ],
+  [
+   "locus-mobile-dark-1",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-1",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-1",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-1",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-dark-1",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-dark-1",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-dark-2",
+   "-",
+   "pixel-identical to locus-mobile-dark-1"
+  ],
+  [
+   "locus-mobile-light-0",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "covered-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "invisible-control",
+   "no primary-control on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "tiny-target",
+   "no primary-control on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-0",
+   "offscreen-input",
+   "no text-input on this screen"
+  ],
+  [
+   "locus-mobile-light-1",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-1",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-1",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-1",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-light-1",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-mobile-light-1",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-mobile-light-2",
+   "-",
+   "pixel-identical to locus-mobile-light-1"
+  ],
+  [
+   "locus-tablet-dark-0",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-dark-0",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-dark-0",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-dark-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-tablet-dark-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-tablet-dark-0",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-dark-1",
+   "-",
+   "pixel-identical to locus-tablet-dark-0"
+  ],
+  [
+   "locus-tablet-dark-2",
+   "-",
+   "pixel-identical to locus-tablet-dark-0"
+  ],
+  [
+   "locus-tablet-light-0",
+   "faint-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-light-0",
+   "type-drift",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-light-0",
+   "missing-items",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-light-0",
+   "hidden-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-tablet-light-0",
+   "squashed-image",
+   "no image on this screen"
+  ],
+  [
+   "locus-tablet-light-0",
+   "duplicated-nav",
+   "no nav-links on this screen"
+  ],
+  [
+   "locus-tablet-light-1",
+   "-",
+   "pixel-identical to locus-tablet-light-0"
+  ],
+  [
+   "locus-tablet-light-2",
+   "-",
+   "pixel-identical to locus-tablet-light-0"
+  ]
+ ],
+ "case_list": [
+  {
+   "frame": "locus-desktop-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G001"
+  },
+  {
+   "frame": "locus-desktop-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G002"
+  },
+  {
+   "frame": "locus-desktop-dark-0__faint-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G003"
+  },
+  {
+   "frame": "locus-desktop-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G004"
+  },
+  {
+   "frame": "locus-desktop-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cContinue\u2197\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G005"
+  },
+  {
+   "frame": "locus-desktop-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G006"
+  },
+  {
+   "frame": "locus-desktop-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G007"
+  },
+  {
+   "frame": "locus-desktop-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G008"
+  },
+  {
+   "frame": "locus-desktop-dark-0__clipped-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G009"
+  },
+  {
+   "frame": "locus-desktop-dark-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G010"
+  },
+  {
+   "frame": "locus-desktop-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G011"
+  },
+  {
+   "frame": "locus-desktop-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G012"
+  },
+  {
+   "frame": "locus-desktop-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G013"
+  },
+  {
+   "frame": "locus-desktop-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G014"
+  },
+  {
+   "frame": "locus-desktop-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G015"
+  },
+  {
+   "frame": "locus-desktop-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G016"
+  },
+  {
+   "frame": "locus-desktop-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G017"
+  },
+  {
+   "frame": "locus-desktop-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G018"
+  },
+  {
+   "frame": "locus-desktop-light-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G019"
+  },
+  {
+   "frame": "locus-desktop-light-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G020"
+  },
+  {
+   "frame": "locus-desktop-light-0__faint-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G021"
+  },
+  {
+   "frame": "locus-desktop-light-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G022"
+  },
+  {
+   "frame": "locus-desktop-light-0__covered-control",
+   "assert": "The button labelled or marked \u201cContinue\u2197\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G023"
+  },
+  {
+   "frame": "locus-desktop-light-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G024"
+  },
+  {
+   "frame": "locus-desktop-light-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G025"
+  },
+  {
+   "frame": "locus-desktop-light-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G026"
+  },
+  {
+   "frame": "locus-desktop-light-0__clipped-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G027"
+  },
+  {
+   "frame": "locus-desktop-light-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G028"
+  },
+  {
+   "frame": "locus-desktop-light-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G029"
+  },
+  {
+   "frame": "locus-desktop-light-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G030"
+  },
+  {
+   "frame": "locus-desktop-light-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G031"
+  },
+  {
+   "frame": "locus-desktop-light-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G032"
+  },
+  {
+   "frame": "locus-desktop-light-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G033"
+  },
+  {
+   "frame": "locus-desktop-light-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G034"
+  },
+  {
+   "frame": "locus-desktop-light-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G035"
+  },
+  {
+   "frame": "locus-desktop-light-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G036"
+  },
+  {
+   "frame": "locus-mobile-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G037"
+  },
+  {
+   "frame": "locus-mobile-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G038"
+  },
+  {
+   "frame": "locus-mobile-dark-0__faint-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G039"
+  },
+  {
+   "frame": "locus-mobile-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G040"
+  },
+  {
+   "frame": "locus-mobile-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G041"
+  },
+  {
+   "frame": "locus-mobile-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G042"
+  },
+  {
+   "frame": "locus-mobile-dark-0__clipped-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G043"
+  },
+  {
+   "frame": "locus-mobile-dark-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G044"
+  },
+  {
+   "frame": "locus-mobile-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G045"
+  },
+  {
+   "frame": "locus-mobile-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G046"
+  },
+  {
+   "frame": "locus-mobile-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G047"
+  },
+  {
+   "frame": "locus-mobile-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G048"
+  },
+  {
+   "frame": "locus-mobile-dark-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G049"
+  },
+  {
+   "frame": "locus-mobile-dark-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G050"
+  },
+  {
+   "frame": "locus-mobile-dark-1__faint-text",
+   "assert": "The heading reading \u201cAdd your provider key\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G051"
+  },
+  {
+   "frame": "locus-mobile-dark-1__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G052"
+  },
+  {
+   "frame": "locus-mobile-dark-1__covered-control",
+   "assert": "The button labelled or marked \u201cContinue\u2197\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G053"
+  },
+  {
+   "frame": "locus-mobile-dark-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G054"
+  },
+  {
+   "frame": "locus-mobile-dark-1__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G055"
+  },
+  {
+   "frame": "locus-mobile-dark-1__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G056"
+  },
+  {
+   "frame": "locus-mobile-dark-1__clipped-text",
+   "assert": "The heading reading \u201cAdd your provider key\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G057"
+  },
+  {
+   "frame": "locus-mobile-dark-1__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G058"
+  },
+  {
+   "frame": "locus-mobile-dark-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G059"
+  },
+  {
+   "frame": "locus-mobile-dark-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G060"
+  },
+  {
+   "frame": "locus-mobile-dark-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G061"
+  },
+  {
+   "frame": "locus-mobile-dark-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G062"
+  },
+  {
+   "frame": "locus-mobile-dark-1__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G063"
+  },
+  {
+   "frame": "locus-mobile-dark-1__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G064"
+  },
+  {
+   "frame": "locus-mobile-dark-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G065"
+  },
+  {
+   "frame": "locus-mobile-dark-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G066"
+  },
+  {
+   "frame": "locus-mobile-dark-1__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G067"
+  },
+  {
+   "frame": "locus-mobile-dark-1__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G068"
+  },
+  {
+   "frame": "locus-mobile-light-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G069"
+  },
+  {
+   "frame": "locus-mobile-light-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G070"
+  },
+  {
+   "frame": "locus-mobile-light-0__faint-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G071"
+  },
+  {
+   "frame": "locus-mobile-light-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G072"
+  },
+  {
+   "frame": "locus-mobile-light-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G073"
+  },
+  {
+   "frame": "locus-mobile-light-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G074"
+  },
+  {
+   "frame": "locus-mobile-light-0__clipped-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G075"
+  },
+  {
+   "frame": "locus-mobile-light-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G076"
+  },
+  {
+   "frame": "locus-mobile-light-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G077"
+  },
+  {
+   "frame": "locus-mobile-light-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G078"
+  },
+  {
+   "frame": "locus-mobile-light-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G079"
+  },
+  {
+   "frame": "locus-mobile-light-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G080"
+  },
+  {
+   "frame": "locus-mobile-light-1",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G081"
+  },
+  {
+   "frame": "locus-mobile-light-1",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G082"
+  },
+  {
+   "frame": "locus-mobile-light-1__faint-text",
+   "assert": "The heading reading \u201cAdd your provider key\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G083"
+  },
+  {
+   "frame": "locus-mobile-light-1__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G084"
+  },
+  {
+   "frame": "locus-mobile-light-1__covered-control",
+   "assert": "The button labelled or marked \u201cContinue\u2197\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G085"
+  },
+  {
+   "frame": "locus-mobile-light-1__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G086"
+  },
+  {
+   "frame": "locus-mobile-light-1__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G087"
+  },
+  {
+   "frame": "locus-mobile-light-1__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G088"
+  },
+  {
+   "frame": "locus-mobile-light-1__clipped-text",
+   "assert": "The heading reading \u201cAdd your provider key\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G089"
+  },
+  {
+   "frame": "locus-mobile-light-1__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G090"
+  },
+  {
+   "frame": "locus-mobile-light-1__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G091"
+  },
+  {
+   "frame": "locus-mobile-light-1__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G092"
+  },
+  {
+   "frame": "locus-mobile-light-1__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G093"
+  },
+  {
+   "frame": "locus-mobile-light-1__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G094"
+  },
+  {
+   "frame": "locus-mobile-light-1__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G095"
+  },
+  {
+   "frame": "locus-mobile-light-1__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G096"
+  },
+  {
+   "frame": "locus-mobile-light-1__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G097"
+  },
+  {
+   "frame": "locus-mobile-light-1__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G098"
+  },
+  {
+   "frame": "locus-mobile-light-1__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G099"
+  },
+  {
+   "frame": "locus-mobile-light-1__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G100"
+  },
+  {
+   "frame": "locus-tablet-dark-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G101"
+  },
+  {
+   "frame": "locus-tablet-dark-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G102"
+  },
+  {
+   "frame": "locus-tablet-dark-0__faint-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G103"
+  },
+  {
+   "frame": "locus-tablet-dark-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G104"
+  },
+  {
+   "frame": "locus-tablet-dark-0__covered-control",
+   "assert": "The button labelled or marked \u201cContinue\u2197\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G105"
+  },
+  {
+   "frame": "locus-tablet-dark-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G106"
+  },
+  {
+   "frame": "locus-tablet-dark-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G107"
+  },
+  {
+   "frame": "locus-tablet-dark-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G108"
+  },
+  {
+   "frame": "locus-tablet-dark-0__clipped-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G109"
+  },
+  {
+   "frame": "locus-tablet-dark-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G110"
+  },
+  {
+   "frame": "locus-tablet-dark-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G111"
+  },
+  {
+   "frame": "locus-tablet-dark-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G112"
+  },
+  {
+   "frame": "locus-tablet-dark-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G113"
+  },
+  {
+   "frame": "locus-tablet-dark-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G114"
+  },
+  {
+   "frame": "locus-tablet-dark-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G115"
+  },
+  {
+   "frame": "locus-tablet-dark-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G116"
+  },
+  {
+   "frame": "locus-tablet-dark-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G117"
+  },
+  {
+   "frame": "locus-tablet-dark-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G118"
+  },
+  {
+   "frame": "locus-tablet-dark-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G119"
+  },
+  {
+   "frame": "locus-tablet-dark-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G120"
+  },
+  {
+   "frame": "locus-tablet-light-0",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G121"
+  },
+  {
+   "frame": "locus-tablet-light-0",
+   "assert": "This screen is completely blank with nothing rendered on it.",
+   "answer": false,
+   "needs_defect_sight": false,
+   "defect": null,
+   "id": "G122"
+  },
+  {
+   "frame": "locus-tablet-light-0__faint-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is clearly legible against the background.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "faint-text",
+   "qa_layer": "3 \u00b7 contrast",
+   "role": "headline",
+   "id": "G123"
+  },
+  {
+   "frame": "locus-tablet-light-0__faint-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "faint-text",
+   "control_for": "faint-text",
+   "id": "G124"
+  },
+  {
+   "frame": "locus-tablet-light-0__covered-control",
+   "assert": "The button labelled or marked \u201cContinue\u2197\u201d is visible and not covered by anything.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "covered-control",
+   "qa_layer": "3 \u00b7 nothing covered",
+   "role": "primary-control",
+   "id": "G125"
+  },
+  {
+   "frame": "locus-tablet-light-0__covered-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "covered-control",
+   "control_for": "covered-control",
+   "id": "G126"
+  },
+  {
+   "frame": "locus-tablet-light-0__overflow-string",
+   "assert": "The heading fits inside the screen and is not cut off at the right-hand edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overflow-string",
+   "qa_layer": "2 \u00b7 the long string",
+   "role": "headline",
+   "id": "G127"
+  },
+  {
+   "frame": "locus-tablet-light-0__overflow-string",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overflow-string",
+   "control_for": "overflow-string",
+   "id": "G128"
+  },
+  {
+   "frame": "locus-tablet-light-0__clipped-text",
+   "assert": "The heading reading \u201cA team of Operatives, on your own hard\u201d is fully visible and not cut off part-way through.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "clipped-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "headline",
+   "id": "G129"
+  },
+  {
+   "frame": "locus-tablet-light-0__clipped-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "clipped-text",
+   "control_for": "clipped-text",
+   "id": "G130"
+  },
+  {
+   "frame": "locus-tablet-light-0__invisible-control",
+   "assert": "The main button on this screen is visible.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "invisible-control",
+   "qa_layer": "3 \u00b7 controls",
+   "role": "primary-control",
+   "id": "G131"
+  },
+  {
+   "frame": "locus-tablet-light-0__invisible-control",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "invisible-control",
+   "control_for": "invisible-control",
+   "id": "G132"
+  },
+  {
+   "frame": "locus-tablet-light-0__tiny-target",
+   "assert": "The main button on this screen is a normal, comfortably clickable size.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "tiny-target",
+   "qa_layer": "3 \u00b7 touch minimum",
+   "role": "primary-control",
+   "id": "G133"
+  },
+  {
+   "frame": "locus-tablet-light-0__tiny-target",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "tiny-target",
+   "control_for": "tiny-target",
+   "id": "G134"
+  },
+  {
+   "frame": "locus-tablet-light-0__overlapping-text",
+   "assert": "The heading and the text beneath it are clearly separated and do not overlap.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "overlapping-text",
+   "qa_layer": "3 \u00b7 spacing and layout",
+   "role": "subhead",
+   "id": "G135"
+  },
+  {
+   "frame": "locus-tablet-light-0__overlapping-text",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "overlapping-text",
+   "control_for": "overlapping-text",
+   "id": "G136"
+  },
+  {
+   "frame": "locus-tablet-light-0__offscreen-input",
+   "assert": "The text box on this screen sits fully inside the page and is not cut off at the right edge.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "offscreen-input",
+   "qa_layer": "2 \u00b7 state coverage",
+   "role": "text-input",
+   "id": "G137"
+  },
+  {
+   "frame": "locus-tablet-light-0__offscreen-input",
+   "assert": "There is a text box on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "offscreen-input",
+   "control_for": "offscreen-input",
+   "id": "G138"
+  },
+  {
+   "frame": "locus-tablet-light-0__dark-band",
+   "assert": "The small text at the very bottom of the page is clearly legible against what is behind it.",
+   "answer": false,
+   "needs_defect_sight": true,
+   "defect": "dark-band",
+   "qa_layer": "1 \u00b7 gradient to transparent",
+   "role": "footer-text",
+   "id": "G139"
+  },
+  {
+   "frame": "locus-tablet-light-0__dark-band",
+   "assert": "There is text visible on this screen.",
+   "answer": true,
+   "needs_defect_sight": false,
+   "defect": "dark-band",
+   "control_for": "dark-band",
+   "id": "G140"
+  }
+ ]
+}

@@ -35,8 +35,22 @@ window.SR_FIND = function (role) {
 
   switch (role) {
     case 'headline': {
-      // the largest piece of real text on screen, whatever tag it uses
-      const c = all('h1,h2,h3,p,div,span,a,button')
+      // **Semantics first, size only as a fallback.** The size rule alone —
+      // "1.6x body or it is not a heading" — is a rule about how loud a
+      // product's type scale is, not about whether the page has a heading.
+      // Measured 2026-08-23 on Handrail's onboarding screen: a real <h1> at
+      // 19px against 12.5px body is 1.52x, so the page was reported as having
+      // no headline at all and four defect classes had nothing to break. A
+      // restrained type scale is a design choice, not an absent heading.
+      //
+      // So an actual heading element wins outright when the page has one, and
+      // the size heuristic is kept for the div-soup pages it was written for.
+      const heads = all('h1,h2,h3,h4').filter(e => txt(e).length > 2);
+      if (heads.length) {
+        const rank = (e) => ({ H1: 0, H2: 1, H3: 2, H4: 3 })[e.tagName];
+        return [heads.sort((a, b) => rank(a) - rank(b) || size(b) - size(a))[0]];
+      }
+      const c = all('p,div,span,a,button')
         .filter(e => txt(e).length > 12 && txt(e).length < 200 && e.children.length === 0);
       const top = c.sort((a, b) => size(b) - size(a))[0];
       // no headline is a legitimate answer — a page can simply not have one,
@@ -76,7 +90,16 @@ window.SR_FIND = function (role) {
       return c.sort((a, b) => area(b) - area(a)).slice(0, 1);
     }
     case 'text-input':
-      return all('input[type=text],input:not([type]),textarea,[contenteditable=true]')
+      // **A text box is a text box.** Listing only `type=text` meant every
+      // password, email, search, url, telephone and number field on the web
+      // was invisible to this — which is to say every sign-in screen. Measured
+      // 2026-08-23: Locus's key screen is built around one `type=password`
+      // input and reported `text-input: 0`. Types that are NOT a box a person
+      // types into — checkbox, radio, submit, file, range, colour — stay out.
+      return all('input[type=text],input[type=password],input[type=email],'
+                 + 'input[type=search],input[type=url],input[type=tel],'
+                 + 'input[type=number],input:not([type]),textarea,'
+                 + '[contenteditable=true]')
         .sort((a, b) => area(b) - area(a)).slice(0, 1);
     case 'image':
       return all('img,canvas,svg,video').sort((a, b) => area(b) - area(a))

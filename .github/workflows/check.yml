@@ -54,7 +54,6 @@ jobs:
           for m in superrouter/*.py; do
             n=$(basename "$m" .py)
             [ "$n" = "__init__" ] && continue
-            [ "$n" = "trained_eval" ] && continue   # needs torch, optional by design
             python -c "import superrouter.$n" || exit 1
           done
           echo "all modules import on a machine with nothing installed"

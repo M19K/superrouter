@@ -75,7 +75,7 @@ vLLM, not Anthropic's own API.
 per-model record carrying `provider`, `base_url`, `api_key`, `input_price`,
 `output_price`, `max_tokens` and `context_limit`, read from a YAML file, with
 `pool.py` able to take prices from that file instead of a catalogue.
-`ulab-uiuc/LLMRouter`'s `serve/config.py` already models exactly this and is
+A declarative per-provider config models exactly this and is
 Apache-compatible MIT — **adopt its shape rather than inventing another.**
 
 That was the largest gap in the project and it is closed. What remains
@@ -152,7 +152,7 @@ exists on one machine answers the question wrongly everywhere else.
 | Claim | Checked how |
 |---|---|
 | runs from a clean clone with no data | run cold 2026-08-23; four defects found and fixed |
-| the cost-aware label generalises | LLMRouter's own xRouteBench — 3.6× cheaper at identical quality across ten splits |
+| the cost-aware label generalises | an external public routing benchmark — 3.6× cheaper at identical quality across ten splits |
 | the verifier beats chance | held against random at its own escalation rate, asserted in the audit |
 | every published number matches its source | `superrouter.audit --strict` re-derives them |
 | it helps on real work | the Mikoshi synthesis layer, graded by that project's eval, not ours |
