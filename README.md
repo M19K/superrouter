@@ -146,7 +146,7 @@ model scores near 100% on a set like that and the number means nothing.
 checked on every push.**
 
 ```bash
-python3 -m unittest discover tests    # 33 tests, no dependencies
+python3 -m unittest discover tests    # 43 tests, no dependencies
 python3 -m superrouter.audit --strict
 ```
 
