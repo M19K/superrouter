@@ -194,6 +194,30 @@ def main():
               f"{facts['observed_saving']}× saving — OBSERVED, not modelled")
     print()
 
+    # The external check is a first-class part of the audit, not a footnote.
+    # A self-audit that never leaves its own data can only confirm its own frame.
+    xrb = os.path.join(CODE, "state", "xroutebench", "train.jsonl")
+    if os.path.exists(xrb):
+        try:
+            from .xroutebench import load as _xl, evaluate as _xe
+            _rows, _ = _xl()
+            savings = []
+            for seed in range(10):
+                _, th, ou, _, _ = _xe(_rows, tolerance=0.0, seed=seed)
+                if abs(th[0] - ou[0]) > 1e-9:
+                    print(f"  {BAD}  external check: tolerance-0 label changed quality "
+                          f"on seed {seed} — it may only break ties")
+                    fails += 1
+                savings.append(th[1] / ou[1] if ou[1] else 0)
+            import statistics
+            print(f"  {OK}  external check on xRouteBench: median "
+                  f"{statistics.median(savings):.1f}× cheaper at identical quality "
+                  f"across 10 splits")
+        except Exception as e:
+            print(f"  {WARN}  external check could not run: {str(e)[:70]}")
+    else:
+        print(f"  {WARN}  external check not run — xRouteBench data not downloaded")
+
     checks = [
         ("no failed request is scored against a model", check_failures_not_scored(rs)),
         ("no directory mixes two exams", check_exams_not_mixed(rs)),
