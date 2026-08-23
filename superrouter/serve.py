@@ -494,8 +494,15 @@ class Handler(BaseHTTPRequestHandler):
             if due:
                 rec.update(self._shadow(body, task, routed, answer))
                 headers["X-SuperRouter-Shadow"] = str(rec.get("agreed"))
-        if routed and routed != entry["model"]:
-            headers["X-SuperRouter-Fellback-From"] = entry["model"]
+            # **Every routed call is written, not only the ones that fell back.**
+            # This line lived inside the fallback branch, so the log recorded
+            # failures and nothing else — and the dashboard, the shadow report
+            # and every cost figure read that log. It did not error; it went
+            # quiet, which is the worse failure and the one this project keeps
+            # meeting. Fallback is a header on the response, not a condition on
+            # whether the call is recorded at all.
+            if routed != entry["model"]:
+                headers["X-SuperRouter-Fellback-From"] = entry["model"]
             with self.lock:
                 with open(LOG, "a") as f:
                     f.write(json.dumps(rec) + "\n")
