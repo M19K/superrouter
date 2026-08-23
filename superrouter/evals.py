@@ -540,6 +540,16 @@ def summarise(model, results, errors):
     }
 
 
+def frames_missing(task, cases):
+    """How many of this exam's frames are absent. 0 for a text task."""
+    if not TASKS[task]["image"]:
+        return 0
+    base = SET_DIR.get("v") or TASKS[task]["golden"]
+    fdir = os.path.join(base, "frames")
+    return sum(1 for f in {c["frame"] for c in cases if "frame" in c}
+               if not os.path.exists(os.path.join(fdir, f"{f}.png")))
+
+
 def dry_run(cases):
     """What a scored run would cost, before spending anything. An estimate and
     labelled as one — the token count for an image is the model's business, not
@@ -661,6 +671,32 @@ def main():
     true_n = sum(1 for c in cases if c["answer"])
     print(f"golden set · {len(cases)} cases · {true_n} true / {len(cases) - true_n} false "
           f"· constant-answer baseline {round(100 * max(true_n, len(cases) - true_n) / len(cases))}%\n")
+
+    # **The exam ships; its screenshots deliberately do not.** Frames are one
+    # person's product, they are large, and the levels do not transfer between
+    # products anyway — so a user builds their own. That is the right call and
+    # it made the very first command in the README crash with a bare
+    # FileNotFoundError traceback, because `dry_run` opens each PNG to read its
+    # dimensions. Found 2026-08-23 by cloning the published repo and running
+    # the documented getting-started line as a stranger would.
+    #
+    # This is the cold-start class exactly as this project already named it: a
+    # path only a new user takes, and therefore the one nobody here walks.
+    missing = frames_missing(a.task, cases)
+    if missing:
+        raise SystemExit(
+            f"this exam's {missing} frame(s) are not in the repository, so it "
+            f"cannot be scored.\n\n"
+            f"  The screenshots are one product's and are deliberately not "
+            f"committed —\n"
+            f"  a model's score on somebody else's screens does not transfer to "
+            f"yours.\n\n"
+            f"  Build your own against your own product, in about ten minutes:\n"
+            f"    python3 golden/qa-vision/build_generic.py --origin "
+            f"https://your.site --name yours\n"
+            f"    python3 -m superrouter.evals --set yours --dry-run\n\n"
+            f"  The manifests that ship are the author's, kept so the audit can "
+            f"re-derive\n  every published number from the records.")
 
     runs_dir = TASKS[a.task]["runs"]
     if a.dry_run or not a.model:

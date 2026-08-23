@@ -336,6 +336,26 @@ class PerQueryRoutingIsOurOwn(unittest.TestCase):
                          "cheaper at a stated accuracy cost is a real trade, not domination")
 
 
+class ColdStartIsAPathNobodyHereWalks(unittest.TestCase):
+    """The first command a new user runs must not be a traceback.
+
+    The exams ship; their screenshots deliberately do not, because one person's
+    product proves nothing about yours. That combination made the README's own
+    getting-started line crash with a bare FileNotFoundError — found by cloning
+    the published repo and running it as a stranger."""
+
+    def test_missing_frames_are_counted_not_opened(self):
+        from superrouter.evals import frames_missing
+        cases = [{"frame": "definitely-not-a-real-frame", "answer": True}]
+        # Must return a count rather than raising — the caller turns it into
+        # an instruction, and an exception here is the bug being guarded.
+        self.assertEqual(frames_missing("qa-vision-assert", cases), 1)
+
+    def test_a_text_task_has_no_frames_to_miss(self):
+        from superrouter.evals import frames_missing
+        self.assertEqual(frames_missing("text-faithful", [{"assert": "x"}]), 0)
+
+
 class DeferralCurveMaths(unittest.TestCase):
     """The oracle is the ceiling and random is the line to beat. If those two
     are wrong, every claim about routing judgement is measured against nothing."""
