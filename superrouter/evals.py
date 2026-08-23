@@ -121,6 +121,17 @@ def reasoning_is_forced(model):
 
 
 def endpoint_for(model):
+    """Where this model lives. Consults providers.json first — which is how
+    Azure, Bedrock, vLLM or anything OpenAI-compatible becomes reachable —
+    and falls through to the two built-ins so nothing already running changes."""
+    from . import providers
+    r = providers.resolve(model)
+    if r["provider"] != "openrouter":
+        return r["url"], r["key"] or "not-needed", r["wire"]
+    return _openrouter_endpoint(model)
+
+
+def _openrouter_endpoint(model):
     """Returns (url, api_key_override, wire_name). Local models bill nothing and
     Ollama ignores the key's value but requires the header to exist."""
     if model.startswith("local/"):

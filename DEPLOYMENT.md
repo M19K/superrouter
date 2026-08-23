@@ -33,7 +33,30 @@ That refusal is deliberate and it is not a failure to route around.
 
 ### Story 2 · "I use Azure OpenAI / Bedrock / Anthropic direct / a self-hosted vLLM"
 
-**This does not work today, and it is the single largest gap in the project.**
+**This works as of 2026-08-23.** Write `providers.json`:
+
+```json
+{
+  "providers": {
+    "azure": {"base_url": "https://you.openai.azure.com/openai/v1",
+              "api_key_env": ["AZURE_OPENAI_KEY", "AZURE_OPENAI_KEY_2"]}
+  },
+  "models": {
+    "azure/gpt-4o": {"provider": "azure", "model_id": "your-deployment",
+                     "in_per_m": 2.5, "out_per_m": 10.0,
+                     "max_tokens": 16384, "context": 128000}
+  }
+}
+```
+
+`python3 -m superrouter.providers --check` says what is reachable and which keys
+are set. Several keys per provider rotate round-robin.
+
+**Prices are declared, not discovered.** Only OpenRouter publishes a catalogue
+we can read, so a model you add carries its own prices — and one added without
+them is reported as *unpriced*, never as free.
+
+**What was true before this:**
 
 Three files reach OpenRouter by name:
 
@@ -55,8 +78,9 @@ per-model record carrying `provider`, `base_url`, `api_key`, `input_price`,
 `ulab-uiuc/LLMRouter`'s `serve/config.py` already models exactly this and is
 Apache-compatible MIT — **adopt its shape rather than inventing another.**
 
-Until then: if you are not on OpenRouter, this project can measure nothing for
-you.
+That was the largest gap in the project and it is closed. What remains
+OpenRouter-only is the *catalogue*: `pool.py` and `stale.py` discover models and
+price drift from it, so on another provider you maintain that list yourself.
 
 ### Story 3 · "I want to point Claude Code at it"
 

@@ -16,7 +16,15 @@ import json
 import os
 import pickle
 
-import torch
+try:
+    import torch
+except ImportError:                      # pragma: no cover
+    raise SystemExit(
+        "This module reads a model LLMRouter trained, which is stored as a\n"
+        "PyTorch tensor — so it needs `pip install llmrouter-lib`, and that\n"
+        "pulls in torch.\n\n"
+        "Nothing else in SuperRouter needs it. The router, the measurement,\n"
+        "the cascade and the dashboard are standard library only.")
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CORPUS = os.path.join(CODE, "state", "llmrouter_corpus")

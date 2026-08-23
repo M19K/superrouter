@@ -65,12 +65,13 @@ flowchart TB
 
 | Layer | What | Why |
 |---|---|---|
-| Language | Python 3.14, standard library only | no dependency to install before the first run; `urllib` and `http.server` are enough for a proxy |
+| Language | **Python 3.9+**, standard library only | verified importing and running on 3.9.6 as well as 3.14 — `urllib` and `http.server` are enough for a proxy, so there is nothing to install before the first run |
 | Model pool | OpenRouter API, 409 models indexed 2026-08-18 | one key reaches every provider, and it returns the real cost per call rather than an estimate |
 | Local models | Ollama, OpenAI-compatible endpoint | the vault's QA lane runs `qwen2.5vl:7b` locally; a model that is not hosted is still a model worth routing to |
 | Browser control | `agent-browser` 0.27.0 | drives capture and reads element rectangles out of the live DOM |
 | Protocols served | OpenAI `/v1/chat/completions`, Anthropic `/v1/messages` | agents speak one or the other; translation happens at the edge and the router underneath sees neither |
 | Routing algorithms | [`ulab-uiuc/LLMRouter`](https://github.com/ulab-uiuc/LLMRouter) 0.4.0 (MIT) | 16 trained algorithms, better than we would write; we supply the labels, not the engine. No code vendored |
+| Providers | any OpenAI-compatible endpoint via `providers.json` | OpenRouter and Ollama are built in; Azure, Bedrock, vLLM, Together and the rest are three lines of JSON. Shape follows LLMRouter's `serve/config.py` |
 | Storage | JSON files under `state/` | every run is a readable record, so results are reproducible from the repo rather than asserted by it |
 
 ## The dashboard

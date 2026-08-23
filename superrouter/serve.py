@@ -376,6 +376,18 @@ class Handler(BaseHTTPRequestHandler):
                  "owned_by": "superrouter", "routes_to": v["model"]}
                 for t, v in self.table.items()
             ] + [{"id": "superrouter/auto", "object": "model", "owned_by": "superrouter"}]})
+        elif self.path.rstrip("/") in ("/health", "/healthz"):
+            # Deliberately cheap and side-effect free: it answers "is this
+            # process able to route" and calls no model to find out. A health
+            # check that spends money is a health check nobody runs often.
+            ok = bool(self.table)
+            self._send(200 if ok else 503, {
+                "status": "ok" if ok else "no routing table",
+                "tasks": sorted(self.table),
+                "cascade": self.cascade_level or None,
+                "shadow_every": self.shadow_every or None,
+                "log": os.path.basename(LOG),
+            })
         elif self.path.rstrip("/") == "/table":
             self._send(200, self.table)
         elif self.path.rstrip("/") in ("", "/index.html", "/dashboard"):
@@ -401,6 +413,7 @@ class Handler(BaseHTTPRequestHandler):
         # sampling and the cost accounting below never learn which one the
         # caller spoke. A second copy of the routing logic for a second protocol
         # is how the two quietly diverge.
+        self.notes = []
         path = self.path.rstrip("/")
         self.anthropic = path.endswith("/messages")
         if not self.anthropic and not path.endswith("/chat/completions"):
@@ -437,6 +450,25 @@ class Handler(BaseHTTPRequestHandler):
         # reference. Only retryable failures advance it — see RETRYABLE_STATUS.
         streaming = bool(body.get("stream"))
         chain = (entry["chain"] if routed else [body["model"]])
+
+        # Two checks that cost nothing and prevent a request that was always
+        # going to fail — after its latency had been spent at the provider.
+        if routed and chain:
+            from . import providers
+            asked_max = body.get("max_tokens")
+            capped, note = providers.clamp(chain[0], asked_max)
+            if note:
+                body["max_tokens"] = capped
+                self.notes.append(note)
+            chars = len(json.dumps(body.get("messages") or []))
+            ok, why = providers.fits(chain[0], chars)
+            if not ok:
+                self._send(413, {
+                    "error": f"prompt does not fit {chain[0]}: {why}",
+                    "hint": "route this task to a model with a larger window, "
+                            "or shorten the prompt. Estimated at four characters "
+                            "per token, which is a rule of thumb."})
+                return
         try_from = chain.index(routed) if routed and routed in chain else 0
         attempts, raw, used = [], None, None
         t0 = time.time()
@@ -541,6 +573,10 @@ class Handler(BaseHTTPRequestHandler):
                     except TRANSPORT_FAULTS:
                         pass          # keep the cheap answer rather than fail
 
+            if self.notes:
+                # Say what was changed. A limit silently adjusted is a limit the
+                # caller still believes it set.
+                rec_notes = "; ".join(self.notes)
             headers = {"X-SuperRouter-Task": task,
                        "X-SuperRouter-Model": routed,
                        "X-SuperRouter-Reference": entry["reference"]}
@@ -550,6 +586,7 @@ class Handler(BaseHTTPRequestHandler):
                    "fell_back": routed != entry["model"],
                    "escalated_to": escalated,
                    "cascade_level": self.cascade_level or None,
+                   "adjustments": self.notes or None,
                    "attempts": attempts,
                    "inferred": asked.endswith("/auto"),
                    "cost_usd": cost, "seconds": round(took, 2),
