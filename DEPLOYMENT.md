@@ -81,11 +81,11 @@ caching for its economics, this will quietly cost you money rather than save it.
 | **An OpenRouter account** | scoring, the pool index, staleness | see Story 2 |
 | **`~/Documents/Mikoshi`** | *nothing any more* | was hardcoded in two places; both fixed 2026-08-23 |
 
-**Two of those were shipped broken and found only by running from a clean
-clone**, not by review: `stability.py` resolved its run directory against the
-author's home directory, and `golden/text-faithful/build.py` still defaults
-`--vault` to a path that exists on one machine. The second is unfixed and is
-listed under *Known gaps*.
+**Both were shipped broken and found only by running from a clean clone**, not
+by review: `stability.py` resolved its run directory against the author's home
+directory, and `golden/text-faithful/build.py` defaulted `--vault` to it. Both
+are fixed — the second by making the argument required, because a default that
+exists on one machine answers the question wrongly everywhere else.
 
 ---
 
