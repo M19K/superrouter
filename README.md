@@ -169,7 +169,10 @@ Measured, with dates:
 - **Prompt caching and extended thinking are accepted and dropped** by the Anthropic translation layer — a caller asking for either gets a correct answer at an uncached price.
 - **The pool index is dated.** `python3 -m superrouter.stale` reports what has moved; on 2026-08-21, three days after indexing, 12 models had appeared and 8 already-measured models had changed price, one by 2.4x.
 
-**Licence: not yet chosen.** Intended for release under MIT or Apache-2.0 once a real workload has run; all rights reserved until then. No LLMRouter code is vendored, so nothing constrains the choice.
+**Licence: Apache-2.0.** [@maaz · 2026-08-23] Chosen over MIT for the same
+reason Locus was: an explicit patent grant, which businesses adopting
+infrastructure ask for, and room for a paid layer later without relicensing.
+LLMRouter is MIT and compatible; none of its code is vendored here in any case.
 
 ---
 
