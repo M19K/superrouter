@@ -73,6 +73,24 @@ flowchart TB
 | Routing algorithms | [`ulab-uiuc/LLMRouter`](https://github.com/ulab-uiuc/LLMRouter) 0.4.0 (MIT) | 16 trained algorithms, better than we would write; we supply the labels, not the engine. No code vendored |
 | Storage | JSON files under `state/` | every run is a readable record, so results are reproducible from the repo rather than asserted by it |
 
+## The dashboard
+
+`python3 -m superrouter.serve` puts it at `/`; `python3 -m superrouter.report`
+writes the same page as a static file you can commit to a pull request. Static
+HTML, no dependencies, no telemetry, no network calls when it renders.
+
+![The SuperRouter dashboard](state/dashboard.png)
+
+**It never shows a saving without the quality it was bought at.** A dashboard
+headlining a dollar figure turns this into a cost tool, and anyone can route to
+the cheapest model — the argument is that the saving was justified. So every
+figure is a pair, every rate carries its denominator and its 95% interval, and
+the agreement number carries the caveat that it measures drift rather than
+quality.
+
+Thin traffic is called thin in place, rather than rendered as a confident
+headline over a handful of requests.
+
 ## Key points
 
 - **The exam builder only knows how to photograph websites today** — a desktop app or an API needs its own capture and its own list of ways it can break; the scoring, statistics and serving are already general.

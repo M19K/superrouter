@@ -345,6 +345,20 @@ class Handler(BaseHTTPRequestHandler):
             ] + [{"id": "superrouter/auto", "object": "model", "owned_by": "superrouter"}]})
         elif self.path.rstrip("/") == "/table":
             self._send(200, self.table)
+        elif self.path.rstrip("/") in ("", "/index.html", "/dashboard"):
+            # The dashboard, rendered by the same function that writes the
+            # static file — one page rather than two that drift apart.
+            try:
+                from .report import render
+                body = render().encode()
+            except Exception as e:
+                self._send(500, {"error": f"dashboard failed to render: {e}"})
+                return
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
         else:
             self._send(404, {"error": "not found"})
 

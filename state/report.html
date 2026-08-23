@@ -1,0 +1,157 @@
+<title>SuperRouter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F5F5; --panel:#FFFFFF; --sunk:#E7EDED;
+  --ink:#132630; --ink-2:#41585F; --ink-3:#6E858B;
+  --rule:#D6E0E0; --rule-2:#BECBCB;
+  --brand:#1E3A46; --accent:#00A88F; --accent-soft:#DDF2EE;
+  --warn:#B4571E; --warn-soft:#FBEDE2;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#080C0E; --panel:#0F1719; --sunk:#0C1315;
+    --ink:#DFE9EA; --ink-2:#9DB1B4; --ink-3:#6B8085;
+    --rule:#1B2528; --rule-2:#2A383B;
+    --brand:#CFE0E2; --accent:#2FE3C4; --accent-soft:#102C2A;
+    --warn:#E0904F; --warn-soft:#2A1E14;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#080C0E; --panel:#0F1719; --sunk:#0C1315;
+  --ink:#DFE9EA; --ink-2:#9DB1B4; --ink-3:#6B8085;
+  --rule:#1B2528; --rule-2:#2A383B;
+  --brand:#CFE0E2; --accent:#2FE3C4; --accent-soft:#102C2A;
+  --warn:#E0904F; --warn-soft:#2A1E14;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 72px}
+a{color:var(--accent)}
+
+/* ── header ─────────────────────────────────────────── */
+header{display:flex;align-items:center;gap:14px;padding-bottom:16px;
+  border-bottom:1px solid var(--rule-2);margin-bottom:8px;flex-wrap:wrap}
+header svg{width:46px;height:46px;flex:none;color:var(--brand)}
+.title{font-family:"Chakra Petch",system-ui,sans-serif;font-size:26px;
+  font-weight:600;letter-spacing:-.01em;line-height:1}
+.title .muted{color:var(--ink-3)}
+.stamp{margin-left:auto;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;color:var(--ink-3);letter-spacing:.04em;text-align:right}
+
+h2{font-family:"Chakra Petch",system-ui,sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink);
+  margin:32px 0 3px}
+.sub{margin:0 0 12px;font-size:12.5px;color:var(--ink-3);max-width:74ch}
+
+/* ── the pair: never one without the other ──────────── */
+.pair{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule-2);
+  background:var(--panel)}
+.pair>div{padding:20px 22px}
+.pair>div+div{border-left:1px solid var(--rule-2)}
+.k{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.v{font-family:"Chakra Petch",system-ui,sans-serif;font-size:40px;font-weight:700;
+  line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.v.on{color:var(--accent)}
+.vsub{margin-top:7px;font-size:12.5px;color:var(--ink-2)}
+.joiner{grid-column:1/-1;border-top:1px solid var(--rule);padding:11px 22px;
+  font-size:12.5px;color:var(--ink-2);background:var(--sunk)}
+
+/* ── tables ─────────────────────────────────────────── */
+.scroll{overflow-x:auto;border:1px solid var(--rule);background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule-2);
+  white-space:nowrap;font-weight:500}
+td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+td.model{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px}
+.ci{color:var(--ink-3);font-size:11px}
+.win{color:var(--accent);font-weight:500}
+
+/* ── bar: quality held, drawn as a ratio not a score ── */
+.bar{position:relative;height:6px;background:var(--sunk);border-radius:3px;
+  overflow:hidden;min-width:70px;margin-top:5px}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:3px}
+.bar.ref i{background:var(--ink-3)}
+
+/* ── notes ──────────────────────────────────────────── */
+.note{border:1px solid var(--rule);border-left:3px solid var(--warn);
+  background:var(--warn-soft);padding:13px 16px;margin-top:12px;font-size:13px;
+  color:var(--ink-2)}
+.note b{color:var(--ink);font-weight:600}
+.thin{border-left-color:var(--ink-3);background:var(--sunk)}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;
+  color:var(--ink-3);line-height:1.8}
+@media (max-width:640px){
+  .pair{grid-template-columns:1fr}
+  .pair>div+div{border-left:0;border-top:1px solid var(--rule-2)}
+  .v{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<div class="wrap">
+<header><svg viewBox="0 0 64 64" aria-hidden="true">
+  <title>SuperRouter</title>
+  <path d="M32 11 L52 45.5 H12 Z" fill="currentColor"/>
+  <path d="M2 32 H19.8" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M44 32 L62 18" fill="none" stroke="currentColor" stroke-width="3.2"
+        stroke-linecap="round" opacity="0.4"/>
+  <path d="M44 32 L62 46" fill="none" stroke="currentColor" stroke-width="3.2"
+        stroke-linecap="round" opacity="0.4"/>
+  <path d="M30 32 H62" fill="none" stroke="var(--accent)" stroke-width="5.4" stroke-linecap="round"/>
+</svg>
+<div><div class="title"><span class="muted">Super</span>Router</div></div>
+<div class="stamp">2026-08-21 → 2026-08-22<br>69 routed calls</div>
+</header>
+<h2>What it cost, and what it cost you</h2>
+<p class="sub">These two are one figure. A saving without the quality it was bought at is the number any router can show you.</p>
+<div class="pair">
+<div><div class="k">Spent on routed calls</div><div class="v on">$0.0088</div><div class="vsub">against <b>$0.0720</b> if every call had gone to the reference model — <b>8× cheaper</b></div></div>
+<div><div class="k">Agreed with the reference</div><div class="v">100%</div><div class="vsub">50 of 50 sampled calls, <span class="ci">95% interval 93–100</span></div></div>
+<div class="joiner">Proving it cost <b>$0.0531</b> on top, at the sampling rate you ran. That is the price of the check and it is kept out of the saving above — rolled in, a fully-sampled run reports no saving at all and the router looks worthless.</div>
+</div>
+<div class="note"><b>Agreement is not quality.</b> It measures drift from the reference and nothing else, and it goes blind exactly where two models share a blind spot. Measured on 60 live calls: 100% agreement against 75% correctness — they agreed and were both wrong on 24% of traffic. Use this to decide <b>when</b> to re-run the exam, never as evidence you need not.</div>
+<h2>By task</h2>
+<p class="sub">Each task routes on its own measurement, because a model good at one is not thereby good at another — judging and pointing were close to unrelated abilities when measured.</p>
+<div class="scroll"><table><thead><tr><th>Task</th><th>Calls</th><th>Routed to</th><th>Spent</th><th>Reference would</th><th>Saving</th><th>Quality held at</th></tr></thead><tbody>
+<tr><td class="model">text-faithful</td><td class="n">69</td><td class="model">nova-lite-v1, claude-haiku-4.5, dots-3-note-preview:free, qwen3.7-flash</td><td class="n">$0.0088</td><td class="n">$0.0720</td><td class="n win">8×</td><td>94% of planted faults caught<div class='ci'>95% interval 86–98</div><div class='bar'><i style='width:94%'></i></div></td></tr>
+</tbody></table></div>
+<h2>When the cheap model failed</h2>
+<p class="sub">A router that cannot fall back turns one model having a bad minute into a total outage. This is how often that mattered.</p>
+<div class="scroll"><table><thead><tr><th>Outcome</th><th>Calls</th><th>Share</th></tr></thead><tbody>
+<tr><td>Served by the first choice</td><td class="n">61</td><td class="n">88%</td></tr>
+<tr><td>Fell back to a dearer model</td><td class="n">8</td><td class="n">12%</td></tr>
+<tr><td>Needed more than one attempt</td><td class="n">0</td><td class="n">0%</td></tr>
+</tbody></table></div>
+<h2>The measurements behind the table</h2>
+<p class="sub">What each candidate scored on your own product. Two numbers, never one — a model that misses faults and a model that invents them cannot be told apart by a single score.</p>
+<div class="scroll"><table><thead><tr><th>Task</th><th>Model</th><th>Catches</th><th>False alarms</th><th>Refused</th><th>$ / run</th></tr></thead><tbody>
+<tr><td class="model">qa-vision-assert</td><td class="model">google/gemma-3-12b-it</td><td class="n">98%<div class="ci">89–99</div></td><td class="n">16%<div class="ci">9–26</div></td><td class="n">1%</td><td class="n">$0.0022</td></tr>
+<tr><td class="model">qa-vision-assert</td><td class="model">anthropic/claude-haiku-4.5</td><td class="n">88%<div class="ci">78–94</div></td><td class="n">6%<div class="ci">2–14</div></td><td class="n">1%</td><td class="n">$0.1738</td></tr>
+<tr><td class="model">qa-vision-assert</td><td class="model">anthropic/claude-sonnet-5</td><td class="n">82%<div class="ci">70–89</div></td><td class="n">6%<div class="ci">2–14</div></td><td class="n">0%</td><td class="n">$0.3411</td></tr>
+<tr><td class="model">qa-vision-assert</td><td class="model">qwen/qwen3-vl-235b-a22b-instruct</td><td class="n">79%<div class="ci">65–85</div></td><td class="n">7%<div class="ci">3–16</div></td><td class="n">1%</td><td class="n">$0.0261</td></tr>
+<tr><td class="model">qa-vision-assert</td><td class="model">amazon/nova-lite-v1</td><td class="n">69%<div class="ci">56–78</div></td><td class="n">29%<div class="ci">19–40</div></td><td class="n">1%</td><td class="n">$0.0135</td></tr>
+<tr><td class="model">qa-vision-assert</td><td class="model">google/gemini-2.5-flash-lite</td><td class="n">48%<div class="ci">36–60</div></td><td class="n">9%<div class="ci">4–17</div></td><td class="n">4%</td><td class="n">$0.0260</td></tr>
+<tr><td class="model">text-faithful</td><td class="model">local/gpt-oss:20b</td><td class="n">97%<div class="ci">91–99</div></td><td class="n">0%<div class="ci">0–5</div></td><td class="n">0%</td><td class="n">$0.0000</td></tr>
+<tr><td class="model">text-faithful</td><td class="model">qwen/qwen3.7-flash</td><td class="n">94%<div class="ci">86–98</div></td><td class="n">0%<div class="ci">0–7</div></td><td class="n">0%</td><td class="n">$0.0120</td></tr>
+<tr><td class="model">text-faithful</td><td class="model">google/gemma-3-12b-it</td><td class="n">76%<div class="ci">65–84</div></td><td class="n">8%<div class="ci">3–19</div></td><td class="n">0%</td><td class="n">$0.0016</td></tr>
+<tr><td class="model">qa-vision-point</td><td class="model">amazon/nova-lite-v1</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0027</td></tr>
+<tr><td class="model">qa-vision-point</td><td class="model">anthropic/claude-haiku-4.5</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0435</td></tr>
+<tr><td class="model">qa-vision-point</td><td class="model">anthropic/claude-sonnet-5</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0807</td></tr>
+<tr><td class="model">qa-vision-point</td><td class="model">google/gemini-2.5-flash-lite</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0063</td></tr>
+<tr><td class="model">qa-vision-point</td><td class="model">google/gemma-3-12b-it</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0006</td></tr>
+<tr><td class="model">qa-vision-point</td><td class="model">qwen/qwen3-vl-235b-a22b-instruct</td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%<div class="ci">0–0</div></td><td class="n">0%</td><td class="n">$0.0141</td></tr>
+</tbody></table></div>
+<footer>Generated 2026-08-22 18:44 from state/served.jsonl and state/*runs*/ · no network calls, no telemetry<br>Every rate carries its denominator and its 95% interval. A figure without one was not measured, it was assumed.</footer>
+</div>
