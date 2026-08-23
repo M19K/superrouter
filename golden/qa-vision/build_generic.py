@@ -148,6 +148,32 @@ def main():
     for i, c in enumerate(cases, 1):
         c["id"] = f"G{i:03d}"
     t = sum(1 for c in cases if c["answer"])
+    planted = sum(1 for c in cases if c["needs_defect_sight"])
+
+    # **An exam with no planted defects measures nothing, and it does not look
+    # broken.** Run cold against a minimal page, every one of the 18 defect
+    # classes found nothing to break, and the builder still emitted 36 balanced
+    # cases whose entire negative half was one trivial control assertion. Every
+    # model would score near 100% on it and the reader would believe the number.
+    #
+    # So it refuses, and says which classes found nothing — because the fix is
+    # a richer page or a defect class this page can carry, and neither is
+    # guessable from "0 defect-sight" printed at the end of a success message.
+    if planted < 5:
+        from collections import Counter
+        why = Counter(r[1] for r in refused).most_common(6)
+        print(f"\nREFUSING to write this exam: only {planted} planted defect(s).")
+        print(f"  {len(cases)} cases would have been written and every model would")
+        print(f"  score near 100% on them, because the negative half is a control")
+        print(f"  assertion rather than a real fault. That is a set that measures")
+        print(f"  nothing while looking balanced.\n")
+        print(f"  Defect classes that found nothing to break on this page:")
+        for cls, n in why:
+            print(f"    {cls:<28} refused {n}×")
+        print(f"\n  Point it at a page with more on it, or add a defect class this")
+        print(f"  page can carry. `states` found: {len(states)} screen(s).")
+        raise SystemExit(2)
+
     json.dump({"task_type": "qa-vision-assert", "generator": "generic (role-targeted)",
                "product": a.name, "origin": a.origin,
                "built": time.strftime("%Y-%m-%d"),

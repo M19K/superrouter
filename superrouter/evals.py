@@ -34,6 +34,7 @@ do this job.
 """
 import argparse
 import base64
+import glob
 import json
 import os
 import sys
@@ -67,6 +68,11 @@ TASKS = {
 }
 GOLDEN = TASKS["qa-vision-assert"]["golden"]
 FRAMES = os.path.join(GOLDEN, "frames")
+
+# Which exam this run is sitting, set once in main(). Frames live beside
+# their own manifest, and reading them from the default folder while the
+# cases come from a named set scores one product against another's screens.
+SET_DIR = {}
 RUNS = TASKS["qa-vision-assert"]["runs"]
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -195,9 +201,38 @@ def fingerprint(cases):
     return h.hexdigest()[:12]
 
 
-def golden(task="qa-vision-assert"):
+def resolve_set(task, name=None):
+    """Where this task's exam lives — a named set, or the default manifest.
+
+    `build_generic.py --name yours` writes to `golden/<task>/sets/<name>/`, and
+    until 2026-08-23 `evals` only ever looked at `golden/<task>/manifest.json`.
+    So the sequence printed in the README — build, then score — crashed with a
+    FileNotFoundError on any freshly built set. It was never caught because
+    every run here already had the default manifest sitting in place.
+
+    That is the whole cold-start class: a path only a new user takes.
+    """
+    base = TASKS[task]["golden"]
+    if name:
+        return os.path.join(base, "sets", name)
+    if os.path.exists(os.path.join(base, "manifest.json")):
+        return base
+    found = sorted(glob.glob(os.path.join(base, "sets", "*", "manifest.json")))
+    if len(found) == 1:
+        return os.path.dirname(found[0])
+    if found:
+        names = ", ".join(os.path.basename(os.path.dirname(f)) for f in found)
+        raise SystemExit(f"several exams exist for {task} — choose one with "
+                         f"--set:\n  {names}")
+    raise SystemExit(
+        f"no exam for {task} yet. Build one against your own product first:\n"
+        f"  python3 {base}/build_generic.py --origin https://your.site --name yours\n"
+        f"then score it with  --set yours")
+
+
+def golden(task="qa-vision-assert", set_name=None):
     """Generated manifests keep their cases under `case_list`."""
-    m = json.load(open(os.path.join(TASKS[task]["golden"], "manifest.json")))
+    m = json.load(open(os.path.join(resolve_set(task, set_name), "manifest.json")))
     m["cases"] = m.get("case_list") or m.get("cases")
     return m
 
@@ -205,7 +240,11 @@ def golden(task="qa-vision-assert"):
 def frame_b64(name, task="qa-vision-assert"):
     if not TASKS[task]["image"]:
         return None
-    with open(os.path.join(TASKS[task]["golden"], "frames", f"{name}.png"), "rb") as f:
+    # Frames live beside their own manifest. Reading them from the default
+    # folder while the cases come from a named set is how a run scores one
+    # product's questions against another product's screenshots.
+    base = SET_DIR.get("v") or TASKS[task]["golden"]
+    with open(os.path.join(base, "frames", f"{name}.png"), "rb") as f:
         return base64.b64encode(f.read()).decode()
 
 
@@ -491,7 +530,8 @@ def dry_run(cases):
     px = {}
     from struct import unpack
     for f in frames:
-        d = open(os.path.join(FRAMES, f"{f}.png"), "rb").read(33)
+        fdir = (os.path.join(SET_DIR["v"], "frames") if SET_DIR.get("v") else FRAMES)
+        d = open(os.path.join(fdir, f"{f}.png"), "rb").read(33)
         px[f] = unpack(">II", d[16:24])
     calls = len(cases)
     if not frames:
@@ -557,6 +597,13 @@ def main():
         TASKS[a.task] = {**TASKS[a.task], "golden": base,
                          "runs": os.path.join(CODE, "state",
                                               f"runs_{os.path.basename(base)}")}
+    # With no --set and no default manifest, say what to do rather than
+    # raising FileNotFoundError from three frames down. This is the first
+    # command a new user runs, and a traceback there reads as a broken tool.
+    # --set has already repointed TASKS[task]["golden"] at the set directory
+    # above, so resolve_set is asked for the DEFAULT within that base. Passing
+    # the name again appended sets/<name> a second time.
+    SET_DIR['v'] = resolve_set(a.task)
     g = golden(a.task)
     cases = g["cases"]
     all_cases = list(cases)          # before any sampling — this is the exam

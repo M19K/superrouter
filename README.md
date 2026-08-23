@@ -116,14 +116,24 @@ regenerates from one command rather than being retouched.
 git clone https://github.com/M19K/superrouter && cd superrouter
 export OPENROUTER_API_KEY=sk-or-...
 python3 golden/qa-vision/build_generic.py --origin https://your-product.com --name yours
-python3 -m superrouter.evals --dry-run
-python3 -m superrouter.evals --model anthropic/claude-sonnet-5 --model google/gemma-3-12b-it
+python3 -m superrouter.evals --set yours --dry-run
+python3 -m superrouter.evals --set yours --model anthropic/claude-sonnet-5 --model google/gemma-3-12b-it
 python3 -m superrouter.route_table
 python3 -m superrouter.serve --shadow 20
 export ANTHROPIC_BASE_URL=http://127.0.0.1:8787
 ```
 
-Building the exam takes about ten minutes and spends nothing. The scored run is the step that costs money, which is why the dry run sits before it.
+`--set yours` is not optional — it names the exam you just built. Omitting it
+was the first thing that broke when this was run from a clean clone with none of
+the author's data present, which is the only path a new user takes and the one
+that had never been tested.
+
+Building the exam takes about ten minutes and spends nothing. The scored run is
+the step that costs money, which is why the dry run sits before it.
+
+**If your product is a simple page, the builder will refuse to write the exam**
+rather than emit one whose negative half is a trivial control assertion. Every
+model scores near 100% on a set like that and the number means nothing.
 
 ## Status and licence
 

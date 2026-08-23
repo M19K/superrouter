@@ -184,6 +184,24 @@ def main():
     rs = list(runs())
     facts = derive()
     fails = 0
+    unchecked = 0
+
+    # **A check that had nothing to check has not passed.** Run cold on a fresh
+    # clone this reported "0 failing checks" with zero records on disk — a
+    # stranger would read that as verified. It is the same failure this whole
+    # module exists to close, one level up: the instrument reporting success
+    # when it was given nothing to inspect.
+    if not rs:
+        print("  NOTHING MEASURED YET — no run records on disk.\n")
+        print("  This is not a pass. Nothing below could be checked, and the")
+        print("  numbers in the README describe the author's runs, not yours.")
+        print("  Build a golden set against your product and score it first:\n")
+        print("    python3 golden/qa-vision/build_generic.py --origin https://your.site --name yours")
+        print("    python3 -m superrouter.evals --dry-run")
+        print("    python3 -m superrouter.evals --model <a> --model <b>\n")
+        if a.strict:
+            sys.exit(2)
+        return
 
     print("SuperRouter audit — every claim re-derived from the records\n")
     print(f"  money actually spent : ${facts['spend']:.2f} across {facts['all_runs']} runs")
@@ -215,8 +233,10 @@ def main():
                   f"across 10 splits")
         except Exception as e:
             print(f"  {WARN}  external check could not run: {str(e)[:70]}")
+            unchecked += 1
     else:
         print(f"  {WARN}  external check not run — xRouteBench data not downloaded")
+        unchecked += 1
 
     # A policy that does not beat random at its own rate bought nothing, however
     # much it saved. Asserted rather than assumed, on the records.
@@ -242,6 +262,7 @@ def main():
             fails += 1
     except Exception as e:
         print(f"  {WARN}  deferral check could not run: {str(e)[:70]}")
+        unchecked += 1
 
     checks = [
         ("no failed request is scored against a model", check_failures_not_scored(rs)),
@@ -264,7 +285,10 @@ def main():
         print(f"  {WARN}  {len(unstamped)} run(s) predate configuration stamping — "
               f"their setting is unrecoverable, so they are excluded rather than trusted")
 
-    print(f"\n  {fails} failing check(s).")
+    print(f"\n  {fails} failing check(s), {unchecked} that could not run.")
+    if unchecked:
+        print(f"  A check that could not run has NOT passed. Treat the "
+              f"{unchecked} above as open.")
     if fails:
         print("  A failing audit means a published number no longer matches its source.")
         print("  Fix the number or fix the record; do not fix the audit.")
