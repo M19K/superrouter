@@ -4,3 +4,10 @@ __pycache__/
 *.pyc
 .DS_Store
 state/llmrouter_corpus/*/query_embeddings.pt
+
+# The exam frames are working data, not the product. A user builds their own
+# from their own product with build_generic.py --origin, so committing 76MB of
+# somebody else's screenshots serves nobody — and these carry a real person's
+# photograph, which is a thing a public repo should not do by accident.
+golden/*/frames/
+golden/*/sets/*/frames/

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """
+NOTE ON FRAMES. The captured screenshots are deliberately NOT committed. They
+are the author's working data — one person's website, one person's face — and a
+user gets nothing from them because the levels do not transfer between products
+anyway. Run this against your own origin and the set is yours.
+
 build_generic.py — build a golden set for ANY web product, not just one.
 
     python3 build_generic.py --origin http://localhost:8934 --name portfolio

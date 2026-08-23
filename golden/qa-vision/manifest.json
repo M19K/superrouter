@@ -4,7 +4,7 @@
  "built": "2026-08-19",
  "source": "02-Projects/portfolio-website/code/site",
  "generated_by": "spec.py + build.py \u2014 states x mutations, not hand-written",
- "frames": 58,
+ "frames": "not committed \u2014 rebuild with the builder in this folder, pointed at your own product. The author's frames were screenshots of a personal site and had no business in a public repository.",
  "cases": 140,
  "true": 70,
  "false": 70,
