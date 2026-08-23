@@ -27,8 +27,13 @@ import glob
 import json
 import os
 
-RUNS = os.path.expanduser(
-    "~/Documents/Mikoshi/02-Projects/superrouter/code/state/text_runs")
+# Relative to this file, never to the author's home directory. This shipped
+# pointing at `~/Documents/Mikoshi/...`, which exists on exactly one machine —
+# the module was adopted from another project and its path came with it. On a
+# stranger's clone it resolves to nothing and the tool reports no runs rather
+# than an error, which is the quiet kind of wrong.
+RUNS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "state", "text_runs")
 
 
 def load(path):

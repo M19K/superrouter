@@ -101,6 +101,12 @@ headline over a handful of requests.
 Every image in `assets/shots/` is real output from this project's own data, and
 regenerates from one command rather than being retouched.
 
+**Deploying this somewhere that is not this machine:** read
+[DEPLOYMENT.md](DEPLOYMENT.md). It maps every hidden dependency, names the three
+user stories and says which of them actually work today — the largest gap being
+that **the project is OpenRouter-only**, so anyone on Azure, Bedrock, Anthropic
+direct or a self-hosted vLLM cannot measure anything with it yet.
+
 ## Key points
 
 - **The exam builder only knows how to photograph websites today** — a desktop app or an API needs its own capture and its own list of ways it can break; the scoring, statistics and serving are already general.

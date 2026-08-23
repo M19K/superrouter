@@ -216,7 +216,12 @@ def faithful_variants(text, rnd):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--vault", default=os.path.expanduser("~/Documents/Mikoshi"))
+    # No default. It used to be the author's own vault path, so a stranger
+    # running this got either nothing or, worse, a silent empty corpus. A
+    # required argument asks the question; a default that exists on one machine
+    # answers it wrongly everywhere else.
+    ap.add_argument("--vault", required=True,
+                    help="directory of .md documents to build the corpus from")
     ap.add_argument("--passages", type=int, default=40)
     ap.add_argument("--seed", type=int, default=11)
     ap.add_argument("--per-class", type=int, default=None,
