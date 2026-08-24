@@ -119,6 +119,23 @@ direct or a self-hosted vLLM cannot measure anything with it yet.
 
 ```bash
 git clone https://github.com/M19K/superrouter && cd superrouter
+python3 -m superrouter.doctor          # can this machine do it, and if not, why
+python3 -m superrouter.quickstart --origin https://your-product.com --name yours
+```
+
+That builds an exam from your product, prices what scoring would cost, and
+**stops before spending anything**. Add `--spend` when you have read the bill.
+`--json` makes every step machine-readable, for an agent driving the install —
+the contract it follows is [`AGENTS.md`](AGENTS.md).
+
+`doctor` checks two programs that are not Python packages, `ffmpeg` and
+`agent-browser`, by **running** them rather than looking for them. A tool that
+is installed and silently not doing its job is worse than one that is absent,
+and this project learned that the expensive way.
+
+The same thing by hand, if you would rather see each step:
+
+```bash
 export OPENROUTER_API_KEY=sk-or-...
 python3 golden/qa-vision/build_generic.py --origin https://your-product.com --name yours
 python3 -m superrouter.evals --set yours --dry-run
@@ -146,7 +163,7 @@ model scores near 100% on a set like that and the number means nothing.
 checked on every push.**
 
 ```bash
-python3 -m unittest discover tests    # 45 tests, no dependencies
+python3 -m unittest discover tests    # 48 tests, no dependencies
 python3 -m superrouter.audit --strict
 ```
 

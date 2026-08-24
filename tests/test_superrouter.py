@@ -356,6 +356,52 @@ class ColdStartIsAPathNobodyHereWalks(unittest.TestCase):
         self.assertEqual(frames_missing("text-faithful", [{"assert": "x"}]), 0)
 
 
+class TheInstallPathIsCheckable(unittest.TestCase):
+    """An agent driving the install needs states it can branch on, and a
+    default that cannot quietly charge somebody."""
+
+    def test_doctor_reports_a_state_and_a_fix_for_every_check(self):
+        from superrouter.doctor import run_all
+        for c in run_all():
+            self.assertIn(c["state"], ("ok", "missing", "broken", "optional"), c)
+            self.assertTrue(c["name"])
+            if c["state"] in ("missing", "broken"):
+                self.assertTrue(c["fix"], f"{c['name']} fails with no fix to offer")
+
+    def test_ffmpeg_is_checked_by_behaviour_not_presence(self):
+        """The worst bug this project had was a tool that was installed and
+        silently not doing its job. Presence is not the check."""
+        import inspect
+        from superrouter import doctor
+        src = inspect.getsource(doctor.check_ffmpeg)
+        self.assertIn("YAVG", src, "must verify the filter actually reports, "
+                                   "not merely that the binary exists")
+
+    def test_quickstart_does_not_spend_by_default(self):
+        """Behavioural, not textual. An earlier version of this test read the
+        source and matched the *dry-run* invocation — which is free — so it
+        failed on correct code. What matters is which commands actually run."""
+        import sys
+        from unittest import mock
+        from superrouter import quickstart
+
+        ran = []
+
+        def fake_step(name, cmd, cwd=None, capture=True):
+            ran.append(cmd)
+            return True, '{"ok": true, "checks": [], "blocking": []}'
+
+        argv = ["quickstart", "--origin", "https://example.invalid", "--name", "t"]
+        with mock.patch.object(quickstart, "step", fake_step), \
+                mock.patch.object(sys, "argv", argv):
+            quickstart.main()
+
+        spent = [c for c in ran if "--model" in c]
+        self.assertEqual(spent, [], f"ran a scoring command without --spend: {spent}")
+        self.assertTrue(any("--dry-run" in c for c in ran),
+                        "the free run must still price what scoring would cost")
+
+
 class DeferralCurveMaths(unittest.TestCase):
     """The oracle is the ceiling and random is the line to beat. If those two
     are wrong, every claim about routing judgement is measured against nothing."""
