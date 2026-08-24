@@ -24,3 +24,10 @@ devtools/
 state/corpus/
 state/corpus*/
 state/*_corpus/
+
+# Somebody else's benchmark. It is the external check this project leans on and
+# it is not ours to redistribute — 8.2 MB of another group's dataset, vendored
+# into a tree whose whole rule is that what ships is ours end to end. The audit
+# already degrades gracefully when it is absent, so keeping it here on this
+# machine costs nothing and shipping it was never a decision anyone made.
+state/xroutebench/

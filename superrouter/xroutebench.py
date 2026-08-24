@@ -39,10 +39,29 @@ from collections import defaultdict
 from ._io import read_json, read_lines
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(CODE, "state", "xroutebench")
+# The benchmark is not redistributed here — it is not ours to hand on, and a
+# tree whose rule is that what ships is ours end to end should not carry 8 MB of
+# somebody else's dataset. Point this at your own copy.
+DATA = os.environ.get("SR_BENCHMARK_DIR") or os.path.join(CODE, "state", "xroutebench")
+
+SHAPE = """  Expected in that directory:
+
+    train.jsonl   one JSON object per line, each a (query, candidate model,
+                  outcome) triple: `query`, `model_name`, `performance`,
+                  and `input_tokens` / `output_tokens`.
+    prices.json   {"<model_name>": {"in_per_m": <usd>, "out_per_m": <usd>}}
+
+  Any public routing benchmark in that shape works. Set SR_BENCHMARK_DIR to
+  point somewhere else."""
 
 
 def load():
+    if not os.path.isdir(DATA):
+        raise SystemExit(
+            f"no benchmark data at {DATA}\n\n"
+            f"  This is the one check in this project that uses data we did not\n"
+            f"  make — which is exactly why it is worth running, and why the data\n"
+            f"  is not vendored into this repository.\n\n{SHAPE}")
     prices = read_json(os.path.join(DATA, "prices.json"))
     rows = [json.loads(ln) for ln in read_lines(os.path.join(DATA, "train.jsonl"))]
     out = []
