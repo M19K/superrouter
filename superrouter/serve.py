@@ -102,7 +102,7 @@ def answer_of(message):
 
     This is the fifth instance of this project's own recurring class: the
     instrument scoring its own inability to read an answer against the model
-    that gave one. Found 2026-08-23.
+    that gave one. Found 2026-08-27.
 
     The rendering is deliberately plain text — name and arguments — so that
     `same_decision` and the hedging patterns keep working unchanged, and so two

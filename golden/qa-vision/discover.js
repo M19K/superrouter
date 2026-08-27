@@ -38,7 +38,7 @@ window.SR_FIND = function (role) {
       // **Semantics first, size only as a fallback.** The size rule alone —
       // "1.6x body or it is not a heading" — is a rule about how loud a
       // product's type scale is, not about whether the page has a heading.
-      // Measured 2026-08-23 on Handrail's onboarding screen: a real <h1> at
+      // Measured 2026-08-27 on Handrail's onboarding screen: a real <h1> at
       // 19px against 12.5px body is 1.52x, so the page was reported as having
       // no headline at all and four defect classes had nothing to break. A
       // restrained type scale is a design choice, not an absent heading.
@@ -93,7 +93,7 @@ window.SR_FIND = function (role) {
       // **A text box is a text box.** Listing only `type=text` meant every
       // password, email, search, url, telephone and number field on the web
       // was invisible to this — which is to say every sign-in screen. Measured
-      // 2026-08-23: Locus's key screen is built around one `type=password`
+      // 2026-08-27: Locus's key screen is built around one `type=password`
       // input and reported `text-input: 0`. Types that are NOT a box a person
       // types into — checkbox, radio, submit, file, range, colour — stay out.
       return all('input[type=text],input[type=password],input[type=email],'

@@ -124,7 +124,7 @@ class PerQueryRouter:
             # estimate collapses to exactly 1.0, and the docstring's promise
             # that finite evidence cannot report certainty was false — a bar of
             # 0.999 was cleared on evidence that does not support it. Found by
-            # this module's own test, 2026-08-23. (hits+1)/(n+2) is the same
+            # this module's own test, 2026-08-27. (hits+1)/(n+2) is the same
             # instinct as deciding on an interval's lower bound everywhere else
             # in this project: finite evidence never earns certainty.
             self.prior[m] = (hits + 1) / (len(got) + 2)
@@ -185,7 +185,7 @@ def dominated(routed, fixed):
     """Does the fixed choice beat routing outright — same or better accuracy,
     at the same or lower cost?
 
-    **Routing is not free and is not always right.** Measured 2026-08-23 across
+    **Routing is not free and is not always right.** Measured 2026-08-27 across
     two products: on one, no cheap model was good enough and per-query routing
     reached the best fixed accuracy for 2.25x less. On the other, a single cheap
     model was already near-best, and routing matched its accuracy at **29x the

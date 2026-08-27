@@ -1,7 +1,7 @@
 {
  "task_type": "text-faithful",
  "version": 1,
- "built": "2026-08-23",
+ "built": "2026-08-27",
  "source": "real vault documents, verbatim",
  "what_the_model_is_asked": "Given a source passage and a claim about it, say whether every statement in the claim is supported by the source.",
  "cases": 440,

@@ -42,7 +42,7 @@ THEMES = ["dark", "light"]
 
 # **This build gets its own browser, and the reason is not tidiness.**
 # `agent-browser` shares one session named `default` across everything on the
-# machine. Measured 2026-08-23: a Handrail exam building here had frames
+# machine. Measured 2026-08-27: a Handrail exam building here had frames
 # silently replaced by another session's page — the author's personal portfolio,
 # portrait and all, written into `sets/handrail/frames` under a Handrail state
 # id and captioned with Handrail's assertions. Nothing failed. The manifest was
@@ -99,7 +99,7 @@ def pixels_changed(a, b):
     # line at ffmpeg's *info* level, so `-v error` suppressed the only output
     # this function reads. `vals` came back empty on every call and the `else`
     # branch returned 1.0 — "everything changed" — which is the answer that
-    # passes every check. Measured 2026-08-23: not one mutation had ever been
+    # passes every check. Measured 2026-08-27: not one mutation had ever been
     # refused for changing nothing, in any set built by this file, because the
     # comparison had not been running at all. A gate that cannot fail is not a
     # gate, and this one was the whole basis of the claim that a planted defect
@@ -173,7 +173,7 @@ def main():
                 # requested states are 3 real ones and 15 photocopies. Left in,
                 # every case is asked six times and the confidence interval
                 # narrows on repeats it is counting as independent — the score
-                # looks better measured than it is. Measured 2026-08-23 against
+                # looks better measured than it is. Measured 2026-08-27 against
                 # midscene-docs, whose existing 368-case set has this exact
                 # shape: light and dark report identical roles on all nine
                 # states because that site ignores the attribute too.

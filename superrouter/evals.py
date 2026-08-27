@@ -677,7 +677,7 @@ def main():
     # products anyway — so a user builds their own. That is the right call and
     # it made the very first command in the README crash with a bare
     # FileNotFoundError traceback, because `dry_run` opens each PNG to read its
-    # dimensions. Found 2026-08-23 by cloning the published repo and running
+    # dimensions. Found 2026-08-27 by cloning the published repo and running
     # the documented getting-started line as a stranger would.
     #
     # This is the cold-start class exactly as this project already named it: a

@@ -31,7 +31,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # implemented that by walking the whole vault and skipping seven named things.
 # Anything nobody thought to name walked straight in.
 #
-# Measured 2026-08-23, on the set already committed and pushed: **585,755
+# Measured 2026-08-27, on the set already committed and pushed: **585,755
 # characters across 149 documents**, almost all of it a paid third party's
 # course — module content, NotebookLM summaries, closed captions, and
 # office-hours transcripts carrying a third party's name 43 times as a speaker.

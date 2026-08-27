@@ -170,7 +170,7 @@ def check_docs(facts):
         # `| models scored | 106 runs, $4.56` — one phrasing of one row. The
         # README was rewritten on 2026-08-22 to read "$4.56 actually spent
         # across 106 runs", the regex stopped matching, and the check went
-        # silent for the one thing it exists to catch. Found 2026-08-23 by
+        # silent for the one thing it exists to catch. Found 2026-08-27 by
         # running the audit and comparing its own output to the file it had
         # just declared correct: it said 108 runs / $4.83 and passed a README
         # saying 106 / $4.56. Same class as every other bug in this project —

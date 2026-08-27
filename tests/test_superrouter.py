@@ -9,7 +9,7 @@ The test suite. Every test here guards a bug that actually happened.
 whole install story is that there isn't one. `unittest` ships with Python.
 
 **Why these tests and not coverage.** Six bugs reached this project between
-2026-08-19 and 2026-08-23, and not one of them was a case a coverage target
+2026-08-19 and 2026-08-27, and not one of them was a case a coverage target
 would have caught — the code was reachable, ran, and returned a plausible
 number. Every one was the instrument scoring its own failure against the model
 it measured, or comparing two things that were not comparable. So each class
@@ -77,7 +77,7 @@ class IntervalsAreHonest(unittest.TestCase):
 
 
 class ProvidersReachMoreThanOpenRouter(unittest.TestCase):
-    """Until 2026-08-23 three files named openrouter.ai directly, so anyone on
+    """Until 2026-08-27 three files named openrouter.ai directly, so anyone on
     Azure, Bedrock or a self-hosted vLLM could measure nothing at all."""
 
     def setUp(self):
