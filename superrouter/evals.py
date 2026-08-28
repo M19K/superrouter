@@ -425,7 +425,16 @@ def score(model, cases, api_key, verbose=False, workers=8, task="qa-vision-asser
                    "cost": r["cost"], "seconds": r["seconds"],
                    "in_tokens": r["in_tokens"], "out_tokens": r["out_tokens"],
                    "reasoning_tokens": r["reasoning_tokens"],
-                   "reasoning_asked_off": r.get("reasoning_asked_off")}
+                   "reasoning_asked_off": r.get("reasoning_asked_off"),
+                   # **`ask()` read this and this line used to drop it.** The
+                   # comment beside it in `ask()` promised "recorded on every
+                   # call, so a score can always be traced to the endpoint that
+                   # produced it" — and 87 run files carried no provider at all,
+                   # because the value never survived the hop into the record.
+                   # One model name is served by several providers at different
+                   # precisions and prices, so a score with no endpoint beside it
+                   # cannot be reproduced. Found 2026-08-28.
+                   "served_by": r.get("served_by")}
 
     out = [None] * len(cases)
     with futures.ThreadPoolExecutor(max_workers=workers) as ex:
@@ -502,6 +511,11 @@ def summarise(model, results, errors):
 
     return {
         "model": model, "cases": n,
+        # Every distinct endpoint that answered, so a score names what produced
+        # it. More than one here means the score is an average over providers
+        # and is not reproducible — pin it with --provider and re-run.
+        "served_by": sorted({r["served_by"] for r in results
+                             if r.get("served_by")}) or None,
         "reasoning_off": bool(results and results[0].get("reasoning_asked_off")),
         "reasoning_per_call": (round(sum(r.get("reasoning_tokens") or 0
                                          for r in results) / n) if n else 0),

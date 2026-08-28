@@ -402,6 +402,30 @@ class TheInstallPathIsCheckable(unittest.TestCase):
                         "the free run must still price what scoring would cost")
 
 
+class AScoreNamesWhatProducedIt(unittest.TestCase):
+    """One model name is served by several providers at different precisions
+    and prices. A score with no endpoint beside it cannot be reproduced."""
+
+    def test_the_summary_reports_every_endpoint_that_answered(self):
+        from superrouter.evals import summarise
+        rows = [{"correct": True, "needs_defect_sight": False, "answer": True,
+                 "said": True, "cost": 0.0, "seconds": 0.1, "id": f"C{i}",
+                 "served_by": p}
+                for i, p in enumerate(["DeepInfra", "Together", "DeepInfra"])]
+        got = summarise("some/model", rows, 0)["served_by"]
+        self.assertEqual(got, ["DeepInfra", "Together"],
+                         "two endpoints means the score is an average over them")
+
+    def test_the_record_keeps_the_provider_the_request_read(self):
+        """This is the hop the value used to die on: `ask` read it, the record
+        builder did not copy it, and 87 run files carried no provider at all."""
+        import inspect
+        from superrouter import evals
+        src = inspect.getsource(evals.score)
+        self.assertIn('"served_by": r.get("served_by")', src,
+                      "the per-case record must carry the endpoint that served it")
+
+
 class DeferralCurveMaths(unittest.TestCase):
     """The oracle is the ceiling and random is the line to beat. If those two
     are wrong, every claim about routing judgement is measured against nothing."""
