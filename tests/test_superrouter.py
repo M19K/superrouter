@@ -426,6 +426,49 @@ class AScoreNamesWhatProducedIt(unittest.TestCase):
                       "the per-case record must carry the endpoint that served it")
 
 
+class SpeedAndFreeModelsAreRequirements(unittest.TestCase):
+    """Cost and quality alone pick a model that is right on paper and unusable
+    in practice, and a free model wins every price comparison by construction."""
+
+    def rows(self):
+        return [
+            {"model": "paid/fast", "cost_usd": 0.004, "catch": 94, "false_alarm": 7,
+             "catch_ci": [90, 97], "false_alarm_ci": [4, 11], "seconds_per_case": 0.7,
+             "cases": 440},
+            {"model": "paid/slow", "cost_usd": 0.40, "catch": 99, "false_alarm": 9,
+             "catch_ci": [96, 100], "false_alarm_ci": [6, 13], "seconds_per_case": 2.3,
+             "cases": 440},
+            {"model": "local/free", "cost_usd": 0.0, "catch": 97, "false_alarm": 1,
+             "catch_ci": [94, 99], "false_alarm_ci": [0, 4], "seconds_per_case": 20.3,
+             "cases": 440},
+        ]
+
+    def test_a_latency_ceiling_rejects_the_slow_winner(self):
+        from superrouter.policy import decide
+        ok, no = decide(self.rows(), 70, 15, max_seconds=1.0)
+        self.assertEqual([r["model"] for r in ok], ["paid/fast"])
+        self.assertTrue(any("20.3s per call" in w for r in no for w in r["_why"]))
+
+    def test_unmeasured_latency_does_not_qualify(self):
+        from superrouter.policy import decide
+        rows = self.rows()
+        del rows[0]["seconds_per_case"]
+        ok, _ = decide(rows, 70, 15, max_seconds=1.0)
+        self.assertNotIn("paid/fast", [r["model"] for r in ok],
+                         "never timed is not the same as fast")
+
+    def test_paid_only_excludes_anything_that_costs_nothing(self):
+        from superrouter.policy import decide
+        ok, _ = decide(self.rows(), 70, 15, include_local=False)
+        self.assertTrue(all(r["cost_usd"] > 0 for r in ok))
+
+    def test_a_free_model_never_sorts_ahead_of_a_paid_one_on_price(self):
+        from superrouter.policy import decide
+        ok, _ = decide(self.rows(), 70, 15)
+        self.assertEqual(ok[0]["model"], "paid/fast",
+                         "zero cost is not the cheapest price, it is no price")
+
+
 class DeferralCurveMaths(unittest.TestCase):
     """The oracle is the ceiling and random is the line to beat. If those two
     are wrong, every claim about routing judgement is measured against nothing."""

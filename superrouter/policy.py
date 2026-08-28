@@ -41,27 +41,85 @@ ceiling. Being unproven is treated as not qualifying.
 """
 import argparse
 
+import os
+
 from .curve import latest_per_model
 
+CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-def decide(rows, min_catch, max_fa, optimistic=False):
-    """Return (qualified, rejected). `optimistic` scores on point estimates
-    instead of bounds — offered only so the difference between the two is
-    visible, because that difference is the argument."""
+
+def is_local(row):
+    """A model served from this machine rather than bought per call."""
+    return str(row.get("model", "")).startswith("local/")
+
+
+def decide(rows, min_catch, max_fa, optimistic=False, max_seconds=None,
+           include_local=True):
+    """Return (qualified, rejected).
+
+    `optimistic` scores on point estimates instead of bounds — offered only so
+    the difference between the two is visible, because that difference is the
+    argument.
+
+    ── Two things a cost-and-quality answer gets wrong ────────────────────────
+
+    **`max_seconds` — speed is a requirement, not a footnote.** Measured
+    2026-08-28 on one 440-case exam: the winning model answered in 20.3 seconds
+    a case and the runner-up in 0.7. Same task, same questions, **29x** apart —
+    two and a half hours against five minutes. A table that ranks on price and
+    quality alone hands you the first and calls it the best answer, which it is
+    for an overnight batch and is useless behind anything a person waits on.
+    So the caller states the ceiling, the same way it already states the quality
+    bar, and a model that cannot meet it does not qualify.
+
+    **`include_local` — a free model is not competing on price.** [@maaz ·
+    2026-08-28] Routing exists to spend less money. A model hosted on your own
+    machine costs nothing per call by definition, so it sorts first on every
+    price comparison and wins by construction rather than by merit — which
+    defeats the purpose of the comparison. It is still worth measuring, and on
+    that same exam the local model was the most accurate thing on the board. But
+    it belongs in a different question: *should this run locally at all*, decided
+    once, against wall-clock and the machine it occupies. Not *which paid model
+    is cheapest*, decided per task.
+    """
     qualified, rejected = [], []
     for r in rows:
         c_lo, c_hi = r.get("catch_ci") or (0, 100)
         f_lo, f_hi = r.get("false_alarm_ci") or (0, 100)
         catch = r["catch"] if optimistic else c_lo
         fa = r["false_alarm"] if optimistic else f_hi
+        secs = r.get("seconds_per_case")
         why = []
         if catch < min_catch:
             why.append(f"catch {catch}% < {min_catch}% required")
         if fa > max_fa:
             why.append(f"false alarms {fa}% > {max_fa}% allowed")
+        if max_seconds is not None:
+            if secs is None:
+                # Unmeasured latency is not fast latency. Same rule as an
+                # unproven catch rate: not shown is not qualified.
+                why.append(f"latency never measured, and {max_seconds}s required")
+            elif secs > max_seconds:
+                why.append(f"{secs:.1f}s per call > {max_seconds}s allowed")
+        if not include_local and not r.get("cost_usd"):
+            # **"Paid" means it has a price, wherever it runs.** Excluding only
+            # `local/` left a provider's free tier winning every price
+            # comparison for exactly the same reason — zero divided into any
+            # reference is not a saving, it is a different question. The two
+            # are still distinguished in the reason, because they fail
+            # differently: a local model costs you time and a machine, a free
+            # hosted one costs you a rate limit and an endpoint that can be
+            # withdrawn without notice.
+            why.append("runs on this machine — free, so not competing on price"
+                       if is_local(r) else
+                       "free at the provider — no price to compare, and no "
+                       "commitment that it stays free")
         (qualified if not why else rejected).append({**r, "_why": why,
                                                      "_catch_used": catch, "_fa_used": fa})
-    qualified.sort(key=lambda r: r["cost_usd"])
+    # Paid models sort on price. A local model has no price, so sorting it
+    # alongside them puts it first on a comparison it never entered; it is
+    # listed after, and labelled.
+    qualified.sort(key=lambda r: (is_local(r), r["cost_usd"]))
     rejected.sort(key=lambda r: -r["catch"])
     return qualified, rejected
 
@@ -112,9 +170,26 @@ def main():
     ap.add_argument("--optimistic", action="store_true",
                     help="judge on point estimates instead of confidence bounds")
     ap.add_argument("--reference", default="anthropic/claude-sonnet-5")
+    ap.add_argument("--task", default="qa-vision-assert",
+                    help="which task's records to read")
+    ap.add_argument("--set", dest="set_name", default=None,
+                    help="a named product exam, e.g. locus")
+    ap.add_argument("--max-seconds", type=float, default=None, metavar="S",
+                    help="latency ceiling per call. A model that has never been "
+                         "timed does not qualify, the same as an unproven catch "
+                         "rate — not shown is not qualified.")
+    ap.add_argument("--paid-only", action="store_true",
+                    help="exclude locally-hosted models. They cost nothing per "
+                         "call, so they win every price comparison by "
+                         "construction rather than by merit; whether to run "
+                         "locally at all is a different question, decided once.")
     a = ap.parse_args()
 
-    rows = latest_per_model()
+    import os as _os
+    _dirs = {"qa-vision-assert": "runs", "text-faithful": "text_runs",
+             "qa-vision-point": "point_runs"}
+    _d = _dirs.get(a.task, "runs") + (f"_{a.set_name}" if a.set_name else "")
+    rows = latest_per_model(runs_dir=_os.path.join(CODE, "state", _d))
 
     if a.like:
         ref, ok, no = not_worse_than(rows, a.like)
@@ -149,7 +224,8 @@ def main():
     print(f"requirement · catch ≥ {a.min_catch:g}% · false alarms ≤ {a.max_false_alarm:g}%"
           f"   judged on {basis}\n")
 
-    ok, no = decide(rows, a.min_catch, a.max_false_alarm, a.optimistic)
+    ok, no = decide(rows, a.min_catch, a.max_false_alarm, a.optimistic,
+                    max_seconds=a.max_seconds, include_local=not a.paid_only)
     ref = next((r for r in rows if r["model"] == a.reference), None)
 
     if not ok:
@@ -158,13 +234,39 @@ def main():
         print("is not yet large enough to prove a cheap one. Do not relax it here.\n")
     else:
         pick = ok[0]
+        secs = pick.get("seconds_per_case")
         print(f"ROUTE TO   {pick['model']}")
         print(f"           ${pick['cost_usd']:.5f} per run · catch {pick['catch']}% "
               f"(bound {pick['_catch_used']}%) · false alarms {pick['false_alarm']}% "
-              f"(bound {pick['_fa_used']}%)")
-        if ref and ref["cost_usd"] and pick["model"] != ref["model"]:
-            print(f"           {ref['cost_usd'] / pick['cost_usd']:.0f}× cheaper than "
-                  f"{ref['model']}, on {pick['cases']} measured cases")
+              f"(bound {pick['_fa_used']}%)"
+              + (f" · {secs:.1f}s per call" if secs is not None else
+                 " · latency never measured"))
+        # **A free model has no ratio.** `reference_cost / 0` is a crash, and it
+        # was reached the first time a free model won — which is the same fact
+        # the sort order now encodes: a model that costs nothing is not
+        # competing on price and cannot be expressed as a multiple of one.
+        if ref and pick["model"] != ref["model"]:
+            if not pick["cost_usd"]:
+                where = "on your own machine" if is_local(pick) else "free at the provider"
+                print(f"           costs nothing per call ({where}), so there is no "
+                      f"saving multiple to quote against {ref['model']}")
+                rs = ref.get("seconds_per_case")
+                if secs is not None and rs:
+                    # Say which direction it went. A ratio printed with a fixed
+                    # word gets it backwards half the time, and "1x slower"
+                    # while being faster is worse than saying nothing.
+                    ratio = secs / rs
+                    if ratio >= 1.15:
+                        how = f"{ratio:.0f}× slower"
+                    elif ratio <= 0.87:
+                        how = f"{1 / ratio:.0f}× faster"
+                    else:
+                        how = "about the same speed"
+                    print(f"           what it costs instead is time: {secs:.1f}s "
+                          f"per call against {rs:.1f}s — {how}")
+            elif ref["cost_usd"]:
+                print(f"           {ref['cost_usd'] / pick['cost_usd']:.0f}× cheaper than "
+                      f"{ref['model']}, on {pick['cases']} measured cases")
         if len(ok) > 1:
             print(f"\n           also qualified: "
                   f"{', '.join(r['model'] for r in ok[1:])}")
@@ -174,7 +276,8 @@ def main():
         print(f"  {r['model']:<48} {'; '.join(r['_why'])}")
 
     if not a.optimistic:
-        ok2, _ = decide(rows, a.min_catch, a.max_false_alarm, optimistic=True)
+        ok2, _ = decide(rows, a.min_catch, a.max_false_alarm, optimistic=True,
+                        max_seconds=a.max_seconds, include_local=not a.paid_only)
         gained = [r["model"] for r in ok2 if r["model"] not in {q["model"] for q in ok}]
         if gained:
             print(f"\nJudging on point estimates instead would also have admitted: "

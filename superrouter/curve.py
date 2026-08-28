@@ -23,11 +23,16 @@ from ._io import read_json
 RUNS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "state", "runs")
 
 
-def latest_per_model(with_results=False):
+def latest_per_model(with_results=False, runs_dir=None):
     """One row per model, the newest complete run. Filenames start with the run
-    stamp, so sorting by name sorts by time and the last write wins."""
+    stamp, so sorting by name sorts by time and the last write wins.
+
+    `runs_dir` names which task's records to read. It used to be fixed at the
+    vision directory, so asking the policy about any other task silently
+    answered about that one — and answered "nothing qualifies", which reads as
+    a measurement rather than as looking in the wrong place."""
     best = {}
-    for path in sorted(glob.glob(os.path.join(RUNS, "*.json"))):
+    for path in sorted(glob.glob(os.path.join(runs_dir or RUNS, "*.json"))):
         blob = read_json(path)
         s = blob["summary"]
         if s["cases"] < 100:         # partial runs are smoke tests, not scores
