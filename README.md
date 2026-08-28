@@ -207,7 +207,7 @@ Measured, with dates:
 | | |
 |---|---|
 | golden sets | 3 task types: 592 text, 462 and 368 judging across two products, 108 pointing |
-| models scored | **$5.63 actually spent** across 122 runs; 67 of those are mutually comparable and 55 are quarantined because their exam version cannot be identified |
+| models scored | **$5.63 actually spent** across 123 runs; 67 of those are mutually comparable and 55 are quarantined because their exam version cannot be identified |
 | best measured saving | **60x on a modelled 100-step QA run**, modelled, see below (70% judging / 30% pointing), no measurable quality loss on either sub-task |
 | **observed** saving on real traffic | **7x** over 99 routed calls. This is a bill, not a model |
 | run-to-run noise | ±2 points; two runs of a 120-case exam agreed 120/120 and 118/120 at temperature 0 (2026-08-22) |
