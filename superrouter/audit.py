@@ -53,7 +53,15 @@ def runs(include_quarantined=False):
     a comparison — two different questions, two different sets."""
     pats = [os.path.join(CODE, "state", "*run*", "*.json")]
     if include_quarantined:
-        pats.append(os.path.join(CODE, "state", "*run*", "_unstamped", "*.json"))
+        # **Any subdirectory, not only `_unstamped`.** A runs directory that
+        # holds two exams is refused by `check_exams_not_mixed`, and the fix is
+        # to move the retired exam's runs into a directory named for it. That
+        # made them invisible here — spend fell by $0.31 and 16 real runs
+        # stopped existing — because this only knew one subdirectory name.
+        # A retired exam's runs are still money spent and still evidence; they
+        # are simply not comparable with the current exam, which is what
+        # keeping them out of the default pattern already expresses.
+        pats.append(os.path.join(CODE, "state", "*run*", "*", "*.json"))
     for p in sorted(x for pat in pats for x in glob.glob(pat)):
         try:
             yield p, read_json(p)
@@ -237,7 +245,8 @@ def main():
     print("SuperRouter audit — every claim re-derived from the records\n")
     print(f"  money actually spent : ${facts['spend']:.2f} across {facts['all_runs']} runs")
     print(f"  comparable records   : {facts['runs']} runs "
-          f"({facts['all_runs'] - facts['runs']} quarantined — exam unidentifiable)")
+          f"({facts['all_runs'] - facts['runs']} not comparable — either the "
+          f"exam cannot be identified, or it sat a retired one)")
     if "served_calls" in facts:
         print(f"  observed traffic: {facts['served_calls']} calls, "
               f"{facts['observed_saving']}× saving — OBSERVED, not modelled")
@@ -288,12 +297,31 @@ def main():
         _res = _ce(_cc, _rr, _ids, lambda r: any(_cs(r).values()), 0, 1)
         _ra, _sd = _cr(_cc, _rr, _ids, _res["rate"])
         _gap = _res["accuracy"] - _ra
-        if _gap > 2 * _sd:
+        # **A verifier that never fired has not failed.** At an escalation rate
+        # of zero the policy IS the never-escalate baseline, and so is random at
+        # that rate — the comparison is degenerate and the gap is 0.000 by
+        # construction. Reporting that as "does NOT beat random" says the
+        # verifier was tried and found worthless, when it was never tried.
+        #
+        # Found 2026-08-28, when a rebuilt text exam paired a cheap tier at 93.3%
+        # against a reference at 94.2%. The cheap model never produced an empty,
+        # malformed or hedged answer, so no level had anything to escalate on.
+        # That is a fact about the task, not a fault in the policy — and this
+        # project's recurring bug is exactly this: the instrument blaming what it
+        # measures for a situation that is not a failure.
+        if _res["rate"] == 0:
+            print(f"  {WARN}  the verifier never fired — the cheap tier "
+                  f"({_cheap}) produced a usable answer on every case, so no "
+                  f"level had anything to escalate on. Nothing to beat, and "
+                  f"nothing proven either way.")
+            unchecked += 1
+        elif _gap > 2 * _sd:
             print(f"  {OK}  the verifier beats random at its own rate "
                   f"({_gap:+.3f} at a {_res['rate']:.0%} escalation rate)")
         else:
             print(f"  {BAD}  the verifier does NOT beat random at its own rate "
-                  f"({_gap:+.3f}) — its saving is arithmetic, not judgement")
+                  f"({_gap:+.3f} at a {_res['rate']:.0%} escalation rate) — it "
+                  f"escalated and gained nothing, so its saving is arithmetic")
             fails += 1
     except Exception as e:
         print(f"  {WARN}  deferral check could not run: {str(e)[:70]}")
