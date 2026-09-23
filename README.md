@@ -240,3 +240,9 @@ later without relicensing.
 `superrouter/stability.py` compares two runs of one exam, case by case. It
 refuses when the fingerprints differ, and it excludes cases with no verdict in
 either run, which is what stops a timeout reading as a model changing its mind.
+
+## Author
+
+Built by **Maaz Kazi** — product and systems, San Francisco.
+
+[maazkazi.com](https://maazkazi.com) · [github.com/M19K](https://github.com/M19K) · [linkedin.com/in/maazkazi26](https://www.linkedin.com/in/maazkazi26/)
